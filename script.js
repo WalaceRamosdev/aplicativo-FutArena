@@ -2274,6 +2274,7 @@ function startMatch() {
     selectionScreen.classList.add('hidden');
     resultOverlay.classList.add('hidden');
     matchScreen.classList.remove('hidden');
+    toggleGameInterface(false);
 
     if (startMatchMessage) startMatchMessage.classList.remove('hidden');
 
@@ -2810,6 +2811,7 @@ function showResultOverlay() {
         btnNextAction.onclick = () => {
             resultOverlay.classList.add('hidden');
             matchScreen.classList.add('hidden');
+            toggleGameInterface(true);
 
             const champion = ArcadeManager.checkChampion();
 
@@ -2838,6 +2840,7 @@ function backToSelection() {
     if (animationId) cancelAnimationFrame(animationId);
 
     matchScreen.classList.add('hidden');
+    toggleGameInterface(true);
     resultOverlay.classList.add('hidden');
 
     // Mostrar player ao voltar
@@ -2864,6 +2867,7 @@ btnBack.addEventListener('click', () => {
     if (animationId) cancelAnimationFrame(animationId);
 
     matchScreen.classList.add('hidden');
+    toggleGameInterface(true);
     resultOverlay.classList.add('hidden');
 
     // Mostrar player ao voltar
@@ -2994,6 +2998,7 @@ if (btnBackMenuResult) {
     btnBackMenuResult.addEventListener('click', () => {
         resultOverlay.classList.add('hidden');
         matchScreen.classList.add('hidden');
+        toggleGameInterface(true);
         mainMenu.classList.remove('hidden');
 
         // Mostrar player novamente
@@ -3144,4 +3149,14 @@ function initAutoSimulateButton() {
             AutoSimulator.runAutoSimulation();
         });
     }
+}
+
+
+// Função auxiliar para esconder/mostrar header e footer
+function toggleGameInterface(show) {
+    const header = document.querySelector('.site-header');
+    const footer = document.querySelector('.site-footer');
+    const displayVal = show ? '' : 'none';
+    if (header) header.style.display = displayVal;
+    if (footer) footer.style.display = displayVal;
 }

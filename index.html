@@ -274,38 +274,73 @@
         <h2>ENTRANDO EM CAMPO...</h2>
     </div>
 
-    <div class="scoreboard">
-      <div id="scoreboard-shield1"></div>
+    <div class="match-layout">
+      <!-- COLUNA PRINCIPAL: PLACAR E ARENA -->
+      <div class="match-main-column">
+        
+        <div class="scoreboard modern-scoreboard">
+          <div class="scoreboard-team home">
+            <div id="scoreboard-shield1" class="scoreboard-shield"></div>
+            <span id="score-name1" class="score-name">CASA</span>
+          </div>
 
-      <div class="score-display">
-        <span class="score-numbers">
-          <span id="score1">0</span> - <span id="score2">0</span>
-        </span>
-        <span id="match-time" class="match-time">0'</span>
+          <div class="score-center">
+            <div class="score-display">
+              <span id="score1">0</span>
+              <span class="score-divider">:</span>
+              <span id="score2">0</span>
+            </div>
+            <div class="match-timer">
+              <span id="match-time">0'</span>
+            </div>
+          </div>
+
+          <div class="scoreboard-team away">
+            <span id="score-name2" class="score-name">VISITANTE</span>
+            <div id="scoreboard-shield2" class="scoreboard-shield"></div>
+          </div>
+        </div>
+
+        <div id="arena" class="arena">
+          <div id="replay-indicator" class="replay-indicator hidden">REPLAY</div>
+          <div id="arena-lines" class="arena-lines">
+            <div class="center-circle"></div>
+            <div class="center-line"></div>
+            
+            <div id="goal-zone" class="goal-zone">
+              <div id="goal-burst" class="goal-burst"></div>
+            </div>
+          </div>
+
+          <div id="game-shield1" class="game-shield"></div>
+          <div id="game-shield2" class="game-shield"></div>
+        </div>
+
+        <div class="match-controls">
+          <button id="btn-replay-goal" class="btn-icon hidden" title="Ver Replay do Gol">🔄 Ver Replay</button>
+          <button id="btn-back" class="btn-back">Cancelar Partida</button>
+        </div>
+
       </div>
 
-      <div id="scoreboard-shield2"></div>
-    </div>
-
-    <div id="arena" class="arena">
-      <div id="replay-indicator" class="replay-indicator hidden">REPLAY</div>
-      <div id="arena-lines" class="arena-lines">
-        <div class="center-circle"></div>
-        <div class="center-line"></div>
-        
-        <div id="goal-zone" class="goal-zone">
-          <div id="goal-burst" class="goal-burst"></div>
+      <!-- COLUNA LATERAL: NARRAÇÃO (FEED) -->
+      <div class="match-sidebar-column">
+        <div class="narration-panel">
+          <div class="narration-header">
+            <h3>🎙️ Narração ao Vivo</h3>
+            <div class="live-indicator">
+              <span class="blink-dot"></span> AO VIVO
+            </div>
+          </div>
+          <div id="narration-feed" class="narration-feed">
+            <!-- Itens de narração inseridos via JS -->
+            <div class="narration-item system">
+              <span class="narration-time">--'</span>
+              <p class="narration-text">A partida vai começar em instantes...</p>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div id="game-shield1" class="game-shield"></div>
-      <div id="game-shield2" class="game-shield"></div>
-    </div>
-
-    <div id="event-log" class="event-log"></div>
-    <div class="match-controls">
-      <button id="btn-replay-goal" class="btn-icon hidden" title="Ver Replay do Gol">🔄 Ver Replay</button>
-      <button id="btn-back" class="btn-back">Cancelar Partida</button>
     </div>
   </div>
 
@@ -546,6 +581,8 @@
     <p class="footer-copy">&copy; 2026 Arena Brasileirão - Todos os direitos reservados.</p>
   </footer>
 
+  <script src="narration.js"></script>
   <script src="script.js"></script>
+  <script src="patch_narration.js"></script>
 </body>
 </html>
