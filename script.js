@@ -20,7 +20,7 @@ const brazilianTeams = [
 
     { id: "botafogo", name: "Botafogo", shortName: "BOT", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Botafogo_de_Futebol_e_Regatas_logo.svg/1200px-Botafogo_de_Futebol_e_Regatas_logo.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 70 },
 
-    { id: "flamengo", name: "Flamengo", shortName: "FLA", badge: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Flamengo_braz_logo.svg", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 92 },
+    { id: "flamengo", name: "Flamengo", shortName: "FLA", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Logo_Flamengo_crest_1980-2018.png/1200px-Logo_Flamengo_crest_1980-2018.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 92 },
 
     { id: "internacional", name: "Internacional", shortName: "INT", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Escudo_do_Sport_Club_Internacional.svg/1200px-Escudo_do_Sport_Club_Internacional.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 60 },
 
