@@ -57,43 +57,6 @@ const brazilianTeams = [
     { id: "remo", name: "Remo", shortName: "REM", badge: "https://www.clubedoremo.com.br/images/escudo-simbolo.png", primaryColor: "#FFFFFF", secondaryColor: "#161923", overall: 55 }
 ];
 
-const paulistaTeams = [
-    { id: "corinthians", name: "Corinthians", shortName: "COR", badge: "https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 78 },
-    { id: "palmeiras", name: "Palmeiras", shortName: "PAL", badge: "https://upload.wikimedia.org/wikipedia/commons/1/10/Palmeiras_logo.svg", primaryColor: "#FFFFFF", secondaryColor: "#006437", overall: 85 },
-    { id: "saopaulo", name: "São Paulo", shortName: "SAO", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Brasao_do_Sao_Paulo_Futebol_Clube.svg/1200px-Brasao_do_Sao_Paulo_Futebol_Clube.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#FF0000", overall: 76 },
-    { id: "santos", name: "Santos", shortName: "SAN", badge: "https://upload.wikimedia.org/wikipedia/commons/1/15/Santos_Logo.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 72 },
-    { id: "saobernardo", name: "São Bernardo", shortName: "SBE", badge: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Sao_Bernardo_Futebol_Clube_logo.png", primaryColor: "#FFD700", secondaryColor: "#000000", overall: 65 },
-    { id: "novorizontino", name: "Novorizontino", shortName: "NOV", badge: "https://upload.wikimedia.org/wikipedia/commons/0/07/Gr%C3%AAmio_Novorizontino_logo.png", primaryColor: "#FFF200", secondaryColor: "#000000", overall: 66 },
-    { id: "bragantino", name: "Red Bull Bragantino", shortName: "RBB", badge: "https://upload.wikimedia.org/wikipedia/pt/9/9e/RedBullBragantino.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 74 },
-    { id: "mirassol", name: "Mirassol", shortName: "MIR", badge: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Mirassol_FC_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#FFD700", overall: 68 },
-    { id: "guarani", name: "Guarani", shortName: "GUA", badge: "https://upload.wikimedia.org/wikipedia/commons/3/30/Guarani_Futebol_Clube_logo.png", primaryColor: "#006437", secondaryColor: "#FFFFFF", overall: 64 },
-    { id: "pontepreta", name: "Ponte Preta", shortName: "PON", badge: "https://upload.wikimedia.org/wikipedia/commons/8/80/Associa%C3%A7%C3%A3o_Atl%C3%A9tica_Ponte_Preta_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 64 },
-    { id: "veloclube", name: "Velo Clube", shortName: "VEL", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Velo_Clube_Rioclarense_logo.svg/1200px-Velo_Clube_Rioclarense_logo.svg.png", primaryColor: "#FF0000", secondaryColor: "#FFFFFF", overall: 60 },
-    { id: "portuguesa", name: "Portuguesa", shortName: "POR", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Associa%C3%A7%C3%A3o_Portuguesa_de_Desportos.svg/1200px-Associa%C3%A7%C3%A3o_Portuguesa_de_Desportos.svg.png", primaryColor: "#D0202F", secondaryColor: "#00834B", overall: 63 },
-    { id: "botafogosp", name: "Botafogo-SP", shortName: "BSP", badge: "https://upload.wikimedia.org/wikipedia/pt/4/4e/Botafogo-sp.png", primaryColor: "#FFFFFF", secondaryColor: "#FF0000", overall: 65 },
-    { id: "primavera", name: "Primavera", shortName: "PRI", badge: "https://upload.wikimedia.org/wikipedia/commons/a/a2/EC_Primavera_logo.png", primaryColor: "#FF0000", secondaryColor: "#FFFFFF", overall: 58 },
-    { id: "noroeste", name: "Noroeste", shortName: "NOR", badge: "https://upload.wikimedia.org/wikipedia/commons/7/75/Esporte_Clube_Noroeste_logo.png", primaryColor: "#FF0000", secondaryColor: "#FFFFFF", overall: 59 },
-    { id: "capivariano", name: "Capivariano", shortName: "CAP", badge: "https://upload.wikimedia.org/wikipedia/commons/5/52/Capivariano_Futebol_Clube_logo.png", primaryColor: "#FF0000", secondaryColor: "#FFFFFF", overall: 58 },
-];
-
-const cariocaTeams = [
-    { id: "flamengo", name: "Flamengo", shortName: "FLA", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Logo_Flamengo_crest_1980-2018.png/1200px-Logo_Flamengo_crest_1980-2018.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 90 },
-    { id: "fluminense", name: "Fluminense", shortName: "FLU", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Fluminense_FC_escudo.png/1200px-Fluminense_FC_escudo.png", primaryColor: "#FFFFFF", secondaryColor: "#7B0024", overall: 82 },
-    { id: "botafogo", name: "Botafogo", shortName: "BOT", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Botafogo_de_Futebol_e_Regatas_logo.svg/1200px-Botafogo_de_Futebol_e_Regatas_logo.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 85 },
-    { id: "vasco", name: "Vasco da Gama", shortName: "VAS", badge: "https://upload.wikimedia.org/wikipedia/pt/thumb/8/8b/EscudoDoVascoDaGama.svg/960px-EscudoDoVascoDaGama.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 79 },
-    { id: "bangu", name: "Bangu", shortName: "BAN", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Bangu_Atl%C3%A9tico_Clube_logo.svg/1200px-Bangu_Atl%C3%A9tico_Clube_logo.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 62 },
-    { id: "boavista", name: "Boavista", shortName: "BOA", badge: "https://upload.wikimedia.org/wikipedia/pt/e/e0/Boavista_SC.png", primaryColor: "#00834B", secondaryColor: "#FFFFFF", overall: 61 },
-    { id: "madureira", name: "Madureira", shortName: "MAD", badge: "https://upload.wikimedia.org/wikipedia/commons/f/f0/Madureira_Esporte_Clube_logo.svg", primaryColor: "#FCD116", secondaryColor: "#003893", overall: 60 },
-    { id: "marica", name: "Maricá", shortName: "MAR", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Maric%C3%A1_Futebol_Clube_logo.png/600px-Maric%C3%A1_Futebol_Clube_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 58 },
-    { id: "novaiguacu", name: "Nova Iguaçu", shortName: "NOV", badge: "https://upload.wikimedia.org/wikipedia/commons/d/d4/NovaIguacuFC.png", primaryColor: "#F36C21", secondaryColor: "#FFFFFF", overall: 63 },
-    { id: "portuguesarj", name: "Portuguesa (RJ)", shortName: "POR", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Associa%C3%A7%C3%A3o_Atl%C3%A9tica_Portuguesa_logo.svg/1200px-Associa%C3%A7%C3%A3o_Atl%C3%A9tica_Portuguesa_logo.svg.png", primaryColor: "#006437", secondaryColor: "#D0202F", overall: 61 },
-    { id: "sampaiocorrea", name: "Sampaio Corrêa", shortName: "SAM", badge: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f6/Sampaio_Corr%C3%AAa_Futebol_e_Esporte_logo.svg/1200px-Sampaio_Corr%C3%AAa_Futebol_e_Esporte_logo.svg.png", primaryColor: "#FCD116", secondaryColor: "#00834B", overall: 60 },
-    { id: "voltaredonda", name: "Volta Redonda", shortName: "VOL", badge: "https://upload.wikimedia.org/wikipedia/commons/1/18/Volta_Redonda_Futebol_Clube_logo.png", primaryColor: "#FCD116", secondaryColor: "#000000", overall: 64 },
-];
-
-const allTeamsList = [...new Map([...brazilianTeams, ...paulistaTeams, ...cariocaTeams].map(t => [t.id, t])).values()];
-
-
 
 // ==================== SELEÃÃES INTERNACIONAIS (COPA DO MUNDO) ====================
 const internationalTeams = [
@@ -221,8 +184,7 @@ let hasFirstGoal = false;
 let isPlaying = false;
 let animationId;
 let shield1, shield2;
-const startMatchMessageToggle = false;
-// selectedLeague managed via window object to ensure global access
+let startMatchMessageToggle = false;
 
 // 
 
@@ -1172,7 +1134,6 @@ const StorageManager = {
             standings: ArcadeManager.standings,
             coins: ArcadeManager.coins,
             overallBoosts: ArcadeManager.overallBoosts,
-            currentLeague: ArcadeManager.currentLeague,
             savedAt: new Date().toISOString()
         };
         localStorage.setItem('arena_arcade_progress', JSON.stringify(arcadeData));
@@ -1192,153 +1153,55 @@ const StorageManager = {
     }
 };
 
-
 // ==================== ARCADE MANAGER (LÃ³gica do Campeonato) ====================
-// ==================== SYSTEM OF LEAGUES ====================
-const LeagueSystem = {
-    configs: {
-        'brasileirao': {
-            name: 'Brasileirão',
-            type: 'league',
-            rounds: 19
-        },
-        'paulista': {
-            name: 'Paulistão',
-            type: 'group_knockout',
-            groups: 4
-        },
-        'carioca': {
-            name: 'Cariocão',
-            type: 'league_knockout',
-            rounds: 11
-        }
-    },
-
-    generatePaulistaGroups: (teams) => {
-        const shuffled = [...teams].sort(() => Math.random() - 0.5);
-        const groups = { 'A': [], 'B': [], 'C': [], 'D': [] };
-        const keys = ['A', 'B', 'C', 'D'];
-        shuffled.forEach((team, index) => {
-            groups[keys[index % 4]].push(team.id);
-        });
-        return groups;
-    },
-
-    generatePaulistaSchedule: (groups) => {
-        const groupKeys = ['A', 'B', 'C', 'D'];
-        let allMatches = [];
-
-        groupKeys.forEach(g1 => {
-            groups[g1].forEach(t1 => {
-                groupKeys.forEach(g2 => {
-                    if (g1 === g2) return;
-                    groups[g2].forEach(t2 => {
-                        if (!allMatches.find(m => (m.home === t1 && m.away === t2) || (m.home === t2 && m.away === t1))) {
-                            allMatches.push({ home: t1, away: t2 });
-                        }
-                    });
-                });
-            });
-        });
-
-        // Pack into 12 rounds
-        const rounds = Array.from({ length: 12 }, () => []);
-        allMatches.sort(() => Math.random() - 0.5);
-
-        allMatches.forEach(match => {
-            for (let i = 0; i < 12; i++) {
-                const round = rounds[i];
-                if (!round.find(m => m.home === match.home || m.away === match.home || m.home === match.away || m.away === match.away)) {
-                    round.push(match);
-                    return;
-                }
-            }
-        });
-        return rounds.filter(r => r.length > 0);
-    },
-
-    generateRoundRobin: (teamsList) => {
-        const teams = teamsList.map(t => t.id);
-        const n = teams.length;
-        const rounds = [];
-        const matchesPerRound = Math.floor(n / 2);
-        let roundTeams = [...teams];
-
-        for (let r = 0; r < n - 1; r++) {
-            const roundMatches = [];
-            for (let i = 0; i < matchesPerRound; i++) {
-                if (r % 2 === 0) roundMatches.push({ home: roundTeams[i], away: roundTeams[n - 1 - i] });
-                else roundMatches.push({ home: roundTeams[n - 1 - i], away: roundTeams[i] });
-            }
-            rounds.push(roundMatches);
-            roundTeams.splice(1, 0, roundTeams.pop());
-        }
-        return [...rounds];
-    }
-};
-
-// ==================== ARCADE MANAGER (Lógica do Campeonato) ====================
 const ArcadeManager = {
     userTeamId: null,
-    currentLeague: 'brasileirao',
-    currentStage: 'regular', // regular, quarters, semis, final
-    leagueTeams: [],
-    groups: null,
-    schedule: [],
     currentRound: 0,
-    standings: {},
-    knockoutBracket: [],
-    coins: 0,
-    overallBoosts: {},
+    schedule: [], // Array of rounds. Each round is array of matches {teamA, teamB}
+    standings: {}, // { teamId: { p, j, v, e, d, gp, gc, sg } }
+    coins: 0, // Sistema de moedas
+    overallBoosts: {}, // { teamId: bonusOverall }
 
-    init: (teamId, leagueType = 'brasileirao') => {
+    init: (teamId) => {
         ArcadeManager.userTeamId = teamId;
-        ArcadeManager.currentLeague = leagueType;
-        ArcadeManager.currentStage = 'regular';
-
-        if (leagueType === 'paulista') ArcadeManager.leagueTeams = [...paulistaTeams];
-        else if (leagueType === 'carioca') ArcadeManager.leagueTeams = [...cariocaTeams];
-        else ArcadeManager.leagueTeams = [...brazilianTeams];
-
+        ArcadeManager.currentRound = 0;
         ArcadeManager.standings = {};
-        ArcadeManager.overallBoosts = {};
         ArcadeManager.coins = 0;
+        ArcadeManager.overallBoosts = {};
 
-        ArcadeManager.leagueTeams.forEach(t => {
+        // Inicializa tabela
+        brazilianTeams.forEach(t => {
             ArcadeManager.standings[t.id] = { p: 0, j: 0, v: 0, e: 0, d: 0, gp: 0, gc: 0, sg: 0 };
             ArcadeManager.overallBoosts[t.id] = 0;
         });
 
-        if (leagueType === 'paulista') {
-            ArcadeManager.groups = LeagueSystem.generatePaulistaGroups(ArcadeManager.leagueTeams);
-            ArcadeManager.schedule = LeagueSystem.generatePaulistaSchedule(ArcadeManager.groups);
-        } else {
-            ArcadeManager.groups = null;
-            ArcadeManager.schedule = LeagueSystem.generateRoundRobin(ArcadeManager.leagueTeams);
-        }
+        ArcadeManager.generateSeasonSchedule();
 
-        ArcadeManager.currentRound = 0;
-        ArcadeManager.knockoutBracket = [];
+        // Salvar progresso inicial
         StorageManager.saveArcadeProgress();
     },
 
+    // Carregar progresso salvo
     loadProgress: (savedData) => {
-        Object.assign(ArcadeManager, savedData);
-        if (ArcadeManager.currentLeague === 'paulista') ArcadeManager.leagueTeams = [...paulistaTeams];
-        else if (ArcadeManager.currentLeague === 'carioca') ArcadeManager.leagueTeams = [...cariocaTeams];
-        else ArcadeManager.leagueTeams = [...brazilianTeams];
+        ArcadeManager.userTeamId = savedData.userTeamId;
+        ArcadeManager.currentRound = savedData.currentRound;
+        ArcadeManager.schedule = savedData.schedule;
+        ArcadeManager.standings = savedData.standings;
+        ArcadeManager.coins = savedData.coins;
+        ArcadeManager.overallBoosts = savedData.overallBoosts;
     },
 
     getTeamOverall: (teamId) => {
-        const team = [...brazilianTeams, ...paulistaTeams, ...cariocaTeams].find(t => t.id === teamId);
-        const base = team ? team.overall : 70;
+        const team = brazilianTeams.find(t => t.id === teamId);
+        const baseOverall = team ? team.overall : 75;
         const boost = ArcadeManager.overallBoosts[teamId] || 0;
-        return Math.min(99, base + boost);
+        return Math.min(99, baseOverall + boost);
     },
 
     addCoins: (amount) => {
         ArcadeManager.coins += amount;
         ArcadeManager.updateCoinsUI();
+        // Salvar progresso apÃ³s ganhar moedas
         StorageManager.saveArcadeProgress();
     },
 
@@ -1346,6 +1209,7 @@ const ArcadeManager = {
         if (ArcadeManager.coins >= amount) {
             ArcadeManager.coins -= amount;
             ArcadeManager.updateCoinsUI();
+            // Salvar progresso apÃ³s gastar moedas
             StorageManager.saveArcadeProgress();
             return true;
         }
@@ -1353,10 +1217,11 @@ const ArcadeManager = {
     },
 
     upgradeTeam: () => {
-        const cost = 100 + ((ArcadeManager.overallBoosts[ArcadeManager.userTeamId] || 0) * 50);
+        const cost = 100 + (ArcadeManager.overallBoosts[ArcadeManager.userTeamId] * 50);
         if (ArcadeManager.spendCoins(cost)) {
-            ArcadeManager.overallBoosts[ArcadeManager.userTeamId] = (ArcadeManager.overallBoosts[ArcadeManager.userTeamId] || 0) + 1;
+            ArcadeManager.overallBoosts[ArcadeManager.userTeamId]++;
             ArcadeManager.updateCoinsUI();
+            // Salvar progresso apÃ³s upgrade
             StorageManager.saveArcadeProgress();
             return true;
         }
@@ -1367,84 +1232,107 @@ const ArcadeManager = {
         const coinsEl = document.getElementById('arcade-coins');
         const overallEl = document.getElementById('arcade-overall');
         const upgradeCostEl = document.getElementById('upgrade-cost');
+
         if (coinsEl) coinsEl.textContent = ArcadeManager.coins;
         if (overallEl) overallEl.textContent = ArcadeManager.getTeamOverall(ArcadeManager.userTeamId);
         if (upgradeCostEl) {
-            const cost = 100 + ((ArcadeManager.overallBoosts[ArcadeManager.userTeamId] || 0) * 50);
+            const cost = 100 + (ArcadeManager.overallBoosts[ArcadeManager.userTeamId] * 50);
             upgradeCostEl.textContent = cost;
         }
     },
 
-    getNextUserMatch: () => {
-        if (ArcadeManager.currentStage === 'regular') {
-            if (ArcadeManager.currentRound >= ArcadeManager.schedule.length) return null;
-            const round = ArcadeManager.schedule[ArcadeManager.currentRound];
-            return round.find(m => m.home === ArcadeManager.userTeamId || m.away === ArcadeManager.userTeamId);
-        } else {
-            return ArcadeManager.knockoutBracket.find(m => (m.home === ArcadeManager.userTeamId || m.away === ArcadeManager.userTeamId) && !m.completed);
+    generateSeasonSchedule: () => {
+        const teams = brazilianTeams.map(t => t.id);
+        const n = teams.length;
+        const rounds = [];
+        const matchesPerRound = n / 2;
+
+        // Algoritmo Round Robin (PolÃ­gono) - Turno Ãnico
+        let roundTeams = [...teams];
+
+        // Ida (19 rodadas para 20 times)
+        for (let r = 0; r < n - 1; r++) {
+            const roundMatches = [];
+            for (let i = 0; i < matchesPerRound; i++) {
+                // Alternar mando de campo baseado na rodada par/impar para equilibrar
+                if (r % 2 === 0) {
+                    roundMatches.push({ home: roundTeams[i], away: roundTeams[n - 1 - i] });
+                } else {
+                    roundMatches.push({ home: roundTeams[n - 1 - i], away: roundTeams[i] });
+                }
+            }
+            rounds.push(roundMatches);
+            // Rotacionar (exceto o primeiro elemento)
+            roundTeams.splice(1, 0, roundTeams.pop());
         }
+
+        // APENAS TURNO ÃNICO
+        ArcadeManager.schedule = [...rounds];
     },
 
-    registerUserResult: (homeId, awayId, scoreHome, scoreAway) => {
-        if (ArcadeManager.currentStage === 'regular') {
-            ArcadeManager.updateStandings(homeId, awayId, scoreHome, scoreAway);
-            ArcadeManager.simulateRound();
-            ArcadeManager.currentRound++;
-            ArcadeManager.checkPhaseTransition();
-        } else {
-            ArcadeManager.processKnockoutMatch(homeId, awayId, scoreHome, scoreAway);
-            ArcadeManager.simulateKnockoutRound();
-            ArcadeManager.checkKnockoutTransition();
-        }
-
-        // Rewards
-        const userIsHome = homeId === ArcadeManager.userTeamId;
-        const userScore = userIsHome ? scoreHome : scoreAway;
-        const oppScore = userIsHome ? scoreAway : scoreHome;
-        let earned = 50 + (userScore * 10);
-        if (userScore > oppScore) earned += 150;
-        else if (userScore == oppScore) earned += 50;
-        ArcadeManager.addCoins(earned);
-
-        StorageManager.saveArcadeProgress();
+    getNextUserMatch: () => {
+        if (ArcadeManager.currentRound >= ArcadeManager.schedule.length) return null;
+        const round = ArcadeManager.schedule[ArcadeManager.currentRound];
+        return round.find(m => m.home === ArcadeManager.userTeamId || m.away === ArcadeManager.userTeamId);
     },
 
     simulateRound: () => {
+        // Simula os jogos que NÃO sÃ£o do usuÃ¡rio na rodada atual
         const round = ArcadeManager.schedule[ArcadeManager.currentRound];
-        if (!round) return;
-        round.forEach(m => {
-            if (m.home !== ArcadeManager.userTeamId && m.away !== ArcadeManager.userTeamId) {
-                const s1 = Math.floor(Math.random() * 4);
-                const s2 = Math.floor(Math.random() * 3);
-                ArcadeManager.updateStandings(m.home, m.away, s1, s2);
+        round.forEach(match => {
+            if (match.home !== ArcadeManager.userTeamId && match.away !== ArcadeManager.userTeamId) {
+                // LÃ³gica de simulaÃ§Ã£o simples (RNG)
+                // Peso leve para quem joga em casa (0-4 gols casa, 0-3 gols fora)
+                const scoreHome = Math.floor(Math.random() * 5);
+                const scoreAway = Math.floor(Math.random() * 4);
+                ArcadeManager.updateStandings(match.home, match.away, scoreHome, scoreAway);
             }
         });
     },
 
-    updateStandings: (homeId, awayId, s1, s2) => {
-        const up = (id, f, a) => {
-            if (!ArcadeManager.standings[id]) return;
-            const s = ArcadeManager.standings[id];
-            s.j++; s.gp += f; s.gc += a; s.sg = s.gp - s.gc;
-            if (f > a) { s.v++; s.p += 3; }
-            else if (f == a) { s.e++; s.p += 1; }
-            else s.d++;
-        };
-        up(homeId, s1, s2);
-        up(awayId, s2, s1);
+    registerUserResult: (homeId, awayId, scoreHome, scoreAway) => {
+        ArcadeManager.updateStandings(homeId, awayId, scoreHome, scoreAway);
+        ArcadeManager.simulateRound(); // Simula o resto da rodada
+        ArcadeManager.currentRound++;
+
+        // Sistema de moedas - ganho baseado no resultado
+        const userIsHome = homeId === ArcadeManager.userTeamId;
+        const userScore = userIsHome ? scoreHome : scoreAway;
+        const opponentScore = userIsHome ? scoreAway : scoreHome;
+
+        let coinsEarned = 50; // Base por jogar
+        if (userScore > opponentScore) {
+            coinsEarned += 100; // VitÃ³ria
+            coinsEarned += (userScore - opponentScore) * 20; // Bonus por gol de diferenÃ§a
+        } else if (userScore === opponentScore) {
+            coinsEarned += 30; // Empate
+        }
+        coinsEarned += userScore * 10; // Bonus por gols marcados
+
+        ArcadeManager.addCoins(coinsEarned);
+
+        // Salvar progresso apÃ³s cada rodada
+        StorageManager.saveArcadeProgress();
     },
 
-    getGroupStandings: (groupName) => {
-        const groupTeams = ArcadeManager.groups[groupName];
-        return groupTeams.map(tid => {
-            const teamData = ArcadeManager.leagueTeams.find(t => t.id === tid);
-            return { ...(teamData || {}), ...ArcadeManager.standings[tid], id: tid };
-        }).sort((a, b) => b.p - a.p || b.v - a.v || b.sg - a.sg);
+    updateStandings: (homeId, awayId, scoreHome, scoreAway) => {
+        const update = (id, gf, ga) => {
+            const s = ArcadeManager.standings[id];
+            s.j++;
+            s.gp += gf;
+            s.gc += ga;
+            s.sg = s.gp - s.gc;
+            if (gf > ga) { s.v++; s.p += 3; }
+            else if (gf === ga) { s.e++; s.p += 1; }
+            else { s.d++; }
+        };
+        update(homeId, scoreHome, scoreAway);
+        update(awayId, scoreAway, scoreHome);
     },
 
     getLeaderboard: () => {
         return Object.entries(ArcadeManager.standings).map(([id, stats]) => {
-            const team = ArcadeManager.leagueTeams.find(t => t.id === id);
+            const team = brazilianTeams.find(t => t.id === id);
             return { ...team, ...stats };
         }).sort((a, b) => {
             if (b.p !== a.p) return b.p - a.p;
@@ -1453,159 +1341,27 @@ const ArcadeManager = {
         });
     },
 
-    checkPhaseTransition: () => {
-        if (ArcadeManager.currentRound < ArcadeManager.schedule.length) return;
+    // Verifica se hÃ¡ um campeÃ£o matemÃ¡tico
+    checkChampion: () => {
+        const leaderboard = ArcadeManager.getLeaderboard();
+        const leader = leaderboard[0];
+        const second = leaderboard[1];
+        const remainingRounds = ArcadeManager.schedule.length - ArcadeManager.currentRound;
+        const maxPointsPossible = second.p + (remainingRounds * 3);
 
-        if (ArcadeManager.currentLeague === 'paulista') {
-            ArcadeManager.transitionToPaulistaKnockout();
-        } else if (ArcadeManager.currentLeague === 'carioca') {
-            ArcadeManager.transitionToCariocaKnockout();
-        } else {
-            // Brasileirao - just check winner
-            const champion = ArcadeManager.getLeaderboard()[0];
-            showChampionScreen(champion);
+        if (leader.p > maxPointsPossible) {
+            // Limpar progresso quando houver campeÃ£o
+            StorageManager.clearArcadeProgress();
+            return leader;
         }
-    },
-
-    transitionToPaulistaKnockout: () => {
-        const qfMatches = [];
-        ['A', 'B', 'C', 'D'].forEach(g => {
-            const table = ArcadeManager.getGroupStandings(g);
-            qfMatches.push({
-                home: table[0].id, away: table[1].id,
-                stage: 'quarters', completed: false, totalLegs: 1
-            });
-        });
-        ArcadeManager.knockoutBracket = qfMatches;
-        ArcadeManager.currentStage = 'quarters';
-
-        const userQualified = qfMatches.some(m => m.home === ArcadeManager.userTeamId || m.away === ArcadeManager.userTeamId);
-        if (userQualified) {
-            window.showCustomModal("QUARTAS DE FINAL", "Fase de Grupos encerrada!<br>Iniciando Quartas de Final.", null, null, false);
-        } else {
-            window.showCustomModal("FIM DE JOGO", "Fim da linha! Seu time foi eliminado na Fase de Grupos.<br>O campeonato continuará sem você.", null, null, false);
+        if (remainingRounds === 0) {
+            // Limpar progresso quando campeonato acabar
+            StorageManager.clearArcadeProgress();
+            return leader;
         }
-    },
-
-    transitionToCariocaKnockout: () => {
-        const table = ArcadeManager.getLeaderboard();
-        const semiMatches = [
-            { home: table[0].id, away: table[3].id, stage: 'semis', totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0, completed: false },
-            { home: table[1].id, away: table[2].id, stage: 'semis', totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0, completed: false }
-        ];
-        ArcadeManager.knockoutBracket = semiMatches;
-        ArcadeManager.currentStage = 'semis';
-
-        const userQualified = semiMatches.some(m => m.home === ArcadeManager.userTeamId || m.away === ArcadeManager.userTeamId);
-        if (userQualified) {
-            window.showCustomModal("SEMIFINAIS", "Taça Guanabara encerrada!<br>Iniciando Semifinais.", null, null, false);
-        } else {
-            window.showCustomModal("FIM DE JOGO", "Fim da linha! Seu time não se classificou para as Semifinais.<br>O campeonato continuará sem você.", null, null, false);
-        }
-    },
-
-    processKnockoutMatch: (homeId, awayId, sHome, sAway) => {
-        const match = ArcadeManager.knockoutBracket.find(m => m.home === homeId && m.away === awayId && !m.completed);
-        if (!match) return;
-        match.homeScore = sHome; match.awayScore = sAway; match.completed = true;
-        if (match.totalLegs > 1) { match.aggHome = (match.aggHome || 0) + sHome; match.aggAway = (match.aggAway || 0) + sAway; }
-    },
-
-    simulateKnockoutRound: () => {
-        ArcadeManager.knockoutBracket.forEach(m => {
-            if (!m.completed && m.home !== ArcadeManager.userTeamId && m.away !== ArcadeManager.userTeamId) {
-                const s1 = Math.floor(Math.random() * 3);
-                const s2 = Math.floor(Math.random() * 3);
-                m.homeScore = s1; m.awayScore = s2; m.completed = true;
-                if (m.totalLegs > 1) { m.aggHome = (m.aggHome || 0) + s1; m.aggAway = (m.aggAway || 0) + s2; }
-            }
-        });
-    },
-
-    checkKnockoutTransition: () => {
-        if (ArcadeManager.knockoutBracket.some(m => !m.completed)) return;
-        if (ArcadeManager.currentLeague === 'paulista') ArcadeManager.advancePaulista();
-        else if (ArcadeManager.currentLeague === 'carioca') ArcadeManager.advanceCarioca();
-    },
-
-    advancePaulista: () => {
-        const getWinner = (m) => (m.homeScore > m.awayScore ? m.home : (m.awayScore > m.homeScore ? m.away : (Math.random() > 0.5 ? m.home : m.away)));
-
-        if (ArcadeManager.currentStage === 'quarters') {
-            const winners = ArcadeManager.knockoutBracket.map(getWinner);
-            ArcadeManager.knockoutBracket = [
-                { home: winners[0], away: winners[1], stage: 'semis', completed: false, totalLegs: 1 },
-                { home: winners[2], away: winners[3], stage: 'semis', completed: false, totalLegs: 1 }
-            ];
-            ArcadeManager.currentStage = 'semis';
-
-            if (winners.includes(ArcadeManager.userTeamId)) {
-                window.showCustomModal("CLASSIFICADO!", "Parabéns! Você avançou para as Semifinais!", null, null, false);
-            } else if (ArcadeManager.knockoutBracket.some(m => m.home === ArcadeManager.userTeamId || m.away === ArcadeManager.userTeamId)) {
-                // Should be covered by winners includes check, but safety first
-                window.showCustomModal("CLASSIFICADO!", "Parabéns! Você avançou para as Semifinais!", null, null, false);
-            } else {
-                // Check if user WAS in quarters to show specific elimination msg
-                window.showCustomModal("ELIMINADO", "Infelizmente seu time caiu nas Quartas de Final.", null, null, false);
-            }
-        } else if (ArcadeManager.currentStage === 'semis') {
-            const winners = ArcadeManager.knockoutBracket.map(getWinner);
-            ArcadeManager.knockoutBracket = [
-                { home: winners[0], away: winners[1], stage: 'final', completed: false, totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0 }
-            ];
-            ArcadeManager.currentStage = 'final';
-            window.showCustomModal("A GRANDE FINAL", "Está tudo definido!<br>Prepare-se para a Grande Final!", null, null, false);
-        } else if (ArcadeManager.currentStage === 'final') {
-            const match = ArcadeManager.knockoutBracket[0];
-            if (match.currentLeg === 1) {
-                match.currentLeg = 2; match.completed = false;
-                const temp = match.home; match.home = match.away; match.away = temp;
-                const tempAgg = match.aggHome; match.aggHome = match.aggAway; match.aggAway = tempAgg; // Swap agg for display context
-                window.showCustomModal("JOGO DE VOLTA", "Fim do primeiro jogo da final!<br>Preparando jogo de volta.", null, null, false);
-            } else {
-                let championId = match.aggHome > match.aggAway ? match.home : match.away;
-                if (match.aggHome == match.aggAway) championId = match.home;
-                showChampionScreen(ArcadeManager.leagueTeams.find(t => t.id === championId));
-            }
-        }
-    },
-
-    advanceCarioca: () => {
-        if (ArcadeManager.currentStage === 'semis') {
-            const pending = ArcadeManager.knockoutBracket.find(m => m.currentLeg < 2);
-            if (pending) {
-                ArcadeManager.knockoutBracket.forEach(m => {
-                    m.currentLeg = 2; m.completed = false;
-                    const temp = m.home; m.home = m.away; m.away = temp;
-                    const tempAgg = m.aggHome; m.aggHome = m.aggAway; m.aggAway = tempAgg;
-                });
-                window.showCustomModal("SEMIFINAIS", "Fim dos jogos de ida.<br>Rodada de volta das semifinais!", null, null, false);
-                return;
-            }
-            const winners = ArcadeManager.knockoutBracket.map(m => (m.aggHome >= m.aggAway ? m.home : m.away));
-            ArcadeManager.knockoutBracket = [
-                { home: winners[0], away: winners[1], stage: 'final', totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0, completed: false }
-            ];
-            ArcadeManager.currentStage = 'final';
-            window.showCustomModal("FINAL DEFINIDA", "Os finalistas do Cariocão estão definidos!", null, null, false);
-        } else if (ArcadeManager.currentStage === 'final') {
-            const match = ArcadeManager.knockoutBracket[0];
-            if (match.currentLeg === 1) {
-                match.currentLeg = 2; match.completed = false;
-                const temp = match.home; match.home = match.away; match.away = temp;
-                const tempAgg = match.aggHome; match.aggHome = match.aggAway; match.aggAway = tempAgg;
-                window.showCustomModal("DECISÃO", "Fim do jogo de ida.<br>A decisão será no próximo jogo!", null, null, false);
-            } else {
-                let championId = match.aggHome > match.aggAway ? match.home : match.away;
-                if (match.aggHome == match.aggAway) championId = match.home;
-                showChampionScreen(ArcadeManager.leagueTeams.find(t => t.id === championId));
-            }
-        }
-    },
-
-    checkChampion: () => null // Deprecated/handled internally
+        return null;
+    }
 };
-
 
 // Game constants moved to top
 
@@ -1797,14 +1553,8 @@ const AutoSimulator = {
                 return;
             }
 
-            const homeTeam = ArcadeManager.leagueTeams.find(t => t.id === userMatch.home);
-            const awayTeam = ArcadeManager.leagueTeams.find(t => t.id === userMatch.away);
-
-            if (!homeTeam || !awayTeam) {
-                console.error("Teams not found for simulation", userMatch);
-                resolve(null);
-                return;
-            }
+            const homeTeam = brazilianTeams.find(t => t.id === userMatch.home);
+            const awayTeam = brazilianTeams.find(t => t.id === userMatch.away);
 
             const homeOverall = ArcadeManager.getTeamOverall(userMatch.home);
             const awayOverall = ArcadeManager.getTeamOverall(userMatch.away);
@@ -1843,41 +1593,24 @@ const AutoSimulator = {
         if (currentGameMode !== 'arcade') return;
 
         AutoSimulator.isSimulating = true;
-        AutoSimulator.showOverlay('Simulando resultados...');
+        AutoSimulator.showOverlay('Simulando sua partida...');
 
-        // Simular partida do usuÃ¡rio (se houver)
+        // Simular partida do usuÃ¡rio
         await new Promise(r => setTimeout(r, 800)); // Delay para UX
 
-        const userMatch = ArcadeManager.getNextUserMatch();
-        let result = null;
-
-        if (userMatch) {
-            result = await AutoSimulator.simulateUserMatch();
-        }
+        const result = await AutoSimulator.simulateUserMatch();
 
         if (result) {
             AutoSimulator.showOverlay(`${result.home.shortName} ${result.homeGoals} x ${result.awayGoals} ${result.away.shortName}`);
+
             await new Promise(r => setTimeout(r, 1000));
-            // Registrar resultado do usuÃ¡rio e dos bots
+
+            // Registrar resultado
             ArcadeManager.registerUserResult(result.home.id, result.away.id, result.homeGoals, result.awayGoals);
-        } else {
-            // UsuÃ¡rio nÃ£o joga (eliminado ou folga), simular apenas os bots
-            AutoSimulator.showOverlay('Simulando jogos restantes...');
-            await new Promise(r => setTimeout(r, 800));
 
-            if (ArcadeManager.currentStage === 'regular') {
-                ArcadeManager.simulateRound();
-                ArcadeManager.currentRound++;
-                ArcadeManager.checkPhaseTransition();
-            } else {
-                ArcadeManager.simulateKnockoutRound();
-                ArcadeManager.checkKnockoutTransition();
-            }
-            StorageManager.saveArcadeProgress();
+            AutoSimulator.showOverlay('Atualizando tabela...');
+            await new Promise(r => setTimeout(r, 600));
         }
-
-        AutoSimulator.showOverlay('Atualizando tabela...');
-        await new Promise(r => setTimeout(r, 600));
 
         AutoSimulator.hideOverlay();
         AutoSimulator.isSimulating = false;
@@ -2165,17 +1898,13 @@ btnBackMenu.addEventListener('click', () => {
 });
 
 btnQuitArcade.addEventListener('click', () => {
-    window.showCustomModal(
-        "SAIR DO CAMPEONATO?",
-        "Seu progresso será salvo automaticamente.<br>Deseja voltar ao menu?",
-        () => {
-            StorageManager.saveArcadeProgress();
-            smoothTransition(arcadeDashboard, mainMenu, () => {
-                sfx.stopCrowd();
-                checkSavedArcadeProgress();
-            });
-        }
-    );
+    if (confirm("Sair do campeonato? Seu progresso serÃ¡ salvo automaticamente.")) {
+        StorageManager.saveArcadeProgress();
+        smoothTransition(arcadeDashboard, mainMenu, () => {
+            sfx.stopCrowd();
+            checkSavedArcadeProgress();
+        });
+    }
 });
 
 btnFinishArcade.addEventListener('click', () => {
@@ -2183,44 +1912,6 @@ btnFinishArcade.addEventListener('click', () => {
 });
 
 // ==================== HELPERS ====================
-window.showCustomModal = (title, message, onConfirm, onCancel, showCancel = true) => {
-    const modal = document.getElementById('game-custom-modal');
-    const titleEl = document.getElementById('custom-modal-title');
-    const msgEl = document.getElementById('custom-modal-message');
-    const btnConfirm = document.getElementById('btn-modal-confirm');
-    const btnCancel = document.getElementById('btn-modal-cancel');
-
-    if (!modal) return;
-
-    titleEl.textContent = title;
-    msgEl.innerHTML = message;
-
-    // Reset buttons
-    const newConfirm = btnConfirm.cloneNode(true);
-    const newCancel = btnCancel.cloneNode(true);
-    btnConfirm.parentNode.replaceChild(newConfirm, btnConfirm);
-    btnCancel.parentNode.replaceChild(newCancel, btnCancel);
-
-    newConfirm.onclick = () => {
-        if (onConfirm) onConfirm();
-        modal.classList.add('hidden');
-    };
-
-    if (showCancel) {
-        newCancel.style.display = 'inline-block';
-        newCancel.onclick = () => {
-            if (onCancel) onCancel();
-            modal.classList.add('hidden');
-        };
-    } else {
-        newCancel.style.display = 'none';
-        newConfirm.style.width = '100%';
-        newConfirm.innerText = "OK";
-    }
-
-    modal.classList.remove('hidden');
-};
-
 function createShield(team, size = 'md') {
     const sizeMap = { sm: 48, md: 64, lg: 80, xl: 120, xxl: 160 };
     const s = sizeMap[size];
@@ -2320,14 +2011,6 @@ function selectTeam(team, card) {
         card.classList.remove('selected');
     } else if (selectedTeams.length < maxSelection) {
         selectedTeams.push(team);
-        card.classList.add('selected');
-    } else if (maxSelection === 1) {
-        // Swap selection (Better UX for single choice)
-        const oldTeam = selectedTeams[0];
-        const oldCard = card.parentNode.querySelector(`.team-card[data-team-id="${oldTeam.id}"]`);
-        if (oldCard) oldCard.classList.remove('selected');
-
-        selectedTeams = [team];
         card.classList.add('selected');
     }
 
@@ -2460,8 +2143,7 @@ function startArcadeCampaign() {
     arcadeDashboard.classList.remove('hidden');
 
     const userTeam = selectedTeams[0];
-    const leagueToStart = window.selectedLeague || 'brasileirao';
-    ArcadeManager.init(userTeam.id, leagueToStart);
+    ArcadeManager.init(userTeam.id);
 
     arcadeUserTeamName.textContent = userTeam.name;
 
@@ -2481,209 +2163,38 @@ function updateArcadeHeaderBg(team) {
 }
 
 function updateArcadeDashboard() {
-    // Stage Display
-    let stageName = "Fase de Grupos";
-    if (ArcadeManager.currentStage === 'quarters') stageName = "Quartas de Final";
-    else if (ArcadeManager.currentStage === 'semis') stageName = "Semifinais";
-    else if (ArcadeManager.currentStage === 'final') stageName = "Grande Final";
-    else if (ArcadeManager.currentLeague === 'carioca' && ArcadeManager.currentStage === 'regular') stageName = "Taça Guanabara";
-    else if (ArcadeManager.currentLeague === 'brasileirao') stageName = "Pontos Corridos";
+    currentRoundNum.textContent = (ArcadeManager.currentRound + 1) + "/" + ArcadeManager.schedule.length;
 
-    currentRoundNum.textContent = stageName + (ArcadeManager.currentStage === 'regular' ? ` - Rodada ${ArcadeManager.currentRound + 1}/${ArcadeManager.schedule.length}` : '');
-
-    // Coins & Overall
+    // Atualiza UI de moedas e overall
     ArcadeManager.updateCoinsUI();
 
-    // Content
-    arcadeStandingsList.innerHTML = '';
-
-    if (ArcadeManager.currentStage === 'regular') {
-        const tabs = document.getElementById('group-tabs');
-        if (tabs && !ArcadeManager.groups) tabs.style.display = 'none'; // Hide tabs if not paulista
-
-        if (ArcadeManager.groups) {
-            renderGroupStandings();
-        } else {
-            renderSimpleStandings();
-        }
-    } else {
-        const tabs = document.getElementById('group-tabs');
-        if (tabs) tabs.style.display = 'none';
-        renderKnockoutView();
-    }
-
-    // Next Match
-    updateNextMatchCard();
-
-    // Upgrade Button
-    const btnUpgrade = document.getElementById('btn-upgrade-team');
-    if (btnUpgrade) {
-        const cost = 100 + ((ArcadeManager.overallBoosts[ArcadeManager.userTeamId] || 0) * 50);
-        btnUpgrade.disabled = ArcadeManager.coins < cost || ArcadeManager.getTeamOverall(ArcadeManager.userTeamId) >= 99;
-    }
-}
-
-function renderSimpleStandings() {
+    // Atualiza tabela
     const leaderboard = ArcadeManager.getLeaderboard();
-    if (ArcadeManager.currentLeague === 'carioca') {
-        leaderboard.forEach((t, index) => {
-            const row = createStandingRow(t, index + 1);
-            if (index < 4) row.style.borderLeft = "4px solid #00ff00"; // G4
-            else if (index === 11) row.style.borderLeft = "4px solid #ff0000"; // Relegation
-            else if (index === 10) row.style.borderLeft = "4px solid orange"; // Playoff
-            arcadeStandingsList.appendChild(row);
-        });
-    } else if (ArcadeManager.currentLeague === 'brasileirao') {
-        leaderboard.forEach((t, index) => {
-            const row = createStandingRow(t, index + 1);
-            if (index < 4) row.style.borderLeft = "4px solid #00ff00";
-            else if (index < 6) row.style.borderLeft = "4px solid #00ffff";
-            else if (index >= 16) row.style.borderLeft = "4px solid #ff0000";
-            arcadeStandingsList.appendChild(row);
-        });
-    } else {
-        leaderboard.forEach((t, index) => arcadeStandingsList.appendChild(createStandingRow(t, index + 1)));
-    }
-}
-
-function renderGroupStandings() {
-    let tabsContainer = document.getElementById('group-tabs');
-    if (!tabsContainer) {
-        tabsContainer = document.createElement('div');
-        tabsContainer.id = 'group-tabs';
-        tabsContainer.style.display = 'flex';
-        tabsContainer.style.marginBottom = '15px';
-        tabsContainer.style.gap = '10px';
-        arcadeStandingsList.parentNode.insertBefore(tabsContainer, arcadeStandingsList);
-
-        ['A', 'B', 'C', 'D'].forEach(g => {
-            const btn = document.createElement('button');
-            btn.textContent = `Grupo ${g}`;
-            btn.className = 'btn-tab';
-            btn.style.flex = '1';
-            btn.style.padding = '8px';
-            btn.style.background = '#222';
-            btn.style.border = '1px solid #444';
-            btn.style.color = '#fff';
-            btn.style.cursor = 'pointer';
-            btn.style.borderRadius = '4px';
-            btn.onclick = () => showGroupTable(g);
-            tabsContainer.appendChild(btn);
-        });
-    } else {
-        tabsContainer.style.display = 'flex';
-    }
-
-    if (!window.currentGroupView) {
-        // Default to user's group
-        const userGroup = Object.keys(ArcadeManager.groups).find(k => ArcadeManager.groups[k].includes(ArcadeManager.userTeamId));
-        window.currentGroupView = userGroup || 'A';
-    }
-    showGroupTable(window.currentGroupView);
-}
-
-window.showGroupTable = (group) => {
-    window.currentGroupView = group;
-    const tabs = document.querySelectorAll('#group-tabs button');
-    tabs.forEach(t => {
-        const active = t.textContent.includes(group);
-        t.style.background = active ? 'var(--accent-gold)' : '#222';
-        t.style.color = active ? '#000' : '#fff';
-        t.style.borderColor = active ? 'var(--accent-gold)' : '#444';
-    });
-
     arcadeStandingsList.innerHTML = '';
-    const table = ArcadeManager.getGroupStandings(group);
-    table.forEach((t, index) => {
-        const row = createStandingRow(t, index + 1);
-        if (index < 2) row.style.borderLeft = "4px solid #00ff00"; // Qualify
-        else if (ArcadeManager.getLeaderboard().slice(-2).find(x => x.id === t.id)) row.style.borderLeft = "4px solid #ff0000"; // General Relegation
+    leaderboard.forEach((t, index) => {
+        const row = document.createElement('tr');
+        if (t.id === ArcadeManager.userTeamId) row.classList.add('user-row');
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span class="stats-shield-wrapper">${createShield(t, 'sm').outerHTML}</span>
+                    <span>${t.shortName}</span>
+                </div>
+            </td>
+            <td><strong>${t.p}</strong></td>
+            <td>${t.j}</td>
+            <td>${t.v}</td>
+            <td>${t.sg}</td>
+        `;
         arcadeStandingsList.appendChild(row);
     });
-}
 
-function createStandingRow(t, rank) {
-    const row = document.createElement('tr');
-    if (t.id === ArcadeManager.userTeamId) row.classList.add('user-row');
-    row.innerHTML = `
-        <td>${rank}</td>
-        <td>
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <span class="stats-shield-wrapper">${createShield(t, 'sm').outerHTML}</span>
-                <span>${t.shortName}</span>
-            </div>
-        </td>
-        <td><strong>${t.p}</strong></td>
-        <td>${t.j}</td>
-        <td>${t.v}</td>
-        <td>${t.sg}</td>
-    `;
-    return row;
-}
-
-function renderKnockoutView() {
-    const container = document.createElement('div');
-    container.style.display = 'flex';
-    container.style.flexDirection = 'column';
-    container.style.gap = '10px';
-
-    // Sort matches
-    const matches = ArcadeManager.knockoutBracket;
-
-    matches.forEach(match => {
-        const home = ArcadeManager.leagueTeams.find(t => t.id === match.home);
-        const away = ArcadeManager.leagueTeams.find(t => t.id === match.away);
-
-        const card = document.createElement('div');
-        card.style.background = '#222';
-        card.style.padding = '15px';
-        card.style.borderRadius = '8px';
-        card.style.border = match.completed ? '1px solid #444' : '1px solid var(--accent-gold)';
-        if (!match.completed && (match.home === ArcadeManager.userTeamId || match.away === ArcadeManager.userTeamId)) {
-            card.style.boxShadow = '0 0 10px var(--accent-gold)';
-        }
-
-        let scoreDisplay = match.completed ? `${match.homeScore} x ${match.awayScore}` : 'VS';
-        if (match.totalLegs > 1 && match.completed) {
-            scoreDisplay += ` <div style="font-size:0.8rem; margin-top:4px;">(Agg: ${match.aggHome}-${match.aggAway})</div>`;
-        }
-
-        card.innerHTML = `
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-                <div style="flex:1; text-align:right; display:flex; align-items:center; justify-content:flex-end; gap:10px;">
-                    ${home.shortName} ${createShield(home, 'sm').outerHTML}
-                </div>
-                <div style="margin:0 15px; font-weight:bold; font-size:1.5rem; text-align:center;">${scoreDisplay}</div>
-                <div style="flex:1; text-align:left; display:flex; align-items:center; justify-content:flex-start; gap:10px;">
-                    ${createShield(away, 'sm').outerHTML} ${away.shortName}
-                </div>
-            </div>
-            ${match.totalLegs ? `<div style="font-size:0.8rem; color:#888; text-align:center; mt-2">Jogo ${match.currentLeg}/${match.totalLegs}</div>` : ''}
-        `;
-        container.appendChild(card);
-    });
-
-    // Add instruction text
-    const info = document.createElement('div');
-    info.innerHTML = "<p style='text-align:center; color:#888; margin-top:10px;'>Clique em JOGAR para disputar sua partida.</p>";
-    container.appendChild(info);
-
-    arcadeStandingsList.appendChild(container);
-}
-
-function updateNextMatchCard() {
+    // PrÃ³ximo Jogo
     const nextMatch = ArcadeManager.getNextUserMatch();
     if (nextMatch) {
-        let t1, t2;
-        let title = "PRÓXIMA PARTIDA";
-
-        if (ArcadeManager.currentStage !== 'regular') {
-            title = "MATA-MATA";
-            if (nextMatch.totalLegs) title += ` - JOGO ${nextMatch.currentLeg}`;
-        }
-
-        t1 = ArcadeManager.leagueTeams.find(t => t.id === nextMatch.home);
-        t2 = ArcadeManager.leagueTeams.find(t => t.id === nextMatch.away);
+        const t1 = brazilianTeams.find(t => t.id === nextMatch.home);
+        const t2 = brazilianTeams.find(t => t.id === nextMatch.away);
 
         arcadeHomeShield.innerHTML = '';
         arcadeHomeShield.appendChild(createShield(t1, 'lg'));
@@ -2695,29 +2206,18 @@ function updateNextMatchCard() {
         document.getElementById('arcade-away-name').textContent = t2.name;
         document.getElementById('arcade-away-overall').textContent = `OVR: ${ArcadeManager.getTeamOverall(t2.id)}`;
 
-        // Prepare globals
-        const cardTitle = document.querySelector('.current-match-display h3');
-        if (cardTitle) cardTitle.textContent = title;
-
+        // Preparar global vars para a partida
         team1 = t1;
         team2 = t2;
     } else {
-        // No match found or waiting for transition
-        document.getElementById('arcade-home-name').textContent = "Eliminado";
-        document.getElementById('arcade-away-name').textContent = "-";
+        // Campeonato acabou
+    }
 
-        // Disable Play Button
-        const btnPlay = document.getElementById('btn-play-round');
-        if (btnPlay) {
-            btnPlay.disabled = true;
-            btnPlay.innerText = "ELIMINADO";
-        }
-
-        // Ensure auto-simulate is available to progress
-        const btnSim = document.getElementById('btn-auto-simulate');
-        if (btnSim) {
-            btnSim.innerHTML = "⚡ Acompanhar Campeonato";
-        }
+    // Atualizar botÃ£o de upgrade
+    const btnUpgrade = document.getElementById('btn-upgrade-team');
+    if (btnUpgrade) {
+        const cost = 100 + (ArcadeManager.overallBoosts[ArcadeManager.userTeamId] * 50);
+        btnUpgrade.disabled = ArcadeManager.coins < cost || ArcadeManager.getTeamOverall(ArcadeManager.userTeamId) >= 99;
     }
 }
 
@@ -3659,126 +3159,4 @@ function toggleGameInterface(show) {
     const displayVal = show ? '' : 'none';
     if (header) header.style.display = displayVal;
     if (footer) footer.style.display = displayVal;
-}
-
-
-// ==================== CHAMPIONSHIP UI ====================
-let selectedLeague = 'brasileirao';
-
-function openChampionshipModal() {
-    const modal = document.getElementById('championship-modal');
-    if (modal) modal.classList.remove('hidden');
-
-    // Close sidebar if open
-    const sidebar = document.getElementById('mobile-sidebar');
-    if (sidebar) sidebar.classList.remove('open');
-
-    // Reset view to main options
-    showMainOptions();
-}
-
-function closeChampionshipModal() {
-    const modal = document.getElementById('championship-modal');
-    if (modal) modal.classList.add('hidden');
-}
-
-window.showStateOptions = function () {
-    const mainOpts = document.getElementById('champ-main-options');
-    const stateOpts = document.getElementById('champ-state-options');
-    if (mainOpts) mainOpts.classList.add('hidden');
-    if (stateOpts) stateOpts.classList.remove('hidden');
-}
-
-window.showMainOptions = function () {
-    const mainOpts = document.getElementById('champ-main-options');
-    const stateOpts = document.getElementById('champ-state-options');
-    if (mainOpts) mainOpts.classList.remove('hidden');
-    if (stateOpts) stateOpts.classList.add('hidden');
-}
-
-window.selectChampionship = function (league) {
-    window.selectedLeague = league;
-    closeChampionshipModal();
-
-    let teamsList;
-    if (league === 'paulista') teamsList = paulistaTeams;
-    else if (league === 'carioca') teamsList = cariocaTeams;
-    else teamsList = brazilianTeams;
-
-    initTeamSelectionForArcade(teamsList, league);
-}
-
-function initTeamSelectionForArcade(teamsList, leagueName) {
-    currentGameMode = 'arcade';
-    selectedTeams = [];
-
-    const teamsGrid = document.getElementById('teams-grid');
-    teamsGrid.innerHTML = '';
-
-    selectionScreen.classList.remove('hidden');
-    mainMenu.classList.add('hidden');
-
-    // Update UI for Single Selection (Arcade Mode)
-    const vsSeparator = document.getElementById('vs-separator');
-    const slot2 = document.getElementById('slot2');
-    const btnStart = document.getElementById('btn-start');
-    const selectionSubtitle = document.getElementById('selection-subtitle');
-
-    if (vsSeparator) vsSeparator.classList.add('hidden');
-    if (slot2) slot2.classList.add('hidden');
-    if (btnStart) btnStart.innerText = "INICIAR CAMPANHA";
-    if (selectionSubtitle) selectionSubtitle.innerText = "Quem você levará ao título?";
-
-    // Update title
-    let leagueDisplay = "BRASILEIRÃO";
-    if (leagueName === 'paulista') leagueDisplay = "PAULISTÃO 2026";
-    else if (leagueName === 'carioca') leagueDisplay = "CARIOCÃO 2026";
-
-    const selectionTitle = document.getElementById('selection-title');
-    selectionTitle.innerHTML = `SELECIONE SEU TIME<br><small style="font-size: 0.6em; color: var(--accent-gold);">${leagueDisplay}</small>`;
-
-    teamsList.forEach(team => {
-        const card = document.createElement('div');
-        card.className = 'team-card';
-        card.dataset.teamId = team.id;
-
-        const shieldDiv = document.createElement('div');
-        shieldDiv.className = 'team-card-shield';
-        // Ajuste de estilo para ficar bonito
-        shieldDiv.style.display = 'flex';
-        shieldDiv.style.justifyContent = 'center';
-        shieldDiv.style.alignItems = 'center';
-        shieldDiv.style.margin = '0 auto 10px auto';
-
-        shieldDiv.appendChild(createShield(team, 'lg'));
-
-        const nameSpan = document.createElement('span');
-        nameSpan.className = 'team-card-name';
-        nameSpan.innerText = team.name;
-
-        card.appendChild(shieldDiv);
-        card.appendChild(nameSpan);
-        // Overall removed as requested
-
-        card.addEventListener('click', () => selectTeam(team, card));
-        teamsGrid.appendChild(card);
-    });
-
-    updateSlots();
-    updateStartButton();
-    updateCardStates();
-}
-
-const btnArcade = document.getElementById('btn-mode-arcade');
-if (btnArcade) {
-    const newBtn = btnArcade.cloneNode(true);
-    btnArcade.parentNode.replaceChild(newBtn, btnArcade);
-    newBtn.addEventListener('click', () => {
-        openChampionshipModal();
-    });
-}
-
-const btnCloseChamp = document.getElementById('btn-close-champ-modal');
-if (btnCloseChamp) {
-    btnCloseChamp.addEventListener('click', closeChampionshipModal);
 }
