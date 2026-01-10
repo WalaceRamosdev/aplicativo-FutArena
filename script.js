@@ -78,17 +78,28 @@ const paulistaTeams = [
 
 const cariocaTeams = [
     { id: "flamengo", name: "Flamengo", shortName: "FLA", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Logo_Flamengo_crest_1980-2018.png/1200px-Logo_Flamengo_crest_1980-2018.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 90 },
+
     { id: "fluminense", name: "Fluminense", shortName: "FLU", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Fluminense_FC_escudo.png/1200px-Fluminense_FC_escudo.png", primaryColor: "#FFFFFF", secondaryColor: "#7B0024", overall: 82 },
+
     { id: "botafogo", name: "Botafogo", shortName: "BOT", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Botafogo_de_Futebol_e_Regatas_logo.svg/1200px-Botafogo_de_Futebol_e_Regatas_logo.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 85 },
+    
     { id: "vasco", name: "Vasco da Gama", shortName: "VAS", badge: "https://upload.wikimedia.org/wikipedia/pt/thumb/8/8b/EscudoDoVascoDaGama.svg/960px-EscudoDoVascoDaGama.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 79 },
-    { id: "bangu", name: "Bangu", shortName: "BAN", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Bangu_Atl%C3%A9tico_Clube_logo.svg/1200px-Bangu_Atl%C3%A9tico_Clube_logo.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 62 },
-    { id: "boavista", name: "Boavista", shortName: "BOA", badge: "https://upload.wikimedia.org/wikipedia/pt/e/e0/Boavista_SC.png", primaryColor: "#00834B", secondaryColor: "#FFFFFF", overall: 61 },
-    { id: "madureira", name: "Madureira", shortName: "MAD", badge: "https://upload.wikimedia.org/wikipedia/commons/f/f0/Madureira_Esporte_Clube_logo.svg", primaryColor: "#FCD116", secondaryColor: "#003893", overall: 60 },
-    { id: "marica", name: "Maricá", shortName: "MAR", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Maric%C3%A1_Futebol_Clube_logo.png/600px-Maric%C3%A1_Futebol_Clube_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 58 },
-    { id: "novaiguacu", name: "Nova Iguaçu", shortName: "NOV", badge: "https://upload.wikimedia.org/wikipedia/commons/d/d4/NovaIguacuFC.png", primaryColor: "#F36C21", secondaryColor: "#FFFFFF", overall: 63 },
-    { id: "portuguesarj", name: "Portuguesa (RJ)", shortName: "POR", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Associa%C3%A7%C3%A3o_Atl%C3%A9tica_Portuguesa_logo.svg/1200px-Associa%C3%A7%C3%A3o_Atl%C3%A9tica_Portuguesa_logo.svg.png", primaryColor: "#006437", secondaryColor: "#D0202F", overall: 61 },
-    { id: "sampaiocorrea", name: "Sampaio Corrêa", shortName: "SAM", badge: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f6/Sampaio_Corr%C3%AAa_Futebol_e_Esporte_logo.svg/1200px-Sampaio_Corr%C3%AAa_Futebol_e_Esporte_logo.svg.png", primaryColor: "#FCD116", secondaryColor: "#00834B", overall: 60 },
-    { id: "voltaredonda", name: "Volta Redonda", shortName: "VOL", badge: "https://upload.wikimedia.org/wikipedia/commons/1/18/Volta_Redonda_Futebol_Clube_logo.png", primaryColor: "#FCD116", secondaryColor: "#000000", overall: 64 },
+
+    { id: "bangu", name: "Bangu", shortName: "BAN", badge: "https://upload.wikimedia.org/wikipedia/commons/7/70/Bangu_escudo.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 62 },
+
+    { id: "boavista", name: "Boavista", shortName: "BOA", badge: "https://image-service.onefootball.com/transform?w=256&dpr=2&image=https://images.onefootball.com/icons/teams/164/4770.png", primaryColor: "#FFFFFF", secondaryColor: "#00834B", overall: 61 },
+
+    { id: "madureira", name: "Madureira", shortName: "MAD", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Madureira_EC_%28RJ%29.svg/1120px-Madureira_EC_%28RJ%29.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#003893", overall: 60 },
+
+    { id: "marica", name: "Maricá", shortName: "MAR", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Maric%C3%A1_Futebol_Clube_logo.png/960px-Maric%C3%A1_Futebol_Clube_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 58 },
+
+    { id: "novaiguacu", name: "Nova Iguaçu", shortName: "NOV", badge: "https://upload.wikimedia.org/wikipedia/pt/7/7a/NovaIguacuFC.png", primaryColor: "#FFFFFF", secondaryColor: "#F36C21", overall: 63 },
+
+    { id: "portuguesarj", name: "Portuguesa (RJ)", shortName: "POR", badge: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Associa%C3%A7%C3%A3o_Atl%C3%A9tica_Portuguesa-RJ.png", primaryColor: "#FFFFFF", secondaryColor: "#D0202F", overall: 61 },
+
+    { id: "sampaiocorrea", name: "Sampaio Corrêa", shortName: "SAM", badge: "https://upload.wikimedia.org/wikipedia/commons/8/86/Sampaio_Corr%C3%AAa_FC.png", primaryColor: "#FFFFFF", secondaryColor: "#00834B", overall: 60 },
+
+    { id: "voltaredonda", name: "Volta Redonda", shortName: "VOL", badge: "https://upload.wikimedia.org/wikipedia/en/d/df/Volta_Redonda_Futebol_Clube.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 64 },
 ];
 
 const allTeamsList = [...new Map([...brazilianTeams, ...paulistaTeams, ...cariocaTeams].map(t => [t.id, t])).values()];
