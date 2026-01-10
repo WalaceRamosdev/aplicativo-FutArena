@@ -122,8 +122,10 @@ const gauchoTeams = [
 
     { id: "internacional", name: "Internacional", shortName: "INT", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Escudo_do_Sport_Club_Internacional.svg/1200px-Escudo_do_Sport_Club_Internacional.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 76 },
 
-    { id: "juventude", name: "Juventude", shortName: "JUV", badge: "https://logodetimes.com/times/juventude/logo-juventude-4096.png", 
-        primaryColor: "#FFFFFF", secondaryColor: "#006437", overall: 68 },
+    {
+        id: "juventude", name: "Juventude", shortName: "JUV", badge: "https://logodetimes.com/times/juventude/logo-juventude-4096.png",
+        primaryColor: "#FFFFFF", secondaryColor: "#006437", overall: 68
+    },
 
     { id: "caxias", name: "Caxias", shortName: "CAX", badge: "https://logodetimes.com/times/caxias-do-sul/logo-caxias-do-sul-4096.png", primaryColor: "#FFFFFF", secondaryColor: "#7B0024", overall: 64 },
 
@@ -146,17 +148,28 @@ const gauchoTeams = [
 
 const mineiroTeams = [
     { id: "atletico", name: "Atlético-MG", shortName: "CAM", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Atletico_mineiro_galo.png/250px-Atletico_mineiro_galo.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 78 },
+
     { id: "cruzeiro", name: "Cruzeiro", shortName: "CRU", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Cruzeiro_Esporte_Clube_%28logo%29.svg/2048px-Cruzeiro_Esporte_Clube_%28logo%29.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#003DA5", overall: 77 },
-    { id: "america", name: "América-MG", shortName: "AMG", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/America_Mineiro_logo.png/1200px-America_Mineiro_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#006437", overall: 72 },
-    { id: "tombense", name: "Tombense", shortName: "TOM", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Tombense_Futebol_Clube.png/1200px-Tombense_Futebol_Clube.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 63 },
-    { id: "athletic", name: "Athletic Club", shortName: "ATH", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Athletic_Club_%28Minas_Gerais%29_logo.png/1200px-Athletic_Club_%28Minas_Gerais%29_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 64 },
-    { id: "pousoalegre", name: "Pouso Alegre", shortName: "POU", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Pouso_Alegre_Futebol_Clube_logo.png/1200px-Pouso_Alegre_Futebol_Clube_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 59 },
-    { id: "democrata", name: "Democrata GV", shortName: "DEM", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Esporte_Clube_Democrata_logo.png/1200px-Esporte_Clube_Democrata_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 57 },
-    { id: "itabirito", name: "Itabirito", shortName: "ITA", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Itabirito_Futebol_Clube_logo.png/1200px-Itabirito_Futebol_Clube_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#003893", overall: 55 },
-    { id: "betim", name: "Betim", shortName: "BET", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Betim_Futebol_logo.png/1200px-Betim_Futebol_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#D0202F", overall: 56 },
-    { id: "villanova", name: "Villa Nova", shortName: "VIL", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Villa_Nova_Atletico_Clube_logo.png/1200px-Villa_Nova_Atletico_Clube_logo.png", primaryColor: "#E31D1A", secondaryColor: "#FFFFFF", overall: 56 },
-    { id: "uberlandia", name: "Uberlândia", shortName: "UBE", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Uberlandia_Esporte_Clube_logo.png/1200px-Uberlandia_Esporte_Clube_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#00834B", overall: 58 },
-    { id: "aymores", name: "Aymorés", shortName: "AYM", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Sport_Club_Aymor%C3%A9s_logo.png/1200px-Sport_Club_Aymor%C3%A9s_logo.png", primaryColor: "#0055A4", secondaryColor: "#FFFFFF", overall: 55 }
+
+    { id: "america", name: "América-MG", shortName: "AMG", badge: "//ssl.gstatic.com/onebox/media/sports/logos/xE2RajzsCEoen1wz8g8rhg_96x96.png", primaryColor: "#FFFFFF", secondaryColor: "#006437", overall: 72 },
+
+    { id: "tombense", name: "Tombense", shortName: "TOM", badge: "//ssl.gstatic.com/onebox/media/sports/logos/hVv2tWVGqcgg_W-j_oputw_96x96.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 63 },
+
+    { id: "athletic", name: "Athletic Club", shortName: "ATH", badge: "//ssl.gstatic.com/onebox/media/sports/logos/S9CYRaQLMRSpASVWqjl17A_96x96.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 64 },
+
+    { id: "pousoalegre", name: "Pouso Alegre", shortName: "POU", badge: "//ssl.gstatic.com/onebox/media/sports/logos/tuJNqEe81IR_a01SNlK68g_96x96.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 59 },
+
+    { id: "democrata", name: "Democrata GV", shortName: "DEM", badge: "//ssl.gstatic.com/onebox/media/sports/logos/twM1KSyg1AfIYal17xWZAQ_96x96.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 57 },
+
+    { id: "itabirito", name: "Itabirito", shortName: "ITA", badge: "https://s.sde.globo.com/media/organizations/2024/01/12/itabirito-66507.svg", primaryColor: "#FFFFFF", secondaryColor: "#003893", overall: 55 },
+
+    { id: "betim", name: "Betim", shortName: "BET", badge: "//ssl.gstatic.com/onebox/media/sports/logos/d6JVrza_AUl11TqoxX-Hbg_96x96.png", primaryColor: "#FFFFFF", secondaryColor: "#D0202F", overall: 56 },
+
+    { id: "north", name: "North EC", shortName: "NOR", badge: "https://s.sde.globo.com/media/organizations/2026/01/06/North_EC.svg", primaryColor: "#FFFFFF", secondaryColor: "#003366", overall: 56 },
+
+    { id: "uberlandia", name: "Uberlândia", shortName: "UBE", badge: "//ssl.gstatic.com/onebox/media/sports/logos/aAOQiCjNxB-XrsVLPs9A8g_96x96.png", primaryColor: "#FFFFFF", secondaryColor: "#00834B", overall: 58 },
+
+    { id: "urt", name: "URT", shortName: "URT", badge: "https://s.sde.globo.com/media/organizations/2019/01/08/URT.svg", primaryColor: "#FFFFFF", secondaryColor: "#0000FF", overall: 57 }
 ];
 
 
@@ -1370,14 +1383,14 @@ const LeagueSystem = {
     generateMineiroGroups: (teams) => {
         const groups = { 'A': [], 'B': [], 'C': [] };
 
-        // Group A: Atlético, Tombense, Uberlândia, Betim
-        groups['A'] = ['atletico', 'tombense', 'uberlandia', 'betim'];
+        // Group A: Atlético-MG, Democrata-GV, Uberlândia, URT
+        groups['A'] = ['atletico', 'democrata', 'uberlandia', 'urt'];
 
-        // Group B: América, Athletic, Itabirito, Democrata GV
-        groups['B'] = ['america', 'athletic', 'itabirito', 'democrata'];
+        // Group B: América-MG, Betim, Pouso Alegre, Tombense
+        groups['B'] = ['america', 'betim', 'pousoalegre', 'tombense'];
 
-        // Group C: Cruzeiro, Pouso Alegre, Villa Nova, Aymorés
-        groups['C'] = ['cruzeiro', 'pousoalegre', 'villanova', 'aymores'];
+        // Group C: Athletic, Cruzeiro, Itabirito, North
+        groups['C'] = ['athletic', 'cruzeiro', 'itabirito', 'north'];
 
         return groups;
     },
