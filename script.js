@@ -97,7 +97,7 @@ const cariocaTeams = [
     { id: "fluminense", name: "Fluminense", shortName: "FLU", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Fluminense_FC_escudo.png/1200px-Fluminense_FC_escudo.png", primaryColor: "#FFFFFF", secondaryColor: "#7B0024", overall: 82 },
 
     { id: "botafogo", name: "Botafogo", shortName: "BOT", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Botafogo_de_Futebol_e_Regatas_logo.svg/1200px-Botafogo_de_Futebol_e_Regatas_logo.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 85 },
-    
+
     { id: "vasco", name: "Vasco da Gama", shortName: "VAS", badge: "https://upload.wikimedia.org/wikipedia/pt/thumb/8/8b/EscudoDoVascoDaGama.svg/960px-EscudoDoVascoDaGama.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 79 },
 
     { id: "bangu", name: "Bangu", shortName: "BAN", badge: "https://upload.wikimedia.org/wikipedia/commons/7/70/Bangu_escudo.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 62 },
@@ -117,7 +117,60 @@ const cariocaTeams = [
     { id: "voltaredonda", name: "Volta Redonda", shortName: "VOL", badge: "https://upload.wikimedia.org/wikipedia/en/d/df/Volta_Redonda_Futebol_Clube.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 64 },
 ];
 
-const allTeamsList = [...new Map([...brazilianTeams, ...paulistaTeams, ...cariocaTeams].map(t => [t.id, t])).values()];
+const gauchoTeams = [
+    { id: "gremio", name: "Grêmio", shortName: "GRE", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Gremio_logo.svg/1718px-Gremio_logo.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#0A5EB0", overall: 77 },
+
+    { id: "internacional", name: "Internacional", shortName: "INT", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Escudo_do_Sport_Club_Internacional.svg/1200px-Escudo_do_Sport_Club_Internacional.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 76 },
+
+    { id: "juventude", name: "Juventude", shortName: "JUV", badge: "https://upload.wikimedia.org/wikipedia/pt/thumb/f/f8/E.C._Juventude_logo.svg/1200px-E.C._Juventude_logo.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#006437", overall: 68 },
+
+    { id: "caxias", name: "Caxias", shortName: "CAX", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Ser_caxias_logo.svg/1200px-Ser_caxias_logo.svg.png", primaryColor: "#7B0024", secondaryColor: "#FFFFFF", overall: 64 },
+
+    { id: "ypiranga", name: "Ypiranga", shortName: "YPI", badge: "https://upload.wikimedia.org/wikipedia/pt/8/8d/Ypiranga_Futebol_Clube.png", primaryColor: "#FFF200", secondaryColor: "#006437", overall: 61 },
+
+    { id: "saojose", name: "São José", shortName: "SJO", badge: "https://upload.wikimedia.org/wikipedia/en/7/70/Esporte_Clube_Sao_Jose_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#003893", overall: 59 },
+
+    { id: "avenida", name: "Avenida", shortName: "AVE", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Esporte_Clube_Avenida_logo.png/1200px-Esporte_Clube_Avenida_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#006437", overall: 58 },
+
+    { id: "novohamburgo", name: "Novo Hamburgo", shortName: "NHA", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Esporte_Clube_Novo_Hamburgo_logo.png/1200px-Esporte_Clube_Novo_Hamburgo_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#003893", overall: 57 },
+
+    { id: "saoluiz", name: "São Luiz", shortName: "SLU", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Esporte_Clube_S%C3%A3o_Luiz_logo.png/1200px-Esporte_Clube_S%C3%A3o_Luiz_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 56 },
+
+    { id: "guarany", name: "Guarany de Bagé", shortName: "GUA", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Guarany_Futebol_Clube_logo.png/1200px-Guarany_Futebol_Clube_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 56 },
+
+    { id: "monsoon", name: "Monsoon", shortName: "MON", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Monsoon_FC_logo.png/1200px-Monsoon_FC_logo.png", primaryColor: "#000000", secondaryColor: "#DAA520", overall: 55 },
+
+    { id: "intersm", name: "Inter-SM", shortName: "ISM", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Esporte_Clube_Internacional_de_Santa_Maria_logo.png/1200px-Esporte_Clube_Internacional_de_Santa_Maria_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 55 }
+];
+
+const mineiroTeams = [
+    { id: "atletico", name: "Atlético-MG", shortName: "CAM", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Atletico_mineiro_galo.png/250px-Atletico_mineiro_galo.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 78 },
+
+    { id: "cruzeiro", name: "Cruzeiro", shortName: "CRU", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Cruzeiro_Esporte_Clube_%28logo%29.svg/2048px-Cruzeiro_Esporte_Clube_%28logo%29.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#003DA5", overall: 77 },
+
+    { id: "america", name: "América-MG", shortName: "AMG", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/America_Mineiro_logo.png/1200px-America_Mineiro_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#006437", overall: 72 },
+
+    { id: "tombense", name: "Tombense", shortName: "TOM", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Tombense_Futebol_Clube.png/1200px-Tombense_Futebol_Clube.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 63 },
+
+    { id: "athletic", name: "Athletic Club", shortName: "ATH", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Athletic_Club_%28Minas_Gerais%29_logo.png/1200px-Athletic_Club_%28Minas_Gerais%29_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 64 },
+
+    { id: "pousoalegre", name: "Pouso Alegre", shortName: "POU", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Pouso_Alegre_Futebol_Clube_logo.png/1200px-Pouso_Alegre_Futebol_Clube_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 59 },
+
+    { id: "democrata", name: "Democrata GV", shortName: "DEM", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Esporte_Clube_Democrata_logo.png/1200px-Esporte_Clube_Democrata_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 57 },
+
+    { id: "itabirito", name: "Itabirito", shortName: "ITA", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Itabirito_Futebol_Clube_logo.png/1200px-Itabirito_Futebol_Clube_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#003893", overall: 55 },
+
+    { id: "betim", name: "Betim", shortName: "BET", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Betim_Futebol_logo.png/1200px-Betim_Futebol_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#D0202F", overall: 56 },
+
+    { id: "north", name: "North EC", shortName: "NOR", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/North_Esporte_Clube_logo.png/1200px-North_Esporte_Clube_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#003366", overall: 56 },
+
+    { id: "uberlandia", name: "Uberlândia", shortName: "UBE", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Uberlandia_Esporte_Clube_logo.png/1200px-Uberlandia_Esporte_Clube_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#00834B", overall: 58 },
+
+    { id: "urt", name: "URT", shortName: "URT", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Uniao_Recreativa_dos_Trabalhadores_logo.png/1200px-Uniao_Recreativa_dos_Trabalhadores_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#0000FF", overall: 57 }
+];
+
+
+const allTeamsList = [...new Map([...brazilianTeams, ...paulistaTeams, ...cariocaTeams, ...gauchoTeams, ...mineiroTeams].map(t => [t.id, t])).values()];
 
 
 
@@ -1236,7 +1289,34 @@ const LeagueSystem = {
         'carioca': {
             name: 'Cariocão',
             type: 'league_knockout',
-            rounds: 11
+            rounds: 11,
+            knockout: {
+                semis: { legs: 2, advantage: true },
+                final: { legs: 2 }
+            }
+        },
+        'gaucho': {
+            name: 'Gauchão',
+            type: 'cross_group',
+            groups: 2,
+            teamsPerGroup: 6,
+            rounds: 6,
+            knockout: {
+                quarters: { legs: 2 },
+                semis: { legs: 2 },
+                final: { legs: 2 }
+            }
+        },
+        'mineiro': {
+            name: 'Mineiro',
+            type: 'cross_group_mineiro',
+            groups: 3,
+            teamsPerGroup: 4,
+            rounds: 8,
+            knockout: {
+                semis: { legs: 2 },
+                final: { legs: 2 }
+            }
         }
     },
 
@@ -1283,6 +1363,79 @@ const LeagueSystem = {
         return rounds.filter(r => r.length > 0);
     },
 
+    generateGauchoGroups: (teams) => {
+        const g1Ids = ['internacional', 'juventude', 'avenida', 'saojose', 'guarany', 'saoluiz'];
+        const g2Ids = ['gremio', 'caxias', 'novohamburgo', 'monsoon', 'intersm', 'ypiranga'];
+
+        const groups = { '1': [], '2': [] };
+        teams.forEach(t => {
+            if (g1Ids.includes(t.id)) groups['1'].push(t.id);
+            else if (g2Ids.includes(t.id)) groups['2'].push(t.id);
+            else groups['2'].push(t.id); // Fallback
+        });
+        return groups;
+    },
+
+    generateMineiroGroups: (teams) => {
+        const seeds = ['atletico', 'cruzeiro', 'america'];
+        const others = teams.filter(t => !seeds.includes(t.id)).sort(() => Math.random() - 0.5);
+
+        const groups = { 'A': [], 'B': [], 'C': [] };
+
+        if (seeds[0]) groups['A'].push(seeds[0]);
+        if (seeds[1]) groups['B'].push(seeds[1]);
+        if (seeds[2]) groups['C'].push(seeds[2]);
+
+        ['A', 'B', 'C'].forEach(g => {
+            for (let i = 0; i < 3; i++) {
+                if (others.length > 0) groups[g].push(others.pop().id);
+            }
+        });
+        return groups;
+    },
+
+    generateCrossGroupSchedule: (groups, groupPairs, numRounds) => {
+        let allMatches = [];
+
+        if (groupPairs === 'gaucho') {
+            groups['1'].forEach(t1 => {
+                groups['2'].forEach(t2 => {
+                    allMatches.push({ home: t1, away: t2 });
+                });
+            });
+        } else if (groupPairs === 'mineiro') {
+            const groupKeys = Object.keys(groups);
+            groupKeys.forEach(g1 => {
+                groups[g1].forEach(t1 => {
+                    groupKeys.forEach(g2 => {
+                        if (g1 === g2) return;
+                        groups[g2].forEach(t2 => {
+                            if (!allMatches.find(m => (m.home === t1 && m.away === t2) || (m.home === t2 && m.away === t1))) {
+                                allMatches.push({ home: t1, away: t2 });
+                            }
+                        });
+                    });
+                });
+            });
+        }
+
+        allMatches.sort(() => Math.random() - 0.5);
+        const rounds = Array.from({ length: numRounds }, () => []);
+
+        allMatches.forEach(match => {
+            for (let i = 0; i < numRounds; i++) {
+                const r = rounds[i];
+                if (!r.find(m => m.home === match.home || m.away === match.home || m.home === match.away || m.away === match.away)) {
+                    r.push(match);
+                    return;
+                }
+            }
+            rounds[Math.floor(Math.random() * numRounds)].push(match);
+        });
+
+        return rounds.filter(r => r.length > 0);
+    },
+
     generateRoundRobin: (teamsList) => {
         const teams = teamsList.map(t => t.id);
         const n = teams.length;
@@ -1307,27 +1460,38 @@ const LeagueSystem = {
 const ArcadeManager = {
     userTeamId: null,
     currentLeague: 'brasileirao',
-    currentStage: 'regular', // regular, quarters, semis, final
+    currentStage: 'regular', // 'regular' (groups/league), 'quarters', 'semis', 'final'
+
+    // State
     leagueTeams: [],
-    groups: null,
-    schedule: [],
+    groups: null, // { 'A': [id, id], ... }
+    schedule: [], // Array of rounds (Arrays of matches)
     currentRound: 0,
     standings: {},
-    knockoutBracket: [],
+
+    // Knockout State
+    knockoutBracket: [], // Current knockout matches
+    knockoutRoundIndex: 0, // 0 for first leg, 1 for second leg (if applicable)
+
+    // Economy
     coins: 0,
     overallBoosts: {},
 
     init: (teamId, leagueType = 'brasileirao') => {
         ArcadeManager.userTeamId = teamId;
         ArcadeManager.currentLeague = leagueType;
-        ArcadeManager.currentStage = 'regular';
+        ArcadeManager.currentStage = 'regular'; // Start at regular stage
 
+        // Load Teams
         if (leagueType === 'paulista') ArcadeManager.leagueTeams = [...paulistaTeams];
         else if (leagueType === 'carioca') ArcadeManager.leagueTeams = [...cariocaTeams];
+        else if (leagueType === 'gaucho') ArcadeManager.leagueTeams = [...gauchoTeams];
+        else if (leagueType === 'mineiro') ArcadeManager.leagueTeams = [...mineiroTeams];
         else ArcadeManager.leagueTeams = [...brazilianTeams];
 
+        // Init Stats
         ArcadeManager.standings = {};
-        ArcadeManager.overallBoosts = {};
+        ArcadeManager.overallBoosts = {}; // Reset boosts for new campaign for balance
         ArcadeManager.coins = 0;
 
         ArcadeManager.leagueTeams.forEach(t => {
@@ -1335,12 +1499,24 @@ const ArcadeManager = {
             ArcadeManager.overallBoosts[t.id] = 0;
         });
 
+        // Init Structure
         if (leagueType === 'paulista') {
             ArcadeManager.groups = LeagueSystem.generatePaulistaGroups(ArcadeManager.leagueTeams);
             ArcadeManager.schedule = LeagueSystem.generatePaulistaSchedule(ArcadeManager.groups);
+        } else if (leagueType === 'gaucho') {
+            ArcadeManager.groups = LeagueSystem.generateGauchoGroups(ArcadeManager.leagueTeams);
+            ArcadeManager.schedule = LeagueSystem.generateCrossGroupSchedule(ArcadeManager.groups, 'gaucho', 6);
+        } else if (leagueType === 'mineiro') {
+            ArcadeManager.groups = LeagueSystem.generateMineiroGroups(ArcadeManager.leagueTeams);
+            ArcadeManager.schedule = LeagueSystem.generateCrossGroupSchedule(ArcadeManager.groups, 'mineiro', 8);
         } else {
+            // Brasileirao & Carioca (League format initially)
             ArcadeManager.groups = null;
-            ArcadeManager.schedule = LeagueSystem.generateRoundRobin(ArcadeManager.leagueTeams);
+            if (leagueType === 'carioca') {
+                ArcadeManager.schedule = LeagueSystem.generateRoundRobin(ArcadeManager.leagueTeams);
+            } else {
+                ArcadeManager.schedule = LeagueSystem.generateRoundRobin(ArcadeManager.leagueTeams);
+            }
         }
 
         ArcadeManager.currentRound = 0;
@@ -1350,16 +1526,21 @@ const ArcadeManager = {
 
     loadProgress: (savedData) => {
         Object.assign(ArcadeManager, savedData);
+        // Ensure league logic works
         if (ArcadeManager.currentLeague === 'paulista') ArcadeManager.leagueTeams = [...paulistaTeams];
         else if (ArcadeManager.currentLeague === 'carioca') ArcadeManager.leagueTeams = [...cariocaTeams];
+        else if (ArcadeManager.currentLeague === 'gaucho') ArcadeManager.leagueTeams = [...gauchoTeams];
+        else if (ArcadeManager.currentLeague === 'mineiro') ArcadeManager.leagueTeams = [...mineiroTeams];
         else ArcadeManager.leagueTeams = [...brazilianTeams];
     },
 
     getTeamOverall: (teamId) => {
-        const team = [...brazilianTeams, ...paulistaTeams, ...cariocaTeams].find(t => t.id === teamId);
+        // Helper to find team data
+        const findTeam = (id) => paulistaTeams.find(t => t.id === id) || cariocaTeams.find(t => t.id === id) || gauchoTeams.find(t => t.id === id) || mineiroTeams.find(t => t.id === id) || brazilianTeams.find(t => t.id === id);
+        const team = findTeam(teamId);
         const base = team ? team.overall : 70;
         const boost = ArcadeManager.overallBoosts[teamId] || 0;
-        return Math.min(99, base + boost);
+        return base + boost;
     },
 
     addCoins: (amount) => {
@@ -1393,6 +1574,7 @@ const ArcadeManager = {
         const coinsEl = document.getElementById('arcade-coins');
         const overallEl = document.getElementById('arcade-overall');
         const upgradeCostEl = document.getElementById('upgrade-cost');
+
         if (coinsEl) coinsEl.textContent = ArcadeManager.coins;
         if (overallEl) overallEl.textContent = ArcadeManager.getTeamOverall(ArcadeManager.userTeamId);
         if (upgradeCostEl) {
@@ -1400,6 +1582,395 @@ const ArcadeManager = {
             upgradeCostEl.textContent = cost;
         }
     },
+
+    // ================== MATCH & STANDINGS ==================
+
+    getNextUserMatch: () => {
+        if (ArcadeManager.currentStage === 'regular') {
+            if (ArcadeManager.currentRound >= ArcadeManager.schedule.length) return null;
+            const round = ArcadeManager.schedule[ArcadeManager.currentRound];
+            return round.find(m => m.home === ArcadeManager.userTeamId || m.away === ArcadeManager.userTeamId);
+        } else {
+            // Knockout Logic
+            const match = ArcadeManager.knockoutBracket.find(m =>
+                (m.home === ArcadeManager.userTeamId || m.away === ArcadeManager.userTeamId) && !m.completed
+            );
+            return match;
+        }
+    },
+
+    registerUserResult: (homeId, awayId, scoreHome, scoreAway) => {
+        if (ArcadeManager.currentStage === 'regular') {
+            ArcadeManager.updateStandings(homeId, awayId, scoreHome, scoreAway);
+            ArcadeManager.simulateRound(); // Simulates others
+            ArcadeManager.currentRound++;
+
+            // Economy logic
+            ArcadeManager.processRewards(homeId, awayId, scoreHome, scoreAway);
+            ArcadeManager.checkPhaseTransition();
+        } else {
+            // Knockout
+            ArcadeManager.processKnockoutMatch(homeId, awayId, scoreHome, scoreAway);
+            ArcadeManager.processRewards(homeId, awayId, scoreHome, scoreAway);
+
+            // Simulate other knockout matches
+            ArcadeManager.simulateKnockoutRound();
+            ArcadeManager.checkKnockoutTransition();
+        }
+        StorageManager.saveArcadeProgress();
+    },
+
+    processRewards: (homeId, awayId, scoreHome, scoreAway) => {
+        const userIsHome = homeId === ArcadeManager.userTeamId;
+        const userScore = userIsHome ? scoreHome : scoreAway;
+        const oppScore = userIsHome ? scoreAway : scoreHome;
+        let earned = 50; // base
+        if (userScore > oppScore) earned += 150;
+        else if (userScore == oppScore) earned += 50;
+        earned += userScore * 10;
+        ArcadeManager.addCoins(earned);
+    },
+
+    simulateRound: () => {
+        const round = ArcadeManager.schedule[ArcadeManager.currentRound];
+        round.forEach(m => {
+            if (m.home !== ArcadeManager.userTeamId && m.away !== ArcadeManager.userTeamId) {
+                // Sim Logic
+                const s1 = Math.floor(Math.random() * 5); // simple
+                const s2 = Math.floor(Math.random() * 4);
+                ArcadeManager.updateStandings(m.home, m.away, s1, s2);
+            }
+        });
+    },
+
+    updateStandings: (homeId, awayId, s1, s2) => {
+        const up = (id, f, a) => {
+            if (!ArcadeManager.standings[id]) return;
+            const s = ArcadeManager.standings[id];
+            s.j++; s.gp += f; s.gc += a; s.sg = s.gp - s.gc;
+            if (f > a) { s.v++; s.p += 3; }
+            else if (f == a) { s.e++; s.p += 1; }
+            else s.d++;
+        };
+        up(homeId, s1, s2);
+        up(awayId, s2, s1);
+    },
+
+    // ================== PHASE TRANSITIONS ==================
+
+    checkPhaseTransition: () => {
+        // Check if regular season is done
+        if (ArcadeManager.currentRound < ArcadeManager.schedule.length) return;
+
+        // Season Done. Check rules.
+        if (ArcadeManager.currentLeague === 'paulista') {
+            ArcadeManager.transitionToPaulistaKnockout();
+        } else if (ArcadeManager.currentLeague === 'gaucho') {
+            ArcadeManager.transitionToGauchoKnockout();
+        } else if (ArcadeManager.currentLeague === 'mineiro') {
+            ArcadeManager.transitionToMineiroKnockout();
+        } else if (ArcadeManager.currentLeague === 'carioca') {
+            ArcadeManager.transitionToCariocaKnockout();
+        } else {
+            // Brasileirao Ends
+            ArcadeManager.finishSeason();
+        }
+    },
+
+    getGroupStandings: (groupName) => {
+        // Returns sorted array of team stats for a specific group
+        const groupTeams = ArcadeManager.groups[groupName];
+        return groupTeams.map(tid => ({ id: tid, ...ArcadeManager.standings[tid] }))
+            .sort((a, b) => b.p - a.p || b.v - a.v || b.sg - a.sg);
+    },
+
+    transitionToPaulistaKnockout: () => {
+        // Top 2 of each group
+        const qfMatches = [];
+        ['A', 'B', 'C', 'D'].forEach(g => {
+            const table = ArcadeManager.getGroupStandings(g);
+            // 1st vs 2nd
+            qfMatches.push({
+                id: `QF-${g}`,
+                home: table[0].id, // Better campaign usually home
+                away: table[1].id,
+                stage: 'quarters',
+                completed: false
+            });
+        });
+
+        ArcadeManager.knockoutBracket = qfMatches;
+        ArcadeManager.currentStage = 'quarters';
+        alert("Fase de Grupos encerrada! Iniciando Quartas de Final.");
+    },
+
+    transitionToCariocaKnockout: () => {
+        // Top 4 General
+        const leaderboard = ArcadeManager.getLeaderboard();
+        const top4 = leaderboard.slice(0, 4);
+
+        const semiMatches = [
+            { home: top4[0].id, away: top4[3].id, stage: 'semis', leg: 1 }, // 1 vs 4
+            { home: top4[1].id, away: top4[2].id, stage: 'semis', leg: 1 }  // 2 vs 3
+        ];
+
+        ArcadeManager.knockoutBracket = semiMatches.map(m => ({ ...m, totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0, completed: false }));
+        ArcadeManager.currentStage = 'semis';
+
+        const leagueName = ArcadeManager.currentLeague === 'carioca' ? 'Taça Guanabara' : 'Fase Classificatória';
+        alert(`${leagueName} encerrada! Iniciando Semifinais.`);
+    },
+
+    transitionToGauchoKnockout: () => {
+        // Top 8 General
+        const leaderboard = ArcadeManager.getLeaderboard();
+        const top8 = leaderboard.slice(0, 8);
+
+        // Quarters: 1v8, 2v7, 3v6, 4v5. 2 Legs.
+        const matchUps = [
+            { home: top8[0].id, away: top8[7].id },
+            { home: top8[1].id, away: top8[6].id },
+            { home: top8[2].id, away: top8[5].id },
+            { home: top8[3].id, away: top8[4].id }
+        ];
+
+        ArcadeManager.knockoutBracket = matchUps.map(m => ({
+            ...m, stage: 'quarters', totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0, completed: false
+        }));
+        ArcadeManager.currentStage = 'quarters';
+        alert("Fase Classificatória do Gauchão encerrada!\\nOs 8 melhores avançam para as Quartas.");
+    },
+
+    transitionToMineiroKnockout: () => {
+        // Leaders of A, B, C + Best 2nd Place
+        const winners = ['A', 'B', 'C'].map(g => ArcadeManager.getGroupStandings(g)[0]);
+
+        // Best 2nd: Get all 2nd places, compare
+        const seconds = ['A', 'B', 'C'].map(g => ArcadeManager.getGroupStandings(g)[1]);
+        const bestSecond = seconds.sort((a, b) => b.p - a.p || b.v - a.v || b.sg - a.sg)[0];
+
+        // Combine and Sort by general campaign to decide bracket
+        // Mineiro Semis: 1st General vs 4th General, 2nd vs 3rd.
+        const qualified = [...winners, bestSecond].sort((a, b) => b.p - a.p || b.v - a.v || b.sg - a.sg);
+
+        // Semis Matchups (1 vs 4, 2 vs 3)
+        const semis = [
+            { home: qualified[0].id, away: qualified[3].id },
+            { home: qualified[1].id, away: qualified[2].id }
+        ];
+
+        ArcadeManager.knockoutBracket = semis.map(m => ({
+            ...m, stage: 'semis', totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0, completed: false
+        }));
+        ArcadeManager.currentStage = 'semis';
+        alert("Fase de Grupos do Mineiro encerrada!\\nLíderes e melhor 2º avançam.");
+    },
+
+    // ================== KNOCKOUT LOGIC ==================
+
+    processKnockoutMatch: (homeId, awayId, sHome, sAway) => {
+        const match = ArcadeManager.knockoutBracket.find(m => m.home === homeId && m.away === awayId && !m.completed);
+        if (!match) return;
+
+        match.homeScore = sHome;
+        match.awayScore = sAway;
+        match.completed = true;
+
+        if (match.totalLegs && match.totalLegs > 1) {
+            match.aggHome = (match.aggHome || 0) + sHome;
+            match.aggAway = (match.aggAway || 0) + sAway;
+        }
+    },
+
+    simulateKnockoutRound: () => {
+        ArcadeManager.knockoutBracket.forEach(m => {
+            if (!m.completed && m.home !== ArcadeManager.userTeamId && m.away !== ArcadeManager.userTeamId) {
+                const s1 = Math.floor(Math.random() * 3);
+                const s2 = Math.floor(Math.random() * 3);
+                m.homeScore = s1;
+                m.awayScore = s2;
+                m.completed = true;
+                if (m.totalLegs > 1) {
+                    m.aggHome = (m.aggHome || 0) + s1;
+                    m.aggAway = (m.aggAway || 0) + s2;
+                }
+            }
+        });
+    },
+
+    checkKnockoutTransition: () => {
+        // Check if all matches in bracket are completed
+        if (ArcadeManager.knockoutBracket.some(m => !m.completed)) return;
+
+        // All done. Next step?
+        if (ArcadeManager.currentLeague === 'paulista') {
+            ArcadeManager.advancePaulista();
+        } else if (ArcadeManager.currentLeague === 'gaucho') {
+            ArcadeManager.advanceGaucho();
+        } else if (ArcadeManager.currentLeague === 'mineiro') {
+            ArcadeManager.advanceMineiro();
+        } else if (ArcadeManager.currentLeague === 'carioca') {
+            ArcadeManager.advanceCarioca();
+        }
+    },
+
+    advancePaulista: () => {
+        if (ArcadeManager.currentStage === 'quarters') {
+            const winners = ArcadeManager.knockoutBracket.map(m => {
+                if (m.homeScore > m.awayScore) return m.home;
+                if (m.awayScore > m.homeScore) return m.away;
+                return Math.random() > 0.5 ? m.home : m.away;
+            });
+
+            const semis = [
+                { home: winners[0], away: winners[1], stage: 'semis' },
+                { home: winners[2], away: winners[3], stage: 'semis' }
+            ];
+            ArcadeManager.knockoutBracket = semis;
+            ArcadeManager.currentStage = 'semis';
+            alert("Classificado para as Semifinais!");
+        } else if (ArcadeManager.currentStage === 'semis') {
+            const winners = ArcadeManager.knockoutBracket.map(m => {
+                if (m.homeScore > m.awayScore) return m.home;
+                if (m.awayScore > m.homeScore) return m.away;
+                return Math.random() > 0.5 ? m.home : m.away;
+            });
+
+            const final = [
+                { home: winners[0], away: winners[1], stage: 'final', totalLegs: 2, currentLeg: 1 }
+            ];
+            ArcadeManager.knockoutBracket = final;
+            ArcadeManager.currentStage = 'final';
+            alert("Grande FINAL definida!");
+        } else if (ArcadeManager.currentStage === 'final') {
+            const match = ArcadeManager.knockoutBracket[0];
+            if (match.currentLeg === 1) {
+                match.currentLeg = 2;
+                match.completed = false;
+                const temp = match.home; match.home = match.away; match.away = temp;
+                alert("Fim do primeiro jogo da final! Preparando jogo de volta.");
+            } else {
+                let championId = match.aggHome > match.aggAway ? match.home : match.away;
+                if (match.aggHome == match.aggAway) championId = match.home;
+                const champion = ArcadeManager.leagueTeams.find(t => t.id === championId);
+                showChampionScreen(champion);
+            }
+        }
+    },
+
+    advanceCarioca: () => {
+        if (ArcadeManager.currentStage === 'semis') {
+            const pending = ArcadeManager.knockoutBracket.some(m => m.currentLeg < 2);
+            if (pending) {
+                ArcadeManager.setupSecondLeg();
+                return;
+            }
+
+            const winners = ArcadeManager.resolveWinners();
+            const final = [
+                { home: winners[0], away: winners[1], stage: 'final', totalLegs: 2, currentLeg: 1 }
+            ];
+            ArcadeManager.knockoutBracket = final;
+            ArcadeManager.currentStage = 'final';
+
+            let msg = "Final definida!";
+            if (ArcadeManager.currentLeague === 'carioca') msg = "Final do Cariocão definida!";
+            alert(msg);
+        } else if (ArcadeManager.currentStage === 'final') {
+            const match = ArcadeManager.knockoutBracket[0];
+            if (match.currentLeg === 1) {
+                match.currentLeg = 2;
+                match.completed = false;
+                const temp = match.home; match.home = match.away; match.away = temp;
+                alert("Fim do jogo de ida. Decisão na volta!");
+            } else {
+                let championId = match.aggHome > match.aggAway ? match.home : match.away;
+                if (match.aggHome == match.aggAway) championId = match.home;
+                const champion = ArcadeManager.leagueTeams.find(t => t.id === championId);
+                showChampionScreen(champion);
+            }
+        }
+    },
+
+    advanceGaucho: () => {
+        const stage = ArcadeManager.currentStage;
+        const pending = ArcadeManager.knockoutBracket.some(m => m.currentLeg < 2);
+        if (pending) {
+            ArcadeManager.setupSecondLeg();
+            return;
+        }
+
+        const winners = ArcadeManager.resolveWinners();
+
+        if (stage === 'quarters') {
+            const semis = [
+                { home: winners[0], away: winners[3], stage: 'semis', totalLegs: 2, currentLeg: 1 },
+                { home: winners[1], away: winners[2], stage: 'semis', totalLegs: 2, currentLeg: 1 }
+            ];
+            ArcadeManager.knockoutBracket = semis;
+            ArcadeManager.currentStage = 'semis';
+            alert("Semifinais do Gauchão definidas!");
+        } else if (stage === 'semis') {
+            const final = [
+                { home: winners[0], away: winners[1], stage: 'final', totalLegs: 2, currentLeg: 1 }
+            ];
+            ArcadeManager.knockoutBracket = final;
+            ArcadeManager.currentStage = 'final';
+            alert("Grande Final do Gauchão!");
+        } else if (stage === 'final') {
+            ArcadeManager.finishChampion(winners[0]);
+        }
+    },
+
+    advanceMineiro: () => {
+        const stage = ArcadeManager.currentStage;
+        const pending = ArcadeManager.knockoutBracket.some(m => m.currentLeg < 2);
+        if (pending) {
+            ArcadeManager.setupSecondLeg();
+            return;
+        }
+
+        const winners = ArcadeManager.resolveWinners();
+
+        if (stage === 'semis') {
+            const final = [
+                { home: winners[0], away: winners[1], stage: 'final', totalLegs: 2, currentLeg: 1 }
+            ];
+            ArcadeManager.knockoutBracket = final;
+            ArcadeManager.currentStage = 'final';
+            alert("Grande Final do Mineiro!");
+        } else if (stage === 'final') {
+            ArcadeManager.finishChampion(winners[0]);
+        }
+    },
+
+    setupSecondLeg: () => {
+        ArcadeManager.knockoutBracket.forEach(m => {
+            m.currentLeg = 2;
+            m.completed = false;
+            const t = m.home; m.home = m.away; m.away = t;
+        });
+        alert("Rodada de Volta!");
+    },
+
+    resolveWinners: () => {
+        return ArcadeManager.knockoutBracket.map(m => {
+            if (m.aggHome > m.aggAway) return m.home;
+            if (m.aggAway > m.aggHome) return m.away;
+            return m.home;
+        });
+    },
+
+    finishChampion: (id) => {
+        const team = ArcadeManager.leagueTeams.find(t => t.id === id);
+        showChampionScreen(team);
+    },
+
+    finishSeason: () => {
+        const leaderboard = ArcadeManager.getLeaderboard();
+        showChampionScreen(leaderboard[0]);
+    },
+
 
     getNextUserMatch: () => {
         if (ArcadeManager.currentStage === 'regular') {
@@ -2513,6 +3084,8 @@ function updateArcadeDashboard() {
     else if (ArcadeManager.currentStage === 'semis') stageName = "Semifinais";
     else if (ArcadeManager.currentStage === 'final') stageName = "Grande Final";
     else if (ArcadeManager.currentLeague === 'carioca' && ArcadeManager.currentStage === 'regular') stageName = "Taça Guanabara";
+    else if (ArcadeManager.currentLeague === 'gaucho' && ArcadeManager.currentStage === 'regular') stageName = "Fase Classificatória";
+    else if (ArcadeManager.currentLeague === 'mineiro' && ArcadeManager.currentStage === 'regular') stageName = "Fase de Grupos";
     else if (ArcadeManager.currentLeague === 'brasileirao') stageName = "Pontos Corridos";
 
     currentRoundNum.textContent = stageName + (ArcadeManager.currentStage === 'regular' ? ` - Rodada ${ArcadeManager.currentRound + 1}/${ArcadeManager.schedule.length}` : '');
@@ -2567,6 +3140,13 @@ function renderSimpleStandings() {
             else if (index >= 16) row.style.borderLeft = "4px solid #ff0000";
             arcadeStandingsList.appendChild(row);
         });
+    } else if (ArcadeManager.currentLeague === 'gaucho') {
+        leaderboard.forEach((t, index) => {
+            const row = createStandingRow(t, index + 1);
+            if (index < 8) row.style.borderLeft = "4px solid #00ff00"; // Quarterfinals
+            else if (index >= 10) row.style.borderLeft = "4px solid #ff0000"; // Relegation (11th and 12th)
+            arcadeStandingsList.appendChild(row);
+        });
     } else {
         leaderboard.forEach((t, index) => arcadeStandingsList.appendChild(createStandingRow(t, index + 1)));
     }
@@ -2582,7 +3162,8 @@ function renderGroupStandings() {
         tabsContainer.style.gap = '10px';
         arcadeStandingsList.parentNode.insertBefore(tabsContainer, arcadeStandingsList);
 
-        ['A', 'B', 'C', 'D'].forEach(g => {
+        const groups = ArcadeManager.currentLeague === 'mineiro' ? ['A', 'B', 'C'] : ['A', 'B', 'C', 'D'];
+        groups.forEach(g => {
             const btn = document.createElement('button');
             btn.textContent = `Grupo ${g}`;
             btn.className = 'btn-tab';
@@ -2596,6 +3177,25 @@ function renderGroupStandings() {
             btn.onclick = () => showGroupTable(g);
             tabsContainer.appendChild(btn);
         });
+
+        // Add General Table Tab for Mineiro
+        if (ArcadeManager.currentLeague === 'mineiro') {
+            const btn = document.createElement('button');
+            btn.textContent = `Geral`;
+            btn.className = 'btn-tab';
+            btn.style.flex = '1';
+            // ... styles (reuse class if possible, but inline for now to match above pattern)
+            btn.style.padding = '8px';
+            btn.style.background = '#222';
+            btn.style.border = '1px solid #444';
+            btn.style.color = '#fff';
+            btn.style.borderRadius = '4px';
+            btn.onclick = () => {
+                window.currentGroupView = 'Geral';
+                showGroupTable('Geral');
+            };
+            tabsContainer.appendChild(btn);
+        }
     } else {
         tabsContainer.style.display = 'flex';
     }
@@ -2612,20 +3212,42 @@ window.showGroupTable = (group) => {
     window.currentGroupView = group;
     const tabs = document.querySelectorAll('#group-tabs button');
     tabs.forEach(t => {
-        const active = t.textContent.includes(group);
+        const active = t.textContent.trim() === `Grupo ${group}` || (group === 'Geral' && t.textContent.trim() === 'Geral');
         t.style.background = active ? 'var(--accent-gold)' : '#222';
         t.style.color = active ? '#000' : '#fff';
         t.style.borderColor = active ? 'var(--accent-gold)' : '#444';
     });
 
     arcadeStandingsList.innerHTML = '';
-    const table = ArcadeManager.getGroupStandings(group);
-    table.forEach((t, index) => {
-        const row = createStandingRow(t, index + 1);
-        if (index < 2) row.style.borderLeft = "4px solid #00ff00"; // Qualify
-        else if (ArcadeManager.getLeaderboard().slice(-2).find(x => x.id === t.id)) row.style.borderLeft = "4px solid #ff0000"; // General Relegation
-        arcadeStandingsList.appendChild(row);
-    });
+
+    if (group === 'Geral') {
+        // Mineiro General Table
+        const leaderboard = ArcadeManager.getLeaderboard();
+        leaderboard.forEach((t, index) => {
+            const row = createStandingRow(t, index + 1);
+            // Highlight Leaders (Hard to know who is leader here without context, but we can highlight logic)
+            // Or just show pure table. Relegation bottom 2.
+            if (index >= 10) row.style.borderLeft = "4px solid #ff0000";
+            arcadeStandingsList.appendChild(row);
+        });
+    } else {
+        const table = ArcadeManager.getGroupStandings(group);
+        table.forEach((t, index) => {
+            const row = createStandingRow(t, index + 1);
+
+            if (ArcadeManager.currentLeague === 'paulista') {
+                if (index < 2) row.style.borderLeft = "4px solid #00ff00";
+                // General Relegation Check
+                if (ArcadeManager.getLeaderboard().slice(-2).find(x => x.id === t.id)) row.style.borderLeft = "4px solid #ff0000";
+            } else if (ArcadeManager.currentLeague === 'mineiro') {
+                if (index === 0) row.style.borderLeft = "4px solid #00ff00"; // Leader advances
+                // General Relegation Check
+                if (ArcadeManager.getLeaderboard().slice(-2).find(x => x.id === t.id)) row.style.borderLeft = "4px solid #ff0000";
+            }
+
+            arcadeStandingsList.appendChild(row);
+        });
+    }
 }
 
 function createStandingRow(t, rank) {
@@ -3729,6 +4351,8 @@ window.selectChampionship = function (league) {
     let teamsList;
     if (league === 'paulista') teamsList = paulistaTeams;
     else if (league === 'carioca') teamsList = cariocaTeams;
+    else if (league === 'gaucho') teamsList = gauchoTeams;
+    else if (league === 'mineiro') teamsList = mineiroTeams;
     else teamsList = brazilianTeams;
 
     initTeamSelectionForArcade(teamsList, league);
@@ -3759,6 +4383,8 @@ function initTeamSelectionForArcade(teamsList, leagueName) {
     let leagueDisplay = "BRASILEIRÃO";
     if (leagueName === 'paulista') leagueDisplay = "PAULISTÃO 2026";
     else if (leagueName === 'carioca') leagueDisplay = "CARIOCÃO 2026";
+    else if (leagueName === 'gaucho') leagueDisplay = "GAUCHÃO 2026";
+    else if (leagueName === 'mineiro') leagueDisplay = "CAMPEONATO MINEIRO 2026";
 
     const selectionTitle = document.getElementById('selection-title');
     selectionTitle.innerHTML = `SELECIONE SEU TIME<br><small style="font-size: 0.6em; color: var(--accent-gold);">${leagueDisplay}</small>`;

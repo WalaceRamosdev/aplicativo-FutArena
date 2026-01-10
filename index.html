@@ -191,6 +191,8 @@
         .bg-estaduais { background: radial-gradient(circle at top right, #555, #000); }
         .bg-paulista { background: radial-gradient(circle at top right, #F5F5F5, #111); }
         .bg-carioca { background: radial-gradient(circle at top right, #00aeef, #000); }
+        .bg-gaucho { background: radial-gradient(circle at top right, #008000, #E31D1A); }
+        .bg-mineiro { background: radial-gradient(circle at top right, #E31D1A, #111); }
 
         .sport-card-content {
             position: relative;
@@ -310,6 +312,30 @@
                 </div>
                 <h3 class="sport-title">Cariocão</h3>
                 <p class="sport-desc">Charme e tradição no Maracanã.</p>
+            </div>
+        </div>
+
+        <div class="sport-card" onclick="selectChampionship('gaucho')">
+            <div class="card-bg bg-gaucho"></div>
+            <div class="sport-tag">Rio Grande do Sul</div>
+            <div class="sport-card-content">
+                <div class="sport-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Bandeira_do_Rio_Grande_do_Sul.svg/200px-Bandeira_do_Rio_Grande_do_Sul.svg.png" style="height: 40px; border-radius: 4px;">
+                </div>
+                <h3 class="sport-title">Gauchão</h3>
+                <p class="sport-desc">A força e garra do sul.</p>
+            </div>
+        </div>
+
+        <div class="sport-card" onclick="selectChampionship('mineiro')">
+            <div class="card-bg bg-mineiro"></div>
+            <div class="sport-tag">Minas Gerais</div>
+            <div class="sport-card-content">
+                <div class="sport-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Bandeira_de_Minas_Gerais.svg/200px-Bandeira_de_Minas_Gerais.svg.png" style="height: 40px; border-radius: 4px;">
+                </div>
+                <h3 class="sport-title">Mineiro</h3>
+                <p class="sport-desc">Tradição das Alterosas.</p>
             </div>
         </div>
       </div>
