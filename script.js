@@ -1,19 +1,19 @@
-// ==================== CONFIGURAÃÃO DE MÃSICA (Playlist) ====================
+﻿// ==================== CONFIGURAÇÃO DE MÚSICA (Playlist) ====================
 const PLAYLIST = [
 
     // IMPORTANTE: Certifique-se de que o arquivo mp3 esteja na pasta correta
-    // ADICIONE NOVAS MÃSICAS AQUI:
-    { title: "Mas que Nada", src: "/assets/musicas/SÃ©rgio Mendes - Mas Que Nada 2011 Rio VersÃ£o.mp3" },
+    // ADICIONE NOVAS MÚSICAS AQUI:
+    { title: "Mas que Nada", src: "/assets/musicas/Sérgio Mendes - Mas Que Nada 2011 Rio Versão.mp3" },
     { title: "Marcelo D2 Claudia - Desabafo", src: "/assets/musicas/Marcelo D2 Claudia - Desabafo.mp3" },
-    { title: "Skank - Ã© uma partida de Futebol", src: "/assets/musicas/Skank - Ã uma partida de futebol.mp3" },
-    { title: "Tema do BrasileirÃ£o", src: "/assets/musicas/Tema do BrasileirÃ£o.mp3" },
+    { title: "Skank - É uma partida de Futebol", src: "/assets/musicas/Skank - É uma partida de futebol.mp3" },
+    { title: "Tema do Brasileirão", src: "/assets/musicas/Tema do Brasileirão.mp3" },
     //{ title: "Send Them Off! - Bastille", src: "/assets/musicas/Send-Them-Off_-Bastille.mp3" },
     //{ title: "Supermassive Black Hole", src: "/assets/musicas/Supermassive-Black-Hole.mp3" },
     //{ title: "Doves-Black And White Town", src: "/assets/musicas/Doves-Black And White Town.mp3" },
 ];
 
-// ==================== CONFIGURAÃÃO DOS TIMES ====================
-// Times com overall baseado na classificaÃ§Ã£o do BrasileirÃ£o 2025
+// ==================== CONFIGURAÇÃO DOS TIMES ====================
+// Times com overall baseado na classificação do Brasileirão 2025
 // Overall: 99 (melhor) a 70 (mais fraco)
 const brazilianTeams = [
     { id: "palmeiras", name: "Palmeiras", shortName: "PAL", badge: "https://upload.wikimedia.org/wikipedia/commons/1/10/Palmeiras_logo.svg", primaryColor: "#FFFFFF", secondaryColor: "#006437", overall: 85 },
@@ -24,7 +24,7 @@ const brazilianTeams = [
 
     { id: "internacional", name: "Internacional", shortName: "INT", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Escudo_do_Sport_Club_Internacional.svg/1200px-Escudo_do_Sport_Club_Internacional.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 60 },
 
-    { id: "saopaulo", name: "SÃ£o Paulo", shortName: "SAO", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Brasao_do_Sao_Paulo_Futebol_Clube.svg/1200px-Brasao_do_Sao_Paulo_Futebol_Clube.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#FF0000", overall: 68 },
+    { id: "saopaulo", name: "São Paulo", shortName: "SAO", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Brasao_do_Sao_Paulo_Futebol_Clube.svg/1200px-Brasao_do_Sao_Paulo_Futebol_Clube.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#FF0000", overall: 68 },
 
     { id: "corinthians", name: "Corinthians", shortName: "COR", badge: "https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 65 },
 
@@ -34,15 +34,15 @@ const brazilianTeams = [
 
     { id: "vasco", name: "Vasco", shortName: "VAS", badge: "https://upload.wikimedia.org/wikipedia/pt/thumb/8/8b/EscudoDoVascoDaGama.svg/960px-EscudoDoVascoDaGama.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 67 },
 
-    { id: "gremio", name: "GrÃªmio", shortName: "GRE", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Gremio_logo.svg/1718px-Gremio_logo.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#0A5EB0", overall: 77 },
+    { id: "gremio", name: "Grêmio", shortName: "GRE", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Gremio_logo.svg/1718px-Gremio_logo.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#0A5EB0", overall: 77 },
 
-    { id: "atletico", name: "AtlÃ©tico-MG", shortName: "CAM", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Atletico_mineiro_galo.png/250px-Atletico_mineiro_galo.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 71 },
+    { id: "atletico", name: "Atlético-MG", shortName: "CAM", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Atletico_mineiro_galo.png/250px-Atletico_mineiro_galo.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 71 },
 
     { id: "fluminense", name: "Fluminense", shortName: "FLU", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Fluminense_FC_escudo.png/1200px-Fluminense_FC_escudo.png", primaryColor: "#FFFFFF", secondaryColor: "#7B0024", overall: 70 },
 
     { id: "bragantino", name: "Bragantino", shortName: "RBB", badge: "https://upload.wikimedia.org/wikipedia/pt/9/9e/RedBullBragantino.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 68 },
 
-    { id: "vitoria", name: "VitÃ³ria", shortName: "VIT", badge: "https://upload.wikimedia.org/wikipedia/commons/5/58/Esporte_Clube_Vit%C3%B3ria.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 57 },
+    { id: "vitoria", name: "Vitória", shortName: "VIT", badge: "https://upload.wikimedia.org/wikipedia/commons/5/58/Esporte_Clube_Vit%C3%B3ria.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 57 },
 
     { id: "athletico", name: "Athletico-PR", shortName: "CAP", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Athletico_Paranaense_%28Logo_2019%29.svg/250px-Athletico_Paranaense_%28Logo_2019%29.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 59 },
 
@@ -84,7 +84,7 @@ const paulistaTeams = [
 
     { id: "botafogosp", name: "Botafogo-SP", shortName: "BSP", badge: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Botafogo_Ribeirao_Preto_SP.png", primaryColor: "#FFFFFF", secondaryColor: "#FF0000", overall: 65 },
 
-    { id: "primavera", name: "Primavera", shortName: "PRI", badge: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBsNQxvhlh79TfVqJ7LRuIySm_FuS5a5GtLiPzT1-0dwx4u93gs3cg7cQR2-VLgYybHTJL7UlYpGVfMtoufYtAIxBLljT_ixj2M9Mpdvq-6-pEYDacjxh08hi0rr6buIjVmJ42oAxKhXG9/s1600/ec+primavera.png", primaryColor: "#FFFFFF", secondaryColor: "#FF0000", overall: 58 },
+    { id: "primavera", name: "Primavera", shortName: "PRI", badge: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBsNQxvhlh79TfVqJ7LRuIySm_FuS5a3GtLiPzT1-0dwx4u93gs3cg7cQR2-VLgYybHTJL7UlYpGVfMtoufYtAIxBLljT_ixj2M9Mpdvq-6-pEYDacjxh08hi0rr6buIjVmJ42oAxKhXG9/s1600/ec+primavera.png", primaryColor: "#FFFFFF", secondaryColor: "#FF0000", overall: 58 },
 
     { id: "noroeste", name: "Noroeste", shortName: "NOR", badge: "https://upload.wikimedia.org/wikipedia/pt/3/36/EC_Noroeste.PNG", primaryColor: "#FFFFFF", secondaryColor: "#FF0000", overall: 59 },
 
@@ -203,39 +203,39 @@ const allTeamsList = [...new Map([...brazilianTeams, ...paulistaTeams, ...carioc
 
 
 
-// ==================== SELEÃÃES INTERNACIONAIS (COPA DO MUNDO) ====================
+// ==================== SELEÇÕES INTERNACIONAIS (COPA DO MUNDO) ====================
 const internationalTeams = [
     { id: "brasil", name: "Brasil", shortName: "BRA", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Brazilian_Football_Confederation_logo.svg/1200px-Brazilian_Football_Confederation_logo.svg.png", primaryColor: "#FFDF00", secondaryColor: "#009C3B", overall: 94 },
     { id: "argentina", name: "Argentina", shortName: "ARG", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Argentine_Football_Association_logo.svg/800px-Argentine_Football_Association_logo.svg.png", primaryColor: "#75AADB", secondaryColor: "#FFFFFF", overall: 93 },
-    { id: "franca", name: "FranÃ§a", shortName: "FRA", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/French_Football_Federation_logo.svg/800px-French_Football_Federation_logo.svg.png", primaryColor: "#002395", secondaryColor: "#FFFFFF", overall: 93 },
+    { id: "franca", name: "França", shortName: "FRA", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/French_Football_Federation_logo.svg/800px-French_Football_Federation_logo.svg.png", primaryColor: "#002395", secondaryColor: "#FFFFFF", overall: 93 },
     { id: "inglaterra", name: "Inglaterra", shortName: "ING", badge: "https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/England_national_football_team_crest.svg/1200px-England_national_football_team_crest.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#CE1124", overall: 91 },
     { id: "espanha", name: "Espanha", shortName: "ESP", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Royal_Spanish_Football_Federation_logo.svg/1200px-Royal_Spanish_Football_Federation_logo.svg.png", primaryColor: "#C60B1E", secondaryColor: "#FFC400", overall: 91 },
     { id: "alemanha", name: "Alemanha", shortName: "ALE", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Deutscher_Fussball-Bund_logo.svg/1200px-Deutscher_Fussball-Bund_logo.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 90 },
     { id: "portugal", name: "Portugal", shortName: "POR", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Portuguese_Football_Federation.svg/1200px-Portuguese_Football_Federation.svg.png", primaryColor: "#E42518", secondaryColor: "#006600", overall: 89 },
     { id: "holanda", name: "Holanda", shortName: "HOL", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Royal_Netherlands_Football_Association_Logo.svg/1200px-Royal_Netherlands_Football_Association_Logo.svg.png", primaryColor: "#F36C21", secondaryColor: "#FFFFFF", overall: 88 },
-    { id: "croacia", name: "CroÃ¡cia", shortName: "CRO", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Coat_of_arms_of_Croatia.svg/1200px-Coat_of_arms_of_Croatia.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#FF0000", overall: 86 },
-    { id: "italia", name: "ItÃ¡lia", shortName: "ITA", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/FIGC_logo_2023.svg/1200px-FIGC_logo_2023.svg.png", primaryColor: "#0064AA", secondaryColor: "#FFFFFF", overall: 87 },
-    { id: "belgica", name: "BÃ©lgica", shortName: "BEL", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Royal_Belgian_Football_Association_logo.svg/1200px-Royal_Belgian_Football_Association_logo.svg.png", primaryColor: "#E30613", secondaryColor: "#000000", overall: 85 },
+    { id: "croacia", name: "Croácia", shortName: "CRO", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Coat_of_arms_of_Croatia.svg/1200px-Coat_of_arms_of_Croatia.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#FF0000", overall: 86 },
+    { id: "italia", name: "Itália", shortName: "ITA", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/FIGC_logo_2023.svg/1200px-FIGC_logo_2023.svg.png", primaryColor: "#0064AA", secondaryColor: "#FFFFFF", overall: 87 },
+    { id: "belgica", name: "Bélgica", shortName: "BEL", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Royal_Belgian_Football_Association_logo.svg/1200px-Royal_Belgian_Football_Association_logo.svg.png", primaryColor: "#E30613", secondaryColor: "#000000", overall: 85 },
     { id: "uruguai", name: "Uruguai", shortName: "URU", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Escudo_de_la_Selecci%C3%B3n_Uruguaya_de_F%C3%BAtbol.svg/1200px-Escudo_de_la_Selecci%C3%B3n_Uruguaya_de_F%C3%BAtbol.svg.png", primaryColor: "#5BA4D6", secondaryColor: "#000000", overall: 84 },
-    { id: "colombia", name: "ColÃ´mbia", shortName: "COL", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Federacion_Colombiana_de_Futbol_logo.svg/1200px-Federacion_Colombiana_de_Futbol_logo.svg.png", primaryColor: "#FCD116", secondaryColor: "#003893", overall: 83 },
+    { id: "colombia", name: "Colômbia", shortName: "COL", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Federacion_Colombiana_de_Futbol_logo.svg/1200px-Federacion_Colombiana_de_Futbol_logo.svg.png", primaryColor: "#FCD116", secondaryColor: "#003893", overall: 83 },
     { id: "eua", name: "EUA", shortName: "EUA", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/United_States_Soccer_Federation_logo_2016.svg/1200px-United_States_Soccer_Federation_logo_2016.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#002868", overall: 82 },
-    { id: "mexico", name: "MÃ©xico", shortName: "MEX", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Mexican_Football_Federation_logo.svg/1200px-Mexican_Football_Federation_logo.svg.png", primaryColor: "#006847", secondaryColor: "#CE1126", overall: 81 },
+    { id: "mexico", name: "México", shortName: "MEX", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Mexican_Football_Federation_logo.svg/1200px-Mexican_Football_Federation_logo.svg.png", primaryColor: "#006847", secondaryColor: "#CE1126", overall: 81 },
     { id: "marrocos", name: "Marrocos", shortName: "MAR", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Royal_Moroccan_Football_Federation_logo.svg/1200px-Royal_Moroccan_Football_Federation_logo.svg.png", primaryColor: "#C1272D", secondaryColor: "#006233", overall: 84 },
-    { id: "japao", name: "JapÃ£o", shortName: "JPN", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Japan_Football_Association_logo.svg/1200px-Japan_Football_Association_logo.svg.png", primaryColor: "#000555", secondaryColor: "#FFFFFF", overall: 80 },
+    { id: "japao", name: "Japão", shortName: "JPN", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Japan_Football_Association_logo.svg/1200px-Japan_Football_Association_logo.svg.png", primaryColor: "#000555", secondaryColor: "#FFFFFF", overall: 80 },
     { id: "coreia", name: "Coreia do Sul", shortName: "KOR", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Korea_Football_Association_logo.svg/1200px-Korea_Football_Association_logo.svg.png", primaryColor: "#EC0F31", secondaryColor: "#000000", overall: 79 },
     { id: "senegal", name: "Senegal", shortName: "SEN", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Senegalese_Football_Federation_logo.svg/1200px-Senegalese_Football_Federation_logo.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#00853F", overall: 81 },
-    { id: "suica", name: "SuÃ­Ã§a", shortName: "SUI", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Swiss_Football_Association_logo.svg/1200px-Swiss_Football_Association_logo.svg.png", primaryColor: "#FF0000", secondaryColor: "#FFFFFF", overall: 82 },
+    { id: "suica", name: "Suíça", shortName: "SUI", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Swiss_Football_Association_logo.svg/1200px-Swiss_Football_Association_logo.svg.png", primaryColor: "#FF0000", secondaryColor: "#FFFFFF", overall: 82 },
     { id: "dinamarca", name: "Dinamarca", shortName: "DIN", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Dansk_Boldspil-Union_logo.svg/1200px-Dansk_Boldspil-Union_logo.svg.png", primaryColor: "#C60C30", secondaryColor: "#FFFFFF", overall: 83 },
     { id: "equador", name: "Equador", shortName: "EQU", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Ecuadorian_Football_Federation_logo_2020.svg/1200px-Ecuadorian_Football_Federation_logo_2020.svg.png", primaryColor: "#FFCE00", secondaryColor: "#00338D", overall: 80 },
     { id: "peru", name: "Peru", shortName: "PER", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Peruvian_Football_Federation_logo.svg/1200px-Peruvian_Football_Federation_logo.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#DA1033", overall: 78 },
     { id: "chile", name: "Chile", shortName: "CHI", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Federaci%C3%B3n_de_F%C3%BAtbol_de_Chile_logo.svg/1200px-Federaci%C3%BAtbol_de_Chile_logo.svg.png", primaryColor: "#E30613", secondaryColor: "#0039A6", overall: 77 },
-    { id: "ucrania", name: "UcrÃ¢nia", shortName: "UCR", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Ukrainian_Association_of_Football_logo.svg/1200px-Ukrainian_Association_of_Football_logo.svg.png", primaryColor: "#FFD700", secondaryColor: "#0057B8", overall: 79 },
-    { id: "servia", name: "SÃ©rvia", shortName: "SRB", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Football_Association_of_Serbia_logo.svg/1200px-Football_Association_of_Serbia_logo.svg.png", primaryColor: "#C6363C", secondaryColor: "#FFFFFF", overall: 80 },
-    { id: "polonia", name: "PolÃ´nia", shortName: "POL", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Polish_Football_Association_logo.svg/1200px-Polish_Football_Association_logo.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#DC143C", overall: 81 },
+    { id: "ucrania", name: "Ucrânia", shortName: "UCR", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Ukrainian_Association_of_Football_logo.svg/1200px-Ukrainian_Association_of_Football_logo.svg.png", primaryColor: "#FFD700", secondaryColor: "#0057B8", overall: 79 },
+    { id: "servia", name: "Sérvia", shortName: "SRB", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Football_Association_of_Serbia_logo.svg/1200px-Football_Association_of_Serbia_logo.svg.png", primaryColor: "#C6363C", secondaryColor: "#FFFFFF", overall: 80 },
+    { id: "polonia", name: "Polônia", shortName: "POL", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Polish_Football_Association_logo.svg/1200px-Polish_Football_Association_logo.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#DC143C", overall: 81 },
     { id: "turquia", name: "Turquia", shortName: "TUR", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Turkish_Football_Federation_logo.svg/1200px-Turkish_Football_Federation_logo.svg.png", primaryColor: "#E30A17", secondaryColor: "#FFFFFF", overall: 78 },
-    { id: "australia", name: "AustrÃ¡lia", shortName: "AUS", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Football_Australia_logo.svg/1200px-Football_Australia_logo.svg.png", primaryColor: "#FFD900", secondaryColor: "#014F3C", overall: 76 },
-    { id: "canada", name: "CanadÃ¡", shortName: "CAN", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Canada_Soccer_logo.svg/1200px-Canada_Soccer_logo.svg.png", primaryColor: "#C5281C", secondaryColor: "#000000", overall: 77 },
-    { id: "nigeria", name: "NigÃ©ria", shortName: "NIG", badge: "https://upload.wikimedia.org/wikipedia/en/thumb/9/91/Nigeria_Football_Federation_logo.svg/1200px-Nigeria_Football_Federation_logo.svg.png", primaryColor: "#008753", secondaryColor: "#FFFFFF", overall: 78 },
+    { id: "australia", name: "Austrália", shortName: "AUS", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Football_Australia_logo.svg/1200px-Football_Australia_logo.svg.png", primaryColor: "#FFD900", secondaryColor: "#014F3C", overall: 76 },
+    { id: "canada", name: "Canadá", shortName: "CAN", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Canada_Soccer_logo.svg/1200px-Canada_Soccer_logo.svg.png", primaryColor: "#C5281C", secondaryColor: "#000000", overall: 77 },
+    { id: "nigeria", name: "Nigéria", shortName: "NIG", badge: "https://upload.wikimedia.org/wikipedia/en/thumb/9/91/Nigeria_Football_Federation_logo.svg/1200px-Nigeria_Football_Federation_logo.svg.png", primaryColor: "#008753", secondaryColor: "#FFFFFF", overall: 78 },
     { id: "egito", name: "Egito", shortName: "EGI", badge: "https://upload.wikimedia.org/wikipedia/en/thumb/6/69/Egyptian_Football_Association_logo.svg/1200px-Egyptian_Football_Association_logo.svg.png", primaryColor: "#CE1126", secondaryColor: "#FFFFFF", overall: 77 }
 ];
 
@@ -255,7 +255,7 @@ const WorldCupManager = {
 
     // Gera os grupos (8 grupos de 4)
     generateGroups: () => {
-        // ImplementaÃ§Ã£o simplificada: Distribui times aleatoriamente
+        // Implementação simplificada: Distribui times aleatoriamente
         const allTeams = [...internationalTeams];
         // Embaralhar
         for (let i = allTeams.length - 1; i > 0; i--) {
@@ -348,55 +348,55 @@ const MIN_SPEED = 5;
 const SPEED_SETTINGS = {
     slow: { matchDuration: 60000, rotationMult: 0.5, label: 'Lento' },
     normal: { matchDuration: 40000, rotationMult: 1.0, label: 'Normal' },
-    fast: { matchDuration: 20000, rotationMult: 1.5, label: 'RÃ¡pido' }
+    fast: { matchDuration: 20000, rotationMult: 1.5, label: 'Rápido' }
 };
 
-// ==================== IMAGENS DE FUNDO (EstÃ¡dios Brasileiros) ====================
-// EstÃ¡dios icÃ´nicos do futebol brasileiro
+// ==================== IMAGENS DE FUNDO (Estádios Brasileiros) ====================
+// Estádios icônicos do futebol brasileiro
 const BG_IMAGES = [
     "https://static.vecteezy.com/ti/vetor-gratis/p1/15451551-a-bola-na-rede-de-futebol-conceito-de-de-gol-com-a-bandeira-do-brasil-banner-de-3d-com-efeito-de-desfoque-vetor.jpg",
 ];
 
 /*
-// ==================== COMENTÃRIOS DE IA ====================
+// ==================== COMENTÁRIOS DE IA ====================
 const AICommentator = {
     comments: {
         winnerHumor: [
             "Nem o VAR salvaria o perdedor dessa!",
-            "Que aula de futebol! O adversÃ¡rio sÃ³ assistiu!",
-            "Isso sim Ã© futebol! O outro time sÃ³ fez turismo!",
-            "Amassou! Parecia jogo de videogame no modo fÃ¡cil!",
-            "DomÃ­nio absoluto! O rival precisa voltar pra escolinha!",
-            "Show de bola! O adversÃ¡rio ainda estÃ¡ procurando a bola!",
-            "VitÃ³ria merecida! O outro time sÃ³ serviu de sparring!",
+            "Que aula de futebol! O adversário só assistiu!",
+            "Isso sim é futebol! O outro time só fez turismo!",
+            "Amassou! Parecia jogo de videogame no modo fácil!",
+            "Domínio absoluto! O rival precisa voltar pra escolinha!",
+            "Show de bola! O adversário ainda está procurando a bola!",
+            "Vitória merecida! O outro time só serviu de sparring!",
         ],
         loserCriticism: [
-            "Perdeu feio, perdeu de montÃ£o. Vai treinar!",
-            "Esse time precisa de um psicÃ³logo urgente!",
-            "Nem minha avÃ³ jogando de salto alto perderia assim!",
-            "Time sem vergonha! Voltou pro vestiÃ¡rio de cabeÃ§a baixa!",
+            "Perdeu feio, perdeu de montão. Vai treinar!",
+            "Esse time precisa de um psicólogo urgente!",
+            "Nem minha avó jogando de salto alto perderia assim!",
+            "Time sem vergonha! Voltou pro vestiário de cabeça baixa!",
             "Futebol horroroso! Pareciam 11 cones em campo!",
-            "Desempenho vergonhoso! O tÃ©cnico deve estar arrependido!",
-            "Esse time jogou como se nÃ£o quisesse ganhar!",
+            "Desempenho vergonhoso! O técnico deve estar arrependido!",
+            "Esse time jogou como se não quisesse ganhar!",
         ],
         drawComments: [
-            "Empate justo! NinguÃ©m quis a vitÃ³ria de verdade!",
+            "Empate justo! Ninguém quis a vitória de verdade!",
             "Dois times medrosos. Empataram e foram felizes!",
-            "Empate morno. Faltou raÃ§a dos dois lados!",
-            "Um ponto pra cada. Melhor que perder, nÃ©?",
-            "Jogo equilibrado! Ou seria mediocridade mÃºtua?",
+            "Empate morno. Faltou raça dos dois lados!",
+            "Um ponto pra cada. Melhor que perder, né?",
+            "Jogo equilibrado! Ou seria mediocridade mútua?",
         ],
         goalReaction: [
             "GOOOOL! A torcida explode!",
-            "GOLAÃO! Que pintura!",
-            "ENTROU! NÃ£o tinha goleiro que segurasse!",
-            "GOL! A rede balanÃ§ou!",
-            "Ã GOL! Que jogada sensacional!",
+            "GOLA�?O! Que pintura!",
+            "ENTROU! Não tinha goleiro que segurasse!",
+            "GOL! A rede balançou!",
+            "�? GOL! Que jogada sensacional!",
         ],
         closeGame: [
             "Jogo apertado! Decidido nos detalhes!",
-            "VitÃ³ria suada! Foi na raÃ§a!",
-            "Partida emocionante atÃ© o fim!",
+            "Vitória suada! Foi na raça!",
+            "Partida emocionante até o fim!",
         ]
     },
 
@@ -433,12 +433,12 @@ const AICommentator = {
 };
 */
 
-// ==================== COMENTÃRIOS DE IA ULTRA CONTEXTUAIS ====================
+// ==================== COMENTÁRIOS DE IA ULTRA CONTEXTUAIS ====================
 const AICommentator = {
     lastCommentIndex: {},
     matchEvents: [], // Rastreia eventos durante a partida
 
-    // Registra eventos durante a partida para comentÃ¡rios mais precisos
+    // Registra eventos durante a partida para comentários mais precisos
     registerEvent: (type, data) => {
         AICommentator.matchEvents.push({ type, data, time: Date.now() });
     },
@@ -448,178 +448,178 @@ const AICommentator = {
     },
 
     comments: {
-        // ComentÃ¡rios baseados no placar especÃ­fico
+        // Comentários baseados no placar específico
         scoreSpecific: {
             '1-0': [
-                "VitÃ³ria magra, mas 3 pontos Ã© 3 pontos!",
-                "Placar apertado! Um gol de diferenÃ§a foi suficiente.",
-                "VitÃ³ria por 1x0 clÃ¡ssica! EficiÃªncia pura.",
-                "Ganhou de 1 a 0, agora Ã© segurar o resultado!"
+                "Vitória magra, mas 3 pontos é 3 pontos!",
+                "Placar apertado! Um gol de diferença foi suficiente.",
+                "Vitória por 1x0 clássica! Eficiência pura.",
+                "Ganhou de 1 a 0, agora é segurar o resultado!"
             ],
             '2-0': [
-                "Duas vezes na rede! VitÃ³ria segura e merecida.",
-                "2 a 0 Ã© um placar tranquilo. Time dominante!",
-                "Dois gols de vantagem! Jogo controlado do inÃ­cio ao fim."
+                "Duas vezes na rede! Vitória segura e merecida.",
+                "2 a 0 é um placar tranquilo. Time dominante!",
+                "Dois gols de vantagem! Jogo controlado do início ao fim."
             ],
             '2-1': [
-                "2 a 1! Jogo disputado atÃ© o final!",
+                "2 a 1! Jogo disputado até o final!",
                 "Placar de 2 a 1 mostra que o jogo foi equilibrado.",
                 "Venceu por 2 a 1, mas suou a camisa!"
             ],
             '3-0': [
-                "3 a 0! Atropelo total no adversÃ¡rio!",
-                "TrÃªs gols sem resposta! DomÃ­nio absoluto.",
+                "3 a 0! Atropelo total no adversário!",
+                "Três gols sem resposta! Domínio absoluto.",
                 "Passou o carro! 3 a 0 sem piedade."
             ],
             '3-1': [
-                "3 a 1! VitÃ³ria convincente mesmo com gol de honra.",
-                "Goleou por 3 a 1! O gol adversÃ¡rio foi sÃ³ consolo."
+                "3 a 1! Vitória convincente mesmo com gol de honra.",
+                "Goleou por 3 a 1! O gol adversário foi só consolo."
             ],
             '3-2': [
                 "3 a 2! Que jogo emocionante! Muitos gols!",
-                "Placar de 3 a 2 - partida de tirar o fÃ´lego!",
-                "Cinco gols nessa partida! EspetÃ¡culo total!"
+                "Placar de 3 a 2 - partida de tirar o fôlego!",
+                "Cinco gols nessa partida! Espetáculo total!"
             ],
             '0-0': [
-                "0 a 0! Defesas impecÃ¡veis dos dois lados.",
-                "Empate sem gols. Faltou caprichar na finalizaÃ§Ã£o!",
-                "NinguÃ©m balanÃ§ou a rede! Jogo travado."
+                "0 a 0! Defesas impecáveis dos dois lados.",
+                "Empate sem gols. Faltou caprichar na finalização!",
+                "Ninguém balançou a rede! Jogo travado."
             ],
             '1-1': [
                 "1 a 1! Empate justo, cada um fez o seu.",
-                "Placar de 1 a 1 - equilÃ­brio total em campo.",
-                "Um gol pra cada. JustiÃ§a feita!"
+                "Placar de 1 a 1 - equilíbrio total em campo.",
+                "Um gol pra cada. Justiça feita!"
             ],
             '2-2': [
-                "2 a 2! Quatro gols e emoÃ§Ã£o do inÃ­cio ao fim!",
-                "Empate em 2 a 2 - ninguÃ©m quis perder!",
+                "2 a 2! Quatro gols e emoção do início ao fim!",
+                "Empate em 2 a 2 - ninguém quis perder!",
                 "Dois pra cada lado! Jogo aberto demais."
             ]
         },
 
-        // ComentÃ¡rios sobre virada
+        // Comentários sobre virada
         turnaround: [
-            "QUE VIRADA ESPETACULAR! ComeÃ§ou perdendo e terminou vencendo!",
+            "QUE VIRADA ESPETACULAR! Começou perdendo e terminou vencendo!",
             "VIROU O JOGO! Buscou o resultado quando parecia perdido!",
-            "Virada histÃ³rica! CarÃ¡ter de campeÃ£o apareceu!",
-            "Estava atrÃ¡s no placar e buscou a virada! INCRÃVEL!",
-            "Nunca desistiu! Virou o jogo e calou a torcida adversÃ¡ria!"
+            "Virada histórica! Caráter de campeão apareceu!",
+            "Estava atrás no placar e buscou a virada! INCRÍVEL!",
+            "Nunca desistiu! Virou o jogo e calou a torcida adversária!"
         ],
 
-        // ComentÃ¡rios sobre goleada (4+ gols de diferenÃ§a)
+        // Comentários sobre goleada (4+ gols de diferença)
         blowout: [
-            "MASSACRE! Passou o trator em cima do adversÃ¡rio!",
-            "GOLEADA HISTÃRICA! NÃ£o teve piedade!",
-            "HUMILHOU! O adversÃ¡rio vai querer esquecer esse jogo!",
-            "ATROPELO TOTAL! Pareciam times de divisÃµes diferentes!",
-            "DESTRUIÃÃO! O placar nÃ£o deixa dÃºvidas sobre quem mandou!"
+            "MASSACRE! Passou o trator em cima do adversário!",
+            "GOLEADA HISTÓRICA! Não teve piedade!",
+            "HUMILHOU! O adversário vai querer esquecer esse jogo!",
+            "ATROPELO TOTAL! Pareciam times de divisões diferentes!",
+            "DESTRUIÇÃO! O placar não deixa dúvidas sobre quem mandou!"
         ],
 
         // Zebra (fraco vence forte)
         underdog: [
-            "ZEBRA! O azarÃ£o venceu o favorito! Futebol Ã© isso!",
-            "SURPRESA! NinguÃ©m acreditava nessa vitÃ³ria!",
+            "ZEBRA! O azarão venceu o favorito! Futebol é isso!",
+            "SURPRESA! Ninguém acreditava nessa vitória!",
             "David derrubou Golias! Resultado surpreendente!",
-            "O fraco venceu o forte! No futebol, tudo pode acontecer!"
+            "🦓 O fraco venceu o forte! No futebol, tudo pode acontecer!"
         ],
 
         // Favorito perdeu
         favoriteLoser: [
-            "O favorito tropeÃ§ou! Vexame inesperado!",
-            "Subestimou o adversÃ¡rio e pagou caro!",
-            "O poderoso caiu! Futebol nÃ£o perdoa soberba!"
+            "O favorito tropeçou! Vexame inesperado!",
+            "Subestimou o adversário e pagou caro!",
+            "O poderoso caiu! Futebol não perdoa soberba!"
         ],
 
-        // ClÃ¡ssico
+        // Clássico
         classico: [
-            "CLÃSSICO Ã CLÃSSICO! Jogo de rivalidade eterna!",
+            "CLÁSSICO É CLÁSSICO! Jogo de rivalidade eterna!",
             "Derby emocionante! A torcida vai falar disso por semanas!",
-            "Rivalidade histÃ³rica em campo! Jogo pegado!",
-            "ClÃ¡ssico Ã©pico! Momento para a histÃ³ria!"
+            "Rivalidade histórica em campo! Jogo pegado!",
+            "Clássico épico! Momento para a história!"
         ],
 
         // Jogo com muitos gols (5+)
         highScoring: [
             "Chuva de gols! As defesas tiraram folga hoje!",
             "Jogo de muitos gols! Festival ofensivo!",
-            "Partida eletrizante com gols em abundÃ¢ncia!"
+            "Partida eletrizante com gols em abundância!"
         ],
 
-        // Jogo decidido no final (gol apÃ³s min 80)
+        // Jogo decidido no final (gol após min 80)
         lateGoal: [
-            "Gol no final! Que emoÃ§Ã£o nos minutos finais!",
-            "Decidiu nos acrÃ©scimos! CoraÃ§Ã£o nÃ£o aguenta!",
+            "Gol no final! Que emoção nos minutos finais!",
+            "Decidiu nos acréscimos! Coração não aguenta!",
             "Gol salvador no fim do jogo! Torcida explodiu!"
         ],
 
-        // ComentÃ¡rios sobre posiÃ§Ã£o na tabela
+        // Comentários sobre posição na tabela
         leader: [
-            "LÃ­der isolado! Caminhando firme para o tÃ­tulo!",
-            "No topo da tabela! Ritmo de campeÃ£o!",
-            "LideranÃ§a mantida! Segue na ponta!"
+            "Líder isolado! Caminhando firme para o título!",
+            "No topo da tabela! Ritmo de campeão!",
+            "Liderança mantida! Segue na ponta!"
         ],
 
         relegation: [
             "Jogo de desespero na zona de rebaixamento!",
             "Briga contra o descenso! Cada ponto vale ouro!",
-            "Zona da degola! TensÃ£o mÃ¡xima!"
+            "Zona da degola! Tensão máxima!"
         ],
 
-        // ReaÃ§Ãµes de gol contextuais
+        // Reações de gol contextuais
         goalReactions: {
             firstGoal: [
                 "ABRE O PLACAR! Primeiro gol do jogo!",
-                "SAIU O PRIMEIRO! A rede balanÃ§ou!",
+                "SAIU O PRIMEIRO! A rede balançou!",
                 "GOL! O placar finalmente foi aberto!"
             ],
             equalizer: [
-                "EMPATE! A rede balanÃ§ou e estÃ¡ tudo igual!",
+                "EMPATE! A rede balançou e está tudo igual!",
                 "EMPATOU O JOGO! Buscou a igualdade!",
-                "GOL DE EMPATE! EstÃ¡ 1 a 1 novamente!"
+                "GOL DE EMPATE! Está 1 a 1 novamente!"
             ],
             goAhead: [
-                "VIROU! Agora estÃ¡ na frente do placar!",
-                "GOL DA VIRADA! Passou Ã  frente!",
+                "VIROU! Agora está na frente do placar!",
+                "GOL DA VIRADA! Passou à frente!",
                 "DESEMPATE! Saiu na frente!"
             ],
             extend: [
                 "AMPLIA! Aumentou a vantagem no placar!",
-                "MAIS UM! A diferenÃ§a sÃ³ aumenta!",
-                "GOL! O placar fica ainda mais elÃ¡stico!"
+                "MAIS UM! A diferença só aumenta!",
+                "GOL! O placar fica ainda mais elástico!"
             ],
             consolation: [
-                "GOL DE HONRA! Diminuiu a diferenÃ§a!",
+                "GOL DE HONRA! Diminuiu a diferença!",
                 "DESCONTOU! Ainda tem jogo!",
-                "GOL! Ainda dÃ¡ tempo de buscar!"
+                "GOL! Ainda dá tempo de buscar!"
             ],
             lateTie: [
                 "EMPATE NO FIM! Arrancou um ponto!",
-                "EMPATOU NOS ACRÃSCIMOS! Que emoÃ§Ã£o!",
+                "EMPATOU NOS ACRÉSCIMOS! Que emoção!",
                 "GOL SALVADOR! Escapou da derrota!"
             ]
         },
 
-        // ComentÃ¡rios genÃ©ricos de fallback
+        // Comentários genéricos de fallback
         generic: {
             win: [
-                "VitÃ³ria merecida! Mandou bem em campo!",
-                "Ganhou e convenceu! ParabÃ©ns ao vencedor!",
-                "TrÃªs pontos no bolso! Resultado positivo!"
+                "Vitória merecida! Mandou bem em campo!",
+                "Ganhou e convenceu! Parabéns ao vencedor!",
+                "Três pontos no bolso! Resultado positivo!"
             ],
             loss: [
                 "Perdeu, mas a luta continua!",
-                "Resultado negativo, mas cabeÃ§a erguida!",
-                "NÃ£o foi dessa vez. PrÃ³ximo jogo Ã© outra histÃ³ria!"
+                "Resultado negativo, mas cabeça erguida!",
+                "Não foi dessa vez. Próximo jogo é outra história!"
             ],
             draw: [
                 "Empate! Um ponto dividido para cada.",
-                "NinguÃ©m saiu vencedor. Empate justo!",
+                "Ninguém saiu vencedor. Empate justo!",
                 "Dividiu os pontos! Resultado equilibrado."
             ]
         }
     },
 
-    // Evita repetiÃ§Ã£o pegando Ã­ndice diferente do Ãºltimo
+    // Evita repetição pegando índice diferente do último
     getRandomComment: (category, subcategory = null) => {
         let arr;
         if (subcategory) {
@@ -646,7 +646,7 @@ const AICommentator = {
         return arr[newIndex];
     },
 
-    // Gera comentÃ¡rio altamente contextual baseado em tudo que aconteceu
+    // Gera comentário altamente contextual baseado em tudo que aconteceu
     generateMatchComment: (team1, team2, score1, score2, context = {}) => {
         const isDraw = score1 === score2;
         const winner = score1 > score2 ? team1 : team2;
@@ -667,7 +667,7 @@ const AICommentator = {
         const isUpset = loserOvr - winnerOvr >= 10;
         const isFavoriteLoser = winnerOvr - loserOvr >= 10;
 
-        // Detectar clÃ¡ssico
+        // Detectar clássico
         const classicos = [
             ['flamengo', 'fluminense'], ['flamengo', 'vasco'], ['flamengo', 'botafogo'],
             ['corinthians', 'palmeiras'], ['corinthians', 'saopaulo'], ['saopaulo', 'palmeiras'],
@@ -679,7 +679,7 @@ const AICommentator = {
 
         let comments = [];
 
-        // 1. COMENTÃRIO PRINCIPAL BASEADO NO PLACAR ESPECÃFICO
+        // 1. COMENTÁRIO PRINCIPAL BASEADO NO PLACAR ESPECÍFICO
         const scoreKey = `${winnerScore}-${loserScore}`;
         const reverseScoreKey = `${loserScore}-${winnerScore}`;
 
@@ -700,7 +700,7 @@ const AICommentator = {
             comments.push(AICommentator.getRandomComment('favoriteLoser'));
         }
 
-        // 3. CONTEXTO DE CLÃSSICO
+        // 3. CONTEXTO DE CLÁSSICO
         if (isClassico) {
             comments.push(AICommentator.getRandomComment('classico'));
         }
@@ -715,7 +715,7 @@ const AICommentator = {
             comments.push(AICommentator.getRandomComment('lateGoal'));
         }
 
-        // 6. CONTEXTO DE TABELA (posiÃ§Ã£o no campeonato)
+        // 6. CONTEXTO DE TABELA (posição no campeonato)
         if (standings && Object.keys(standings).length > 0) {
             const leaderboard = Object.entries(standings)
                 .map(([id, stats]) => ({ id, ...stats }))
@@ -731,7 +731,7 @@ const AICommentator = {
             }
         }
 
-        // 7. FALLBACK - ComentÃ¡rio genÃ©rico se nÃ£o tiver nada ainda
+        // 7. FALLBACK - Comentário genérico se não tiver nada ainda
         if (comments.length === 0) {
             if (isDraw) {
                 comments.push(AICommentator.getRandomComment('generic', 'draw'));
@@ -740,15 +740,15 @@ const AICommentator = {
             }
         }
 
-        // 8. RESUMO DO JOGO - Adiciona informaÃ§Ã£o sobre os times
+        // 8. RESUMO DO JOGO - Adiciona informação sobre os times
         const matchSummary = `${team1.shortName} ${score1} x ${score2} ${team2.shortName}`;
 
-        // Limitar a 2 comentÃ¡rios e formatar bonito
+        // Limitar a 2 comentários e formatar bonito
         const finalComments = comments.slice(0, 2);
         return finalComments.join(' ');
     },
 
-    // Gera reaÃ§Ã£o de gol contextual baseada no momento
+    // Gera reação de gol contextual baseada no momento
     getGoalReaction: (scoringTeam, currentScore1, currentScore2, matchTime) => {
         const isTeam1 = scoringTeam === 1;
         const newScore1 = isTeam1 ? currentScore1 + 1 : currentScore1;
@@ -773,7 +773,7 @@ const AICommentator = {
             return AICommentator.getRandomComment('goalReactions', 'equalizer');
         }
 
-        // Gol de virada (estava perdendo, agora estÃ¡ ganhando)
+        // Gol de virada (estava perdendo, agora está ganhando)
         if (wasLosing && !isNowDrawn) {
             return AICommentator.getRandomComment('goalReactions', 'goAhead');
         }
@@ -799,24 +799,24 @@ const AICommentator = {
 };
 
 
-// ==================== GERENCIADOR DE ÃUDIO ====================
+// ==================== GERENCIADOR DE ÁUDIO ====================
 class SoundManager {
     constructor() {
         this.sfxEnabled = true; // Efeitos sonoros
-        this.musicEnabled = true; // MÃºsica de fundo
+        this.musicEnabled = true; // Música de fundo
         this.allMuted = false; // Mudo geral
         this.ctx = null;
         this.crowdNode = null;
         this.crowdGain = null;
 
-        // Player de MÃºsica
+        // Player de Música
         this.bgmPlayer = new Audio();
         this.bgmPlayer.autoplay = true; // Tenta autoplay nativo
         this.bgmPlayer.loop = false; // Loop controlado manualmente para tocar playlist
-        this.bgmPlayer.volume = 0.4; // Volume inicial da mÃºsica
+        this.bgmPlayer.volume = 0.4; // Volume inicial da música
         this.currentTrackIndex = 0;
 
-        // Ao terminar uma mÃºsica, vai para a prÃ³xima (loop da playlist)
+        // Ao terminar uma música, vai para a próxima (loop da playlist)
         this.bgmPlayer.addEventListener('ended', () => {
             if (!this.allMuted) this.playNext();
         });
@@ -828,13 +828,13 @@ class SoundManager {
         }
     }
 
-    // --- Controle de MÃºsica ---
+    // --- Controle de Música ---
     loadTrack() {
         if (PLAYLIST.length === 0) return;
         const track = PLAYLIST[this.currentTrackIndex];
         const newSrc = new URL(track.src, document.baseURI).href;
 
-        // SÃ³ recarrega se for diferente, para nÃ£o interromper se jÃ¡ estiver tocando
+        // Só recarrega se for diferente, para não interromper se já estiver tocando
         if (this.bgmPlayer.src !== newSrc) {
             this.bgmPlayer.src = track.src;
         }
@@ -845,7 +845,7 @@ class SoundManager {
         if (PLAYLIST.length === 0 || this.allMuted) return;
         this.musicEnabled = true;
 
-        // Se nÃ£o tiver src carregado, carrega
+        // Se não tiver src carregado, carrega
         if (!this.bgmPlayer.src || this.bgmPlayer.src === '') {
             this.loadTrack();
         }
@@ -856,11 +856,11 @@ class SoundManager {
             playPromise.then(() => {
                 this.updatePlayerUI();
             }).catch(error => {
-                console.warn("Autoplay bloqueado pelo navegador. Aguardando interaÃ§Ã£o do usuÃ¡rio.");
+                console.warn("Autoplay bloqueado pelo navegador. Aguardando interação do usuário.");
                 this.updatePlayerUI(false);
             });
         }
-        // Garante que o player fique visÃ­vel ao tentar tocar
+        // Garante que o player fique visível ao tentar tocar
         const playerBar = document.getElementById('music-player-bar');
         if (playerBar && !isPlaying) playerBar.classList.add('visible');
     }
@@ -898,7 +898,7 @@ class SoundManager {
         const playerBar = document.getElementById('music-player-bar');
 
         if (PLAYLIST.length === 0) {
-            if (trackNameEl) trackNameEl.textContent = "Sem mÃºsicas";
+            if (trackNameEl) trackNameEl.textContent = "Sem músicas";
             return;
         }
 
@@ -908,7 +908,7 @@ class SoundManager {
 
         if (btnPlayPause) {
             const isPlaying = forcePausedState !== undefined ? !forcePausedState : !this.bgmPlayer.paused;
-            btnPlayPause.textContent = isPlaying ? "â¸" : "â¶";
+            btnPlayPause.textContent = isPlaying ? "⏸" : "�?�";
             btnPlayPause.title = isPlaying ? "Pausar" : "Tocar";
 
             if (playerBar) {
@@ -926,7 +926,7 @@ class SoundManager {
         if (this.allMuted) {
             this.pauseMusic();
             this.stopCrowd();
-            // Silenciar o player de mÃºsica
+            // Silenciar o player de música
             this.bgmPlayer.muted = true;
         } else {
             this.bgmPlayer.muted = false;
@@ -978,14 +978,14 @@ class SoundManager {
 
     startCrowd() {
         if (!this.sfxEnabled || !this.ctx) return;
-        if (this.crowdNode) return; // JÃ¡ estÃ¡ tocando
+        if (this.crowdNode) return; // Já está tocando
 
         const buffer = this.createNoiseBuffer();
         this.crowdNode = this.ctx.createBufferSource();
         this.crowdNode.buffer = buffer;
         this.crowdNode.loop = true;
 
-        // Filtro para parecer "estÃ¡dio distante" (Lowpass)
+        // Filtro para parecer "estádio distante" (Lowpass)
         const filter = this.ctx.createBiquadFilter();
         filter.type = 'lowpass';
         filter.frequency.value = 800;
@@ -999,7 +999,7 @@ class SoundManager {
 
         this.crowdNode.start();
 
-        // Iniciar variaÃ§Ãµes dinÃ¢micas da torcida
+        // Iniciar variações dinâmicas da torcida
         this.startDynamicCrowd();
     }
 
@@ -1014,21 +1014,21 @@ class SoundManager {
         this.stopDynamicCrowd();
     }
 
-    // Sons dinÃ¢micos de torcida durante a partida
+    // Sons dinâmicos de torcida durante a partida
     startDynamicCrowd() {
         if (this.dynamicCrowdInterval) return;
 
         this.dynamicCrowdInterval = setInterval(() => {
             if (!isPlaying || !this.sfxEnabled) return;
 
-            // Chance aleatÃ³ria de reaÃ§Ãµes da torcida
+            // Chance aleatória de reações da torcida
             const rand = Math.random();
 
             if (rand < 0.15) {
-                // CÃ¢ntico da torcida (onda sonora)
+                // Cântico da torcida (onda sonora)
                 this.playCrowdChant();
             } else if (rand < 0.25) {
-                // ReaÃ§Ã£o de tensÃ£o
+                // Reação de tensão
                 this.playTensionReaction();
             } else if (rand < 0.35) {
                 // Aplausos
@@ -1047,8 +1047,8 @@ class SoundManager {
     playCrowdChant() {
         if (!this.sfxEnabled || !this.ctx) return;
 
-        // Simula cÃ¢ntico "olÃ© olÃ© olÃ©"
-        const notes = [440, 523.25, 440, 349.23]; // Notas do cÃ¢ntico
+        // Simula cântico "olé olé olé"
+        const notes = [440, 523.25, 440, 349.23]; // Notas do cântico
         const now = this.ctx.currentTime;
 
         notes.forEach((freq, i) => {
@@ -1073,7 +1073,7 @@ class SoundManager {
     playTensionReaction() {
         if (!this.sfxEnabled || !this.ctx || !this.crowdGain) return;
 
-        // Aumenta o volume brevemente (tensÃ£o)
+        // Aumenta o volume brevemente (tensão)
         const now = this.ctx.currentTime;
         this.crowdGain.gain.cancelScheduledValues(now);
         this.crowdGain.gain.setValueAtTime(this.crowdGain.gain.value, now);
@@ -1084,7 +1084,7 @@ class SoundManager {
     playApplause() {
         if (!this.sfxEnabled || !this.ctx) return;
 
-        // Simula aplausos com ruÃ­do branco filtrado
+        // Simula aplausos com ruído branco filtrado
         const duration = 0.8;
         const bufferSize = this.ctx.sampleRate * duration;
         const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
@@ -1196,7 +1196,7 @@ class SoundManager {
     playVictorySound() {
         if (!this.sfxEnabled || !this.ctx) return;
 
-        // SequÃªncia de notas Ã©picas (Fanfarra de VitÃ³ria)
+        // Sequência de notas épicas (Fanfarra de Vitória)
         const now = this.ctx.currentTime;
         const fanfarra = [
             { freq: 523.25, duration: 0.2, delay: 0.0 }, // C5
@@ -1209,7 +1209,7 @@ class SoundManager {
             const osc = this.ctx.createOscillator();
             const gain = this.ctx.createGain();
 
-            osc.type = 'square'; // Som mais "metÃ¡lico" de fanfarra
+            osc.type = 'square'; // Som mais "metálico" de fanfarra
             osc.frequency.value = note.freq;
 
             const startTime = now + note.delay;
@@ -1225,19 +1225,19 @@ class SoundManager {
             osc.stop(startTime + note.duration);
         });
 
-        // Aumentar o volume da torcida para a celebraÃ§Ã£o
+        // Aumentar o volume da torcida para a celebração
         if (this.crowdGain) {
             this.crowdGain.gain.cancelScheduledValues(now);
             this.crowdGain.gain.setValueAtTime(this.crowdGain.gain.value, now);
             this.crowdGain.gain.linearRampToValueAtTime(0.8, now + 0.5); // Volume alto
-            this.crowdGain.gain.linearRampToValueAtTime(0.5, now + 3.0); // MantÃ©m alto por um tempo
+            this.crowdGain.gain.linearRampToValueAtTime(0.5, now + 3.0); // Mantém alto por um tempo
         }
     }
 }
 
 const sfx = new SoundManager();
 
-// ==================== DATA MANAGER (PersistÃªncia) ====================
+// ==================== DATA MANAGER (Persistência) ====================
 const StorageManager = {
     getFavorite: () => localStorage.getItem('arena_favorite_team'),
     setFavorite: (id) => localStorage.setItem('arena_favorite_team', id),
@@ -1301,22 +1301,22 @@ const StorageManager = {
 };
 
 
-// ==================== ARCADE MANAGER (LÃ³gica do Campeonato) ====================
+// ==================== ARCADE MANAGER (Lógica do Campeonato) ====================
 // ==================== SYSTEM OF LEAGUES ====================
 const LeagueSystem = {
     configs: {
         'brasileirao': {
-            name: 'Brasileirão',
+            name: 'Brasileir�o',
             type: 'league',
             rounds: 19
         },
         'paulista': {
-            name: 'Paulistão',
+            name: 'Paulist�o',
             type: 'group_knockout',
             groups: 4
         },
         'carioca': {
-            name: 'Cariocão',
+            name: 'Carioc�o',
             type: 'league_knockout',
             rounds: 11,
             knockout: {
@@ -1325,7 +1325,7 @@ const LeagueSystem = {
             }
         },
         'gaucho': {
-            name: 'Gauchão',
+            name: 'Gauch�o',
             type: 'cross_group',
             groups: 3,
             teamsPerGroup: 4,
@@ -1391,13 +1391,13 @@ const LeagueSystem = {
     generateGauchoGroups: (teams) => {
         const groups = { 'A': [], 'B': [], 'C': [] };
 
-        // Group A: Grêmio, São José, Guarany, Avenida
+        // Group A: Gr�mio, S�o Jos�, Guarany, Avenida
         groups['A'] = ['gremio', 'saojose', 'guarany', 'avenida'];
 
         // Group B: Inter, Caxias, Pelotas, Ypiranga
         groups['B'] = ['internacional', 'caxias', 'pelotas', 'ypiranga'];
 
-        // Group C: Juventude, Monsoon, Brasil-Pel, São Luiz
+        // Group C: Juventude, Monsoon, Brasil-Pel, S�o Luiz
         groups['C'] = ['juventude', 'monsoon', 'brasilpelotas', 'saoluiz'];
 
         return groups;
@@ -1406,10 +1406,10 @@ const LeagueSystem = {
     generateMineiroGroups: (teams) => {
         const groups = { 'A': [], 'B': [], 'C': [] };
 
-        // Group A: Atlético-MG, Democrata-GV, Uberlândia, URT
+        // Group A: Atl�tico-MG, Democrata-GV, Uberl�ndia, URT
         groups['A'] = ['atletico', 'democrata', 'uberlandia', 'urt'];
 
-        // Group B: América-MG, Betim, Pouso Alegre, Tombense
+        // Group B: Am�rica-MG, Betim, Pouso Alegre, Tombense
         groups['B'] = ['america', 'betim', 'pousoalegre', 'tombense'];
 
         // Group C: Athletic, Cruzeiro, Itabirito, North
@@ -1476,7 +1476,7 @@ const LeagueSystem = {
     }
 };
 
-// ==================== ARCADE MANAGER (Lógica do Campeonato) ====================
+// ==================== ARCADE MANAGER (L�gica do Campeonato) ====================
 const ArcadeManager = {
     userTeamId: null,
     currentLeague: 'brasileirao',
@@ -1743,7 +1743,7 @@ const ArcadeManager = {
         ArcadeManager.knockoutBracket = semiMatches.map(m => ({ ...m, totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0, completed: false }));
         ArcadeManager.currentStage = 'semis';
 
-        const leagueName = ArcadeManager.currentLeague === 'carioca' ? 'Taça Guanabara' : 'Fase Classificatória';
+        const leagueName = ArcadeManager.currentLeague === 'carioca' ? 'Ta�a Guanabara' : 'Fase Classificat�ria';
         alert(`${leagueName} encerrada! Iniciando Semifinais.`);
     },
 
@@ -1769,7 +1769,7 @@ const ArcadeManager = {
             ...m, stage: 'semis', totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0, completed: false
         }));
         ArcadeManager.currentStage = 'semis';
-        alert("Fase de Grupos do Gauchão encerrada!\\nLíderes e melhor 2º avançam.");
+        alert("Fase de Grupos do Gauch�o encerrada!\\nL�deres e melhor 2� avan�am.");
     },
 
     transitionToMineiroKnockout: () => {
@@ -1794,7 +1794,7 @@ const ArcadeManager = {
             ...m, stage: 'semis', totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0, completed: false
         }));
         ArcadeManager.currentStage = 'semis';
-        alert("Fase de Grupos do Mineiro encerrada!\\nLíderes e melhor 2º avançam.");
+        alert("Fase de Grupos do Mineiro encerrada!\\nL�deres e melhor 2� avan�am.");
     },
 
     transitionToParanaenseKnockout: () => {
@@ -1814,7 +1814,7 @@ const ArcadeManager = {
             ...m, stage: 'quarters', totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0, completed: false
         }));
         ArcadeManager.currentStage = 'quarters';
-        alert("Primeira Fase do Paranaense encerrada!\\nOs 8 melhores avançam para as Quartas.");
+        alert("Primeira Fase do Paranaense encerrada!\\nOs 8 melhores avan�am para as Quartas.");
     },
 
     // ================== KNOCKOUT LOGIC ==================
@@ -1927,7 +1927,7 @@ const ArcadeManager = {
             ArcadeManager.currentStage = 'final';
 
             let msg = "Final definida!";
-            if (ArcadeManager.currentLeague === 'carioca') msg = "Final do Cariocão definida!";
+            if (ArcadeManager.currentLeague === 'carioca') msg = "Final do Carioc�o definida!";
             alert(msg);
         } else if (ArcadeManager.currentStage === 'final') {
             const match = ArcadeManager.knockoutBracket[0];
@@ -1935,7 +1935,7 @@ const ArcadeManager = {
                 match.currentLeg = 2;
                 match.completed = false;
                 const temp = match.home; match.home = match.away; match.away = temp;
-                alert("Fim do jogo de ida. Decisão na volta!");
+                alert("Fim do jogo de ida. Decis�o na volta!");
             } else {
                 let championId = match.aggHome > match.aggAway ? match.home : match.away;
                 if (match.aggHome == match.aggAway) championId = match.home;
@@ -1992,14 +1992,14 @@ const ArcadeManager = {
             ];
             ArcadeManager.knockoutBracket = semis;
             ArcadeManager.currentStage = 'semis';
-            alert("Semifinais do Gauchão definidas!");
+            alert("Semifinais do Gauch�o definidas!");
         } else if (stage === 'semis') {
             const final = [
                 { home: winners[0], away: winners[1], stage: 'final', totalLegs: 2, currentLeg: 1 }
             ];
             ArcadeManager.knockoutBracket = final;
             ArcadeManager.currentStage = 'final';
-            alert("Grande Final do Gauchão!");
+            alert("Grande Final do Gauch�o!");
         } else if (stage === 'final') {
             ArcadeManager.finishChampion(winners[0]);
         }
@@ -2164,7 +2164,7 @@ const ArcadeManager = {
         if (userQualified) {
             window.showCustomModal("QUARTAS DE FINAL", "Fase de Grupos encerrada!<br>Iniciando Quartas de Final.", null, null, false);
         } else {
-            window.showCustomModal("FIM DE JOGO", "Fim da linha! Seu time foi eliminado na Fase de Grupos.<br>O campeonato continuará sem você.", null, null, false);
+            window.showCustomModal("FIM DE JOGO", "Fim da linha! Seu time foi eliminado na Fase de Grupos.<br>O campeonato continuar� sem voc�.", null, null, false);
         }
     },
 
@@ -2179,9 +2179,9 @@ const ArcadeManager = {
 
         const userQualified = semiMatches.some(m => m.home === ArcadeManager.userTeamId || m.away === ArcadeManager.userTeamId);
         if (userQualified) {
-            window.showCustomModal("SEMIFINAIS", "Taça Guanabara encerrada!<br>Iniciando Semifinais.", null, null, false);
+            window.showCustomModal("SEMIFINAIS", "Ta�a Guanabara encerrada!<br>Iniciando Semifinais.", null, null, false);
         } else {
-            window.showCustomModal("FIM DE JOGO", "Fim da linha! Seu time não se classificou para as Semifinais.<br>O campeonato continuará sem você.", null, null, false);
+            window.showCustomModal("FIM DE JOGO", "Fim da linha! Seu time n�o se classificou para as Semifinais.<br>O campeonato continuar� sem voc�.", null, null, false);
         }
     },
 
@@ -2221,10 +2221,10 @@ const ArcadeManager = {
             ArcadeManager.currentStage = 'semis';
 
             if (winners.includes(ArcadeManager.userTeamId)) {
-                window.showCustomModal("CLASSIFICADO!", "Parabéns! Você avançou para as Semifinais!", null, null, false);
+                window.showCustomModal("CLASSIFICADO!", "Parab�ns! Voc� avan�ou para as Semifinais!", null, null, false);
             } else if (ArcadeManager.knockoutBracket.some(m => m.home === ArcadeManager.userTeamId || m.away === ArcadeManager.userTeamId)) {
                 // Should be covered by winners includes check, but safety first
-                window.showCustomModal("CLASSIFICADO!", "Parabéns! Você avançou para as Semifinais!", null, null, false);
+                window.showCustomModal("CLASSIFICADO!", "Parab�ns! Voc� avan�ou para as Semifinais!", null, null, false);
             } else {
                 // Check if user WAS in quarters to show specific elimination msg
                 window.showCustomModal("ELIMINADO", "Infelizmente seu time caiu nas Quartas de Final.", null, null, false);
@@ -2235,7 +2235,7 @@ const ArcadeManager = {
                 { home: winners[0], away: winners[1], stage: 'final', completed: false, totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0 }
             ];
             ArcadeManager.currentStage = 'final';
-            window.showCustomModal("A GRANDE FINAL", "Está tudo definido!<br>Prepare-se para a Grande Final!", null, null, false);
+            window.showCustomModal("A GRANDE FINAL", "Est� tudo definido!<br>Prepare-se para a Grande Final!", null, null, false);
         } else if (ArcadeManager.currentStage === 'final') {
             const match = ArcadeManager.knockoutBracket[0];
             if (match.currentLeg === 1) {
@@ -2268,14 +2268,14 @@ const ArcadeManager = {
                 { home: winners[0], away: winners[1], stage: 'final', totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0, completed: false }
             ];
             ArcadeManager.currentStage = 'final';
-            window.showCustomModal("FINAL DEFINIDA", "Os finalistas do Cariocão estão definidos!", null, null, false);
+            window.showCustomModal("FINAL DEFINIDA", "Os finalistas do Carioc�o est�o definidos!", null, null, false);
         } else if (ArcadeManager.currentStage === 'final') {
             const match = ArcadeManager.knockoutBracket[0];
             if (match.currentLeg === 1) {
                 match.currentLeg = 2; match.completed = false;
                 const temp = match.home; match.home = match.away; match.away = temp;
                 const tempAgg = match.aggHome; match.aggHome = match.aggAway; match.aggAway = tempAgg;
-                window.showCustomModal("DECISÃO", "Fim do jogo de ida.<br>A decisão será no próximo jogo!", null, null, false);
+                window.showCustomModal("DECIS�O", "Fim do jogo de ida.<br>A decis�o ser� no pr�ximo jogo!", null, null, false);
             } else {
                 let championId = match.aggHome > match.aggAway ? match.home : match.away;
                 if (match.aggHome == match.aggAway) championId = match.home;
@@ -2300,7 +2300,7 @@ let matchState = {
 
 
 // ==================== SISTEMA DE VELOCIDADE ====================
-// Multiplicadores de velocidade (afetam apenas timing, nÃ£o fÃ­sica)
+// Multiplicadores de velocidade (afetam apenas timing, não física)
 // Speed settings moved to top
 let currentSpeed = 'normal';
 let MATCH_DURATION_MS = SPEED_SETTINGS.normal.matchDuration;
@@ -2315,15 +2315,15 @@ const MatchEventManager = {
     lastEventTime: 0,
 
     EVENTS: [
-        { type: 'card', weight: 0.15, text: (team) => `â ï¸ CartÃ£o Amarelo para ${team.shortName}!`, effect: (team) => { team.overall -= 2; } },
-        { type: 'card', weight: 0.05, text: (team) => `ð¥ CartÃ£o Vermelho para ${team.shortName}!`, effect: (team) => { team.overall -= 5; } },
-        { type: 'injury', weight: 0.1, text: (team) => `ð¤ LesÃ£o! ${team.shortName} joga com desvantagem.`, effect: (team) => { team.overall -= 3; } },
-        { type: 'save', weight: 0.2, text: (team) => `ð§¤ Defesa Milagrosa de ${team.shortName}!`, effect: (team) => { team.overall += 1; } },
-        { type: 'var', weight: 0.05, text: (team) => `â GOL ANULADO! VAR confirma impedimento contra ${team.shortName}.`, effect: (team) => { } },
+        { type: 'card', weight: 0.15, text: (team) => `�?�️ Cartão Amarelo para ${team.shortName}!`, effect: (team) => { team.overall -= 2; } },
+        { type: 'card', weight: 0.05, text: (team) => `�??� Cartão Vermelho para ${team.shortName}!`, effect: (team) => { team.overall -= 5; } },
+        { type: 'injury', weight: 0.1, text: (team) => `�?�? Lesão! ${team.shortName} joga com desvantagem.`, effect: (team) => { team.overall -= 3; } },
+        { type: 'save', weight: 0.2, text: (team) => `�?�� Defesa Milagrosa de ${team.shortName}!`, effect: (team) => { team.overall += 1; } },
+        { type: 'var', weight: 0.05, text: (team) => `�? GOL ANULADO! VAR confirma impedimento contra ${team.shortName}.`, effect: (team) => { } },
         { type: 'nothing', weight: 0.45, text: () => `Jogo segue disputado no meio-campo.`, effect: () => { } }
     ],
 
-    // FunÃ§Ã£o para exibir o evento no log
+    // Função para exibir o evento no log
     showMatchEvent: (text) => {
         if (!MatchEventManager.EVENT_LOG_EL) return;
         MatchEventManager.EVENT_LOG_EL.textContent = text;
@@ -2334,11 +2334,11 @@ const MatchEventManager = {
         }, 3000);
     },
 
-    // FunÃ§Ã£o para disparar um evento
+    // Função para disparar um evento
     triggerEvent: (elapsed) => {
         if (elapsed - MatchEventManager.lastEventTime < MatchEventManager.EVENT_COOLDOWN_MS) return;
 
-        // Chance de evento (ajustÃ¡vel)
+        // Chance de evento (ajustável)
         if (Math.random() < 0.05) {
             MatchEventManager.lastEventTime = elapsed;
 
@@ -2420,12 +2420,12 @@ const TutorialManager = {
     },
 
     init: () => {
-        // Event listeners para botÃµes do tutorial
+        // Event listeners para botões do tutorial
         document.querySelectorAll('.btn-tutorial-next').forEach(btn => {
             btn.addEventListener('click', TutorialManager.nextStep);
         });
 
-        // BotÃµes de finalizar (pode ter mais de um)
+        // Botões de finalizar (pode ter mais de um)
         const finishBtn = document.getElementById('btn-tutorial-finish');
         if (finishBtn) {
             finishBtn.addEventListener('click', TutorialManager.hide);
@@ -2494,7 +2494,7 @@ const AutoSimulator = {
             const overallDiff = homeOverall - awayOverall;
             const homeAdvantage = 0.15; // 15% vantagem casa
 
-            // CÃ¡lculo de gols com influÃªncia do overall
+            // Cálculo de gols com influência do overall
             let homeGoals = Math.floor(Math.random() * 4);
             let awayGoals = Math.floor(Math.random() * 3);
 
@@ -2526,7 +2526,7 @@ const AutoSimulator = {
         AutoSimulator.isSimulating = true;
         AutoSimulator.showOverlay('Simulando resultados...');
 
-        // Simular partida do usuÃ¡rio (se houver)
+        // Simular partida do usuário (se houver)
         await new Promise(r => setTimeout(r, 800)); // Delay para UX
 
         const userMatch = ArcadeManager.getNextUserMatch();
@@ -2539,10 +2539,10 @@ const AutoSimulator = {
         if (result) {
             AutoSimulator.showOverlay(`${result.home.shortName} ${result.homeGoals} x ${result.awayGoals} ${result.away.shortName}`);
             await new Promise(r => setTimeout(r, 1000));
-            // Registrar resultado do usuÃ¡rio e dos bots
+            // Registrar resultado do usuário e dos bots
             ArcadeManager.registerUserResult(result.home.id, result.away.id, result.homeGoals, result.awayGoals);
         } else {
-            // UsuÃ¡rio nÃ£o joga (eliminado ou folga), simular apenas os bots
+            // Usuário não joga (eliminado ou folga), simular apenas os bots
             AutoSimulator.showOverlay('Simulando jogos restantes...');
             await new Promise(r => setTimeout(r, 800));
 
@@ -2563,7 +2563,7 @@ const AutoSimulator = {
         AutoSimulator.hideOverlay();
         AutoSimulator.isSimulating = false;
 
-        // Verificar campeÃ£o
+        // Verificar campeão
         const champion = ArcadeManager.checkChampion();
         if (champion) {
             showChampionScreen(champion);
@@ -2602,7 +2602,7 @@ const AnimationEffects = {
         }
     },
 
-    // Efeito de campeÃ£o
+    // Efeito de campeão
     glowChampion: () => {
         const shieldContainer = document.getElementById('champion-shield-container');
         if (shieldContainer) {
@@ -2706,7 +2706,7 @@ function startBgSlideshow() {
 
 // ==================== MENU & NAVIGATION ====================
 
-// FunÃ§Ã£o para transiÃ§Ã£o suave entre telas
+// Função para transição suave entre telas
 function smoothTransition(hideElement, showElement, callback) {
     hideElement.style.opacity = '0';
     hideElement.style.transform = 'translateY(-20px)';
@@ -2720,7 +2720,7 @@ function smoothTransition(hideElement, showElement, callback) {
         showElement.style.opacity = '0';
         showElement.style.transform = 'translateY(20px)';
 
-        // ForÃ§a reflow para a animaÃ§Ã£o funcionar
+        // For�a reflow para a anima��o funcionar
         showElement.offsetHeight;
 
         showElement.style.opacity = '1';
@@ -2730,8 +2730,7 @@ function smoothTransition(hideElement, showElement, callback) {
     }, 300);
 }
 
-// Verifica e mostra opÃ§Ã£o de continuar campeonato
-// Verifica e mostra opção de continuar campeonato
+// Verifica e mostra op��o de continuar campeonato
 function checkSavedArcadeProgress() {
     const continueContainer = document.getElementById('continue-arcade-container');
     const continueInfo = document.getElementById('continue-info');
@@ -2787,7 +2786,7 @@ if (btnDeleteSave) {
 
         if (modal && titleEl && msgEl && btnConfirm && btnCancel) {
             titleEl.textContent = 'Apagar Progresso?';
-            msgEl.textContent = 'Deseja apagar o progresso salvo? Esta ação não pode ser desfeita.';
+            msgEl.textContent = 'Deseja apagar o progresso salvo? Esta a��o n�o pode ser desfeita.';
 
             // Show modal
             modal.classList.remove('hidden');
@@ -2809,7 +2808,7 @@ if (btnDeleteSave) {
             });
         } else {
             // Fallback
-            if (confirm('Deseja apagar o progresso salvo? Esta ação não pode ser desfeita.')) {
+            if (confirm('Deseja apagar o progresso salvo? Esta a��o n�o pode ser desfeita.')) {
                 StorageManager.clearArcadeProgress();
                 checkSavedArcadeProgress();
             }
@@ -2835,7 +2834,7 @@ btnModeArcade.addEventListener('click', () => {
 
     // UI Setup for Arcade Mode
     selectionTitle.innerHTML = "ESCOLHA <span>SEU TIME</span>";
-    selectionSubtitle.innerText = "Quem vocÃª levarÃ¡ ao tÃ­tulo?";
+    selectionSubtitle.innerText = "Quem você levará ao título?";
     vsSeparator.classList.add('hidden');
     slot2.classList.add('hidden'); // Esconde slot 2
     btnStart.innerText = "INICIAR CAMPANHA";
@@ -2849,7 +2848,7 @@ if (btnModeWorldCup) {
     btnModeWorldCup.addEventListener('click', () => {
         currentGameMode = 'worldcup';
 
-        selectionTitle.innerHTML = "ESCOLHA <span>SUA SELEÃÃO</span>";
+        selectionTitle.innerHTML = "ESCOLHA <span>SUA SELE�?�?O</span>";
         selectionSubtitle.innerText = "Para conquistar o mundo!";
         vsSeparator.classList.add('hidden');
         slot2.classList.add('hidden');
@@ -2862,7 +2861,7 @@ if (btnModeWorldCup) {
 const btnQuitWorldCup = document.getElementById('btn-quit-wc');
 if (btnQuitWorldCup) {
     btnQuitWorldCup.addEventListener('click', () => {
-        if (confirm("Sair da Copa? Seu progresso serÃ¡ salvo.")) {
+        if (confirm("Sair da Copa? Seu progresso será salvo.")) {
             // WorldCupManager.saveProgress(); // TODO
             smoothTransition(document.getElementById('worldcup-dashboard'), mainMenu, () => {
                 sfx.stopCrowd();
@@ -2880,7 +2879,7 @@ btnBackMenu.addEventListener('click', () => {
 btnQuitArcade.addEventListener('click', () => {
     window.showCustomModal(
         "SAIR DO CAMPEONATO?",
-        "Seu progresso será salvo automaticamente.<br>Deseja voltar ao menu?",
+        "Seu progresso ser� salvo automaticamente.<br>Deseja voltar ao menu?",
         () => {
             StorageManager.saveArcadeProgress();
             smoothTransition(arcadeDashboard, mainMenu, () => {
@@ -3056,7 +3055,7 @@ function updateSlots() {
         if (selectedTeams[0]) { slot1.classList.add('filled'); slot1.appendChild(createShield(selectedTeams[0], 'lg')); } else slot1.classList.remove('filled');
         if (selectedTeams[1]) { slot2.classList.add('filled'); slot2.appendChild(createShield(selectedTeams[1], 'lg')); } else slot2.classList.remove('filled');
     } else {
-        // Arcade - Slot Ãºnico
+        // Arcade - Slot único
         slot1.innerHTML = selectedTeams[0] ? '' : 'Seu Time';
         if (selectedTeams[0]) { slot1.classList.add('filled'); slot1.appendChild(createShield(selectedTeams[0], 'lg')); } else slot1.classList.remove('filled');
     }
@@ -3184,7 +3183,7 @@ function startArcadeCampaign() {
     updateArcadeDashboard();
 }
 
-// FunÃ§Ã£o para atualizar o fundo do header com o escudo do time
+// Função para atualizar o fundo do header com o escudo do time
 function updateArcadeHeaderBg(team) {
     const headerBg = document.getElementById('arcade-team-header-bg');
     if (headerBg && team) {
@@ -3199,10 +3198,10 @@ function updateArcadeDashboard() {
     if (ArcadeManager.currentStage === 'quarters') stageName = "Quartas de Final";
     else if (ArcadeManager.currentStage === 'semis') stageName = "Semifinais";
     else if (ArcadeManager.currentStage === 'final') stageName = "Grande Final";
-    else if (ArcadeManager.currentLeague === 'carioca' && ArcadeManager.currentStage === 'regular') stageName = "Taça Guanabara";
-    else if (ArcadeManager.currentLeague === 'gaucho' && ArcadeManager.currentStage === 'regular') stageName = "Fase Classificatória";
+    else if (ArcadeManager.currentLeague === 'carioca' && ArcadeManager.currentStage === 'regular') stageName = "Ta�a Guanabara";
+    else if (ArcadeManager.currentLeague === 'gaucho' && ArcadeManager.currentStage === 'regular') stageName = "Fase Classificat�ria";
     else if (ArcadeManager.currentLeague === 'mineiro' && ArcadeManager.currentStage === 'regular') stageName = "Fase de Grupos";
-    else if (ArcadeManager.currentLeague === 'paranaense' && ArcadeManager.currentStage === 'regular') stageName = "Fase Classificatória";
+    else if (ArcadeManager.currentLeague === 'paranaense' && ArcadeManager.currentStage === 'regular') stageName = "Fase Classificat�ria";
     else if (ArcadeManager.currentLeague === 'brasileirao') stageName = "Pontos Corridos";
 
     currentRoundNum.textContent = stageName + (ArcadeManager.currentStage === 'regular' ? ` - Rodada ${ArcadeManager.currentRound + 1}/${ArcadeManager.schedule.length}` : '');
@@ -3552,19 +3551,19 @@ function showChampionScreen(championTeam) {
     championName.textContent = championTeam.name;
     championShieldContainer.innerHTML = '';
     championShieldContainer.appendChild(createShield(championTeam, 'xxl'));
-    championDetails.textContent = `${ArcadeManager.currentRound} Jogos â¢ ${championTeam.p} Pontos`;
+    championDetails.textContent = `${ArcadeManager.currentRound} Jogos �?� ${championTeam.p} Pontos`;
 
-    // ANIMAÃÃO DE CAMPEÃO
+    // ANIMA�?�?O DE CAMPE�?O
     AnimationEffects.glowChampion();
 
-    // Novo: Efeito de explosÃ£o de confetes e som de vitÃ³ria
+    // Novo: Efeito de explosão de confetes e som de vitória
     triggerConfetti(championTeam, championScreen);
-    sfx.playVictorySound(); // Nova funÃ§Ã£o de som de vitÃ³ria
+    sfx.playVictorySound(); // Nova função de som de vitória
 
-    // Novo: Adicionar um efeito visual de explosÃ£o de fogos de artifÃ­cio (se implementado)
-    // Se nÃ£o houver uma funÃ§Ã£o especÃ­fica de fogos de artifÃ­cio, o confetti jÃ¡ ajuda.
+    // Novo: Adicionar um efeito visual de explosão de fogos de artifício (se implementado)
+    // Se não houver uma função específica de fogos de artifício, o confetti já ajuda.
 
-    // Tocar mÃºsica de vitÃ³ria ou algo Ã©pico (usamos o padrÃ£o por enquanto)
+    // Tocar música de vitória ou algo épico (usamos o padrão por enquanto)
 }
 
 
@@ -3674,7 +3673,7 @@ function gameLoop(timestamp) {
     if (startTime === 0) startTime = timestamp - pausedTime;
     const elapsed = timestamp - startTime;
     const maxTime = (score1 === score2 && matchTime >= NORMAL_TIME && currentGameMode === 'quick') ? EXTRA_TIME : NORMAL_TIME;
-    // No Arcade nÃ£o tem prorrogaÃ§Ã£o (empate Ã© empate)
+    // No Arcade não tem prorrogação (empate é empate)
 
     matchTime = Math.min(Math.floor((elapsed / MATCH_DURATION_MS) * NORMAL_TIME), maxTime);
     updateScoreboard();
@@ -3685,7 +3684,7 @@ function gameLoop(timestamp) {
         return;
     }
 
-    // RotaÃ§Ã£o com multiplicador de velocidade
+    // Rotação com multiplicador de velocidade
     const rotationSpeed = 0.72 * SPEED_SETTINGS[currentSpeed].rotationMult;
     if (hasFirstGoal) rotation = (rotation + rotationSpeed) % 360;
     arenaLines.style.transform = `rotate(${rotation}deg)`;
@@ -3693,7 +3692,7 @@ function gameLoop(timestamp) {
     updateShield(shield1, rotation);
     updateShield(shield2, rotation);
 
-    // Aplica influÃªncia do overall dos times
+    // Aplica influência do overall dos times
     applyOverallBoost();
 
     // Tenta disparar um evento de partida
@@ -3829,43 +3828,43 @@ function checkGoal(shield, currentRotation) {
     return false;
 }
 
-// ==================== SISTEMA DE INFLUÃNCIA DO OVERALL ====================
-// O overall influencia a velocidade e direÃ§Ã£o do escudo
-// Times com overall maior tÃªm vantagem sutil (mais chances de ir em direÃ§Ã£o ao gol)
+// ==================== SISTEMA DE INFLU�?NCIA DO OVERALL ====================
+// O overall influencia a velocidade e direção do escudo
+// Times com overall maior têm vantagem sutil (mais chances de ir em direção ao gol)
 function getOverallInfluence(teamId) {
     // No modo arcade, usa o overall com boost
     if (currentGameMode === 'arcade') {
         return ArcadeManager.getTeamOverall(teamId);
     }
-    // No modo rÃ¡pido, usa o overall base
+    // No modo rápido, usa o overall base
     const team = brazilianTeams.find(t => t.id === teamId);
     return team ? team.overall : 75;
 }
 
-// Aplica influÃªncia do overall na fÃ­sica do jogo
+// Aplica influência do overall na física do jogo
 function applyOverallBoost() {
     if (!isPlaying) return;
 
     const overall1 = getOverallInfluence(team1.id);
     const overall2 = getOverallInfluence(team2.id);
 
-    // DiferenÃ§a de overall (mÃ¡ximo ~30 pontos de diferenÃ§a)
+    // Diferença de overall (máximo ~30 pontos de diferença)
     const overallDiff = overall1 - overall2;
 
-    // Fator de influÃªncia baseado na diferenÃ§a (sutil, nÃ£o exagerado)
-    // Cada 10 pontos de diferenÃ§a = ~5% de chance extra
+    // Fator de influência baseado na diferença (sutil, não exagerado)
+    // Cada 10 pontos de diferença = ~5% de chance extra
     const influenceFactor = overallDiff * 0.005;
 
-    // Chance aleatÃ³ria de aplicar boost (nÃ£o toda hora, para manter aleatoriedade)
-    if (Math.random() < 0.15) { // 15% de chance por frame de aplicar influÃªncia
+    // Chance aleatória de aplicar boost (não toda hora, para manter aleatoriedade)
+    if (Math.random() < 0.15) { // 15% de chance por frame de aplicar influência
 
-        // Calcula direÃ§Ã£o para o gol adversÃ¡rio
+        // Calcula direção para o gol adversário
         const goalCenterX = ARENA_SIZE / 2;
-        const goalCenterY = ARENA_SIZE + 20; // Gol fica "abaixo" considerando rotaÃ§Ã£o
+        const goalCenterY = ARENA_SIZE + 20; // Gol fica "abaixo" considerando rotação
 
         // Time 1 (overall maior = mais chance de ir para o gol)
         if (influenceFactor > 0 && Math.random() < Math.abs(influenceFactor)) {
-            // Pequeno impulso na direÃ§Ã£o do gol
+            // Pequeno impulso na direção do gol
             const dx1 = goalCenterX - shield1.x;
             const dy1 = goalCenterY - shield1.y;
             const dist1 = Math.sqrt(dx1 * dx1 + dy1 * dy1);
@@ -3896,7 +3895,7 @@ function scoreGoal(team, teamNum, elapsed) {
     const wasLeading2 = score2 > score1;
     const wasTied = score1 === score2;
 
-    // Salvar placar anterior para comentÃ¡rio contextual
+    // Salvar placar anterior para comentário contextual
     const prevScore1 = score1;
     const prevScore2 = score2;
 
@@ -3909,7 +3908,7 @@ function scoreGoal(team, teamNum, elapsed) {
     pausedTime = elapsed;
     startTime = 0;
 
-    // Registrar evento para comentÃ¡rio de IA
+    // Registrar evento para comentário de IA
     const matchTimeNow = Math.floor((elapsed / MATCH_DURATION_MS) * NORMAL_TIME);
     AICommentator.registerEvent('goal', {
         team: teamNum,
@@ -3919,7 +3918,7 @@ function scoreGoal(team, teamNum, elapsed) {
         wasLateGame: matchTimeNow >= 75
     });
 
-    // ANIMAÃÃES CONTEXTUAIS
+    // ANIMA�?�?ES CONTEXTUAIS
     AnimationEffects.shakeArena();
     AnimationEffects.flashScore(teamNum);
     AnimationEffects.glowScorer(teamNum);
@@ -3941,15 +3940,15 @@ function showGoalOverlay(team, teamNum, prevScore1, prevScore2, matchTimeNow) {
     goalShield.appendChild(createShield(team, 'xl'));
     goalTeamName.textContent = team.name;
 
-    // Adicionar reaÃ§Ã£o do comentarista CONTEXTUAL
+    // Adicionar reação do comentarista CONTEXTUAL
     const goalReaction = document.getElementById('goal-reaction');
     if (goalReaction) {
-        // Usar o novo mÃ©todo contextual
+        // Usar o novo método contextual
         const reaction = AICommentator.getGoalReaction(teamNum, prevScore1, prevScore2, matchTimeNow);
         goalReaction.textContent = reaction;
     }
 
-    // Adicionar fogos de artifÃ­cio
+    // Adicionar fogos de artifício
     triggerFireworks(team);
     triggerConfetti(team);
 
@@ -3987,7 +3986,7 @@ function triggerFireworks(team) {
             firework.style.boxShadow = `0 0 10px ${firework.style.backgroundColor}`;
             container.appendChild(firework);
 
-            // Criar faÃ­scas
+            // Criar faíscas
             for (let j = 0; j < 8; j++) {
                 const spark = document.createElement('div');
                 spark.className = 'spark';
@@ -4015,7 +4014,7 @@ function endMatch() {
     sfx.stopCrowd();
     if (animationId) cancelAnimationFrame(animationId);
 
-    // LÃ³gica especÃ­fica por modo
+    // Lógica específica por modo
     if (currentGameMode === 'quick') {
         const matchData = {
             team1: team1.id, team1Name: team1.shortName,
@@ -4073,7 +4072,7 @@ function showResultOverlay() {
     scoreText.textContent = `${score1} - ${score2}`;
     finalScore.appendChild(scoreText);
 
-    // ComentÃ¡rio do narrador IA com contexto completo
+    // Comentário do narrador IA com contexto completo
     const matchEvents = AICommentator.matchEvents;
     const hadTurnaround = matchEvents.some(e => e.type === 'turnaround');
     const hadLateGoal = matchEvents.some(e => e.type === 'goal' && e.data.wasLateGame);
@@ -4089,10 +4088,10 @@ function showResultOverlay() {
     const aiComment = AICommentator.generateMatchComment(team1, team2, score1, score2, context);
     const commentEl = document.createElement('div');
     commentEl.className = 'ai-comment';
-    commentEl.innerHTML = `<span class="comment-icon">ðï¸</span> ${aiComment}`;
+    commentEl.innerHTML = `<span class="comment-icon">�???️</span> ${aiComment}`;
     finalScore.appendChild(commentEl);
 
-    // Limpar eventos para prÃ³xima partida
+    // Limpar eventos para próxima partida
     AICommentator.resetEvents();
 
     // Mostrar moedas ganhas no modo arcade
@@ -4111,11 +4110,11 @@ function showResultOverlay() {
 
         const coinsEl = document.createElement('div');
         coinsEl.className = 'coins-earned';
-        coinsEl.innerHTML = `<span class="coin-icon">ðª</span> +${coinsEarned} moedas`;
+        coinsEl.innerHTML = `<span class="coin-icon">�?�?</span> +${coinsEarned} moedas`;
         finalScore.appendChild(coinsEl);
     }
 
-    // Configurar botÃµes
+    // Configurar botões
     const btnBackMenuResult = document.getElementById('btn-back-menu-result');
 
     if (currentGameMode === 'quick') {
@@ -4195,7 +4194,7 @@ btnBack.addEventListener('click', () => {
     }
 
     if (currentGameMode === 'quick') {
-        // No modo partida rÃ¡pida, volta para o menu principal
+        // No modo partida rápida, volta para o menu principal
         mainMenu.classList.remove('hidden');
         checkSavedArcadeProgress();
     } else {
@@ -4207,12 +4206,12 @@ btnBack.addEventListener('click', () => {
 
 btnToggleSound.addEventListener('click', () => {
     const isEnabled = sfx.toggleAllSound();
-    btnToggleSound.textContent = isEnabled ? 'ð' : 'ð';
+    btnToggleSound.textContent = isEnabled ? '�???' : '�???';
     btnToggleSound.classList.toggle('muted', !isEnabled);
     if (isEnabled) sfx.init();
 });
 
-// Toggle do player de mÃºsica (expandir/recolher)
+// Toggle do player de música (expandir/recolher)
 const btnTogglePlayer = document.getElementById('btn-toggle-player');
 if (btnTogglePlayer) {
     btnTogglePlayer.addEventListener('click', () => {
@@ -4238,7 +4237,7 @@ document.addEventListener('click', unlockAudio);
 document.addEventListener('touchstart', unlockAudio);
 document.addEventListener('keydown', unlockAudio);
 
-// FunÃ§Ãµes de renderizaÃ§Ã£o (mantidas para compatibilidade, mas nÃ£o usadas diretamente)
+// Funções de renderização (mantidas para compatibilidade, mas não usadas diretamente)
 function renderHistory() {
     const history = StorageManager.getHistory();
     if (!historyList) return;
@@ -4278,7 +4277,7 @@ function renderStats() {
     }).filter(t => t.m > 0).sort((a, b) => b.pts - a.pts);
 
     if (teamsWithStats.length === 0) {
-        statsList.innerHTML = '<tr><td colspan="7" style="padding: 20px; text-align: center;">Nenhuma estatÃ­stica registrada</td></tr>';
+        statsList.innerHTML = '<tr><td colspan="7" style="padding: 20px; text-align: center;">Nenhuma estatística registrada</td></tr>';
         return;
     }
 
@@ -4300,7 +4299,7 @@ function renderStats() {
     });
 }
 
-// Eventos para histÃ³rico e estatÃ­sticas (se os elementos existirem)
+// Eventos para histórico e estatísticas (se os elementos existirem)
 if (btnShowHistory) btnShowHistory.addEventListener('click', () => { renderHistory(); historyOverlay.classList.remove('hidden'); });
 if (btnCloseHistory) btnCloseHistory.addEventListener('click', () => { historyOverlay.classList.add('hidden'); });
 if (btnClearHistory) btnClearHistory.addEventListener('click', () => { if (confirm('Limpar?')) { StorageManager.clearHistory(); renderHistory(); } });
@@ -4309,7 +4308,7 @@ if (btnShowStats) btnShowStats.addEventListener('click', () => { renderStats(); 
 if (btnCloseStats) btnCloseStats.addEventListener('click', () => { statsOverlay.classList.add('hidden'); });
 if (btnResetStats) btnResetStats.addEventListener('click', () => { if (confirm('Zerar?')) { StorageManager.clearStats(); renderStats(); } });
 
-// BotÃ£o de voltar ao menu no resultado (partida rÃ¡pida)
+// Botão de voltar ao menu no resultado (partida rápida)
 const btnBackMenuResult = document.getElementById('btn-back-menu-result');
 if (btnBackMenuResult) {
     btnBackMenuResult.addEventListener('click', () => {
@@ -4330,7 +4329,7 @@ if (btnBackMenuResult) {
     });
 }
 
-// BotÃ£o de upgrade do time
+// Botão de upgrade do time
 const btnUpgradeTeam = document.getElementById('btn-upgrade-team');
 if (btnUpgradeTeam) {
     btnUpgradeTeam.addEventListener('click', () => {
@@ -4380,7 +4379,7 @@ function initNavigation() {
     btnCloseModal?.addEventListener('click', closeModal);
     modalOverlay?.addEventListener('click', closeModal);
 
-    // Links de navegaÃ§Ã£o (header e sidebar)
+    // Links de navegação (header e sidebar)
     document.querySelectorAll('[data-section]').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -4396,16 +4395,16 @@ function openInfoModal(section) {
     const sectionEl = document.getElementById(`info-${section}`);
 
     if (infoModal && sectionEl) {
-        // Esconder todas as seÃ§Ãµes
+        // Esconder todas as seções
         document.querySelectorAll('.info-section').forEach(s => s.classList.add('hidden'));
-        // Mostrar a seÃ§Ã£o selecionada
+        // Mostrar a seção selecionada
         sectionEl.classList.remove('hidden');
         // Mostrar o modal
         infoModal.classList.remove('hidden');
     }
 }
 
-// ==================== INICIALIZAÃÃO ====================
+// ==================== INICIALIZA�?�?O ====================
 function initApp() {
     startBgSlideshow();
     checkSavedArcadeProgress();
@@ -4416,24 +4415,24 @@ function initApp() {
     // Inicializar controles de velocidade
     initSpeedControls();
 
-    // Inicializar botÃ£o de auto simulaÃ§Ã£o
+    // Inicializar botão de auto simulação
     initAutoSimulateButton();
 
-    // Inicializar navegaÃ§Ã£o (menu lateral e modal)
+    // Inicializar navegação (menu lateral e modal)
     initNavigation();
 
-    // Adiciona transiÃ§Ã£o suave a todas as telas
+    // Adiciona transição suave a todas as telas
     document.querySelectorAll('.screen').forEach(screen => {
         screen.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
     });
 
     // Mostrar tela inicial
     showScreen('menu');
-    // O tutorial Ã© chamado dentro de showScreen('menu') agora.
-    // A chamada direta foi removida para evitar reexibiÃ§Ã£o.
+    // O tutorial é chamado dentro de showScreen('menu') agora.
+    // A chamada direta foi removida para evitar reexibição.
 }
 
-// Iniciar aplicaÃ§Ã£o
+// Iniciar aplicação
 document.addEventListener('DOMContentLoaded', initApp);
 
 // ==================== SPEED CONTROLS ====================
@@ -4469,7 +4468,7 @@ function initAutoSimulateButton() {
 }
 
 
-// Função auxiliar para esconder/mostrar header e footer
+// Fun��o auxiliar para esconder/mostrar header e footer
 function toggleGameInterface(show) {
     const header = document.querySelector('.site-header');
     const footer = document.querySelector('.site-footer');
@@ -4550,13 +4549,13 @@ function initTeamSelectionForArcade(teamsList, leagueName) {
         btnStart.innerText = "INICIAR CAMPANHA";
         btnStart.dataset.league = leagueName;
     }
-    if (selectionSubtitle) selectionSubtitle.innerText = "Quem você levará ao título?";
+    if (selectionSubtitle) selectionSubtitle.innerText = "Quem voc� levar� ao t�tulo?";
 
     // Update title
-    let leagueDisplay = "BRASILEIRÃO";
-    if (leagueName === 'paulista') leagueDisplay = "PAULISTÃO 2026";
-    else if (leagueName === 'carioca') leagueDisplay = "CARIOCÃO 2026";
-    else if (leagueName === 'gaucho') leagueDisplay = "GAUCHÃO 2026";
+    let leagueDisplay = "BRASILEIR�O";
+    if (leagueName === 'paulista') leagueDisplay = "PAULIST�O 2026";
+    else if (leagueName === 'carioca') leagueDisplay = "CARIOC�O 2026";
+    else if (leagueName === 'gaucho') leagueDisplay = "GAUCH�O 2026";
     else if (leagueName === 'mineiro') leagueDisplay = "CAMPEONATO MINEIRO 2026";
     else if (leagueName === 'paranaense') leagueDisplay = "PARANAENSE 2026";
 
@@ -4608,3 +4607,4 @@ const btnCloseChamp = document.getElementById('btn-close-champ-modal');
 if (btnCloseChamp) {
     btnCloseChamp.addEventListener('click', closeChampionshipModal);
 }
+
