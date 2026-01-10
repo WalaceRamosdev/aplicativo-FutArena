@@ -3415,7 +3415,23 @@ function renderKnockoutView() {
 }
 
 function updateNextMatchCard() {
-    const nextMatch = ArcadeManager.getNextUserMatch();
+    let nextMatch = ArcadeManager.getNextUserMatch();
+    let isSpectator = false;
+
+    // If user is eliminated (no match found), try to find a match to watch (Spectator Mode)
+    if (!nextMatch) {
+        if (ArcadeManager.currentStage === 'regular') {
+            if (ArcadeManager.schedule[ArcadeManager.currentRound]) {
+                nextMatch = ArcadeManager.schedule[ArcadeManager.currentRound][0];
+                if (nextMatch && (nextMatch.home === ArcadeManager.userTeamId || nextMatch.away === ArcadeManager.userTeamId)) isSpectator = false; // Just double checking
+                else isSpectator = true;
+            }
+        } else {
+            nextMatch = ArcadeManager.knockoutBracket.find(m => !m.completed);
+            isSpectator = true;
+        }
+    }
+
     if (nextMatch) {
         let t1, t2;
         let title = "PRÓXIMA PARTIDA";
@@ -3424,6 +3440,8 @@ function updateNextMatchCard() {
             title = "MATA-MATA";
             if (nextMatch.totalLegs) title += ` - JOGO ${nextMatch.currentLeg}`;
         }
+
+        if (isSpectator) title = "MODO ESPECTADOR - " + title;
 
         t1 = ArcadeManager.leagueTeams.find(t => t.id === nextMatch.home);
         t2 = ArcadeManager.leagueTeams.find(t => t.id === nextMatch.away);
@@ -3438,28 +3456,52 @@ function updateNextMatchCard() {
         document.getElementById('arcade-away-name').textContent = t2.name;
         document.getElementById('arcade-away-overall').textContent = `OVR: ${ArcadeManager.getTeamOverall(t2.id)}`;
 
-        // Prepare globals
-        const cardTitle = document.querySelector('.current-match-display h3');
-        if (cardTitle) cardTitle.textContent = title;
+        // Aggregate Info Display
+        const cardTitle = document.querySelector('.next-match-card h3');
+        if (cardTitle) {
+            cardTitle.innerHTML = title;
+            // Add Aggregate Score if 2nd Leg
+            if (nextMatch.currentLeg === 2) {
+                const aggDiv = document.createElement('div');
+                aggDiv.style.fontSize = '0.9rem';
+                aggDiv.style.color = '#ccc';
+                aggDiv.style.marginTop = '5px';
+                aggDiv.innerHTML = `Placar Agregado: <b>${nextMatch.aggHome}</b> x <b>${nextMatch.aggAway}</b>`;
+                // Remove meaningful old aggregate if exists to prevent dupes
+                const oldAgg = cardTitle.querySelector('div');
+                if (oldAgg) oldAgg.remove();
+                cardTitle.appendChild(aggDiv);
+            }
+        }
 
         team1 = t1;
         team2 = t2;
+
+        // Button State
+        const btnPlay = document.getElementById('btn-play-round');
+        if (btnPlay) {
+            btnPlay.disabled = false;
+            btnPlay.innerText = isSpectator ? "ASSISTIR PARTIDA 📺" : "JOGAR RODADA";
+            // Store spectator flag on the match object or globally for startMatch to handle differently if needed?
+            // Actually startMatch just uses team1/team2. We might want to ensure 'userTeam' isn't confused.
+            // But existing startMatch likely uses team1/team2 globals.
+        }
+
+        const btnSim = document.getElementById('btn-auto-simulate');
+        if (btnSim) {
+            btnSim.innerHTML = isSpectator ? "⚡ Simular Restante" : "⚡ Simular Rodada";
+        }
+
     } else {
-        // No match found or waiting for transition
-        document.getElementById('arcade-home-name').textContent = "Eliminado";
-        document.getElementById('arcade-away-name').textContent = "-";
+        // Really no matches left? (Season Over or Bug)
+        document.getElementById('arcade-home-name').textContent = "Campeonato";
+        document.getElementById('arcade-away-name').textContent = "Encerrado";
 
         // Disable Play Button
         const btnPlay = document.getElementById('btn-play-round');
         if (btnPlay) {
             btnPlay.disabled = true;
-            btnPlay.innerText = "ELIMINADO";
-        }
-
-        // Ensure auto-simulate is available to progress
-        const btnSim = document.getElementById('btn-auto-simulate');
-        if (btnSim) {
-            btnSim.innerHTML = "⚡ Acompanhar Campeonato";
+            btnPlay.innerText = "SEM JOGOS";
         }
     }
 }
@@ -4263,16 +4305,16 @@ if (btnUpgradeTeam) {
         if (ArcadeManager.upgradeTeam()) {
             updateArcadeDashboard();
             // Feedback visual
-            btnUpgradeTeam.textContent = 'â Time Melhorado!';
+            btnUpgradeTeam.innerHTML = '&#9989; Time Melhorado!';
             setTimeout(() => {
                 const cost = 100 + (ArcadeManager.overallBoosts[ArcadeManager.userTeamId] * 50);
-                btnUpgradeTeam.innerHTML = `â¬ï¸ Melhorar Time (<span id="upgrade-cost">${cost}</span> ðª)`;
+                btnUpgradeTeam.innerHTML = `&#11014;&#65039; Melhorar Time (<span id="upgrade-cost">${cost}</span> &#129689;)`;
             }, 1500);
         } else {
-            btnUpgradeTeam.textContent = 'â Moedas insuficientes!';
+            btnUpgradeTeam.innerHTML = '&#10060; Moedas insuficientes!';
             setTimeout(() => {
                 const cost = 100 + (ArcadeManager.overallBoosts[ArcadeManager.userTeamId] * 50);
-                btnUpgradeTeam.innerHTML = `â¬ï¸ Melhorar Time (<span id="upgrade-cost">${cost}</span> ðª)`;
+                btnUpgradeTeam.innerHTML = `&#11014;&#65039; Melhorar Time (<span id="upgrade-cost">${cost}</span> &#129689;)`;
             }, 1500);
         }
     });
