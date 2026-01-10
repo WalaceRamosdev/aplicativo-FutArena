@@ -76,7 +76,7 @@ const paulistaTeams = [
 
     { id: "guarani", name: "Guarani", shortName: "GUA", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Guarani_FC_%28E%29_-_SP.svg/1672px-Guarani_FC_%28E%29_-_SP.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#006437", overall: 64 },
 
-    { id: "pontepreta", name: "Ponte Preta", shortName: "PON", badge: "https://cdn.awsli.com.br/1520/1520417/marca/20995541-xk1mtym0el.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 64 },
+    { id: "pontepreta", name: "Ponte Preta", shortName: "PON", badge: "https://logodetimes.com/times/ponte-preta/logo-ponte-preta-4096.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 64 },
 
     { id: "veloclube", name: "Velo Clube", shortName: "VEL", badge: "https://upload.wikimedia.org/wikipedia/pt/6/60/Bra_sp_velo-clube.png", primaryColor: "#FFFFFF", secondaryColor: "#FF0000", overall: 60 },
 
