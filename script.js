@@ -59,21 +59,36 @@ const brazilianTeams = [
 
 const paulistaTeams = [
     { id: "corinthians", name: "Corinthians", shortName: "COR", badge: "https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 78 },
+
     { id: "palmeiras", name: "Palmeiras", shortName: "PAL", badge: "https://upload.wikimedia.org/wikipedia/commons/1/10/Palmeiras_logo.svg", primaryColor: "#FFFFFF", secondaryColor: "#006437", overall: 85 },
+
     { id: "saopaulo", name: "São Paulo", shortName: "SAO", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Brasao_do_Sao_Paulo_Futebol_Clube.svg/1200px-Brasao_do_Sao_Paulo_Futebol_Clube.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#FF0000", overall: 76 },
+
     { id: "santos", name: "Santos", shortName: "SAN", badge: "https://upload.wikimedia.org/wikipedia/commons/1/15/Santos_Logo.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 72 },
-    { id: "saobernardo", name: "São Bernardo", shortName: "SBE", badge: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Sao_Bernardo_Futebol_Clube_logo.png", primaryColor: "#FFD700", secondaryColor: "#000000", overall: 65 },
-    { id: "novorizontino", name: "Novorizontino", shortName: "NOV", badge: "https://upload.wikimedia.org/wikipedia/commons/0/07/Gr%C3%AAmio_Novorizontino_logo.png", primaryColor: "#FFF200", secondaryColor: "#000000", overall: 66 },
+
+    { id: "saobernardo", name: "São Bernardo", shortName: "SBE", badge: "https://upload.wikimedia.org/wikipedia/pt/e/e7/S%C3%A3o_Bernardo_Futebol_Clube_Logo.PNG", primaryColor: "#FFFFFF", secondaryColor: "#FFF200", overall: 65 },
+
+    { id: "novorizontino", name: "Novorizontino", shortName: "NOV", badge: "https://upload.wikimedia.org/wikipedia/pt/9/9e/Gr%C3%AAmio_Esportivo_Novorizontino_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#FFF200", overall: 66 },
+
     { id: "bragantino", name: "Red Bull Bragantino", shortName: "RBB", badge: "https://upload.wikimedia.org/wikipedia/pt/9/9e/RedBullBragantino.png", primaryColor: "#FFFFFF", secondaryColor: "#E31D1A", overall: 74 },
+
     { id: "mirassol", name: "Mirassol", shortName: "MIR", badge: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Mirassol_FC_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#FFD700", overall: 68 },
-    { id: "guarani", name: "Guarani", shortName: "GUA", badge: "https://upload.wikimedia.org/wikipedia/commons/3/30/Guarani_Futebol_Clube_logo.png", primaryColor: "#006437", secondaryColor: "#FFFFFF", overall: 64 },
-    { id: "pontepreta", name: "Ponte Preta", shortName: "PON", badge: "https://upload.wikimedia.org/wikipedia/commons/8/80/Associa%C3%A7%C3%A3o_Atl%C3%A9tica_Ponte_Preta_logo.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 64 },
-    { id: "veloclube", name: "Velo Clube", shortName: "VEL", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Velo_Clube_Rioclarense_logo.svg/1200px-Velo_Clube_Rioclarense_logo.svg.png", primaryColor: "#FF0000", secondaryColor: "#FFFFFF", overall: 60 },
-    { id: "portuguesa", name: "Portuguesa", shortName: "POR", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Associa%C3%A7%C3%A3o_Portuguesa_de_Desportos.svg/1200px-Associa%C3%A7%C3%A3o_Portuguesa_de_Desportos.svg.png", primaryColor: "#D0202F", secondaryColor: "#00834B", overall: 63 },
-    { id: "botafogosp", name: "Botafogo-SP", shortName: "BSP", badge: "https://upload.wikimedia.org/wikipedia/pt/4/4e/Botafogo-sp.png", primaryColor: "#FFFFFF", secondaryColor: "#FF0000", overall: 65 },
-    { id: "primavera", name: "Primavera", shortName: "PRI", badge: "https://upload.wikimedia.org/wikipedia/commons/a/a2/EC_Primavera_logo.png", primaryColor: "#FF0000", secondaryColor: "#FFFFFF", overall: 58 },
-    { id: "noroeste", name: "Noroeste", shortName: "NOR", badge: "https://upload.wikimedia.org/wikipedia/commons/7/75/Esporte_Clube_Noroeste_logo.png", primaryColor: "#FF0000", secondaryColor: "#FFFFFF", overall: 59 },
-    { id: "capivariano", name: "Capivariano", shortName: "CAP", badge: "https://upload.wikimedia.org/wikipedia/commons/5/52/Capivariano_Futebol_Clube_logo.png", primaryColor: "#FF0000", secondaryColor: "#FFFFFF", overall: 58 },
+
+    { id: "guarani", name: "Guarani", shortName: "GUA", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Guarani_FC_%28E%29_-_SP.svg/1672px-Guarani_FC_%28E%29_-_SP.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#006437", overall: 64 },
+
+    { id: "pontepreta", name: "Ponte Preta", shortName: "PON", badge: "https://cdn.awsli.com.br/1520/1520417/marca/20995541-xk1mtym0el.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 64 },
+
+    { id: "veloclube", name: "Velo Clube", shortName: "VEL", badge: "https://upload.wikimedia.org/wikipedia/pt/6/60/Bra_sp_velo-clube.png", primaryColor: "#FFFFFF", secondaryColor: "#FF0000", overall: 60 },
+
+    { id: "portuguesa", name: "Portuguesa", shortName: "POR", badge: "https://static.wixstatic.com/media/26b336_ecbcf3f320f04997bbcf3f5869f99315~mv2.png/v1/fit/w_2500,h_1330,al_c/26b336_ecbcf3f320f04997bbcf3f5869f99315~mv2.png", primaryColor: "#FFFFFF", secondaryColor: "#00834B", overall: 63 },
+
+    { id: "botafogosp", name: "Botafogo-SP", shortName: "BSP", badge: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Botafogo_Ribeirao_Preto_SP.png", primaryColor: "#FFFFFF", secondaryColor: "#FF0000", overall: 65 },
+
+    { id: "primavera", name: "Primavera", shortName: "PRI", badge: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBsNQxvhlh79TfVqJ7LRuIySm_FuS5a5GtLiPzT1-0dwx4u93gs3cg7cQR2-VLgYybHTJL7UlYpGVfMtoufYtAIxBLljT_ixj2M9Mpdvq-6-pEYDacjxh08hi0rr6buIjVmJ42oAxKhXG9/s1600/ec+primavera.png", primaryColor: "#FFFFFF", secondaryColor: "#FF0000", overall: 58 },
+
+    { id: "noroeste", name: "Noroeste", shortName: "NOR", badge: "https://upload.wikimedia.org/wikipedia/pt/3/36/EC_Noroeste.PNG", primaryColor: "#FFFFFF", secondaryColor: "#FF0000", overall: 59 },
+
+    { id: "capivariano", name: "Capivariano", shortName: "CAP", badge: "https://upload.wikimedia.org/wikipedia/commons/4/43/Capivariano_FC.png", primaryColor: "#FFFFFF", secondaryColor: "#FF0000", overall: 58 },
 ];
 
 const cariocaTeams = [
