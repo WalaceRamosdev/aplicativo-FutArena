@@ -2731,13 +2731,14 @@ function smoothTransition(hideElement, showElement, callback) {
 }
 
 // Verifica e mostra opÃ§Ã£o de continuar campeonato
+// Verifica e mostra opção de continuar campeonato
 function checkSavedArcadeProgress() {
     const continueContainer = document.getElementById('continue-arcade-container');
     const continueInfo = document.getElementById('continue-info');
 
     if (StorageManager.hasArcadeProgress()) {
         const savedData = StorageManager.getArcadeProgress();
-        const userTeam = brazilianTeams.find(t => t.id === savedData.userTeamId);
+        const userTeam = allTeamsList.find(t => t.id === savedData.userTeamId);
 
         if (userTeam && savedData.currentRound < savedData.schedule.length) {
             continueContainer.classList.remove('hidden');
@@ -2759,7 +2760,7 @@ function continueSavedArcade() {
     currentGameMode = 'arcade';
     ArcadeManager.loadProgress(savedData);
 
-    const userTeam = brazilianTeams.find(t => t.id === ArcadeManager.userTeamId);
+    const userTeam = allTeamsList.find(t => t.id === ArcadeManager.userTeamId);
 
     smoothTransition(mainMenu, arcadeDashboard, () => {
         arcadeUserTeamName.textContent = userTeam.name;
@@ -2778,9 +2779,40 @@ if (btnContinueArcade) {
 
 if (btnDeleteSave) {
     btnDeleteSave.addEventListener('click', () => {
-        if (confirm('Deseja apagar o progresso salvo? Esta aÃ§Ã£o nÃ£o pode ser desfeita.')) {
-            StorageManager.clearArcadeProgress();
-            checkSavedArcadeProgress();
+        const modal = document.getElementById('game-custom-modal');
+        const titleEl = document.getElementById('custom-modal-title');
+        const msgEl = document.getElementById('custom-modal-message');
+        const btnConfirm = document.getElementById('btn-modal-confirm');
+        const btnCancel = document.getElementById('btn-modal-cancel');
+
+        if (modal && titleEl && msgEl && btnConfirm && btnCancel) {
+            titleEl.textContent = 'Apagar Progresso?';
+            msgEl.textContent = 'Deseja apagar o progresso salvo? Esta ação não pode ser desfeita.';
+
+            // Show modal
+            modal.classList.remove('hidden');
+
+            // Cleanup old listeners to avoid stacking (simple clone method or refined handler)
+            const newBtnConfirm = btnConfirm.cloneNode(true);
+            const newBtnCancel = btnCancel.cloneNode(true);
+            btnConfirm.parentNode.replaceChild(newBtnConfirm, btnConfirm);
+            btnCancel.parentNode.replaceChild(newBtnCancel, btnCancel);
+
+            newBtnConfirm.addEventListener('click', () => {
+                StorageManager.clearArcadeProgress();
+                checkSavedArcadeProgress();
+                modal.classList.add('hidden');
+            });
+
+            newBtnCancel.addEventListener('click', () => {
+                modal.classList.add('hidden');
+            });
+        } else {
+            // Fallback
+            if (confirm('Deseja apagar o progresso salvo? Esta ação não pode ser desfeita.')) {
+                StorageManager.clearArcadeProgress();
+                checkSavedArcadeProgress();
+            }
         }
     });
 }
@@ -3141,7 +3173,7 @@ function startArcadeCampaign() {
     arcadeDashboard.classList.remove('hidden');
 
     const userTeam = selectedTeams[0];
-    const leagueToStart = window.selectedLeague || 'brasileirao';
+    const leagueToStart = document.getElementById('btn-start').dataset.league || window.selectedLeague || 'brasileirao';
     ArcadeManager.init(userTeam.id, leagueToStart);
 
     arcadeUserTeamName.textContent = userTeam.name;
@@ -4514,7 +4546,10 @@ function initTeamSelectionForArcade(teamsList, leagueName) {
 
     if (vsSeparator) vsSeparator.classList.add('hidden');
     if (slot2) slot2.classList.add('hidden');
-    if (btnStart) btnStart.innerText = "INICIAR CAMPANHA";
+    if (btnStart) {
+        btnStart.innerText = "INICIAR CAMPANHA";
+        btnStart.dataset.league = leagueName;
+    }
     if (selectionSubtitle) selectionSubtitle.innerText = "Quem você levará ao título?";
 
     // Update title
