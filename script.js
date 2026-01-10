@@ -173,7 +173,33 @@ const mineiroTeams = [
 ];
 
 
-const allTeamsList = [...new Map([...brazilianTeams, ...paulistaTeams, ...cariocaTeams, ...gauchoTeams, ...mineiroTeams].map(t => [t.id, t])).values()];
+const paranaenseTeams = [
+    { id: "athletico", name: "Athletico-PR", shortName: "CAP", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Athletico_Paranaense_%28Logo_2019%29.svg/250px-Athletico_Paranaense_%28Logo_2019%29.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 76 },
+
+    { id: "coritiba", name: "Coritiba", shortName: "CFC", badge: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Coritiba_FBC_%282011%29_-_PR.svg/960px-Coritiba_FBC_%282011%29_-_PR.svg.png", primaryColor: "#FFFFFF", secondaryColor: "#005327", overall: 73 },
+
+    { id: "operario", name: "Operário-PR", shortName: "OPE", badge: "//ssl.gstatic.com/onebox/media/sports/logos/GmLvorr4MqC4aRinQQ4Mdw_96x96.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 65 },
+
+    { id: "londrina", name: "Londrina", shortName: "LON", badge: "//ssl.gstatic.com/onebox/media/sports/logos/e7TVDQHlKXSPLpNT58XzBA_96x96.png", primaryColor: "#FFFFFF", secondaryColor: "#0091CF", overall: 64 },
+
+    { id: "maringa", name: "Maringá FC", shortName: "MFC", badge: "//ssl.gstatic.com/onebox/media/sports/logos/reJfYxbZflCw0Wsi5s0eNA_96x96.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 63 },
+
+    { id: "fccascavel", name: "FC Cascavel", shortName: "FCC", badge: "//ssl.gstatic.com/onebox/media/sports/logos/qbmj87U49Y1xfIJwuBwKZg_96x96.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 62 },
+
+    { id: "cianorte", name: "Cianorte", shortName: "CIA", badge: "//ssl.gstatic.com/onebox/media/sports/logos/vsksTb7C-i3371bzVpcU_Q_96x96.png", primaryColor: "#FFFFFF", secondaryColor: "#003893", overall: 60 },
+
+    { id: "azuriz", name: "Azuriz", shortName: "AZU", badge: "//ssl.gstatic.com/onebox/media/sports/logos/tgXFFY3CiWEIul9EmzjD1g_96x96.png", primaryColor: "#FFFFFF", secondaryColor: "#006437", overall: 59 },
+
+    { id: "saojoseense", name: "São Joseense", shortName: "SJO", badge: "//ssl.gstatic.com/onebox/media/sports/logos/fmnyoN22p1UB8q6bo9VPMQ_96x96.png", primaryColor: "#FFFFFF", secondaryColor: "#003893", overall: 58 },
+
+    { id: "andraus", name: "Andraus", shortName: "AND", badge: "//ssl.gstatic.com/onebox/media/sports/logos/d4eI6g7cnpKC8iC3aNkz2g_96x96.png", primaryColor: "#FFFFFF", secondaryColor: "#003893", overall: 57 },
+
+    { id: "galomaringa", name: "Galo Maringá", shortName: "GAL", badge: "//ssl.gstatic.com/onebox/media/sports/logos/bYJj1vEl0KQ8HN73RMxcpg_96x96.png", primaryColor: "#FFFFFF", secondaryColor: "#000000", overall: 58 },
+
+    { id: "fozdoiguacu", name: "Foz do Iguaçu", shortName: "FOZ", badge: "https://upload.wikimedia.org/wikipedia/pt/c/c2/FOZ-FC-2014-229x300_%281%29.png", primaryColor: "#FFFFFF", secondaryColor: "#0091CF", overall: 57 }
+];
+
+const allTeamsList = [...new Map([...brazilianTeams, ...paulistaTeams, ...cariocaTeams, ...gauchoTeams, ...mineiroTeams, ...paranaenseTeams].map(t => [t.id, t])).values()];
 
 
 
@@ -1310,15 +1336,12 @@ const LeagueSystem = {
             }
         },
         'mineiro': {
-            name: 'Mineiro',
-            type: 'cross_group_mineiro',
-            groups: 3,
-            teamsPerGroup: 4,
-            rounds: 8,
-            knockout: {
-                semis: { legs: 2 },
-                final: { legs: 2 }
-            }
+            name: 'Mineiro', type: 'cross_group_mineiro', groups: 3, teamsPerGroup: 4, rounds: 8,
+            knockout: { semis: { legs: 2 }, final: { legs: 2 } }
+        },
+        'paranaense': {
+            name: 'Paranaense', type: 'league_knockout', rounds: 11,
+            knockout: { quarters: { legs: 2 }, semis: { legs: 2 }, final: { legs: 2 } }
         }
     },
 
@@ -1484,6 +1507,7 @@ const ArcadeManager = {
         else if (leagueType === 'carioca') ArcadeManager.leagueTeams = [...cariocaTeams];
         else if (leagueType === 'gaucho') ArcadeManager.leagueTeams = [...gauchoTeams];
         else if (leagueType === 'mineiro') ArcadeManager.leagueTeams = [...mineiroTeams];
+        else if (leagueType === 'paranaense') ArcadeManager.leagueTeams = [...paranaenseTeams];
         else ArcadeManager.leagueTeams = [...brazilianTeams];
 
         // Init Stats
@@ -1507,12 +1531,14 @@ const ArcadeManager = {
             ArcadeManager.groups = LeagueSystem.generateMineiroGroups(ArcadeManager.leagueTeams);
             ArcadeManager.schedule = LeagueSystem.generateCrossGroupSchedule(ArcadeManager.groups, 'mineiro', 8);
         } else {
-            // Brasileirao & Carioca (League format initially)
+            // Brasileirao & Carioca & Paranaense (League format initially)
             ArcadeManager.groups = null;
             if (leagueType === 'carioca') {
-                ArcadeManager.schedule = LeagueSystem.generateRoundRobin(ArcadeManager.leagueTeams);
+                ArcadeManager.schedule = LeagueSystem.generateRoundRobin(ArcadeManager.leagueTeams); // 11 Rounds
+            } else if (leagueType === 'paranaense') {
+                ArcadeManager.schedule = LeagueSystem.generateRoundRobin(ArcadeManager.leagueTeams); // 11 Rounds (same logic as carioca/1-turn)
             } else {
-                ArcadeManager.schedule = LeagueSystem.generateRoundRobin(ArcadeManager.leagueTeams);
+                ArcadeManager.schedule = LeagueSystem.generateRoundRobin(ArcadeManager.leagueTeams); // Brasileirao (logic inside handles turns)
             }
         }
 
@@ -1528,12 +1554,13 @@ const ArcadeManager = {
         else if (ArcadeManager.currentLeague === 'carioca') ArcadeManager.leagueTeams = [...cariocaTeams];
         else if (ArcadeManager.currentLeague === 'gaucho') ArcadeManager.leagueTeams = [...gauchoTeams];
         else if (ArcadeManager.currentLeague === 'mineiro') ArcadeManager.leagueTeams = [...mineiroTeams];
+        else if (ArcadeManager.currentLeague === 'paranaense') ArcadeManager.leagueTeams = [...paranaenseTeams];
         else ArcadeManager.leagueTeams = [...brazilianTeams];
     },
 
     getTeamOverall: (teamId) => {
         // Helper to find team data
-        const findTeam = (id) => paulistaTeams.find(t => t.id === id) || cariocaTeams.find(t => t.id === id) || gauchoTeams.find(t => t.id === id) || mineiroTeams.find(t => t.id === id) || brazilianTeams.find(t => t.id === id);
+        const findTeam = (id) => paulistaTeams.find(t => t.id === id) || cariocaTeams.find(t => t.id === id) || gauchoTeams.find(t => t.id === id) || mineiroTeams.find(t => t.id === id) || paranaenseTeams.find(t => t.id === id) || brazilianTeams.find(t => t.id === id);
         const team = findTeam(teamId);
         const base = team ? team.overall : 70;
         const boost = ArcadeManager.overallBoosts[teamId] || 0;
@@ -1660,17 +1687,19 @@ const ArcadeManager = {
         if (ArcadeManager.currentRound < ArcadeManager.schedule.length) return;
 
         // Season Done. Check rules.
-        if (ArcadeManager.currentLeague === 'paulista') {
-            ArcadeManager.transitionToPaulistaKnockout();
-        } else if (ArcadeManager.currentLeague === 'gaucho') {
-            ArcadeManager.transitionToGauchoKnockout();
-        } else if (ArcadeManager.currentLeague === 'mineiro') {
-            ArcadeManager.transitionToMineiroKnockout();
-        } else if (ArcadeManager.currentLeague === 'carioca') {
-            ArcadeManager.transitionToCariocaKnockout();
+        if (NewArcadeManager.currentLeague === 'paulista') {
+            NewArcadeManager.transitionToPaulistaKnockout();
+        } else if (NewArcadeManager.currentLeague === 'gaucho') {
+            NewArcadeManager.transitionToGauchoKnockout();
+        } else if (NewArcadeManager.currentLeague === 'mineiro') {
+            NewArcadeManager.transitionToMineiroKnockout();
+        } else if (NewArcadeManager.currentLeague === 'carioca') {
+            NewArcadeManager.transitionToCariocaKnockout();
+        } else if (NewArcadeManager.currentLeague === 'paranaense') {
+            NewArcadeManager.transitionToParanaenseKnockout();
         } else {
             // Brasileirao Ends
-            ArcadeManager.finishSeason();
+            NewArcadeManager.finishSeason();
         }
     },
 
@@ -1768,6 +1797,26 @@ const ArcadeManager = {
         alert("Fase de Grupos do Mineiro encerrada!\\nLíderes e melhor 2º avançam.");
     },
 
+    transitionToParanaenseKnockout: () => {
+        // Top 8 General
+        const leaderboard = ArcadeManager.getLeaderboard();
+        const top8 = leaderboard.slice(0, 8);
+
+        // Quarters: 1v8, 2v7, 3v6, 4v5. 2 Legs.
+        const matchUps = [
+            { home: top8[0].id, away: top8[7].id },
+            { home: top8[1].id, away: top8[6].id },
+            { home: top8[2].id, away: top8[5].id },
+            { home: top8[3].id, away: top8[4].id }
+        ];
+
+        ArcadeManager.knockoutBracket = matchUps.map(m => ({
+            ...m, stage: 'quarters', totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0, completed: false
+        }));
+        ArcadeManager.currentStage = 'quarters';
+        alert("Primeira Fase do Paranaense encerrada!\\nOs 8 melhores avançam para as Quartas.");
+    },
+
     // ================== KNOCKOUT LOGIC ==================
 
     processKnockoutMatch: (homeId, awayId, sHome, sAway) => {
@@ -1813,6 +1862,8 @@ const ArcadeManager = {
             ArcadeManager.advanceMineiro();
         } else if (ArcadeManager.currentLeague === 'carioca') {
             ArcadeManager.advanceCarioca();
+        } else if (ArcadeManager.currentLeague === 'paranaense') {
+            ArcadeManager.advanceParanaense();
         }
     },
 
@@ -1891,6 +1942,36 @@ const ArcadeManager = {
                 const champion = ArcadeManager.leagueTeams.find(t => t.id === championId);
                 showChampionScreen(champion);
             }
+        }
+    },
+
+    advanceParanaense: () => {
+        const stage = ArcadeManager.currentStage;
+        const pending = ArcadeManager.knockoutBracket.some(m => m.currentLeg < 2);
+        if (pending) {
+            ArcadeManager.setupSecondLeg();
+            return;
+        }
+
+        const winners = ArcadeManager.resolveWinners();
+
+        if (stage === 'quarters') {
+            const semis = [
+                { home: winners[0], away: winners[3], stage: 'semis', totalLegs: 2, currentLeg: 1 },
+                { home: winners[1], away: winners[2], stage: 'semis', totalLegs: 2, currentLeg: 1 }
+            ];
+            ArcadeManager.knockoutBracket = semis;
+            ArcadeManager.currentStage = 'semis';
+            alert("Semifinais do Paranaense definidas!");
+        } else if (stage === 'semis') {
+            const final = [
+                { home: winners[0], away: winners[1], stage: 'final', totalLegs: 2, currentLeg: 1 }
+            ];
+            ArcadeManager.knockoutBracket = final;
+            ArcadeManager.currentStage = 'final';
+            alert("Grande Final do Paranaense!");
+        } else if (stage === 'final') {
+            ArcadeManager.finishChampion(winners[0]);
         }
     },
 
@@ -3089,6 +3170,7 @@ function updateArcadeDashboard() {
     else if (ArcadeManager.currentLeague === 'carioca' && ArcadeManager.currentStage === 'regular') stageName = "Taça Guanabara";
     else if (ArcadeManager.currentLeague === 'gaucho' && ArcadeManager.currentStage === 'regular') stageName = "Fase Classificatória";
     else if (ArcadeManager.currentLeague === 'mineiro' && ArcadeManager.currentStage === 'regular') stageName = "Fase de Grupos";
+    else if (ArcadeManager.currentLeague === 'paranaense' && ArcadeManager.currentStage === 'regular') stageName = "Fase Classificatória";
     else if (ArcadeManager.currentLeague === 'brasileirao') stageName = "Pontos Corridos";
 
     currentRoundNum.textContent = stageName + (ArcadeManager.currentStage === 'regular' ? ` - Rodada ${ArcadeManager.currentRound + 1}/${ArcadeManager.schedule.length}` : '');
@@ -3148,6 +3230,13 @@ function renderSimpleStandings() {
             const row = createStandingRow(t, index + 1);
             if (index < 8) row.style.borderLeft = "4px solid #00ff00"; // Quarterfinals
             else if (index >= 10) row.style.borderLeft = "4px solid #ff0000"; // Relegation (11th and 12th)
+            arcadeStandingsList.appendChild(row);
+        });
+    } else if (ArcadeManager.currentLeague === 'paranaense') {
+        leaderboard.forEach((t, index) => {
+            const row = createStandingRow(t, index + 1);
+            if (index < 8) row.style.borderLeft = "4px solid #00ff00"; // G8 match gaucho style
+            else if (index >= 10) row.style.borderLeft = "4px solid #ff0000"; // Relegation
             arcadeStandingsList.appendChild(row);
         });
     } else {
@@ -4359,6 +4448,7 @@ window.selectChampionship = function (league) {
     else if (league === 'carioca') teamsList = cariocaTeams;
     else if (league === 'gaucho') teamsList = gauchoTeams;
     else if (league === 'mineiro') teamsList = mineiroTeams;
+    else if (league === 'paranaense') teamsList = paranaenseTeams;
     else teamsList = brazilianTeams;
 
     initTeamSelectionForArcade(teamsList, league);
@@ -4391,6 +4481,7 @@ function initTeamSelectionForArcade(teamsList, leagueName) {
     else if (leagueName === 'carioca') leagueDisplay = "CARIOCÃO 2026";
     else if (leagueName === 'gaucho') leagueDisplay = "GAUCHÃO 2026";
     else if (leagueName === 'mineiro') leagueDisplay = "CAMPEONATO MINEIRO 2026";
+    else if (leagueName === 'paranaense') leagueDisplay = "PARANAENSE 2026";
 
     const selectionTitle = document.getElementById('selection-title');
     selectionTitle.innerHTML = `SELECIONE SEU TIME<br><small style="font-size: 0.6em; color: var(--accent-gold);">${leagueDisplay}</small>`;
