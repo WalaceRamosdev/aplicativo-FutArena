@@ -23,8 +23,8 @@
   --field-dark: #0a4f1c;
   --field-light: #0d6e26;
 
-  --font-main: 'Roboto', sans-serif;
-  --font-display: 'Oswald', sans-serif;
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
 
   --player-height: 36px;
   /* Reduzido de 50px para 36px */
@@ -602,9 +602,9 @@ button {
   text-align: center;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: -2px -2px 20px 5px rgba(0,0,0,0.72);
--webkit-box-shadow: -2px -2px 20px 5px rgba(0,0,0,0.72);
--moz-box-shadow: -2px -2px 20px 5px rgba(0,0,0,0.72);
+  box-shadow: -2px -2px 20px 5px rgba(0, 0, 0, 0.72);
+  -webkit-box-shadow: -2px -2px 20px 5px rgba(0, 0, 0, 0.72);
+  -moz-box-shadow: -2px -2px 20px 5px rgba(0, 0, 0, 0.72);
 }
 
 .menu-card:hover {
