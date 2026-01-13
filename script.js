@@ -351,8 +351,8 @@ const SPEED_SETTINGS = {
     fast: { matchDuration: 20000, rotationMult: 1.5, label: 'Rápido' }
 };
 
-// ==================== IMAGENS DE FUNDO (Estádios Brasileiros) ====================
-// Estádios icônicos do futebol brasileiro
+// ==================== IMAGENS DE FUNDO (Estádios Brasileirãos) ====================
+// Estádios icônicos do futebol Brasileirão
 const BG_IMAGES = [
     "https://static.vecteezy.com/ti/vetor-gratis/p1/15451551-a-bola-na-rede-de-futebol-conceito-de-de-gol-com-a-bandeira-do-brasil-banner-de-3d-com-efeito-de-desfoque-vetor.jpg",
 ];
@@ -388,10 +388,10 @@ const AICommentator = {
         ],
         goalReaction: [
             "GOOOOL! A torcida explode!",
-            "GOLA�?O! Que pintura!",
+            "GOLAÇO! Que pintura!",
             "ENTROU! Não tinha goleiro que segurasse!",
             "GOL! A rede balançou!",
-            "�? GOL! Que jogada sensacional!",
+            "GOL! Que jogada sensacional!",
         ],
         closeGame: [
             "Jogo apertado! Decidido nos detalhes!",
@@ -908,7 +908,7 @@ class SoundManager {
 
         if (btnPlayPause) {
             const isPlaying = forcePausedState !== undefined ? !forcePausedState : !this.bgmPlayer.paused;
-            btnPlayPause.textContent = isPlaying ? "⏸" : "�?�";
+            btnPlayPause.textContent = isPlaying ? "⏸" : "►";
             btnPlayPause.title = isPlaying ? "Pausar" : "Tocar";
 
             if (playerBar) {
@@ -1305,18 +1305,18 @@ const StorageManager = {
 // ==================== SYSTEM OF LEAGUES ====================
 const LeagueSystem = {
     configs: {
-        'brasileirao': {
-            name: 'Brasileir�o',
+        'Brasileirão': {
+            name: 'Brasileirão',
             type: 'league',
             rounds: 19
         },
         'paulista': {
-            name: 'Paulist�o',
+            name: 'Paulistão',
             type: 'group_knockout',
             groups: 4
         },
         'carioca': {
-            name: 'Carioc�o',
+            name: 'Cariocão',
             type: 'league_knockout',
             rounds: 11,
             knockout: {
@@ -1324,8 +1324,8 @@ const LeagueSystem = {
                 final: { legs: 2 }
             }
         },
-        'gaucho': {
-            name: 'Gauch�o',
+        'Gauchão': {
+            name: 'Gauchão',
             type: 'cross_group',
             groups: 3,
             teamsPerGroup: 4,
@@ -1388,16 +1388,16 @@ const LeagueSystem = {
         return rounds.filter(r => r.length > 0);
     },
 
-    generateGauchoGroups: (teams) => {
+    generateGauchãoGroups: (teams) => {
         const groups = { 'A': [], 'B': [], 'C': [] };
 
-        // Group A: Gr�mio, S�o Jos�, Guarany, Avenida
+        // Group A: Grêmio, São José, Guarany, Avenida
         groups['A'] = ['gremio', 'saojose', 'guarany', 'avenida'];
 
         // Group B: Inter, Caxias, Pelotas, Ypiranga
         groups['B'] = ['internacional', 'caxias', 'pelotas', 'ypiranga'];
 
-        // Group C: Juventude, Monsoon, Brasil-Pel, S�o Luiz
+        // Group C: Juventude, Monsoon, Brasil-Pel, São Luiz
         groups['C'] = ['juventude', 'monsoon', 'brasilpelotas', 'saoluiz'];
 
         return groups;
@@ -1406,10 +1406,10 @@ const LeagueSystem = {
     generateMineiroGroups: (teams) => {
         const groups = { 'A': [], 'B': [], 'C': [] };
 
-        // Group A: Atl�tico-MG, Democrata-GV, Uberl�ndia, URT
+        // Group A: Atlético-MG, Democrata-GV, Uberlândia, URT
         groups['A'] = ['atletico', 'democrata', 'uberlandia', 'urt'];
 
-        // Group B: Am�rica-MG, Betim, Pouso Alegre, Tombense
+        // Group B: América-MG, Betim, Pouso Alegre, Tombense
         groups['B'] = ['america', 'betim', 'pousoalegre', 'tombense'];
 
         // Group C: Athletic, Cruzeiro, Itabirito, North
@@ -1476,10 +1476,10 @@ const LeagueSystem = {
     }
 };
 
-// ==================== ARCADE MANAGER (L�gica do Campeonato) ====================
+// ==================== ARCADE MANAGER (Lógica do Campeonato) ====================
 const ArcadeManager = {
     userTeamId: null,
-    currentLeague: 'brasileirao',
+    currentLeague: 'Brasileirão',
     currentStage: 'regular', // 'regular' (groups/league), 'quarters', 'semis', 'final'
 
     // State
@@ -1497,7 +1497,7 @@ const ArcadeManager = {
     coins: 0,
     overallBoosts: {},
 
-    init: (teamId, leagueType = 'brasileirao') => {
+    init: (teamId, leagueType = 'Brasileirão') => {
         ArcadeManager.userTeamId = teamId;
         ArcadeManager.currentLeague = leagueType;
         ArcadeManager.currentStage = 'regular'; // Start at regular stage
@@ -1505,7 +1505,7 @@ const ArcadeManager = {
         // Load Teams
         if (leagueType === 'paulista') ArcadeManager.leagueTeams = [...paulistaTeams];
         else if (leagueType === 'carioca') ArcadeManager.leagueTeams = [...cariocaTeams];
-        else if (leagueType === 'gaucho') ArcadeManager.leagueTeams = [...gauchoTeams];
+        else if (leagueType === 'Gauchão') ArcadeManager.leagueTeams = [...gauchoTeams];
         else if (leagueType === 'mineiro') ArcadeManager.leagueTeams = [...mineiroTeams];
         else if (leagueType === 'paranaense') ArcadeManager.leagueTeams = [...paranaenseTeams];
         else ArcadeManager.leagueTeams = [...brazilianTeams];
@@ -1524,21 +1524,21 @@ const ArcadeManager = {
         if (leagueType === 'paulista') {
             ArcadeManager.groups = LeagueSystem.generatePaulistaGroups(ArcadeManager.leagueTeams);
             ArcadeManager.schedule = LeagueSystem.generatePaulistaSchedule(ArcadeManager.groups);
-        } else if (leagueType === 'gaucho') {
-            ArcadeManager.groups = LeagueSystem.generateGauchoGroups(ArcadeManager.leagueTeams);
-            ArcadeManager.schedule = LeagueSystem.generateCrossGroupSchedule(ArcadeManager.groups, 'gaucho', 8);
+        } else if (leagueType === 'Gauchão') {
+            ArcadeManager.groups = LeagueSystem.generateGauchãoGroups(ArcadeManager.leagueTeams);
+            ArcadeManager.schedule = LeagueSystem.generateCrossGroupSchedule(ArcadeManager.groups, 'Gauchão', 8);
         } else if (leagueType === 'mineiro') {
             ArcadeManager.groups = LeagueSystem.generateMineiroGroups(ArcadeManager.leagueTeams);
             ArcadeManager.schedule = LeagueSystem.generateCrossGroupSchedule(ArcadeManager.groups, 'mineiro', 8);
         } else {
-            // Brasileirao & Carioca & Paranaense (League format initially)
+            // Brasileirão & Carioca & Paranaense (League format initially)
             ArcadeManager.groups = null;
             if (leagueType === 'carioca') {
                 ArcadeManager.schedule = LeagueSystem.generateRoundRobin(ArcadeManager.leagueTeams); // 11 Rounds
             } else if (leagueType === 'paranaense') {
                 ArcadeManager.schedule = LeagueSystem.generateRoundRobin(ArcadeManager.leagueTeams); // 11 Rounds (same logic as carioca/1-turn)
             } else {
-                ArcadeManager.schedule = LeagueSystem.generateRoundRobin(ArcadeManager.leagueTeams); // Brasileirao (logic inside handles turns)
+                ArcadeManager.schedule = LeagueSystem.generateRoundRobin(ArcadeManager.leagueTeams); // Brasileirão (logic inside handles turns)
             }
         }
 
@@ -1552,7 +1552,7 @@ const ArcadeManager = {
         // Ensure league logic works
         if (ArcadeManager.currentLeague === 'paulista') ArcadeManager.leagueTeams = [...paulistaTeams];
         else if (ArcadeManager.currentLeague === 'carioca') ArcadeManager.leagueTeams = [...cariocaTeams];
-        else if (ArcadeManager.currentLeague === 'gaucho') ArcadeManager.leagueTeams = [...gauchoTeams];
+        else if (ArcadeManager.currentLeague === 'Gauchão') ArcadeManager.leagueTeams = [...gauchoTeams];
         else if (ArcadeManager.currentLeague === 'mineiro') ArcadeManager.leagueTeams = [...mineiroTeams];
         else if (ArcadeManager.currentLeague === 'paranaense') ArcadeManager.leagueTeams = [...paranaenseTeams];
         else ArcadeManager.leagueTeams = [...brazilianTeams];
@@ -1689,8 +1689,8 @@ const ArcadeManager = {
         // Season Done. Check rules.
         if (NewArcadeManager.currentLeague === 'paulista') {
             NewArcadeManager.transitionToPaulistaKnockout();
-        } else if (NewArcadeManager.currentLeague === 'gaucho') {
-            NewArcadeManager.transitionToGauchoKnockout();
+        } else if (NewArcadeManager.currentLeague === 'Gauchão') {
+            NewArcadeManager.transitionToGauchãoKnockout();
         } else if (NewArcadeManager.currentLeague === 'mineiro') {
             NewArcadeManager.transitionToMineiroKnockout();
         } else if (NewArcadeManager.currentLeague === 'carioca') {
@@ -1698,7 +1698,7 @@ const ArcadeManager = {
         } else if (NewArcadeManager.currentLeague === 'paranaense') {
             NewArcadeManager.transitionToParanaenseKnockout();
         } else {
-            // Brasileirao Ends
+            // Brasileirão Ends
             NewArcadeManager.finishSeason();
         }
     },
@@ -1743,11 +1743,11 @@ const ArcadeManager = {
         ArcadeManager.knockoutBracket = semiMatches.map(m => ({ ...m, totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0, completed: false }));
         ArcadeManager.currentStage = 'semis';
 
-        const leagueName = ArcadeManager.currentLeague === 'carioca' ? 'Ta�a Guanabara' : 'Fase Classificat�ria';
+        const leagueName = ArcadeManager.currentLeague === 'carioca' ? 'Taça Guanabara' : 'Fase Classificatória';
         alert(`${leagueName} encerrada! Iniciando Semifinais.`);
     },
 
-    transitionToGauchoKnockout: () => {
+    transitionToGauchãoKnockout: () => {
         // Leaders of A, B, C + Best 2nd Place
         const winners = ['A', 'B', 'C'].map(g => ArcadeManager.getGroupStandings(g)[0]);
 
@@ -1769,7 +1769,7 @@ const ArcadeManager = {
             ...m, stage: 'semis', totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0, completed: false
         }));
         ArcadeManager.currentStage = 'semis';
-        alert("Fase de Grupos do Gauch�o encerrada!\\nL�deres e melhor 2� avan�am.");
+        alert("Fase de Grupos do Gauchão encerrada!\\nLíderes e melhor 2º avançam.");
     },
 
     transitionToMineiroKnockout: () => {
@@ -1794,7 +1794,7 @@ const ArcadeManager = {
             ...m, stage: 'semis', totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0, completed: false
         }));
         ArcadeManager.currentStage = 'semis';
-        alert("Fase de Grupos do Mineiro encerrada!\\nL�deres e melhor 2� avan�am.");
+        alert("Fase de Grupos do Mineiro encerrada!\\nLíderes e melhor 2º avançam.");
     },
 
     transitionToParanaenseKnockout: () => {
@@ -1814,7 +1814,7 @@ const ArcadeManager = {
             ...m, stage: 'quarters', totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0, completed: false
         }));
         ArcadeManager.currentStage = 'quarters';
-        alert("Primeira Fase do Paranaense encerrada!\\nOs 8 melhores avan�am para as Quartas.");
+        alert("Primeira Fase do Paranaense encerrada!\\nOs 8 melhores avançam para as Quartas.");
     },
 
     // ================== KNOCKOUT LOGIC ==================
@@ -1856,8 +1856,8 @@ const ArcadeManager = {
         // All done. Next step?
         if (ArcadeManager.currentLeague === 'paulista') {
             ArcadeManager.advancePaulista();
-        } else if (ArcadeManager.currentLeague === 'gaucho') {
-            ArcadeManager.advanceGaucho();
+        } else if (ArcadeManager.currentLeague === 'Gauchão') {
+            ArcadeManager.advanceGauchão();
         } else if (ArcadeManager.currentLeague === 'mineiro') {
             ArcadeManager.advanceMineiro();
         } else if (ArcadeManager.currentLeague === 'carioca') {
@@ -1927,7 +1927,7 @@ const ArcadeManager = {
             ArcadeManager.currentStage = 'final';
 
             let msg = "Final definida!";
-            if (ArcadeManager.currentLeague === 'carioca') msg = "Final do Carioc�o definida!";
+            if (ArcadeManager.currentLeague === 'carioca') msg = "Final do Cariocão definida!";
             alert(msg);
         } else if (ArcadeManager.currentStage === 'final') {
             const match = ArcadeManager.knockoutBracket[0];
@@ -1935,7 +1935,7 @@ const ArcadeManager = {
                 match.currentLeg = 2;
                 match.completed = false;
                 const temp = match.home; match.home = match.away; match.away = temp;
-                alert("Fim do jogo de ida. Decis�o na volta!");
+                alert("Fim do jogo de ida. Decisão na volta!");
             } else {
                 let championId = match.aggHome > match.aggAway ? match.home : match.away;
                 if (match.aggHome == match.aggAway) championId = match.home;
@@ -1975,7 +1975,7 @@ const ArcadeManager = {
         }
     },
 
-    advanceGaucho: () => {
+    advanceGauchão: () => {
         const stage = ArcadeManager.currentStage;
         const pending = ArcadeManager.knockoutBracket.some(m => m.currentLeg < 2);
         if (pending) {
@@ -1992,14 +1992,14 @@ const ArcadeManager = {
             ];
             ArcadeManager.knockoutBracket = semis;
             ArcadeManager.currentStage = 'semis';
-            alert("Semifinais do Gauch�o definidas!");
+            alert("Semifinais do Gauchão definidas!");
         } else if (stage === 'semis') {
             const final = [
                 { home: winners[0], away: winners[1], stage: 'final', totalLegs: 2, currentLeg: 1 }
             ];
             ArcadeManager.knockoutBracket = final;
             ArcadeManager.currentStage = 'final';
-            alert("Grande Final do Gauch�o!");
+            alert("Grande Final do Gauchão!");
         } else if (stage === 'final') {
             ArcadeManager.finishChampion(winners[0]);
         }
@@ -2142,7 +2142,7 @@ const ArcadeManager = {
         } else if (ArcadeManager.currentLeague === 'carioca') {
             ArcadeManager.transitionToCariocaKnockout();
         } else {
-            // Brasileirao - just check winner
+            // Brasileirão - just check winner
             const champion = ArcadeManager.getLeaderboard()[0];
             showChampionScreen(champion);
         }
@@ -2164,7 +2164,7 @@ const ArcadeManager = {
         if (userQualified) {
             window.showCustomModal("QUARTAS DE FINAL", "Fase de Grupos encerrada!<br>Iniciando Quartas de Final.", null, null, false);
         } else {
-            window.showCustomModal("FIM DE JOGO", "Fim da linha! Seu time foi eliminado na Fase de Grupos.<br>O campeonato continuar� sem voc�.", null, null, false);
+            window.showCustomModal("FIM DE JOGO", "Fim da linha! Seu time foi eliminado na Fase de Grupos.<br>O campeonato continuar sem você.", null, null, false);
         }
     },
 
@@ -2179,9 +2179,9 @@ const ArcadeManager = {
 
         const userQualified = semiMatches.some(m => m.home === ArcadeManager.userTeamId || m.away === ArcadeManager.userTeamId);
         if (userQualified) {
-            window.showCustomModal("SEMIFINAIS", "Ta�a Guanabara encerrada!<br>Iniciando Semifinais.", null, null, false);
+            window.showCustomModal("SEMIFINAIS", "Taça Guanabara encerrada!<br>Iniciando Semifinais.", null, null, false);
         } else {
-            window.showCustomModal("FIM DE JOGO", "Fim da linha! Seu time n�o se classificou para as Semifinais.<br>O campeonato continuar� sem voc�.", null, null, false);
+            window.showCustomModal("FIM DE JOGO", "Fim da linha! Seu time não se classificou para as Semifinais.<br>O campeonato continuar sem você.", null, null, false);
         }
     },
 
@@ -2221,10 +2221,10 @@ const ArcadeManager = {
             ArcadeManager.currentStage = 'semis';
 
             if (winners.includes(ArcadeManager.userTeamId)) {
-                window.showCustomModal("CLASSIFICADO!", "Parab�ns! Voc� avan�ou para as Semifinais!", null, null, false);
+                window.showCustomModal("CLASSIFICADO!", "Parabéns! Você avançou para as Semifinais!", null, null, false);
             } else if (ArcadeManager.knockoutBracket.some(m => m.home === ArcadeManager.userTeamId || m.away === ArcadeManager.userTeamId)) {
                 // Should be covered by winners includes check, but safety first
-                window.showCustomModal("CLASSIFICADO!", "Parab�ns! Voc� avan�ou para as Semifinais!", null, null, false);
+                window.showCustomModal("CLASSIFICADO!", "Parabéns! Você avançou para as Semifinais!", null, null, false);
             } else {
                 // Check if user WAS in quarters to show specific elimination msg
                 window.showCustomModal("ELIMINADO", "Infelizmente seu time caiu nas Quartas de Final.", null, null, false);
@@ -2235,7 +2235,7 @@ const ArcadeManager = {
                 { home: winners[0], away: winners[1], stage: 'final', completed: false, totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0 }
             ];
             ArcadeManager.currentStage = 'final';
-            window.showCustomModal("A GRANDE FINAL", "Est� tudo definido!<br>Prepare-se para a Grande Final!", null, null, false);
+            window.showCustomModal("A GRANDE FINAL", "Está tudo definido!<br>Prepare-se para a Grande Final!", null, null, false);
         } else if (ArcadeManager.currentStage === 'final') {
             const match = ArcadeManager.knockoutBracket[0];
             if (match.currentLeg === 1) {
@@ -2268,14 +2268,14 @@ const ArcadeManager = {
                 { home: winners[0], away: winners[1], stage: 'final', totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0, completed: false }
             ];
             ArcadeManager.currentStage = 'final';
-            window.showCustomModal("FINAL DEFINIDA", "Os finalistas do Carioc�o est�o definidos!", null, null, false);
+            window.showCustomModal("FINAL DEFINIDA", "Os finalistas do Cariocão estão definidos!", null, null, false);
         } else if (ArcadeManager.currentStage === 'final') {
             const match = ArcadeManager.knockoutBracket[0];
             if (match.currentLeg === 1) {
                 match.currentLeg = 2; match.completed = false;
                 const temp = match.home; match.home = match.away; match.away = temp;
                 const tempAgg = match.aggHome; match.aggHome = match.aggAway; match.aggAway = tempAgg;
-                window.showCustomModal("DECIS�O", "Fim do jogo de ida.<br>A decis�o ser� no pr�ximo jogo!", null, null, false);
+                window.showCustomModal("DECISÃO", "Fim do jogo de ida.<br>A decisão será no próximo jogo!", null, null, false);
             } else {
                 let championId = match.aggHome > match.aggAway ? match.home : match.away;
                 if (match.aggHome == match.aggAway) championId = match.home;
@@ -2315,11 +2315,11 @@ const MatchEventManager = {
     lastEventTime: 0,
 
     EVENTS: [
-        { type: 'card', weight: 0.15, text: (team) => `�?�️ Cartão Amarelo para ${team.shortName}!`, effect: (team) => { team.overall -= 2; } },
-        { type: 'card', weight: 0.05, text: (team) => `�??� Cartão Vermelho para ${team.shortName}!`, effect: (team) => { team.overall -= 5; } },
-        { type: 'injury', weight: 0.1, text: (team) => `�?�? Lesão! ${team.shortName} joga com desvantagem.`, effect: (team) => { team.overall -= 3; } },
-        { type: 'save', weight: 0.2, text: (team) => `�?�� Defesa Milagrosa de ${team.shortName}!`, effect: (team) => { team.overall += 1; } },
-        { type: 'var', weight: 0.05, text: (team) => `�? GOL ANULADO! VAR confirma impedimento contra ${team.shortName}.`, effect: (team) => { } },
+        { type: 'card', weight: 0.15, text: (team) => ` Cartão Amarelo para ${team.shortName}!`, effect: (team) => { team.overall -= 2; } },
+        { type: 'card', weight: 0.05, text: (team) => ` Cartão Vermelho para ${team.shortName}!`, effect: (team) => { team.overall -= 5; } },
+        { type: 'injury', weight: 0.1, text: (team) => ` Lesão! ${team.shortName} joga com desvantagem.`, effect: (team) => { team.overall -= 3; } },
+        { type: 'save', weight: 0.2, text: (team) => ` Defesa Milagrosa de ${team.shortName}!`, effect: (team) => { team.overall += 1; } },
+        { type: 'var', weight: 0.05, text: (team) => ` GOL ANULADO! VAR confirma impedimento contra ${team.shortName}.`, effect: (team) => { } },
         { type: 'nothing', weight: 0.45, text: () => `Jogo segue disputado no meio-campo.`, effect: () => { } }
     ],
 
@@ -2720,7 +2720,7 @@ function smoothTransition(hideElement, showElement, callback) {
         showElement.style.opacity = '0';
         showElement.style.transform = 'translateY(20px)';
 
-        // For�a reflow para a anima��o funcionar
+        // Força reflow para a animação funcionar
         showElement.offsetHeight;
 
         showElement.style.opacity = '1';
@@ -2730,7 +2730,7 @@ function smoothTransition(hideElement, showElement, callback) {
     }, 300);
 }
 
-// Verifica e mostra op��o de continuar campeonato
+// Verifica e mostra opção de continuar campeonato
 function checkSavedArcadeProgress() {
     const continueContainer = document.getElementById('continue-arcade-container');
     const continueInfo = document.getElementById('continue-info');
@@ -2786,7 +2786,7 @@ if (btnDeleteSave) {
 
         if (modal && titleEl && msgEl && btnConfirm && btnCancel) {
             titleEl.textContent = 'Apagar Progresso?';
-            msgEl.textContent = 'Deseja apagar o progresso salvo? Esta a��o n�o pode ser desfeita.';
+            msgEl.textContent = 'Deseja apagar o progresso salvo? Esta ação não pode ser desfeita.';
 
             // Show modal
             modal.classList.remove('hidden');
@@ -2808,7 +2808,7 @@ if (btnDeleteSave) {
             });
         } else {
             // Fallback
-            if (confirm('Deseja apagar o progresso salvo? Esta a��o n�o pode ser desfeita.')) {
+            if (confirm('Deseja apagar o progresso salvo? Esta ação não pode ser desfeita.')) {
                 StorageManager.clearArcadeProgress();
                 checkSavedArcadeProgress();
             }
@@ -2829,18 +2829,7 @@ btnModeQuick.addEventListener('click', () => {
     smoothTransition(mainMenu, selectionScreen, initTeamSelection);
 });
 
-btnModeArcade.addEventListener('click', () => {
-    currentGameMode = 'arcade';
 
-    // UI Setup for Arcade Mode
-    selectionTitle.innerHTML = "ESCOLHA <span>SEU TIME</span>";
-    selectionSubtitle.innerText = "Quem você levará ao título?";
-    vsSeparator.classList.add('hidden');
-    slot2.classList.add('hidden'); // Esconde slot 2
-    btnStart.innerText = "INICIAR CAMPANHA";
-
-    smoothTransition(mainMenu, selectionScreen, initTeamSelection);
-});
 
 // ==================== WORLD CUP LOGIC ====================
 const btnModeWorldCup = document.getElementById('btn-mode-worldcup');
@@ -2848,7 +2837,7 @@ if (btnModeWorldCup) {
     btnModeWorldCup.addEventListener('click', () => {
         currentGameMode = 'worldcup';
 
-        selectionTitle.innerHTML = "ESCOLHA <span>SUA SELE�?�?O</span>";
+        selectionTitle.innerHTML = "ESCOLHA <span>SUA SELEÇÃO</span>";
         selectionSubtitle.innerText = "Para conquistar o mundo!";
         vsSeparator.classList.add('hidden');
         slot2.classList.add('hidden');
@@ -2879,7 +2868,7 @@ btnBackMenu.addEventListener('click', () => {
 btnQuitArcade.addEventListener('click', () => {
     window.showCustomModal(
         "SAIR DO CAMPEONATO?",
-        "Seu progresso ser� salvo automaticamente.<br>Deseja voltar ao menu?",
+        "Seu progresso será salvo automaticamente.<br>Deseja voltar ao menu?",
         () => {
             StorageManager.saveArcadeProgress();
             smoothTransition(arcadeDashboard, mainMenu, () => {
@@ -3172,7 +3161,7 @@ function startArcadeCampaign() {
     arcadeDashboard.classList.remove('hidden');
 
     const userTeam = selectedTeams[0];
-    const leagueToStart = document.getElementById('btn-start').dataset.league || window.selectedLeague || 'brasileirao';
+    const leagueToStart = document.getElementById('btn-start').dataset.league || window.selectedLeague || 'Brasileirão';
     ArcadeManager.init(userTeam.id, leagueToStart);
 
     arcadeUserTeamName.textContent = userTeam.name;
@@ -3198,11 +3187,11 @@ function updateArcadeDashboard() {
     if (ArcadeManager.currentStage === 'quarters') stageName = "Quartas de Final";
     else if (ArcadeManager.currentStage === 'semis') stageName = "Semifinais";
     else if (ArcadeManager.currentStage === 'final') stageName = "Grande Final";
-    else if (ArcadeManager.currentLeague === 'carioca' && ArcadeManager.currentStage === 'regular') stageName = "Ta�a Guanabara";
-    else if (ArcadeManager.currentLeague === 'gaucho' && ArcadeManager.currentStage === 'regular') stageName = "Fase Classificat�ria";
+    else if (ArcadeManager.currentLeague === 'carioca' && ArcadeManager.currentStage === 'regular') stageName = "Taça Guanabara";
+    else if (ArcadeManager.currentLeague === 'Gauchão' && ArcadeManager.currentStage === 'regular') stageName = "Fase Classificatória";
     else if (ArcadeManager.currentLeague === 'mineiro' && ArcadeManager.currentStage === 'regular') stageName = "Fase de Grupos";
-    else if (ArcadeManager.currentLeague === 'paranaense' && ArcadeManager.currentStage === 'regular') stageName = "Fase Classificat�ria";
-    else if (ArcadeManager.currentLeague === 'brasileirao') stageName = "Pontos Corridos";
+    else if (ArcadeManager.currentLeague === 'paranaense' && ArcadeManager.currentStage === 'regular') stageName = "Fase Classificatória";
+    else if (ArcadeManager.currentLeague === 'Brasileirão') stageName = "Pontos Corridos";
 
     currentRoundNum.textContent = stageName + (ArcadeManager.currentStage === 'regular' ? ` - Rodada ${ArcadeManager.currentRound + 1}/${ArcadeManager.schedule.length}` : '');
 
@@ -3248,7 +3237,7 @@ function renderSimpleStandings() {
             else if (index === 10) row.style.borderLeft = "4px solid orange"; // Playoff
             arcadeStandingsList.appendChild(row);
         });
-    } else if (ArcadeManager.currentLeague === 'brasileirao') {
+    } else if (ArcadeManager.currentLeague === 'Brasileirão') {
         leaderboard.forEach((t, index) => {
             const row = createStandingRow(t, index + 1);
             if (index < 4) row.style.borderLeft = "4px solid #00ff00";
@@ -3256,7 +3245,7 @@ function renderSimpleStandings() {
             else if (index >= 16) row.style.borderLeft = "4px solid #ff0000";
             arcadeStandingsList.appendChild(row);
         });
-    } else if (ArcadeManager.currentLeague === 'gaucho') {
+    } else if (ArcadeManager.currentLeague === 'Gauchão') {
         leaderboard.forEach((t, index) => {
             const row = createStandingRow(t, index + 1);
             if (index < 8) row.style.borderLeft = "4px solid #00ff00"; // Quarterfinals
@@ -3266,7 +3255,7 @@ function renderSimpleStandings() {
     } else if (ArcadeManager.currentLeague === 'paranaense') {
         leaderboard.forEach((t, index) => {
             const row = createStandingRow(t, index + 1);
-            if (index < 8) row.style.borderLeft = "4px solid #00ff00"; // G8 match gaucho style
+            if (index < 8) row.style.borderLeft = "4px solid #00ff00"; // G8 match Gauchão style
             else if (index >= 10) row.style.borderLeft = "4px solid #ff0000"; // Relegation
             arcadeStandingsList.appendChild(row);
         });
@@ -3285,7 +3274,7 @@ function renderGroupStandings() {
         tabsContainer.style.gap = '10px';
         arcadeStandingsList.parentNode.insertBefore(tabsContainer, arcadeStandingsList);
 
-        const groups = (ArcadeManager.currentLeague === 'mineiro' || ArcadeManager.currentLeague === 'gaucho') ? ['A', 'B', 'C'] : ['A', 'B', 'C', 'D'];
+        const groups = (ArcadeManager.currentLeague === 'mineiro' || ArcadeManager.currentLeague === 'Gauchão') ? ['A', 'B', 'C'] : ['A', 'B', 'C', 'D'];
         groups.forEach(g => {
             const btn = document.createElement('button');
             btn.textContent = `Grupo ${g}`;
@@ -3302,7 +3291,7 @@ function renderGroupStandings() {
         });
 
         // Add General Table Tab for Mineiro
-        if (ArcadeManager.currentLeague === 'mineiro' || ArcadeManager.currentLeague === 'gaucho') {
+        if (ArcadeManager.currentLeague === 'mineiro' || ArcadeManager.currentLeague === 'Gauchão') {
             const btn = document.createElement('button');
             btn.textContent = `Geral`;
             btn.className = 'btn-tab';
@@ -3551,9 +3540,9 @@ function showChampionScreen(championTeam) {
     championName.textContent = championTeam.name;
     championShieldContainer.innerHTML = '';
     championShieldContainer.appendChild(createShield(championTeam, 'xxl'));
-    championDetails.textContent = `${ArcadeManager.currentRound} Jogos �?� ${championTeam.p} Pontos`;
+    championDetails.textContent = `${ArcadeManager.currentRound} Jogos ${championTeam.p} Pontos`;
 
-    // ANIMA�?�?O DE CAMPE�?O
+    // ANIMAÇÃO DE CAMPEÃO
     AnimationEffects.glowChampion();
 
     // Novo: Efeito de explosão de confetes e som de vitória
@@ -3828,7 +3817,7 @@ function checkGoal(shield, currentRotation) {
     return false;
 }
 
-// ==================== SISTEMA DE INFLU�?NCIA DO OVERALL ====================
+// ==================== SISTEMA DE INFLUÊNCIA DO OVERALL ====================
 // O overall influencia a velocidade e direção do escudo
 // Times com overall maior têm vantagem sutil (mais chances de ir em direção ao gol)
 function getOverallInfluence(teamId) {
@@ -3841,7 +3830,7 @@ function getOverallInfluence(teamId) {
     return team ? team.overall : 75;
 }
 
-// Aplica influência do overall na física do jogo
+// Aplica INFLUÊNCIA do overall na física do jogo
 function applyOverallBoost() {
     if (!isPlaying) return;
 
@@ -3918,7 +3907,7 @@ function scoreGoal(team, teamNum, elapsed) {
         wasLateGame: matchTimeNow >= 75
     });
 
-    // ANIMA�?�?ES CONTEXTUAIS
+    // ANIMAÇÕES CONTEXTUAIS
     AnimationEffects.shakeArena();
     AnimationEffects.flashScore(teamNum);
     AnimationEffects.glowScorer(teamNum);
@@ -4088,7 +4077,7 @@ function showResultOverlay() {
     const aiComment = AICommentator.generateMatchComment(team1, team2, score1, score2, context);
     const commentEl = document.createElement('div');
     commentEl.className = 'ai-comment';
-    commentEl.innerHTML = `<span class="comment-icon">�???️</span> ${aiComment}`;
+    commentEl.innerHTML = `<span class="comment-icon">💬</span> ${aiComment}`;
     finalScore.appendChild(commentEl);
 
     // Limpar eventos para próxima partida
@@ -4110,7 +4099,7 @@ function showResultOverlay() {
 
         const coinsEl = document.createElement('div');
         coinsEl.className = 'coins-earned';
-        coinsEl.innerHTML = `<span class="coin-icon">�?�?</span> +${coinsEarned} moedas`;
+        coinsEl.innerHTML = `<span class="coin-icon">💰</span> +${coinsEarned} moedas`;
         finalScore.appendChild(coinsEl);
     }
 
@@ -4206,7 +4195,7 @@ btnBack.addEventListener('click', () => {
 
 btnToggleSound.addEventListener('click', () => {
     const isEnabled = sfx.toggleAllSound();
-    btnToggleSound.textContent = isEnabled ? '�???' : '�???';
+    btnToggleSound.textContent = isEnabled ? '' : '';
     btnToggleSound.classList.toggle('muted', !isEnabled);
     if (isEnabled) sfx.init();
 });
@@ -4404,7 +4393,7 @@ function openInfoModal(section) {
     }
 }
 
-// ==================== INICIALIZA�?�?O ====================
+// ==================== INICIALIZAÇÃO ====================
 function initApp() {
     startBgSlideshow();
     checkSavedArcadeProgress();
@@ -4468,7 +4457,7 @@ function initAutoSimulateButton() {
 }
 
 
-// Fun��o auxiliar para esconder/mostrar header e footer
+// Função auxiliar para esconder/mostrar header e footer
 function toggleGameInterface(show) {
     const header = document.querySelector('.site-header');
     const footer = document.querySelector('.site-footer');
@@ -4479,7 +4468,7 @@ function toggleGameInterface(show) {
 
 
 // ==================== CHAMPIONSHIP UI ====================
-let selectedLeague = 'brasileirao';
+let selectedLeague = 'Brasileirão';
 
 function openChampionshipModal() {
     const modal = document.getElementById('championship-modal');
@@ -4519,7 +4508,7 @@ window.selectChampionship = function (league) {
     let teamsList;
     if (league === 'paulista') teamsList = paulistaTeams;
     else if (league === 'carioca') teamsList = cariocaTeams;
-    else if (league === 'gaucho') teamsList = gauchoTeams;
+    else if (league === 'Gauchão') teamsList = gauchoTeams;
     else if (league === 'mineiro') teamsList = mineiroTeams;
     else if (league === 'paranaense') teamsList = paranaenseTeams;
     else teamsList = brazilianTeams;
@@ -4549,13 +4538,13 @@ function initTeamSelectionForArcade(teamsList, leagueName) {
         btnStart.innerText = "INICIAR CAMPANHA";
         btnStart.dataset.league = leagueName;
     }
-    if (selectionSubtitle) selectionSubtitle.innerText = "Quem voc� levar� ao t�tulo?";
+    if (selectionSubtitle) selectionSubtitle.innerText = "Quem você levará ao título?";
 
     // Update title
-    let leagueDisplay = "BRASILEIR�O";
-    if (leagueName === 'paulista') leagueDisplay = "PAULIST�O 2026";
-    else if (leagueName === 'carioca') leagueDisplay = "CARIOC�O 2026";
-    else if (leagueName === 'gaucho') leagueDisplay = "GAUCH�O 2026";
+    let leagueDisplay = "Brasileirão";
+    if (leagueName === 'paulista') leagueDisplay = "Paulistão 2026";
+    else if (leagueName === 'carioca') leagueDisplay = "Cariocão 2026";
+    else if (leagueName === 'Gauchão') leagueDisplay = "Gauchão 2026";
     else if (leagueName === 'mineiro') leagueDisplay = "CAMPEONATO MINEIRO 2026";
     else if (leagueName === 'paranaense') leagueDisplay = "PARANAENSE 2026";
 
