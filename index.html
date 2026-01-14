@@ -393,6 +393,26 @@
     </div>
   </div>
 
+  <!-- SELEÇÃO DE REGIÃO -->
+  <div id="region-selection-screen" class="screen hidden">
+    <div class="selection-header">
+      <h1 id="region-selection-title">SELECIONE A <span>REGIÃO</span></h1>
+      <p id="region-selection-subtitle">Escolha a região do seu time e do adversário</p>
+    </div>
+
+    <div id="region-grid" class="region-grid">
+      <button class="region-button" data-region="brazilianTeams">Brasileirão</button>
+      <button class="region-button" data-region="paulistaTeams">Paulista</button>
+      <button class="region-button" data-region="cariocaTeams">Carioca</button>
+      <button class="region-button" data-region="gauchoTeams">Gaúcho</button>
+      <button class="region-button" data-region="mineiroTeams">Mineiro</button>
+      <button class="region-button" data-region="paranaenseTeams">Paranaense</button>
+      <button class="region-button" data-region="allTeamsList" style="grid-column: 1 / -1; background: var(--accent-gold); color: #000; font-weight: bold;">Todos os Times</button>
+    </div>
+
+    <button id="btn-back-menu-region" class="btn-back">Voltar ao Menu</button>
+  </div>
+
   <!-- SELEÇÃO (Compartilhada mas adaptada via JS) -->
   <div id="selection-screen" class="screen hidden">
     <div class="selection-header">

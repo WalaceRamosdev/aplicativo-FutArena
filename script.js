@@ -2816,18 +2816,85 @@ if (btnDeleteSave) {
     });
 }
 
+// ==================== QUICK MATCH LOGIC ====================
+let selectionPhase = 0; // 0: None, 1: Region Home, 2: Team Home, 3: Region Away, 4: Team Away
+
 btnModeQuick.addEventListener('click', () => {
     currentGameMode = 'quick';
-
-    // UI Reset for Quick Mode
-    selectionTitle.innerHTML = "SELECIONE <span>OS TIMES</span>";
-    selectionSubtitle.innerText = "Escolha dois times para o duelo";
-    vsSeparator.classList.remove('hidden');
-    slot2.classList.remove('hidden');
-    btnStart.innerText = "JOGAR AGORA";
-
-    smoothTransition(mainMenu, selectionScreen, initTeamSelection);
+    startQuickMatchFlow();
 });
+
+function startQuickMatchFlow() {
+    // Reset state
+    selectedTeams = [];
+    selectionPhase = 1;
+
+    // UI Reset
+    mainMenu.classList.add('hidden');
+    selectionScreen.classList.add('hidden');
+
+    // Show Region Selection for HOME team
+    showRegionSelection('MANDANTE');
+}
+
+function showRegionSelection(type) {
+    const regionScreen = document.getElementById('region-selection-screen');
+    const regionTitle = document.getElementById('region-selection-title');
+    const btnBackRegion = document.getElementById('btn-back-menu-region');
+
+    if (regionScreen) {
+        regionScreen.classList.remove('hidden');
+        if (regionTitle) regionTitle.innerHTML = `REGIÃO DO <span>${type}</span>`;
+
+        // Setup Back Button for Region Screen
+        if (btnBackRegion) {
+            btnBackRegion.onclick = () => {
+                if (selectionPhase === 3) {
+                    // If canceling Away Region selection, maybe restart or go back? 
+                    // For simplicity, back to main menu or restart flow.
+                    // Let's go back to Main Menu for consistent "Exit" behavior
+                    regionScreen.classList.add('hidden');
+                    mainMenu.classList.remove('hidden');
+                } else {
+                    regionScreen.classList.add('hidden');
+                    mainMenu.classList.remove('hidden');
+                }
+            };
+        }
+    }
+}
+
+// Add listeners to region buttons
+document.querySelectorAll('.region-button').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const regionKey = btn.dataset.region;
+        const teams = getTeamsListByKey(regionKey);
+
+        if (selectionPhase === 1) {
+            // Selected Home Region -> Go to Team Selection
+            selectionPhase = 2;
+            populateTeamSelection(teams, "MANDANTE");
+        } else if (selectionPhase === 3) {
+            // Selected Away Region -> Go to Team Selection
+            selectionPhase = 4;
+            populateTeamSelection(teams, "VISITANTE");
+        }
+    });
+});
+
+function getTeamsListByKey(key) {
+    switch (key) {
+        case 'brazilianTeams': return brazilianTeams;
+        case 'paulistaTeams': return paulistaTeams;
+        case 'cariocaTeams': return cariocaTeams;
+        case 'gauchoTeams': return gauchoTeams;
+        case 'mineiroTeams': return mineiroTeams;
+        case 'paranaenseTeams': return paranaenseTeams;
+        case 'allTeamsList': return allTeamsList;
+        default: return brazilianTeams;
+    }
+}
+
 
 
 
@@ -2861,6 +2928,23 @@ if (btnQuitWorldCup) {
 
 
 btnBackMenu.addEventListener('click', () => {
+    // Logic to go back one step if possible
+    if (currentGameMode === 'quick') {
+        if (selectionPhase === 2) {
+            // Back from Home Team Select -> Home Region Select
+            selectionPhase = 1;
+            selectionScreen.classList.add('hidden');
+            showRegionSelection('MANDANTE');
+            return;
+        } else if (selectionPhase === 4) {
+            // Back from Away Team Select -> Away Region Select
+            selectionPhase = 3;
+            selectionScreen.classList.add('hidden');
+            showRegionSelection('VISITANTE');
+            return;
+        }
+    }
+
     selectedTeams = [];
     smoothTransition(selectionScreen, mainMenu, checkSavedArcadeProgress);
 });
@@ -2976,7 +3060,9 @@ function clearConfetti() {
 // ==================== TEAM SELECTION ====================
 function initTeamSelection() {
     teamsGrid.innerHTML = '';
-    selectedTeams = [];
+    teamsGrid.innerHTML = '';
+    // selectedTeams = []; // Don't clear here, we manage it in the flow
+
 
     sfx.loadTrack();
     sfx.playMusic();
@@ -3003,11 +3089,96 @@ function initTeamSelection() {
 
         card.appendChild(shield);
         card.appendChild(name);
-        card.addEventListener('click', () => selectTeam(team, card));
+        card.addEventListener('click', () => {
+            if (currentGameMode === 'worldcup') {
+                selectTeam(team, card);
+            } else {
+                selectTeamQuick(team, card);
+            }
+        });
         teamsGrid.appendChild(card);
     });
-    updateCardStates();
+    updateCardStatesQuick();
 }
+
+function populateTeamSelection(list, titleType) {
+    const regionScreen = document.getElementById('region-selection-screen');
+    if (regionScreen) regionScreen.classList.add('hidden');
+
+    selectionScreen.classList.remove('hidden');
+
+    // UI Update
+    selectionTitle.innerHTML = `SELECIONE O <span>${titleType}</span>`;
+    selectionSubtitle.innerText = "Escolha o time";
+
+    // Setup Slots (show mostly static)
+    updateSlots();
+
+    // Populate Grid
+    teamsGrid.innerHTML = '';
+    list.forEach(team => {
+        const card = document.createElement('div');
+        card.className = 'team-card';
+        card.dataset.teamId = team.id;
+
+        // Highlight if already picked (e.g. as opponent - just in case)
+        if (selectedTeams.find(t => t && t.id === team.id)) card.classList.add('selected');
+
+        const shield = createShield(team, 'md');
+        const name = document.createElement('span');
+        name.className = 'team-card-name';
+        name.textContent = team.name;
+
+        card.appendChild(shield);
+        card.appendChild(name);
+        card.addEventListener('click', () => selectTeamQuick(team, card));
+        teamsGrid.appendChild(card);
+    });
+}
+
+function selectTeamQuick(team, card) {
+    sfx.init();
+
+    if (selectionPhase === 2) {
+        // Picking Home Team
+        selectedTeams[0] = team;
+        updateSlots();
+
+        // Move to Next Step: Region for Away
+        selectionPhase = 3;
+
+        // Transition back to Region Selection
+        setTimeout(() => {
+            selectionScreen.classList.add('hidden');
+            showRegionSelection('VISITANTE');
+        }, 300); // Small delay for visual feedback
+
+    } else if (selectionPhase === 4) {
+        // Picking Away Team
+        if (selectedTeams[0] && selectedTeams[0].id === team.id) {
+            // Prevent picking same team? distinct teams requested usually.
+            // But let's allow it for "training" or just warn. 
+            // The prompt said "removed duplicate teams", usually implying unique lists, but maybe matches should be unique too.
+            // Let's allow it but maybe visual feedback?
+            // Actually standard FIFA style allows same teams.
+        }
+
+        selectedTeams[1] = team;
+        updateSlots();
+        updateStartButton();
+
+        // Visual select
+        document.querySelectorAll('.team-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+
+        // Enable start?
+    }
+}
+
+function updateCardStatesQuick() {
+    // Optional: Highlight if already selected (for away team selection)
+}
+
 
 function selectTeam(team, card) {
     if (card.classList.contains('disabled')) return;

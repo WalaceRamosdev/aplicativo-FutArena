@@ -63,8 +63,6 @@ body {
   overflow-x: hidden;
   padding-top: 56px;
   /* Espaço para o header fixo */
-  padding-bottom: 120px;
-  /* AUMENTADO: Espaço para footer fixo + player */
   -webkit-tap-highlight-color: transparent;
   /* Remove highlight em toque mobile */
   -webkit-font-smoothing: antialiased;
@@ -76,6 +74,24 @@ button {
   border: none;
   font-family: var(--font-display);
 }
+
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(18, 18, 18, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 15px 0;
+}
+
+body {
+  padding-bottom: 80px;
+  /* Space for footer */
+}
+
 
 /* ==================== UTILITÁRIOS ==================== */
 .hidden {
@@ -588,8 +604,8 @@ button {
 }
 
 .menu-card {
-  background: rgba(255, 255, 255, 0.03);
-  /* Vidro transparente */
+  background: rgba(0, 0, 0, 0.7);
+  /* Darker background for contrast */
   backdrop-filter: blur(25px);
   /* Efeito iPhone */
   -webkit-backdrop-filter: blur(25px);
@@ -602,36 +618,37 @@ button {
   text-align: center;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: -2px -2px 20px 5px rgba(0, 0, 0, 0.72);
-  -webkit-box-shadow: -2px -2px 20px 5px rgba(0, 0, 0, 0.72);
-  -moz-box-shadow: -2px -2px 20px 5px rgba(0, 0, 0, 0.72);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
 .menu-card:hover {
   transform: translateY(-10px) scale(1.02);
-  border-color: rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 .menu-icon {
   font-size: 3rem;
   margin-bottom: 15px;
+  color: #fff;
 }
 
 .menu-card h3 {
   font-family: var(--font-display);
   font-size: 1.5rem;
-  color: rgba(0, 0, 0, 0.877);
-  /* Cinza específico */
+  color: #ffffff;
+  /* White text for better contrast */
   margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .menu-card p {
   font-size: 0.9rem;
-  color: black;
-  /* Cinza específico */
+  color: #dddddd;
+  /* Light gray for subtext */
   line-height: 1.4;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .menu-extras {
@@ -1291,6 +1308,42 @@ button {
 }
 
 /* As media queries específicas para a tela de campeão foram substituídas por clamp() para maior fluidez. */
+
+
+/* ==================== REGION SELECTION SCREEN ==================== */
+.region-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 30px;
+}
+
+.region-button {
+  background: rgba(0, 0, 0, 0.7);
+  /* Dark background for contrast */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.region-button:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-green);
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
 
 /* ==================== SELEÇÃO DE TIMES (Ajustes) ==================== */
 .selection-header {
