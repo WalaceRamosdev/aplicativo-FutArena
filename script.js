@@ -3739,13 +3739,17 @@ function startMatch() {
     // Reset Vars
     score1 = 0;
     score2 = 0;
+    score2 = 0;
     matchTime = 0;
     rotation = 0;
     startTime = 0;
+    previousFrameTime = 0; // Init
     pausedTime = 0;
+    goalCooldown = false;
     goalCooldown = false;
     hasFirstGoal = false;
     isPlaying = false;
+    previousFrameTime = 0; // Reset delta time tracker
 
     selectionScreen.classList.add('hidden');
     resultOverlay.classList.add('hidden');
@@ -3773,6 +3777,7 @@ function startMatch() {
         sfx.playWhistle();
         sfx.startCrowd();
         isPlaying = true;
+        previousFrameTime = performance.now();
         animationId = requestAnimationFrame(gameLoop);
     }, 2000);
 }
@@ -3831,6 +3836,17 @@ function gameLoop(timestamp) {
     if (!isPlaying) return;
 
     if (startTime === 0) startTime = timestamp - pausedTime;
+
+    // Delta Time Calculation (Fix for Slow Motion)
+    if (previousFrameTime === 0) previousFrameTime = timestamp;
+    const dt = timestamp - previousFrameTime;
+    previousFrameTime = timestamp;
+
+    // Cap dt to prevent huge jumps (e.g. tab switch)
+    // Target 60fps (16.67ms). If dt is 33ms (30fps), timeScale = 2.0
+    const safeDt = Math.min(dt, 100);
+    const timeScale = safeDt / (1000 / 60);
+
     const elapsed = timestamp - startTime;
     const maxTime = (score1 === score2 && matchTime >= NORMAL_TIME && currentGameMode === 'quick') ? EXTRA_TIME : NORMAL_TIME;
     // No Arcade não tem prorrogação (empate é empate)
@@ -3845,15 +3861,15 @@ function gameLoop(timestamp) {
     }
 
     // Rotação com multiplicador de velocidade
-    const rotationSpeed = 0.72 * SPEED_SETTINGS[currentSpeed].rotationMult;
+    const rotationSpeed = 0.72 * SPEED_SETTINGS[currentSpeed].rotationMult * timeScale;
     if (hasFirstGoal) rotation = (rotation + rotationSpeed) % 360;
     arenaLines.style.transform = `rotate(${rotation}deg)`;
 
-    updateShield(shield1, rotation);
-    updateShield(shield2, rotation);
+    updateShield(shield1, rotation, timeScale);
+    updateShield(shield2, rotation, timeScale);
 
     // Aplica influência do overall dos times
-    applyOverallBoost();
+    applyOverallBoost(timeScale);
 
     // Tenta disparar um evento de partida
     MatchEventManager.triggerEvent(elapsed);
@@ -3872,14 +3888,14 @@ function gameLoop(timestamp) {
     animationId = requestAnimationFrame(gameLoop);
 }
 
-function updateShield(shield, currentRotation) {
+function updateShield(shield, currentRotation, timeScale = 1.0) {
     const radius = SHIELD_SIZE / 2;
     const arenaRadius = ARENA_SIZE / 2;
     const centerX = arenaRadius;
     const centerY = arenaRadius;
 
-    shield.x += shield.vx;
-    shield.y += shield.vy;
+    shield.x += shield.vx * timeScale;
+    shield.y += shield.vy * timeScale;
 
     const dx = shield.x - centerX;
     const dy = shield.y - centerY;
@@ -4002,7 +4018,7 @@ function getOverallInfluence(teamId) {
 }
 
 // Aplica INFLUÊNCIA do overall na física do jogo
-function applyOverallBoost() {
+function applyOverallBoost(timeScale = 1.0) {
     if (!isPlaying) return;
 
     const overall1 = getOverallInfluence(team1.id);
@@ -4015,8 +4031,8 @@ function applyOverallBoost() {
     // Cada 10 pontos de diferença = ~5% de chance extra
     const influenceFactor = overallDiff * 0.005;
 
-    // Chance aleatória de aplicar boost (não toda hora, para manter aleatoriedade)
-    if (Math.random() < 0.15) { // 15% de chance por frame de aplicar influência
+    // Chance aleatória ajustada pelo timeScale
+    if (Math.random() < 0.15 * timeScale) { // 15% de chance original, escalada
 
         // Calcula direção para o gol adversário
         const goalCenterX = ARENA_SIZE / 2;
