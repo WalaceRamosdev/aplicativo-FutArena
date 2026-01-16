@@ -42,4 +42,16 @@ gameLoop = function (timestamp) {
     }
 };
 
+// 4. Hook no endMatch
+const originalEndMatch = endMatch;
+endMatch = function () {
+    originalEndMatch();
+
+    // Comentário final no sidebar (Narrator)
+    if (typeof Narrator !== 'undefined' && NarrationDatabase.end) {
+        const endText = NarrationDatabase.end[Math.floor(Math.random() * NarrationDatabase.end.length)];
+        Narrator.addComment('system', '90\'', endText);
+    }
+};
+
 console.log("Narration Patch Applied Successfully!");

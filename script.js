@@ -38,7 +38,7 @@ const vsSeparator = document.querySelector('.vs-divider');
 const slot1 = document.getElementById('shield-home');
 const slot2 = document.getElementById('shield-away');
 const btnUpgradeTeam = document.getElementById('btn-upgrade-team');
-const finalScore = document.querySelector('.final-score-large');
+const finalScore = document.getElementById('final-score');
 const btnNextAction = document.getElementById('btn-next-action');
 const btnBackMenuResult = document.getElementById('btn-back-menu-result');
 
@@ -4332,6 +4332,12 @@ function endMatch() {
     sfx.stopCrowd();
     if (animationId) cancelAnimationFrame(animationId);
 
+    // Comentário final no sidebar (Narrator)
+    if (typeof Narrator !== 'undefined' && NarrationDatabase.end) {
+        const endText = NarrationDatabase.end[Math.floor(Math.random() * NarrationDatabase.end.length)];
+        Narrator.addComment('system', '90\'', endText);
+    }
+
     // Lógica específica por modo
     if (currentGameMode === 'quick') {
         const matchData = {
@@ -4434,14 +4440,21 @@ function showResultOverlay() {
 
     // Configurar botões
     const btnBackMenuResult = document.getElementById('btn-back-menu-result');
+    if (btnBackMenuResult) {
+        btnBackMenuResult.classList.remove('hidden'); // Sempre visível agora
+        btnBackMenuResult.onclick = () => {
+            resultOverlay.classList.add('hidden');
+            matchScreen.classList.add('hidden');
+            showScreen('menu'); // Volta ao menu principal
+            toggleGameInterface(true);
+        };
+    }
 
     if (currentGameMode === 'quick') {
         btnNextAction.innerText = "Revanche";
         btnNextAction.onclick = startMatch;
-        if (btnBackMenuResult) btnBackMenuResult.classList.remove('hidden');
     } else {
         btnNextAction.innerText = "Voltar ao Campeonato";
-        if (btnBackMenuResult) btnBackMenuResult.classList.add('hidden');
         btnNextAction.onclick = () => {
             resultOverlay.classList.add('hidden');
             matchScreen.classList.add('hidden');
@@ -5158,7 +5171,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btnCloseChamp.addEventListener('click', closeChampionshipModal);
     }
 
-    const btnBackSelection = document.getElementById('btn-back');
+    const btnBackSelection = document.getElementById('btn-back-menu-classic');
     if (btnBackSelection) {
         btnBackSelection.addEventListener('click', () => {
             showScreen('menu');
