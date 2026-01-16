@@ -4537,7 +4537,7 @@ btnBack.addEventListener('click', () => {
 
 btnToggleSound.addEventListener('click', () => {
     const isEnabled = sfx.toggleAllSound();
-    btnToggleSound.textContent = isEnabled ? '' : '';
+    btnToggleSound.textContent = isEnabled ? '🔊' : '🔇';
     btnToggleSound.classList.toggle('muted', !isEnabled);
     if (isEnabled) sfx.init();
 });
