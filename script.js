@@ -1,4 +1,89 @@
-﻿// ==================== CONFIGURAÇÃO DE MÚSICA (Playlist) ====================
+﻿// ==================== DOM ELEMENTS & GLOBALS ====================
+const btnModeQuick = document.getElementById('btn-mode-quick');
+const btnModeArcade = document.getElementById('btn-mode-arcade');
+const btnStart = document.getElementById('btn-start-match');
+const selectionScreen = document.getElementById('selection-screen');
+const mainMenu = document.getElementById('main-menu');
+const arcadeDashboard = document.getElementById('arcade-dashboard');
+const btnQuitArcade = document.getElementById('btn-quit-arcade');
+const btnFinishArcade = document.getElementById('btn-finish-arcade');
+const championScreen = document.getElementById('champion-screen');
+const resultOverlay = document.getElementById('result-overlay');
+const matchScreen = document.getElementById('match-screen');
+const championName = document.getElementById('champion-name');
+const championShieldContainer = document.getElementById('champion-shield-container');
+const championDetails = document.getElementById('champion-details');
+const arcadeUserTeamName = document.getElementById('arcade-user-team');
+const arcadeStandingsList = document.getElementById('arcade-standings-list');
+const arcadeHomeShield = document.getElementById('arcade-home-shield');
+const arcadeAwayShield = document.getElementById('arcade-away-shield');
+const currentRoundNum = document.getElementById('current-round-num');
+const score1El = document.querySelector('.score-numbers:nth-child(1)') || document.getElementById('score1');
+const score2El = document.querySelector('.score-numbers:nth-child(2)') || document.getElementById('score2');
+const matchTimeEl = document.querySelector('.match-time') || document.getElementById('match-time');
+const arenaLines = document.querySelector('.arena-lines');
+const gameShield1 = document.getElementById('game-shield1');
+const gameShield2 = document.getElementById('game-shield2');
+const goalOverlay = document.getElementById('goal-overlay');
+const scoreboardShield1 = document.getElementById('scoreboard-shield1');
+const scoreboardShield2 = document.getElementById('scoreboard-shield2');
+const startMatchMessage = document.getElementById('match-start-message');
+const goalBurst = document.querySelector('.goal-burst');
+const btnPlayRound = document.getElementById('btn-play-round');
+const btnBackMenu = document.getElementById('btn-back-menu-classic');
+const teamsGrid = document.getElementById('teams-grid');
+const selectionTitle = document.getElementById('selection-title-classic');
+const selectionSubtitle = document.getElementById('selection-subtitle');
+const vsSeparator = document.querySelector('.vs-divider');
+const slot1 = document.getElementById('shield-home');
+const slot2 = document.getElementById('shield-away');
+const btnUpgradeTeam = document.getElementById('btn-upgrade-team');
+const finalScore = document.querySelector('.final-score-large');
+const btnNextAction = document.getElementById('btn-next-action');
+const btnBackMenuResult = document.getElementById('btn-back-menu-result');
+
+// Additional DOM Elements
+const arcadeHomeName = document.getElementById('arcade-home-name');
+const arcadeAwayName = document.getElementById('arcade-away-name');
+const btnBack = document.getElementById('btn-back');
+const arena = document.getElementById('arena');
+const goalZone = document.getElementById('goal-zone');
+const goalShield = document.getElementById('goal-shield');
+const goalTeamName = document.getElementById('goal-team-name');
+const resultTitle = document.getElementById('result-title');
+const resultDisplay = document.getElementById('result-display');
+const bgSlideshow = document.getElementById('bg-slideshow');
+const btnToggleSound = document.getElementById('btn-toggle-sound');
+const btnPrevMusic = document.getElementById('btn-prev-music');
+const btnPlayPauseMusic = document.getElementById('btn-play-pause');
+const btnNextMusic = document.getElementById('btn-next-music');
+const btnShowHistory = document.getElementById('btn-show-history') || document.getElementById('btn-show-history-top');
+const historyOverlay = document.getElementById('history-overlay');
+const historyList = document.getElementById('history-list');
+const btnCloseHistory = document.getElementById('btn-close-history');
+const btnClearHistory = document.getElementById('btn-clear-history');
+
+// Game Globals
+let currentGameMode = 'quick';
+let selectedTeams = [];
+let team1 = null;
+let team2 = null;
+let score1 = 0;
+let score2 = 0;
+let matchTime = 0;
+let rotation = 0;
+let startTime = 0;
+let previousFrameTime = 0;
+let pausedTime = 0;
+let goalCooldown = false;
+let hasFirstGoal = false;
+let isPlaying = false;
+let animationId = null;
+let shield1 = { x: 0, y: 0, vx: 0, vy: 0 };
+let shield2 = { x: 0, y: 0, vx: 0, vy: 0 };
+
+
+// ==================== CONFIGURAÇÃO DE MÚSICA (Playlist) ====================
 const PLAYLIST = [
 
     // IMPORTANTE: Certifique-se de que o arquivo mp3 esteja na pasta correta
@@ -316,20 +401,7 @@ const WorldCupManager = {
 };
 
 // ==================== STATE VARIABLES ====================
-let currentGameMode = 'quick';
-let selectedTeams = [];
-let team1, team2;
-let score1 = 0, score2 = 0;
-let matchTime = 0;
-let rotation = 0;
-let startTime = 0;
-let pausedTime = 0;
-let goalCooldown = false;
-let hasFirstGoal = false;
-let isPlaying = false;
-let animationId;
-let shield1, shield2;
-const startMatchMessageToggle = false;
+// (Moved to top of file)
 // selectedLeague managed via window object to ensure global access
 
 // 
@@ -1687,19 +1759,19 @@ const ArcadeManager = {
         if (ArcadeManager.currentRound < ArcadeManager.schedule.length) return;
 
         // Season Done. Check rules.
-        if (NewArcadeManager.currentLeague === 'paulista') {
-            NewArcadeManager.transitionToPaulistaKnockout();
-        } else if (NewArcadeManager.currentLeague === 'Gauchão') {
-            NewArcadeManager.transitionToGauchãoKnockout();
-        } else if (NewArcadeManager.currentLeague === 'mineiro') {
-            NewArcadeManager.transitionToMineiroKnockout();
-        } else if (NewArcadeManager.currentLeague === 'carioca') {
-            NewArcadeManager.transitionToCariocaKnockout();
-        } else if (NewArcadeManager.currentLeague === 'paranaense') {
-            NewArcadeManager.transitionToParanaenseKnockout();
+        if (ArcadeManager.currentLeague === 'paulista') {
+            ArcadeManager.transitionToPaulistaKnockout();
+        } else if (ArcadeManager.currentLeague === 'Gauchão') {
+            ArcadeManager.transitionToGauchãoKnockout();
+        } else if (ArcadeManager.currentLeague === 'mineiro') {
+            ArcadeManager.transitionToMineiroKnockout();
+        } else if (ArcadeManager.currentLeague === 'carioca') {
+            ArcadeManager.transitionToCariocaKnockout();
+        } else if (ArcadeManager.currentLeague === 'paranaense') {
+            ArcadeManager.transitionToParanaenseKnockout();
         } else {
             // Brasileirão Ends
-            NewArcadeManager.finishSeason();
+            ArcadeManager.finishSeason();
         }
     },
 
@@ -2621,71 +2693,8 @@ const AnimationEffects = {
 };
 
 // ==================== DOM ELEMENTS ====================
-const mainMenu = document.getElementById('main-menu');
-const btnModeQuick = document.getElementById('btn-mode-quick');
-const btnModeArcade = document.getElementById('btn-mode-arcade');
+// (Moved to top of file)
 
-const selectionScreen = document.getElementById('selection-screen');
-const selectionTitle = document.getElementById('selection-title');
-const selectionSubtitle = document.getElementById('selection-subtitle');
-const vsSeparator = document.getElementById('vs-separator');
-const btnBackMenu = document.getElementById('btn-back-menu');
-
-const arcadeDashboard = document.getElementById('arcade-dashboard');
-const arcadeUserTeamName = document.getElementById('arcade-user-team');
-const currentRoundNum = document.getElementById('current-round-num');
-const arcadeHomeShield = document.getElementById('arcade-home-shield');
-const arcadeAwayShield = document.getElementById('arcade-away-shield');
-const arcadeHomeName = document.getElementById('arcade-home-name');
-const arcadeAwayName = document.getElementById('arcade-away-name');
-const btnPlayRound = document.getElementById('btn-play-round');
-const arcadeStandingsList = document.getElementById('arcade-standings-list');
-const btnQuitArcade = document.getElementById('btn-quit-arcade');
-
-const championScreen = document.getElementById('champion-screen');
-const championShieldContainer = document.getElementById('champion-shield-container');
-const championName = document.getElementById('champion-name');
-const championDetails = document.getElementById('champion-details');
-const btnFinishArcade = document.getElementById('btn-finish-arcade');
-
-const matchScreen = document.getElementById('match-screen');
-const teamsGrid = document.getElementById('teams-grid');
-const slot1 = document.getElementById('slot1');
-const slot2 = document.getElementById('slot2');
-const btnStart = document.getElementById('btn-start');
-const btnBack = document.getElementById('btn-back');
-const btnNextAction = document.getElementById('btn-next-action'); // Antigo play-again
-const scoreboardShield1 = document.getElementById('scoreboard-shield1');
-const scoreboardShield2 = document.getElementById('scoreboard-shield2');
-const score1El = document.getElementById('score1');
-const score2El = document.getElementById('score2');
-const matchTimeEl = document.getElementById('match-time');
-const arena = document.getElementById('arena');
-const arenaLines = document.getElementById('arena-lines');
-const goalZone = document.getElementById('goal-zone');
-const goalBurst = document.getElementById('goal-burst');
-const gameShield1 = document.getElementById('game-shield1');
-const gameShield2 = document.getElementById('game-shield2');
-const goalOverlay = document.getElementById('goal-overlay');
-const goalShield = document.getElementById('goal-shield');
-const goalTeamName = document.getElementById('goal-team-name');
-const resultOverlay = document.getElementById('result-overlay');
-const resultTitle = document.getElementById('result-title');
-const resultDisplay = document.getElementById('result-display');
-const finalScore = document.getElementById('final-score');
-const bgSlideshow = document.getElementById('bg-slideshow');
-const startMatchMessage = document.getElementById('match-start-message');
-
-const btnToggleSound = document.getElementById('btn-toggle-sound');
-const btnPrevMusic = document.getElementById('btn-prev-music');
-const btnPlayPauseMusic = document.getElementById('btn-play-pause');
-const btnNextMusic = document.getElementById('btn-next-music');
-
-const btnShowHistory = document.getElementById('btn-show-history') || document.getElementById('btn-show-history-top');
-const historyOverlay = document.getElementById('history-overlay');
-const historyList = document.getElementById('history-list');
-const btnCloseHistory = document.getElementById('btn-close-history');
-const btnClearHistory = document.getElementById('btn-clear-history');
 
 const btnShowStats = document.getElementById('btn-show-stats') || document.getElementById('btn-show-stats-top');
 const statsOverlay = document.getElementById('stats-overlay');
@@ -2824,17 +2833,90 @@ btnModeQuick.addEventListener('click', () => {
     startQuickMatchFlow();
 });
 
+if (btnModeArcade) {
+    btnModeArcade.addEventListener('click', () => {
+        openChampionshipModal();
+    });
+}
+
 function startQuickMatchFlow() {
     // Reset state
     selectedTeams = [];
-    selectionPhase = 1;
+    currentGameMode = 'quick';
 
-    // UI Reset
+    // Switch UI
     mainMenu.classList.add('hidden');
-    selectionScreen.classList.add('hidden');
+    selectionScreen.classList.remove('hidden');
 
-    // Show Region Selection for HOME team
-    showRegionSelection('MANDANTE');
+    // Hide Region Selection if it was open (safety)
+    const regionScreen = document.getElementById('region-selection-screen');
+    if (regionScreen) regionScreen.classList.add('hidden');
+
+    // Initialize Panels Logic
+    initializeSelectionPanels();
+
+    // Reset Panels to default state (Brasileirão, Index 0)
+    selectedRegions.home = 'Brasileirão';
+    selectedRegions.away = 'Brasileirão';
+    selectionLists.home = [...brazilianTeams];
+    selectionLists.away = [...brazilianTeams];
+    selectionIndices.home = 0;
+    selectionIndices.away = 0;
+
+    // Reset UI Layout (In case Arcade messed with it)
+    const vsSeparator = document.querySelector('.vs-divider');
+    const panelAway = document.getElementById('panel-away');
+    const btnStart = document.getElementById('btn-start-match');
+    const selectionTitle = document.getElementById('selection-title-classic');
+    const container = document.querySelector('.selection-container');
+
+    if (vsSeparator) vsSeparator.classList.remove('hidden');
+    if (panelAway) {
+        panelAway.classList.remove('hidden');
+        panelAway.style.display = 'flex'; // Restore flex
+        panelAway.style.opacity = '0.5';
+        panelAway.style.pointerEvents = 'none';
+    }
+    if (container) {
+        container.style.justifyContent = 'space-between'; // Restore spread
+    }
+
+    if (btnStart) {
+        btnStart.innerText = "INICIAR PARTIDA";
+        btnStart.disabled = true; // Wait for both selections
+        btnStart.classList.remove('pulse-animation');
+        btnStart.onclick = () => {
+            // Set Global Selected Teams
+            team1 = selectionLists.home[selectionIndices.home];
+            team2 = selectionLists.away[selectionIndices.away];
+            selectedTeams = [team1, team2];
+            startMatch();
+        };
+    }
+
+    if (selectionTitle) {
+        selectionTitle.innerHTML = "PARTIDA RÁPIDA";
+    }
+
+    // Reset Buttons Text
+    const btnHome = document.getElementById('btn-select-home');
+    const btnAway = document.getElementById('btn-select-away');
+    if (btnHome) { btnHome.innerText = "PRONTO"; btnHome.classList.remove('btn-secondary'); }
+    if (btnAway) { btnAway.innerText = "PRONTO"; btnAway.classList.remove('btn-secondary'); }
+
+    // Initial State: Home Active, Away Disabled
+    togglePanelInteractivity('home', true);
+    togglePanelInteractivity('away', false);
+
+    if (panelAway) {
+        panelAway.style.opacity = '0.5';
+        panelAway.style.pointerEvents = 'none';
+    }
+    quickMatchStep = 1;
+
+    // Update Panels
+    updatePanel('home');
+    updatePanel('away');
 }
 
 function showRegionSelection(type) {
@@ -3328,14 +3410,22 @@ function updateWorldCupDashboard(groupName) {
 }
 
 function startArcadeCampaign() {
+    const userTeam = selectedTeams[0];
+    if (!userTeam) {
+        console.error("Nenhum time selecionado para a campanha.");
+        return;
+    }
+
+    // Fix: Using window.selectedLeague instead of looking for btn-start which might not exist
+    const leagueToStart = window.selectedLeague || 'Brasileirão';
+
+    // Initialize Manager before showing UI to avoid empty states
+    ArcadeManager.init(userTeam.id, leagueToStart);
+
     selectionScreen.classList.add('hidden');
     arcadeDashboard.classList.remove('hidden');
 
-    const userTeam = selectedTeams[0];
-    const leagueToStart = document.getElementById('btn-start').dataset.league || window.selectedLeague || 'Brasileirão';
-    ArcadeManager.init(userTeam.id, leagueToStart);
-
-    arcadeUserTeamName.textContent = userTeam.name;
+    if (arcadeUserTeamName) arcadeUserTeamName.textContent = userTeam.name;
 
     // Adicionar escudo no fundo do header
     updateArcadeHeaderBg(userTeam);
@@ -3614,8 +3704,11 @@ function updateNextMatchCard() {
         if (ArcadeManager.currentStage === 'regular') {
             if (ArcadeManager.schedule[ArcadeManager.currentRound]) {
                 nextMatch = ArcadeManager.schedule[ArcadeManager.currentRound][0];
-                if (nextMatch && (nextMatch.home === ArcadeManager.userTeamId || nextMatch.away === ArcadeManager.userTeamId)) isSpectator = false; // Just double checking
-                else isSpectator = true;
+                if (nextMatch && (nextMatch.home === ArcadeManager.userTeamId || nextMatch.away === ArcadeManager.userTeamId)) {
+                    isSpectator = false;
+                } else {
+                    isSpectator = true;
+                }
             }
         } else {
             nextMatch = ArcadeManager.knockoutBracket.find(m => !m.completed);
@@ -3624,9 +3717,7 @@ function updateNextMatchCard() {
     }
 
     if (nextMatch) {
-        let t1, t2;
         let title = "PRÓXIMA PARTIDA";
-
         if (ArcadeManager.currentStage !== 'regular') {
             title = "MATA-MATA";
             if (nextMatch.totalLegs) title += ` - JOGO ${nextMatch.currentLeg}`;
@@ -3634,18 +3725,56 @@ function updateNextMatchCard() {
 
         if (isSpectator) title = "MODO ESPECTADOR - " + title;
 
-        t1 = ArcadeManager.leagueTeams.find(t => t.id === nextMatch.home);
-        t2 = ArcadeManager.leagueTeams.find(t => t.id === nextMatch.away);
+        // Robust Team Finding
+        const findTeam = (id) => {
+            if (!id) return null;
+            let t = ArcadeManager.leagueTeams.find(x => x.id === id);
+            if (t) return t;
+            // Fallback to all lists
+            return brazilianTeams.find(x => x.id === id) ||
+                paulistaTeams.find(x => x.id === id) ||
+                cariocaTeams.find(x => x.id === id) ||
+                gauchoTeams.find(x => x.id === id) ||
+                mineiroTeams.find(x => x.id === id) ||
+                paranaenseTeams.find(x => x.id === id);
+        };
 
-        arcadeHomeShield.innerHTML = '';
-        arcadeHomeShield.appendChild(createShield(t1, 'lg'));
-        document.getElementById('arcade-home-name').textContent = t1.name;
-        document.getElementById('arcade-home-overall').textContent = `OVR: ${ArcadeManager.getTeamOverall(t1.id)}`;
+        const t1 = findTeam(nextMatch.home);
+        const t2 = findTeam(nextMatch.away);
 
-        arcadeAwayShield.innerHTML = '';
-        arcadeAwayShield.appendChild(createShield(t2, 'lg'));
-        document.getElementById('arcade-away-name').textContent = t2.name;
-        document.getElementById('arcade-away-overall').textContent = `OVR: ${ArcadeManager.getTeamOverall(t2.id)}`;
+        if (t1 && t2) {
+            const homeShieldEl = document.getElementById('arcade-home-shield');
+            const awayShieldEl = document.getElementById('arcade-away-shield');
+
+            if (homeShieldEl) {
+                homeShieldEl.innerHTML = '';
+                try { homeShieldEl.appendChild(createShield(t1, 'lg')); } catch (e) { }
+            }
+            const nameHome = document.getElementById('arcade-home-name');
+            if (nameHome) nameHome.textContent = t1.name;
+            const ovrHome = document.getElementById('arcade-home-overall');
+            if (ovrHome) ovrHome.textContent = `OVR: ${ArcadeManager.getTeamOverall(t1.id)}`;
+
+            if (awayShieldEl) {
+                awayShieldEl.innerHTML = '';
+                try { awayShieldEl.appendChild(createShield(t2, 'lg')); } catch (e) { }
+            }
+            const nameAway = document.getElementById('arcade-away-name');
+            if (nameAway) nameAway.textContent = t2.name;
+            const ovrAway = document.getElementById('arcade-away-overall');
+            if (ovrAway) ovrAway.textContent = `OVR: ${ArcadeManager.getTeamOverall(t2.id)}`;
+
+            team1 = t1;
+            team2 = t2;
+        } else {
+            console.error("Match teams not found:", nextMatch);
+            const cardEl = document.querySelector('.next-match-card');
+            if (cardEl) cardEl.classList.add('hidden');
+            return;
+        }
+
+        const cardEl = document.querySelector('.next-match-card');
+        if (cardEl) cardEl.classList.remove('hidden');
 
         // Aggregate Info Display
         const cardTitle = document.querySelector('.next-match-card h3');
@@ -3658,24 +3787,17 @@ function updateNextMatchCard() {
                 aggDiv.style.color = '#ccc';
                 aggDiv.style.marginTop = '5px';
                 aggDiv.innerHTML = `Placar Agregado: <b>${nextMatch.aggHome}</b> x <b>${nextMatch.aggAway}</b>`;
-                // Remove meaningful old aggregate if exists to prevent dupes
                 const oldAgg = cardTitle.querySelector('div');
                 if (oldAgg) oldAgg.remove();
                 cardTitle.appendChild(aggDiv);
             }
         }
 
-        team1 = t1;
-        team2 = t2;
-
         // Button State
         const btnPlay = document.getElementById('btn-play-round');
         if (btnPlay) {
             btnPlay.disabled = false;
             btnPlay.innerText = isSpectator ? "ASSISTIR PARTIDA 📺" : "JOGAR RODADA";
-            // Store spectator flag on the match object or globally for startMatch to handle differently if needed?
-            // Actually startMatch just uses team1/team2. We might want to ensure 'userTeam' isn't confused.
-            // But existing startMatch likely uses team1/team2 globals.
         }
 
         const btnSim = document.getElementById('btn-auto-simulate');
@@ -3684,11 +3806,11 @@ function updateNextMatchCard() {
         }
 
     } else {
-        // Really no matches left? (Season Over or Bug)
-        document.getElementById('arcade-home-name').textContent = "Campeonato";
-        document.getElementById('arcade-away-name').textContent = "Encerrado";
+        const hName = document.getElementById('arcade-home-name');
+        const aName = document.getElementById('arcade-away-name');
+        if (hName) hName.textContent = "Campeonato";
+        if (aName) aName.textContent = "Encerrado";
 
-        // Disable Play Button
         const btnPlay = document.getElementById('btn-play-round');
         if (btnPlay) {
             btnPlay.disabled = true;
@@ -3728,9 +3850,22 @@ function showChampionScreen(championTeam) {
 
 
 // ==================== MATCH LOGIC ====================
+// ==================== MATCH LOGIC ====================
 function startMatch() {
-    sfx.init();
-    sfx.pauseMusic();
+    if (!team1 || !team2) {
+        console.error("Teams not defined!");
+        alert("Erro ao iniciar a partida: Times não selecionados.");
+        return;
+    }
+
+    try {
+        if (typeof sfx !== 'undefined') {
+            sfx.init();
+            sfx.pauseMusic();
+        }
+    } catch (e) {
+        console.warn("SFX Error:", e);
+    }
 
     // Esconder player durante a partida
     const playerBar = document.getElementById('music-player-bar');
@@ -3739,17 +3874,14 @@ function startMatch() {
     // Reset Vars
     score1 = 0;
     score2 = 0;
-    score2 = 0;
     matchTime = 0;
     rotation = 0;
     startTime = 0;
-    previousFrameTime = 0; // Init
+    previousFrameTime = 0;
     pausedTime = 0;
-    goalCooldown = false;
     goalCooldown = false;
     hasFirstGoal = false;
     isPlaying = false;
-    previousFrameTime = 0; // Reset delta time tracker
 
     selectionScreen.classList.add('hidden');
     resultOverlay.classList.add('hidden');
@@ -3760,22 +3892,32 @@ function startMatch() {
 
     scoreboardShield1.innerHTML = '';
     scoreboardShield2.innerHTML = '';
-    scoreboardShield1.appendChild(createShield(team1, 'md'));
-    scoreboardShield2.appendChild(createShield(team2, 'md'));
 
-    setupGameShield(gameShield1, team1);
-    setupGameShield(gameShield2, team2);
+    try {
+        scoreboardShield1.appendChild(createShield(team1, 'md'));
+        scoreboardShield2.appendChild(createShield(team2, 'md'));
+        setupGameShield(gameShield1, team1);
+        setupGameShield(gameShield2, team2);
+    } catch (e) {
+        console.error("Shield creation failed:", e);
+    }
 
     resetPositions();
     updateScoreboard();
 
-    arenaLines.style.transform = `rotate(${rotation}deg)`;
-    goalBurst.classList.remove('active');
+    if (arenaLines) arenaLines.style.transform = `rotate(${rotation}deg)`;
+    if (goalBurst) goalBurst.classList.remove('active');
 
     setTimeout(() => {
         if (startMatchMessage) startMatchMessage.classList.add('hidden');
-        sfx.playWhistle();
-        sfx.startCrowd();
+
+        try {
+            if (typeof sfx !== 'undefined') {
+                sfx.playWhistle();
+                sfx.startCrowd();
+            }
+        } catch (e) { console.warn("SFX Play Error:", e); }
+
         isPlaying = true;
         previousFrameTime = performance.now();
         animationId = requestAnimationFrame(gameLoop);
@@ -4485,7 +4627,7 @@ if (btnCloseStats) btnCloseStats.addEventListener('click', () => { statsOverlay.
 if (btnResetStats) btnResetStats.addEventListener('click', () => { if (confirm('Zerar?')) { StorageManager.clearStats(); renderStats(); } });
 
 // Botão de voltar ao menu no resultado (partida rápida)
-const btnBackMenuResult = document.getElementById('btn-back-menu-result');
+// (Defined globally)
 if (btnBackMenuResult) {
     btnBackMenuResult.addEventListener('click', () => {
         resultOverlay.classList.add('hidden');
@@ -4506,7 +4648,7 @@ if (btnBackMenuResult) {
 }
 
 // Botão de upgrade do time
-const btnUpgradeTeam = document.getElementById('btn-upgrade-team');
+// (Defined globally)
 if (btnUpgradeTeam) {
     btnUpgradeTeam.addEventListener('click', () => {
         if (ArcadeManager.upgradeTeam()) {
@@ -4689,6 +4831,9 @@ window.showMainOptions = function () {
 }
 
 window.selectChampionship = function (league) {
+    // Normalization
+    if (league === 'gaucho') league = 'Gauchão';
+
     window.selectedLeague = league;
     closeChampionshipModal();
 
@@ -4703,84 +4848,320 @@ window.selectChampionship = function (league) {
     initTeamSelectionForArcade(teamsList, league);
 }
 
+// ==================== CLASSIC PANEL SELECTION LOGIC ====================
+let selectionIndices = { home: 0, away: 0 };
+let selectionLists = { home: [], away: [] };
+let selectedRegions = { home: 'Brasileirão', away: 'Brasileirão' };
+
+function initializeSelectionPanels() {
+    // Default lists
+    selectionLists.home = [...brazilianTeams];
+    selectionLists.away = [...brazilianTeams];
+
+    // Setup Listeners if not already attached (check flag or just re-attach carefully)
+    // Actually, best to attach once. We can restrict this by a flag.
+    if (!window.panelsInitialized) {
+        setupPanelListeners();
+        window.panelsInitialized = true;
+    }
+}
+
+function setupPanelListeners() {
+    document.querySelectorAll('.nav-arrow').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Prevent bubbling if needed
+            e.stopPropagation();
+
+            const side = btn.dataset.side; // 'home' or 'away'
+            const isRegion = btn.classList.contains('prev-region') || btn.classList.contains('next-region');
+            const isNext = btn.innerText.includes('►'); // Simple check based on arrow char
+
+            if (isRegion) {
+                changeRegion(side, isNext);
+            } else {
+                changeTeam(side, isNext);
+            }
+        });
+    });
+
+    // Select Buttons
+    const btnSelectHome = document.getElementById('btn-select-home');
+    const btnSelectAway = document.getElementById('btn-select-away');
+
+    if (btnSelectHome) btnSelectHome.addEventListener('click', () => confirmPanelSelection('home'));
+    if (btnSelectAway) btnSelectAway.addEventListener('click', () => confirmPanelSelection('away'));
+}
+
+function changeRegion(side, isNext) {
+    // If Arcade mode, region might be locked
+    if (currentGameMode === 'arcade' && side === 'home') return;
+
+    const regions = ['Brasileirão', 'paulista', 'carioca', 'Gauchão', 'mineiro', 'paranaense', 'Todos'];
+    let current = selectedRegions[side];
+    let idx = regions.indexOf(current);
+
+    if (isNext) idx = (idx + 1) % regions.length;
+    else idx = (idx - 1 + regions.length) % regions.length;
+
+    const newRegion = regions[idx];
+    selectedRegions[side] = newRegion;
+
+    // Update List
+    if (newRegion === 'Brasileirão') selectionLists[side] = [...brazilianTeams];
+    else if (newRegion === 'paulista') selectionLists[side] = [...paulistaTeams];
+    else if (newRegion === 'carioca') selectionLists[side] = [...cariocaTeams];
+    else if (newRegion === 'Gauchão') selectionLists[side] = [...gauchoTeams];
+    else if (newRegion === 'mineiro') selectionLists[side] = [...mineiroTeams];
+    else if (newRegion === 'paranaense') selectionLists[side] = [...paranaenseTeams];
+    else if (newRegion === 'Todos') selectionLists[side] = [...brazilianTeams, ...paulistaTeams, ...cariocaTeams, ...gauchoTeams, ...mineiroTeams, ...paranaenseTeams]; // Simplification for All Teams
+
+
+    selectionIndices[side] = 0; // Reset team index
+    updatePanel(side);
+}
+
+function changeTeam(side, isNext) {
+    const list = selectionLists[side];
+    if (!list || list.length === 0) return;
+
+    let idx = selectionIndices[side];
+    if (isNext) idx = (idx + 1) % list.length;
+    else idx = (idx - 1 + list.length) % list.length;
+
+    selectionIndices[side] = idx;
+    updatePanel(side);
+}
+
+function updatePanel(side) {
+    const list = selectionLists[side];
+    const index = selectionIndices[side];
+    const team = list[index];
+
+    // Elements
+    const nameEl = document.getElementById(`name-${side}`);
+    const shieldEl = document.getElementById(`shield-${side}`);
+    const attEl = document.getElementById(`att-${side}`);
+    const midEl = document.getElementById(`mid-${side}`);
+    const defEl = document.getElementById(`def-${side}`);
+    const regionDisplay = document.getElementById(`region-display-${side}`);
+    const starsEl = document.getElementById(`stars-${side}`);
+
+    // Update visuals
+    if (nameEl) nameEl.textContent = team.name;
+
+    if (shieldEl) {
+        shieldEl.innerHTML = '';
+        shieldEl.appendChild(createShield(team, 'lg'));
+    }
+
+    // Stats
+    // Stats - Randomize slightly based on Overall
+    // Generate slight variation: +/- 5 from Overall
+    // We try to keep it somewhat stable or just random per update (which changes per team selection anyway)
+
+    // Helper for variation
+    const vary = (val) => Math.min(99, Math.max(1, Math.floor(val + (Math.random() * 10 - 5))));
+
+    // We can't persist this easily without modifying the team object per session, 
+    // but generating on view is acceptable as it changes when you switch teams.
+    const attVal = team.attack || vary(team.overall + 2); // Attackers slightly better usually
+    const midVal = team.midfield || vary(team.overall);
+    const defVal = team.defense || vary(team.overall - 1);
+
+    if (attEl) attEl.textContent = attVal;
+    if (midEl) midEl.textContent = midVal;
+    if (defEl) defEl.textContent = defVal;
+
+    // Region Name
+    if (regionDisplay) {
+        let rName = selectedRegions[side];
+        if (rName === 'paulista') rName = "Paulistão";
+        else if (rName === 'carioca') rName = "Cariocão";
+        else if (rName === 'Gauchão') rName = "Gauchão";
+        else if (rName === 'mineiro') rName = "Mineiro";
+        else if (rName === 'paranaense') rName = "Paranaense";
+        regionDisplay.innerText = rName.toUpperCase();
+    }
+
+    // Stars
+    if (starsEl) {
+        const starCount = Math.round(team.overall / 20);
+        let stars = "★".repeat(starCount) + "☆".repeat(5 - starCount);
+        starsEl.textContent = stars;
+    }
+
+    // Update Global Selection tentative
+    // Update Global Selection tentative
+    if (currentGameMode === 'arcade' && side === 'home') {
+        selectedTeams = [team];
+        const btnStart = document.getElementById('btn-start-match');
+        if (btnStart) btnStart.disabled = false;
+    }
+}
+
+let quickMatchStep = 1;
+
+function confirmPanelSelection(side) {
+    const team = selectionLists[side][selectionIndices[side]];
+
+    if (currentGameMode === 'arcade') {
+        // Arcade: Select and Start
+        selectedTeams = [team];
+        startArcadeCampaign();
+    } else {
+        // Quick Match Sequential Flow
+        if (side === 'home') {
+            // Confirm Home Team
+            const btn = document.getElementById('btn-select-home');
+            if (btn) {
+                btn.innerText = "ALTERAR";
+                btn.classList.add('btn-secondary');
+            }
+
+            // Disable Home Navigation
+            togglePanelInteractivity('home', false);
+
+            // Activate Away Panel
+            const panelAway = document.getElementById('panel-away');
+            if (panelAway) {
+                panelAway.style.opacity = '1';
+                panelAway.style.pointerEvents = 'all';
+                togglePanelInteractivity('away', true);
+            }
+
+            quickMatchStep = 2;
+
+        } else if (side === 'away') {
+            // Confirm Away Team
+            const btn = document.getElementById('btn-select-away');
+            if (btn) {
+                btn.innerText = "ALTERAR";
+                btn.classList.add('btn-secondary');
+            }
+
+            // Disable Away Navigation
+            togglePanelInteractivity('away', false);
+
+            // Enable Start
+            const btnStart = document.getElementById('btn-start-match');
+            if (btnStart) {
+                btnStart.disabled = false;
+                btnStart.classList.add('pulse-animation');
+            }
+
+            quickMatchStep = 3;
+        }
+
+        // Check for "Alterar" logic? 
+        // For simplicity, if they click "Alterar" (which we just renamed the button to),
+        // we could check the text content or a flag to reverse the state.
+        // But the user asked for: "click ready -> choose opponent".
+        // Use a simple toggle if needed, or strictly forward for now.
+    }
+}
+
+function togglePanelInteractivity(side, enable) {
+    const panel = document.getElementById(`panel-${side}`);
+    if (!panel) return;
+
+    // Toggle Active Class for Visual Feedback (Button color/cursor from CSS)
+    if (enable) panel.classList.add('active');
+    else panel.classList.remove('active');
+
+    const items = panel.querySelectorAll('.nav-arrow, .btn-select-team');
+    items.forEach(item => {
+        item.disabled = !enable;
+        item.style.cursor = enable ? 'pointer' : 'not-allowed';
+    });
+}
+
+// Fixed initTeamSelectionForArcade to use Panels
 function initTeamSelectionForArcade(teamsList, leagueName) {
     currentGameMode = 'arcade';
     selectedTeams = [];
 
+    // Hide Grid if visible
     const teamsGrid = document.getElementById('teams-grid');
-    teamsGrid.innerHTML = '';
+    if (teamsGrid) teamsGrid.classList.add('hidden');
 
+    // Show Panels Container
     selectionScreen.classList.remove('hidden');
     mainMenu.classList.add('hidden');
 
-    // Update UI for Single Selection (Arcade Mode)
-    const vsSeparator = document.getElementById('vs-separator');
-    const slot2 = document.getElementById('slot2');
-    const btnStart = document.getElementById('btn-start');
-    const selectionSubtitle = document.getElementById('selection-subtitle');
+    // Initialize Logic
+    initializeSelectionPanels();
+
+    // Setup Home Panel for this League
+    selectionLists.home = [...teamsList];
+    selectedRegions.home = leagueName;
+    selectionIndices.home = 0;
+    updatePanel('home');
+
+    // Enable Interactivity (Setters/Arrows)
+    togglePanelInteractivity('home', true);
+
+    // Reset Button Text
+    const btnHomeSelect = document.getElementById('btn-select-home');
+    if (btnHomeSelect) {
+        btnHomeSelect.innerText = "PRONTO";
+        btnHomeSelect.classList.remove('btn-secondary');
+    }
+
+    // UI Adjustments for Single Selection
+    const vsSeparator = document.querySelector('.vs-divider');
+    const panelAway = document.getElementById('panel-away');
 
     if (vsSeparator) vsSeparator.classList.add('hidden');
-    if (slot2) slot2.classList.add('hidden');
+    if (panelAway) {
+        panelAway.classList.add('hidden');
+        panelAway.style.display = 'none'; // Force hide
+    }
+
+    const container = document.querySelector('.classic-match-panels');
+    if (container) {
+        container.style.justifyContent = 'center';
+    }
+
+    // Update Titles and Buttons
+    const btnStart = document.getElementById('btn-start-match');
     if (btnStart) {
         btnStart.innerText = "INICIAR CAMPANHA";
-        btnStart.dataset.league = leagueName;
+        btnStart.disabled = false;
+        btnStart.onclick = () => {
+            confirmPanelSelection('home');
+        };
+        btnStart.classList.add('pulse-animation');
     }
-    if (selectionSubtitle) selectionSubtitle.innerText = "Quem você levará ao título?";
 
-    // Update title
-    let leagueDisplay = "Brasileirão";
-    if (leagueName === 'paulista') leagueDisplay = "Paulistão 2026";
-    else if (leagueName === 'carioca') leagueDisplay = "Cariocão 2026";
-    else if (leagueName === 'Gauchão') leagueDisplay = "Gauchão 2026";
-    else if (leagueName === 'mineiro') leagueDisplay = "CAMPEONATO MINEIRO 2026";
-    else if (leagueName === 'paranaense') leagueDisplay = "PARANAENSE 2026";
-
-    const selectionTitle = document.getElementById('selection-title');
-    selectionTitle.innerHTML = `SELECIONE SEU TIME<br><small style="font-size: 0.6em; color: var(--accent-gold);">${leagueDisplay}</small>`;
-
-    teamsList.forEach(team => {
-        const card = document.createElement('div');
-        card.className = 'team-card';
-        card.dataset.teamId = team.id;
-
-        const shieldDiv = document.createElement('div');
-        shieldDiv.className = 'team-card-shield';
-        // Ajuste de estilo para ficar bonito
-        shieldDiv.style.display = 'flex';
-        shieldDiv.style.justifyContent = 'center';
-        shieldDiv.style.alignItems = 'center';
-        shieldDiv.style.margin = '0 auto 10px auto';
-
-        shieldDiv.appendChild(createShield(team, 'lg'));
-
-        const nameSpan = document.createElement('span');
-        nameSpan.className = 'team-card-name';
-        nameSpan.innerText = team.name;
-
-        card.appendChild(shieldDiv);
-        card.appendChild(nameSpan);
-        // Overall removed as requested
-
-        card.addEventListener('click', () => selectTeam(team, card));
-        teamsGrid.appendChild(card);
-    });
-
-    updateSlots();
-    updateStartButton();
-    updateCardStates();
+    const selectionTitle = document.getElementById('selection-title-classic');
+    if (selectionTitle) {
+        selectionTitle.innerHTML = `ESCOLHA SEU TIME <br><small>${leagueName.toUpperCase()}</small>`;
+    }
 }
 
-const btnArcade = document.getElementById('btn-mode-arcade');
-if (btnArcade) {
-    const newBtn = btnArcade.cloneNode(true);
-    btnArcade.parentNode.replaceChild(newBtn, btnArcade);
-    newBtn.addEventListener('click', () => {
-        openChampionshipModal();
-    });
-}
+// Initial Listeners for Menu Buttons
+document.addEventListener('DOMContentLoaded', () => {
+    // Main Menu Buttons
+    if (btnModeQuick) {
+        btnModeQuick.addEventListener('click', () => {
+            showScreen('selection');
+            startQuickMatchFlow();
+        });
+    }
 
-const btnCloseChamp = document.getElementById('btn-close-champ-modal');
-if (btnCloseChamp) {
-    btnCloseChamp.addEventListener('click', closeChampionshipModal);
-}
+    if (btnModeArcade) {
+        btnModeArcade.addEventListener('click', openChampionshipModal);
+    }
 
+    const btnCloseChamp = document.getElementById('btn-close-champ-modal');
+    if (btnCloseChamp) {
+        btnCloseChamp.addEventListener('click', closeChampionshipModal);
+    }
+
+    const btnBackSelection = document.getElementById('btn-back');
+    if (btnBackSelection) {
+        btnBackSelection.addEventListener('click', () => {
+            showScreen('menu');
+        });
+    }
+});

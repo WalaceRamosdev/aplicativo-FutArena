@@ -383,7 +383,7 @@
     <!-- Botão para continuar campeonato salvo -->
     <div id="continue-arcade-container" class="continue-container hidden">
       <button id="btn-continue-arcade" class="btn-continue">
-        <span class="continue-icon">📂</span>
+        <span class="continue-icon">💾</span>
         <span class="continue-text">
           <strong>Continuar Campeonato</strong>
           <small id="continue-info">Rodada X/19 com TimeX</small>
@@ -415,21 +415,133 @@
 
   <!-- SELEÇÃO (Compartilhada mas adaptada via JS) -->
   <div id="selection-screen" class="screen hidden">
-    <div class="selection-header">
-      <h1 id="selection-title">SELECIONE <span>OS TIMES</span></h1>
-      <p id="selection-subtitle">Selecione dois times para o duelo</p>
+    <!-- NEW CLASSIC MATCH LAYOUT -->
+    <div class="classic-match-container">
+        <!-- HEADER -->
+        <div class="classic-header">
+            <h2 id="selection-title-classic">CLÁSSICO | SELEÇÃO DE TIMES</h2>
+            <!-- <button id="btn-back-menu" class="btn-back-classic">VOLTAR</button> MOVED TO BOTTOM NAVBAR -->
+        </div>
+
+        <div class="classic-match-panels">
+            <!-- HOME SIDE -->
+            <div class="match-panel home-panel active" id="panel-home">
+                <div class="panel-label">CASA</div>
+                
+                <div class="panel-content">
+                    <!-- Region Selector -->
+                    <div class="region-selector">
+                       <button class="nav-arrow prev-region" data-side="home">◄</button>
+                       <span class="region-display" id="region-display-home">BRASILEIRÃO</span>
+                       <button class="nav-arrow next-region" data-side="home">►</button>
+                    </div>
+
+                    <!-- Team Card -->
+                    <div class="classic-team-card">
+                        <div class="team-name" id="name-home">Time Casa</div>
+                        
+                        <div class="team-badge-container">
+                            <button class="nav-arrow prev-team" data-side="home">◄</button>
+                            <div class="large-shield" id="shield-home">
+                                <!-- Shield injected via JS -->
+                            </div>
+                            <button class="nav-arrow next-team" data-side="home">►</button>
+                        </div>
+
+                        <!-- Stars -->
+                        <div class="team-stars" id="stars-home">
+                            ★ ★ ★ ☆ ☆
+                        </div>
+
+                        <!-- Stats (Simulated based on Overall) -->
+                        <div class="team-stats-row">
+                            <div class="stat-box">
+                                <span class="stat-label">ATA</span>
+                                <span class="stat-val" id="att-home">80</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-label">MED</span>
+                                <span class="stat-val" id="mid-home">78</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="stat-label">DEF</span>
+                                <span class="stat-val" id="def-home">75</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-select-team" id="btn-select-home">PRONTO</button>
+                </div>
+            </div>
+
+            <!-- VS SEPARATOR -->
+            <div class="vs-divider">
+                <span>VS</span>
+            </div>
+
+            <!-- AWAY SIDE -->
+            <div class="match-panel away-panel" id="panel-away">
+                <div class="panel-label">VISITANTE</div>
+                
+                <div class="panel-content">
+                    <!-- Region Selector -->
+                    <div class="region-selector">
+                        <button class="nav-arrow prev-region" data-side="away">◄</button>
+                        <span class="region-display" id="region-display-away">BRASILEIRÃO</span>
+                        <button class="nav-arrow next-region" data-side="away">►</button>
+                     </div>
+ 
+                     <!-- Team Card -->
+                     <div class="classic-team-card">
+                         <div class="team-name" id="name-away">Time Visitante</div>
+                         
+                         <div class="team-badge-container">
+                             <button class="nav-arrow prev-team" data-side="away">◄</button>
+                             <div class="large-shield" id="shield-away">
+                                 <!-- Shield injected via JS -->
+                             </div>
+                             <button class="nav-arrow next-team" data-side="away">►</button>
+                         </div>
+ 
+                         <!-- Stars -->
+                         <div class="team-stars" id="stars-away">
+                             ★ ★ ★ ☆ ☆
+                         </div>
+ 
+                         <!-- Stats -->
+                         <div class="team-stats-row">
+                             <div class="stat-box">
+                                 <span class="stat-label">ATA</span>
+                                 <span class="stat-val" id="att-away">70</span>
+                             </div>
+                             <div class="stat-box">
+                                 <span class="stat-label">MED</span>
+                                 <span class="stat-val" id="mid-away">72</span>
+                             </div>
+                             <div class="stat-box">
+                                 <span class="stat-label">DEF</span>
+                                 <span class="stat-val" id="def-away">68</span>
+                             </div>
+                         </div>
+                     </div>
+                     
+                     <button class="btn-select-team" id="btn-select-away">PRONTO</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-action-bar">
+             <div class="action-hints">
+                <button id="btn-back-menu-classic" class="btn-action-hint">Voltar</button>
+                <!-- <button class="btn-action-hint">Randomise</button> -->
+             </div>
+             
+             <button id="btn-start-match" class="btn-start-big" disabled>INICIAR PARTIDA</button>
+        </div>
     </div>
-
-    <div class="selected-teams-preview">
-      <div id="slot1" class="team-slot">Casa</div>
-      <div id="vs-separator" class="vs-text">X</div>
-      <div id="slot2" class="team-slot">Visitante</div>
-    </div>
-
-    <button id="btn-start" class="btn-start" disabled>JOGAR AGORA</button>
-    <button id="btn-back-menu" class="btn-back">Voltar ao Menu</button>
-
-    <div id="teams-grid" class="teams-grid"></div>
+    
+    <!-- Preserving container for Arcade usage if referenced by ID, though we might need to handle arcade separate -->
+    <div id="teams-grid" class="teams-grid hidden"></div> 
   </div>
 
   <!-- DASHBOARD ARCADE (Tabela e Próximo Jogo) -->
@@ -469,7 +581,7 @@
                  </div>
              </div>
               <div class="match-action-buttons">
-                  <button id="btn-play-round" class="btn-start">JOGAR RODADA</button>
+                  <button id="btn-play-round" class="btn-start-big">JOGAR RODADA</button>
                   <button id="btn-auto-simulate" class="btn-auto-simulate" title="Simular toda a rodada automaticamente">
                       ⚡ Simular Rodada
                   </button>
@@ -532,9 +644,7 @@
   <!-- PARTIDA -->
   <div id="match-screen" class="screen hidden">
     <!-- MENSAGEM DE ENTRADA EM CAMPO -->
-    <div id="match-start-message" class="match-start-message hidden">
-        <h2>ENTRANDO EM CAMPO...</h2>
-    </div>
+
 
     <div class="match-layout">
       <!-- COLUNA PRINCIPAL: PLACAR E ARENA -->
@@ -571,6 +681,14 @@
             
             <div id="goal-zone" class="goal-zone">
               <div id="goal-burst" class="goal-burst"></div>
+            </div>
+          </div>
+          
+          <div id="match-start-message" class="match-start-overlay hidden">
+            <div class="start-content">
+                <div class="spinner-ball">⚽</div>
+                <h2>BOLA ROLANDO!</h2>
+                <p>A partida vai começar...</p>
             </div>
           </div>
 
