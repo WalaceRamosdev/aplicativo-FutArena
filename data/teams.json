@@ -1,0 +1,151 @@
+{
+  "brazilianTeams": [
+    { "id": "palmeiras", "name": "Palmeiras", "shortName": "PAL", "badge": "https://logodetimes.com/times/palmeiras/logo-palmeiras-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#006437", "overall": 89 },
+
+    { "id": "botafogo", "name": "Botafogo", "shortName": "BOT", "badge": "https://logodetimes.com/times/botafogo/logo-botafogo-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 70 },
+
+    { "id": "flamengo", "name": "Flamengo", "shortName": "FLA", "badge": "https://logodetimes.com/times/flamengo/logo-flamengo-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#E31D1A", "overall": 92 },
+
+    { "id": "internacional", "name": "Internacional", "shortName": "INT", "badge": "https://logodetimes.com/times/internacional/logo-internacional-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#E31D1A", "overall": 60 },
+
+    { "id": "saopaulo", "name": "São Paulo", "shortName": "SAO", "badge": "https://logodetimes.com/times/sao-paulo/logo-sao-paulo-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FF0000", "overall": 68 },
+
+    { "id": "corinthians", "name": "Corinthians", "shortName": "COR", "badge": "https://logodetimes.com/times/corinthians/logo-do-corinthians-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 65 },
+
+    { "id": "bahia", "name": "Bahia", "shortName": "BAH", "badge": "https://logodetimes.com/times/bahia/logo-bahia-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#005CAB", "overall": 69 },
+
+    { "id": "cruzeiro", "name": "Cruzeiro", "shortName": "CRU", "badge": "https://logodetimes.com/times/cruzeiro/logo-cruzeiro-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#003DA5", "overall": 85 },
+
+    { "id": "vasco", "name": "Vasco", "shortName": "VAS", "badge": "https://logodetimes.com/times/vasco-da-gama/logo-vasco-da-gama-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 67 },
+
+    { "id": "gremio", "name": "Grêmio", "shortName": "GRE", "badge": "https://logodetimes.com/times/gremio/logo-gremio-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#0A5EB0", "overall": 77 },
+
+    { "id": "atletico", "name": "Atlético-MG", "shortName": "CAM", "badge": "https://logodetimes.com/times/atletico-mineiro/logo-atletico-mineiro-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 71 },
+
+    { "id": "fluminense", "name": "Fluminense", "shortName": "FLU", "badge": "https://logodetimes.com/times/fluminense/logo-fluminense-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#7B0024", "overall": 70 },
+
+    { "id": "bragantino", "name": "Bragantino", "shortName": "RBB", "badge": "https://logodetimes.com/times/red-bull-bragantino/logo-red-bull-bragantino-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#E31D1A", "overall": 68 },
+
+    { "id": "vitoria", "name": "Vitória", "shortName": "VIT", "badge": "https://logodetimes.com/times/vitoria/logo-vitoria-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#E31D1A", "overall": 57 },
+
+    { "id": "athletico", "name": "Athletico-PR", "shortName": "CAP", "badge": "https://logodetimes.com/times/atletico-paranaense/logo-atletico-paranaense-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 59 },
+
+    { "id": "santos", "name": "Santos", "shortName": "SAN", "badge": "https://logodetimes.com/times/santos/logo-santos-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 60 },
+
+    { "id": "mirassol", "name": "Mirassol", "shortName": "MIR", "badge": "https://logodetimes.com/times/mirassol/logo-mirassol-atualizado-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FFD700", "overall": 65 },
+
+    { "id": "coritiba", "name": "Coritiba", "shortName": "CFC", "badge": "https://logodetimes.com/times/coritiba/logo-coritiba-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#006B3F", "overall": 60 },
+
+    { "id": "chapecoense", "name": "Chapecoense", "shortName": "CHA", "badge": "https://logodetimes.com/times/chapecoense/logo-chapecoense-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#006B3F", "overall": 58 },
+
+    { "id": "remo", "name": "Remo", "shortName": "REM", "badge": "https://logodetimes.com/times/remo/logo-remo-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#161923", "overall": 55 }
+  ],
+  "paulistaTeams": [
+    { "id": "corinthians", "name": "Corinthians", "shortName": "COR", "badge": "https://logodetimes.com/times/corinthians/logo-do-corinthians-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 78 },
+
+    { "id": "palmeiras", "name": "Palmeiras", "shortName": "PAL", "badge": "https://logodetimes.com/times/palmeiras/logo-palmeiras-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#006437", "overall": 85 },
+
+    { "id": "saopaulo", "name": "São Paulo", "shortName": "SAO", "badge": "https://logodetimes.com/times/sao-paulo/logo-sao-paulo-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FF0000", "overall": 76 },
+
+    { "id": "santos", "name": "Santos", "shortName": "SAN", "badge": "https://logodetimes.com/times/santos/logo-santos-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 72 },
+
+    { "id": "saobernardo", "name": "São Bernardo", "shortName": "SBE", "badge": "https://logodetimes.com/times/sao-bernardo/logo-sao-bernardo-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FFF200", "overall": 65 },
+
+    { "id": "novorizontino", "name": "Novorizontino", "shortName": "NOV", "badge": "https://logodetimes.com/times/gremio-novorizontino/logo-gremio-novorizontino-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FFF200", "overall": 66 },
+
+    { "id": "bragantino", "name": "Red Bull Bragantino", "shortName": "RBB", "badge": "https://logodetimes.com/times/red-bull-bragantino/logo-red-bull-bragantino-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#E31D1A", "overall": 74 },
+
+    { "id": "mirassol", "name": "Mirassol", "shortName": "MIR", "badge": "https://logodetimes.com/times/mirassol/logo-mirassol-atualizado-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FFD700", "overall": 68 },
+
+    { "id": "guarani", "name": "Guarani", 
+    "shortName": "GUA", "badge": "https://logodetimes.com/times/guarani/logo-guarani-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#006437", "overall": 64 },
+    
+    { "id": "pontepreta", "name": "Ponte Preta", "shortName": "PON", "badge": "https://logodetimes.com/times/ponte-preta/logo-ponte-preta-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 64 },
+    
+    { "id": "veloclube", "name": "Velo Clube", "shortName": "VEL", "badge": "https://logodetimes.com/times/velo-clube/logo-velo-clube-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FF0000", "overall": 60 },
+    
+    { "id": "portuguesa", "name": "Portuguesa", "shortName": "POR", "badge": "https://logodetimes.com/times/portuguesa/logo-portuguesa-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#00834B", "overall": 63 },
+    { "id": "botafogosp", "name": "Botafogo-SP", "shortName": "BSP", "badge": "https://logodetimes.com/times/botafogo-sp/logo-botafogo-sp-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FF0000", "overall": 65 },
+    { "id": "primavera", "name": "Primavera", "shortName": "PRI", "badge": "https://logodetimes.com/times/primavera-sp/logo-primavera-sp-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FF0000", "overall": 58 },
+    { "id": "noroeste", "name": "Noroeste", "shortName": "NOR", "badge": "https://upload.wikimedia.org/wikipedia/pt/3/36/EC_Noroeste.PNG", "primaryColor": "#FFFFFF", "secondaryColor": "#FF0000", "overall": 59 },
+    { "id": "capivariano", "name": "Capivariano", "shortName": "CAP", "badge": "https://logodetimes.com/times/capivariano/logo-capivariano-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FF0000", "overall": 58 }
+  ],
+  "cariocaTeams": [
+    { "id": "flamengo", "name": "Flamengo", "shortName": "FLA", "badge": "https://logodetimes.com/times/flamengo/logo-flamengo-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#E31D1A", "overall": 90 },
+    { "id": "fluminense", "name": "Fluminense", "shortName": "FLU", "badge": "https://logodetimes.com/times/fluminense/logo-fluminense-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#7B0024", "overall": 82 },
+    { "id": "botafogo", "name": "Botafogo", "shortName": "BOT", "badge": "https://logodetimes.com/times/botafogo/logo-botafogo-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 85 },
+    { "id": "vasco", "name": "Vasco da Gama", "shortName": "VAS", "badge": "https://logodetimes.com/times/vasco-da-gama/logo-vasco-da-gama-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 79 },
+    { "id": "bangu", "name": "Bangu", "shortName": "BAN", "badge": "https://logodetimes.com/times/bangu/logo-bangu-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#E31D1A", "overall": 62 },
+    { "id": "boavista", "name": "Boavista", "shortName": "BOA", "badge": "https://logodetimes.com/times/boavista-rj/logo-boavista-rj-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#00834B", "overall": 61 },
+    { "id": "madureira", "name": "Madureira", "shortName": "MAD", "badge": "https://logodetimes.com/times/madureira/logo-madureira-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#003893", "overall": 60 },
+    { "id": "marica", "name": "Maricá", "shortName": "MAR", "badge": "https://logodetimes.com/times/marica-fc/logo-marica-fc-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 58 },
+    { "id": "novaiguacu", "name": "Nova Iguaçu", "shortName": "NOV", "badge": "https://logodetimes.com/times/nova-iguacu/logo-nova-iguacu-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#F36C21", "overall": 63 },
+    { "id": "portuguesarj", "name": "Portuguesa (RJ)", "shortName": "POR", "badge": "https://logodetimes.com/times/portuguesa-rj/logo-portuguesa-rj-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#D0202F", "overall": 61 },
+    { "id": "sampaiocorrea", "name": "Sampaio Corrêa", "shortName": "SAM", "badge": "https://logodetimes.com/times/sampaio-correa-rj/logo-sampaio-correa-rj-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#00834B", "overall": 60 },
+    { "id": "voltaredonda", "name": "Volta Redonda", "shortName": "VOL", "badge": "https://logodetimes.com/times/volta-redonda/logo-volta-redonda-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 64 }
+  ],
+  "gauchoTeams": [
+    { "id": "gremio", "name": "Grêmio", "shortName": "GRE", "badge": "https://logodetimes.com/times/gremio/logo-gremio-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#0A5EB0", "overall": 77 },
+    { "id": "internacional", "name": "Internacional", "shortName": "INT", "badge": "https://logodetimes.com/times/internacional/logo-internacional-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#E31D1A", "overall": 76 },
+    { "id": "juventude", "name": "Juventude", "shortName": "JUV", "badge": "https://logodetimes.com/times/juventude/logo-juventude-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#006437", "overall": 68 },
+    { "id": "caxias", "name": "Caxias", "shortName": "CAX", "badge": "https://logodetimes.com/times/caxias-do-sul/logo-caxias-do-sul-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#7B0024", "overall": 64 },
+    { "id": "ypiranga", "name": "Ypiranga", "shortName": "YPI", "badge": "https://logodetimes.com/times/ypiranga-de-erechim/logo-ypiranga-de-erechim-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#006437", "overall": 61 },
+    { "id": "saojose", "name": "São José", "shortName": "SJO", "badge": "https://logodetimes.com/times/sao-jose-rs/logo-sao-jose-rs-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#003893", "overall": 59 },
+    { "id": "avenida", "name": "Avenida", "shortName": "AVE", "badge": "https://logodetimes.com/times/avenida-rs/logo-avenida-rs-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#006437", "overall": 58 },
+    { "id": "brasilpelotas", "name": "Brasil de Pelotas", "shortName": "BRA", "badge": "https://logodetimes.com/times/brasil-de-pelotas/logo-brasil-de-pelotas-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 60 },
+    { "id": "saoluiz", "name": "São Luiz", "shortName": "SLU", "badge": "https://logodetimes.com/times/sao-luiz-rs/logo-sao-luiz-rs-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#E31D1A", "overall": 56 },
+    { "id": "guarany", "name": "Guarany de Bagé", "shortName": "GUA", "badge": "https://logodetimes.com/times/guarany-futebol-clube-rs/logo-guarany-futebol-clube-rs-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#E31D1A", "overall": 56 },
+    { "id": "monsoon", "name": "Monsoon", "shortName": "MON", "badge": "https://logodetimes.com/times/monsoon-fc/logo-monsoon-fc-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#DAA520", "overall": 55 },
+    { "id": "pelotas", "name": "Pelotas", "shortName": "PEL", "badge": "https://logodetimes.com/times/pelotas/logo-pelotas-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#003893", "overall": 57 }
+  ],
+  "mineiroTeams": [
+    { "id": "atletico", "name": "Atlético-MG", "shortName": "CAM", "badge": "https://logodetimes.com/times/atletico-mineiro/logo-atletico-mineiro-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 78 },
+    { "id": "cruzeiro", "name": "Cruzeiro", "shortName": "CRU", "badge": "https://logodetimes.com/times/cruzeiro/logo-cruzeiro-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#003DA5", "overall": 77 },
+    { "id": "america", "name": "América-MG", "shortName": "AMG", "badge": "https://logodetimes.com/times/america-mineiro/logo-america-mineiro-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#006437", "overall": 72 },
+    { "id": "tombense", "name": "Tombense", "shortName": "TOM", "badge": "https://logodetimes.com/times/tombense/logo-tombense-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#E31D1A", "overall": 63 },
+    { "id": "athletic", "name": "Athletic Club", "shortName": "ATH", "badge": "https://logodetimes.com/times/athletic-club/logo-athletic-club-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 64 },
+    { "id": "pousoalegre", "name": "Pouso Alegre", "shortName": "POU", "badge": "https://logodetimes.com/times/pouso-alegre/logo-pouso-alegre-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#E31D1A", "overall": 59 },
+    { "id": "democrata", "name": "Democrata GV", "shortName": "DEM", "badge": "https://logodetimes.com/times/democrata-gv/logo-democrata-gv-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 57 },
+    { "id": "itabirito", "name": "Itabirito", "shortName": "ITA", "badge": "https://logodetimes.com/times/itabirito/logo-itabirito-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#003893", "overall": 55 },
+    { "id": "betim", "name": "Betim", "shortName": "BET", "badge": "https://logodetimes.com/times/betim-futebol/logo-betim-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#D0202F", "overall": 56 },
+    { "id": "north", "name": "North EC", "shortName": "NOR", "badge": "https://logodetimes.com/times/north-esporte-clube/logo-north-esporte-clube-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#003366", "overall": 56 },
+    { "id": "uberlandia", "name": "Uberlândia", "shortName": "UBE", "badge": "https://logodetimes.com/times/uberlandia/logo-uberlandia-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#00834B", "overall": 58 },
+    { "id": "urt", "name": "URT", "shortName": "URT", "badge": "https://logodetimes.com/times/urt/logo-urt-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#0000FF", "overall": 57 }
+  ],
+  "paranaenseTeams": [
+    { "id": "athletico", "name": "Athletico-PR", "shortName": "CAP", "badge": "https://logodetimes.com/times/atletico-paranaense/logo-atletico-paranaense-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 76 },
+    { "id": "coritiba", "name": "Coritiba", "shortName": "CFC", "badge": "https://logodetimes.com/times/coritiba/logo-coritiba-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#005327", "overall": 73 },
+    { "id": "operario", "name": "Operário-PR", "shortName": "OPE", "badge": "https://logodetimes.com/times/operario-ferroviario/logo-operario-ferroviario-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 65 },
+    { "id": "londrina", "name": "Londrina", "shortName": "LON", "badge": "https://logodetimes.com/times/londrina/logo-londrina-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#0091CF", "overall": 64 },
+    { "id": "maringa", "name": "Maringá FC", "shortName": "MFC", "badge": "https://logodetimes.com/times/maringa/logo-maringa-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 63 },
+    { "id": "fccascavel", "name": "FC Cascavel", "shortName": "FCC", "badge": "https://logodetimes.com/times/fc-cascavel/logo-fc-cascavel-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 62 },
+    { "id": "cianorte", "name": "Cianorte", "shortName": "CIA", "badge": "https://logodetimes.com/times/cianorte/logo-cianorte-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#003893", "overall": 60 },
+    { "id": "azuriz", "name": "Azuriz", "shortName": "AZU", "badge": "https://logodetimes.com/times/azuriz-fc/logo-azuriz-fc-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#006437", "overall": 59 },
+    { "id": "saojoseense", "name": "São Joseense", "shortName": "SJO", "badge": "https://logodetimes.com/times/independente-sao-joseense/logo-independente-sao-joseense-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#003893", "overall": 58 },
+    { "id": "andraus", "name": "Andraus", "shortName": "AND", "badge": "https://logodetimes.com/times/andraus-brasil/logo-andraus-brasil-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#003893", "overall": 57 },
+    { "id": "galomaringa", "name": "Galo Maringá", "shortName": "GAL", "badge": "https://logodetimes.com/times/galo-maringa/logo-galo-maringa-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 58 },
+    { "id": "fozdoiguacu", "name": "Foz do Iguaçu", "shortName": "FOZ", "badge": "https://logodetimes.com/times/foz-do-iguacu/logo-foz-do-iguacu-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#0091CF", "overall": 57 }
+  ],
+  "internationalTeams": [
+    { "id": "brasil", "name": "Brasil", "shortName": "BRA", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Brazilian_Football_Confederation_logo.svg/1200px-Brazilian_Football_Confederation_logo.svg.png", "primaryColor": "#FFDF00", "secondaryColor": "#009C3B", "overall": 94 },
+    { "id": "argentina", "name": "Argentina", "shortName": "ARG", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Argentine_Football_Association_logo.svg/800px-Argentine_Football_Association_logo.svg.png", "primaryColor": "#75AADB", "secondaryColor": "#FFFFFF", "overall": 93 },
+    { "id": "franca", "name": "França", "shortName": "FRA", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/French_Football_Federation_logo.svg/800px-French_Football_Federation_logo.svg.png", "primaryColor": "#002395", "secondaryColor": "#FFFFFF", "overall": 93 },
+    { "id": "inglaterra", "name": "Inglaterra", "shortName": "ING", "badge": "https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/England_national_football_team_crest.svg/1200px-England_national_football_team_crest.svg.png", "primaryColor": "#FFFFFF", "secondaryColor": "#CE1124", "overall": 91 },
+    { "id": "espanha", "name": "Espanha", "shortName": "ESP", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Royal_Spanish_Football_Federation_logo.svg/1200px-Royal_Spanish_Football_Federation_logo.svg.png", "primaryColor": "#C60B1E", "secondaryColor": "#FFC400", "overall": 91 },
+    { "id": "alemanha", "name": "Alemanha", "shortName": "ALE", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Deutscher_Fussball-Bund_logo.svg/1200px-Deutscher_Fussball-Bund_logo.svg.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 90 },
+    { "id": "portugal", "name": "Portugal", "shortName": "POR", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Portuguese_Football_Federation.svg/1200px-Portuguese_Football_Federation.svg.png", "primaryColor": "#E42518", "secondaryColor": "#006600", "overall": 89 },
+    { "id": "holanda", "name": "Holanda", "shortName": "HOL", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Royal_Netherlands_Football_Association_Logo.svg/1200px-Royal_Netherlands_Football_Association_Logo.svg.png", "primaryColor": "#F36C21", "secondaryColor": "#FFFFFF", "overall": 88 },
+    { "id": "croacia", "name": "Croácia", "shortName": "CRO", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Coat_of_arms_of_Croatia.svg/1200px-Coat_of_arms_of_Croatia.svg.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FF0000", "overall": 86 },
+    { "id": "italia", "name": "Itália", "shortName": "ITA", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/FIGC_logo_2023.svg/1200px-FIGC_logo_2023.svg.png", "primaryColor": "#0064AA", "secondaryColor": "#FFFFFF", "overall": 87 },
+    { "id": "belgica", "name": "Bélgica", "shortName": "BEL", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Royal_Belgian_Football_Association_logo.svg/1200px-Royal_Belgian_Football_Association_logo.svg.png", "primaryColor": "#E30613", "secondaryColor": "#000000", "overall": 85 },
+    { "id": "uruguai", "name": "Uruguai", "shortName": "URU", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Escudo_de_la_Selecci%C3%B3n_Uruguaya_de_F%C3%BAtbol.svg/1200px-Escudo_de_la_Selecci%C3%B3n_Uruguaya_de_F%C3%BAtbol.svg.png", "primaryColor": "#5BA4D6", "secondaryColor": "#000000", "overall": 84 },
+    { "id": "colombia", "name": "Colômbia", "shortName": "COL", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Federacion_Colombiana_de_Futbol_logo.svg/1200px-Federacion_Colombiana_de_Futbol_logo.svg.png", "primaryColor": "#FCD116", "secondaryColor": "#003893", "overall": 83 },
+    { "id": "eua", "name": "EUA", "shortName": "EUA", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/United_States_Soccer_Federation_logo_2016.svg/1200px-United_States_Soccer_Federation_logo_2016.svg.png", "primaryColor": "#FFFFFF", "secondaryColor": "#002868", "overall": 82 },
+    { "id": "mexico", "name": "México", "shortName": "MEX", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Mexican_Football_Federation_logo.svg/1200px-Mexican_Football_Federation_logo.svg.png", "primaryColor": "#006847", "secondaryColor": "#CE1126", "overall": 81 },
+    { "id": "marrocos", "name": "Marrocos", "shortName": "MAR", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Royal_Moroccan_Football_Federation_logo.svg/1200px-Royal_Moroccan_Football_Federation_logo.svg.png", "primaryColor": "#C1272D", "secondaryColor": "#006233", "overall": 84 },
+    { "id": "japao", "name": "Japão", "shortName": "JPN", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Japan_Football_Association_logo.svg/1200px-Japan_Football_Association_logo.svg.png", "primaryColor": "#000555", "secondaryColor": "#FFFFFF", "overall": 80 },
+    { "id": "coreia", "name": "Coreia do Sul", "shortName": "KOR", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Korea_Football_Association_logo.svg/1200px-Korea_Football_Association_logo.svg.png", "primaryColor": "#EC0F31", "secondaryColor": "#000000", "overall": 79 },
+    { "id": "senegal", "name": "Senegal", "shortName": "SEN", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Senegalese_Football_Federation_logo.svg/1200px-Senegalese_Football_Federation_logo.svg.png", "primaryColor": "#FFFFFF", "secondaryColor": "#00853F", "overall": 81 },
+    { "id": "suica", "name": "Suíça", "shortName": "SUI", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Swiss_Football_Association_logo.svg/1200px-Swiss_Football_Association_logo.svg.png", "primaryColor": "#FF0000", "secondaryColor": "#FFFFFF", "overall": 82 }
+  ]
+}

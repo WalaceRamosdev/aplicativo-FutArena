@@ -1,67 +1,81 @@
-// ==================== DOM ELEMENTS & GLOBALS ====================
-const btnModeQuick = document.getElementById('btn-mode-quick');
-const btnModeArcade = document.getElementById('btn-mode-arcade');
-const btnStart = document.getElementById('btn-start-match');
-const selectionScreen = document.getElementById('selection-screen');
-const mainMenu = document.getElementById('main-menu');
-const arcadeDashboard = document.getElementById('arcade-dashboard');
-const btnQuitArcade = document.getElementById('btn-quit-arcade');
-const btnFinishArcade = document.getElementById('btn-finish-arcade');
-const championScreen = document.getElementById('champion-screen');
-const resultOverlay = document.getElementById('result-overlay');
-const matchScreen = document.getElementById('match-screen');
-const championName = document.getElementById('champion-name');
-const championShieldContainer = document.getElementById('champion-shield-container');
-const championDetails = document.getElementById('champion-details');
-const arcadeUserTeamName = document.getElementById('arcade-user-team');
-const arcadeStandingsList = document.getElementById('arcade-standings-list');
-const arcadeHomeShield = document.getElementById('arcade-home-shield');
-const arcadeAwayShield = document.getElementById('arcade-away-shield');
-const currentRoundNum = document.getElementById('current-round-num');
-const score1El = document.querySelector('.score-numbers:nth-child(1)') || document.getElementById('score1');
-const score2El = document.querySelector('.score-numbers:nth-child(2)') || document.getElementById('score2');
-const matchTimeEl = document.querySelector('.match-time') || document.getElementById('match-time');
-const arenaLines = document.querySelector('.arena-lines');
-const gameShield1 = document.getElementById('game-shield1');
-const gameShield2 = document.getElementById('game-shield2');
-const goalOverlay = document.getElementById('goal-overlay');
-const scoreboardShield1 = document.getElementById('scoreboard-shield1');
-const scoreboardShield2 = document.getElementById('scoreboard-shield2');
-const startMatchMessage = document.getElementById('match-start-message');
-const goalBurst = document.querySelector('.goal-burst');
-const btnPlayRound = document.getElementById('btn-play-round');
-const btnBackMenu = document.getElementById('btn-back-menu-classic');
-const teamsGrid = document.getElementById('teams-grid');
-const selectionTitle = document.getElementById('selection-title-classic');
-const selectionSubtitle = document.getElementById('selection-subtitle');
-const vsSeparator = document.querySelector('.vs-divider');
-const slot1 = document.getElementById('shield-home');
-const slot2 = document.getElementById('shield-away');
-const btnUpgradeTeam = document.getElementById('btn-upgrade-team');
-const finalScore = document.getElementById('final-score');
-const btnNextAction = document.getElementById('btn-next-action');
-const btnBackMenuResult = document.getElementById('btn-back-menu-result');
+console.log('[FutArena] script.js loaded');
 
-// Additional DOM Elements
-const arcadeHomeName = document.getElementById('arcade-home-name');
-const arcadeAwayName = document.getElementById('arcade-away-name');
-const btnBack = document.getElementById('btn-back');
-const arena = document.getElementById('arena');
-const goalZone = document.getElementById('goal-zone');
-const goalShield = document.getElementById('goal-shield');
-const goalTeamName = document.getElementById('goal-team-name');
-const resultTitle = document.getElementById('result-title');
-const resultDisplay = document.getElementById('result-display');
-const bgSlideshow = document.getElementById('bg-slideshow');
-const btnToggleSound = document.getElementById('btn-toggle-sound');
-const btnPrevMusic = document.getElementById('btn-prev-music');
-const btnPlayPauseMusic = document.getElementById('btn-play-pause');
-const btnNextMusic = document.getElementById('btn-next-music');
-const btnShowHistory = document.getElementById('btn-show-history') || document.getElementById('btn-show-history-top');
-const historyOverlay = document.getElementById('history-overlay');
-const historyList = document.getElementById('history-list');
-const btnCloseHistory = document.getElementById('btn-close-history');
-const btnClearHistory = document.getElementById('btn-clear-history');
+// ==================== DOM ELEMENTS & GLOBALS ====================
+let btnModeQuick, btnModeArcade, btnStart, selectionScreen, mainMenu, arcadeDashboard, btnQuitArcade, btnFinishArcade;
+let championScreen, resultOverlay, matchScreen, championName, championShieldContainer, championDetails;
+let arcadeUserTeamName, arcadeStandingsList, arcadeHomeShield, arcadeAwayShield, currentRoundNum;
+let score1El, score2El, matchTimeEl, arenaLines, gameShield1, gameShield2, goalOverlay;
+let scoreboardShield1, scoreboardShield2, startMatchMessage, goalBurst, btnPlayRound, btnBackMenu;
+let teamsGrid, selectionTitle, selectionSubtitle, vsSeparator, slot1, slot2, btnUpgradeTeam;
+let finalScore, btnNextAction, btnBackMenuResult, arcadeHomeName, arcadeAwayName, btnBack, arena, goalZone;
+let goalShield, goalTeamName, resultTitle, resultDisplay, bgSlideshow, btnToggleSound;
+let btnPrevMusic, btnPlayPauseMusic, btnNextMusic, btnShowHistory, historyOverlay, historyList;
+let btnCloseHistory, btnClearHistory;
+
+function initElements() {
+    btnModeQuick = document.getElementById('btn-mode-quick');
+    btnModeArcade = document.getElementById('btn-mode-arcade');
+    btnStart = document.getElementById('btn-start-match');
+    selectionScreen = document.getElementById('selection-screen');
+    mainMenu = document.getElementById('main-menu');
+    arcadeDashboard = document.getElementById('arcade-dashboard');
+    btnQuitArcade = document.getElementById('btn-quit-arcade');
+    btnFinishArcade = document.getElementById('btn-finish-arcade');
+    championScreen = document.getElementById('champion-screen');
+    resultOverlay = document.getElementById('result-overlay');
+    matchScreen = document.getElementById('match-screen');
+    championName = document.getElementById('champion-name');
+    championShieldContainer = document.getElementById('champion-shield-container');
+    championDetails = document.getElementById('champion-details');
+    arcadeUserTeamName = document.getElementById('arcade-user-team');
+    arcadeStandingsList = document.getElementById('arcade-standings-list');
+    arcadeHomeShield = document.getElementById('arcade-home-shield');
+    arcadeAwayShield = document.getElementById('arcade-away-shield');
+    currentRoundNum = document.getElementById('current-round-num');
+    score1El = document.querySelector('.score-numbers:nth-child(1)') || document.getElementById('score1');
+    score2El = document.querySelector('.score-numbers:nth-child(2)') || document.getElementById('score2');
+    matchTimeEl = document.querySelector('.match-time') || document.getElementById('match-time');
+    arenaLines = document.querySelector('.arena-lines');
+    gameShield1 = document.getElementById('game-shield1');
+    gameShield2 = document.getElementById('game-shield2');
+    goalOverlay = document.getElementById('goal-overlay');
+    scoreboardShield1 = document.getElementById('scoreboard-shield1');
+    scoreboardShield2 = document.getElementById('scoreboard-shield2');
+    startMatchMessage = document.getElementById('match-start-message');
+    goalBurst = document.querySelector('.goal-burst');
+    btnPlayRound = document.getElementById('btn-play-round');
+    btnBackMenu = document.getElementById('btn-back-menu-classic');
+    teamsGrid = document.getElementById('teams-grid');
+    selectionTitle = document.getElementById('selection-title-classic');
+    selectionSubtitle = document.getElementById('selection-subtitle');
+    vsSeparator = document.querySelector('.vs-divider');
+    slot1 = document.getElementById('shield-home');
+    slot2 = document.getElementById('shield-away');
+    btnUpgradeTeam = document.getElementById('btn-upgrade-team');
+    finalScore = document.getElementById('final-score');
+    btnNextAction = document.getElementById('btn-next-action');
+    btnBackMenuResult = document.getElementById('btn-back-menu-result');
+    arcadeHomeName = document.getElementById('arcade-home-name');
+    arcadeAwayName = document.getElementById('arcade-away-name');
+    btnBack = document.getElementById('btn-back-match');
+    arena = document.getElementById('arena');
+    goalZone = document.getElementById('goal-zone');
+    goalShield = document.getElementById('goal-shield');
+    goalTeamName = document.getElementById('goal-team-name');
+    resultTitle = document.getElementById('result-title');
+    resultDisplay = document.getElementById('result-display');
+    bgSlideshow = document.getElementById('bg-slideshow');
+    btnToggleSound = document.getElementById('btn-toggle-sound');
+    btnPrevMusic = document.getElementById('btn-prev-music');
+    btnPlayPauseMusic = document.getElementById('btn-play-pause');
+    btnNextMusic = document.getElementById('btn-next-music');
+    btnShowHistory = document.getElementById('btn-show-history') || document.getElementById('btn-show-history-top');
+    historyOverlay = document.getElementById('history-overlay');
+    historyList = document.getElementById('history-list');
+    btnCloseHistory = document.getElementById('btn-close-history');
+    btnClearHistory = document.getElementById('btn-clear-history');
+}
+
 
 // Game Globals
 let currentGameMode = 'quick';
@@ -83,6 +97,7 @@ let shield1 = { x: 0, y: 0, vx: 0, vy: 0 };
 let shield2 = { x: 0, y: 0, vx: 0, vy: 0 };
 let quickMatchStep = 1;
 
+
 // ==================== CONFIGURAÇÃO DE MÚSICA (Playlist) ====================
 const PLAYLIST = [
 
@@ -97,7 +112,7 @@ const PLAYLIST = [
     //{ title: "Doves-Black And White Town", src: "/assets/musicas/Doves-Black And White Town.mp3" },
 ];
 
-// ==================== CONFIGURAÇÃO DOS TIMES (DINÂMICO) ====================
+// ==================== CONFIGURAÇÃO DOS TIMES (Carregados Dinamicamente) ====================
 let brazilianTeams = [];
 let paulistaTeams = [];
 let cariocaTeams = [];
@@ -107,12 +122,16 @@ let paranaenseTeams = [];
 let internationalTeams = [];
 let allTeamsList = [];
 
-// Função para inicializar os dados do aplicativo
+/**
+ * Inicializa os dados da aplicação de forma assíncrona
+ * Centraliza o carregamento de JSON e configuração inicial
+ */
 async function initAppData() {
+    console.log('[App] Iniciando carregamento de dados...');
     try {
-        console.log('[App] Inicializando dados...');
-        const data = await DataService.loadAll();
+        const data = await window.DataService.loadAll();
         
+        // Atribuir aos globais
         brazilianTeams = data.brazilianTeams || [];
         paulistaTeams = data.paulistaTeams || [];
         cariocaTeams = data.cariocaTeams || [];
@@ -121,14 +140,21 @@ async function initAppData() {
         paranaenseTeams = data.paranaenseTeams || [];
         internationalTeams = data.internationalTeams || [];
         
-        // Consolidar lista global (usando Set para evitar duplicatas por ID)
-        const all = [...brazilianTeams, ...paulistaTeams, ...cariocaTeams, ...gauchoTeams, ...mineiroTeams, ...paranaenseTeams];
-        allTeamsList = [...new Map(all.map(t => [t.id, t])).values()];
-        
+        // Criar lista mestre sem duplicatas
+        allTeamsList = [...new Map([
+            ...brazilianTeams, 
+            ...paulistaTeams, 
+            ...cariocaTeams, 
+            ...gauchoTeams, 
+            ...mineiroTeams, 
+            ...paranaenseTeams
+        ].map(t => [t.id, t])).values()];
+
         console.log('[App] Dados carregados:', {
             brasileirao: brazilianTeams.length,
             paulista: paulistaTeams.length,
             carioca: cariocaTeams.length,
+            internacionais: internationalTeams.length,
             total: allTeamsList.length
         });
 
@@ -138,11 +164,14 @@ async function initAppData() {
         return true;
     } catch (error) {
         console.error('[App] Erro na inicialização:', error);
-        window.showCustomModal("Erro de Carregamento", "Não foi possível carregar os dados dos times. Por favor, recarregue a página.", null, null, false);
-        return false; // Seleções internacionais carregadas dinamicamente via initAppData()
+        if (window.showCustomModal) {
+            window.showCustomModal("Erro de Carregamento", "Não foi possível carregar os dados dos times. Por favor, recarregue a página.", null, null, false);
+        } else {
+            alert("Erro ao carregar dados. Por favor recarregue a página.");
+        }
+        return false;
     }
 }
-
 
 // ==================== WORLD CUP MANAGER ====================
 const WorldCupManager = {
@@ -1661,7 +1690,7 @@ const ArcadeManager = {
             ...m, stage: 'semis', totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0, completed: false
         }));
         ArcadeManager.currentStage = 'semis';
-        alert("Fase de Grupos do Gauchão encerrada!\\nLíderes e melhor 2º avançam.");
+        alert("Fase de Grupos do Gauchão encerrada!\nLíderes e melhor 2º avançam.");
     },
 
     transitionToMineiroKnockout: () => {
@@ -1686,7 +1715,7 @@ const ArcadeManager = {
             ...m, stage: 'semis', totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0, completed: false
         }));
         ArcadeManager.currentStage = 'semis';
-        alert("Fase de Grupos do Mineiro encerrada!\\nLíderes e melhor 2º avançam.");
+        alert("Fase de Grupos do Mineiro encerrada!\nLíderes e melhor 2º avançam.");
     },
 
     transitionToParanaenseKnockout: () => {
@@ -1706,7 +1735,7 @@ const ArcadeManager = {
             ...m, stage: 'quarters', totalLegs: 2, currentLeg: 1, aggHome: 0, aggAway: 0, completed: false
         }));
         ArcadeManager.currentStage = 'quarters';
-        alert("Primeira Fase do Paranaense encerrada!\\nOs 8 melhores avançam para as Quartas.");
+        alert("Primeira Fase do Paranaense encerrada!\nOs 8 melhores avançam para as Quartas.");
     },
 
     // ================== KNOCKOUT LOGIC ==================
@@ -2648,7 +2677,8 @@ if (btnDeleteSave) {
 // ==================== QUICK MATCH LOGIC ====================
 let selectionPhase = 0; // 0: None, 1: Region Home, 2: Team Home, 3: Region Away, 4: Team Away
 
-
+// Note: btnModeQuick and btnModeArcade click handlers are registered
+// in the DOMContentLoaded block at the end of this file (with null-safety checks).
 
 function startQuickMatchFlow() {
     // Reset state
@@ -2900,7 +2930,7 @@ window.showCustomModal = (title, message, onConfirm, onCancel, showCancel = true
 };
 
 function createShield(team, size = 'md') {
-    const sizeMap = { sm: 48, md: 64, lg: 80, xl: 120, xxl: 160 };
+    const sizeMap = { sm: 48, md: 64, lg: 80, xl: 80, xxl: 100 };
     const s = sizeMap[size];
 
     const shield = document.createElement('div');
@@ -2915,18 +2945,11 @@ function createShield(team, size = 'md') {
     inner.style.background = `linear-gradient(180deg, ${team.primaryColor}ee 0%, ${team.primaryColor} 100%)`;
 
     const img = document.createElement('img');
-    // Usar imagem cacheada pelo DataService se disponível
-    const cached = (typeof DataService !== 'undefined') ? DataService.getCachedBadge(team.id) : null;
-    if (cached) {
-        img.src = cached.src;
-    } else {
-        img.src = team.badge;
-        // Disparar preload para cache futuro
-        if (typeof DataService !== 'undefined') DataService.preloadBadge(team);
-    }
+    // Lazy loading: use DataService to get the badge or a placeholder while loading
+    img.src = window.DataService ? window.DataService.getBadge(team.id) : team.badge;
     img.alt = team.name;
     img.className = 'shield-img';
-    img.loading = 'lazy';
+    img.loading = 'lazy'; // Browser native lazy loading
 
     inner.appendChild(img);
     shield.appendChild(inner);
@@ -2949,7 +2972,9 @@ function triggerConfetti(team, container = goalOverlay) {
         el.style.width = `${size}px`;
         el.style.height = `${size}px`;
         el.style.animation = `confetti-fall ${animDuration}s linear ${animDelay}s forwards`;
-        if (Math.random() > 0.5) el.style.borderRadius = '50%';
+        const shape = Math.random() > 0.5 ? '50%' : '0%';
+        el.style.borderRadius = shape;
+        el.style.transform = `rotate(${Math.random() * 360}deg)`;
         container.appendChild(el);
     }
 }
@@ -2962,26 +2987,15 @@ function clearConfetti() {
 // ==================== TEAM SELECTION ====================
 function initTeamSelection() {
     teamsGrid.innerHTML = '';
-    teamsGrid.innerHTML = '';
-    // selectedTeams = []; // Don't clear here, we manage it in the flow
-
-
-    sfx.loadTrack();
-    sfx.playMusic();
-
-    updateSlots();
-    updateStartButton();
-
-    // Select which list to show
+    
+    // Preload badges for the current view
     let teamsToDisplay = brazilianTeams;
     if (currentGameMode === 'worldcup') {
         teamsToDisplay = internationalTeams;
     }
 
-    // Pré-carregar badges da lista exibida (lazy, em lotes)
-    if (typeof DataService !== 'undefined') {
-        const listName = currentGameMode === 'worldcup' ? 'international' : 'brazilian';
-        DataService.preloadListBadges(teamsToDisplay, listName);
+    if (window.DataService) {
+        window.DataService.preloadListBadges(teamsToDisplay.map(t => t.id));
     }
 
     teamsToDisplay.forEach(team => {
@@ -3677,16 +3691,17 @@ function showChampionScreen(championTeam) {
 
 // ==================== MATCH LOGIC ====================
 // ==================== MATCH LOGIC ====================
-function startMatch() {
+async function startMatch() {
     if (!team1 || !team2) {
         console.error("Teams not defined!");
         alert("Erro ao iniciar a partida: Times não selecionados.");
         return;
     }
 
-    // Pré-carregar badges dos 2 times da partida (on-demand)
-    if (typeof DataService !== 'undefined') {
-        DataService.preloadMatchBadges(team1, team2);
+    // Preload match badges before showing the screen
+    if (window.DataService) {
+        console.log('[Match] Preloading match badges...');
+        await window.DataService.preloadMatchBadges(team1.id, team2.id);
     }
 
     try {
@@ -4339,7 +4354,7 @@ function backToSelection() {
 }
 
 // ==================== COMMON UI & LISTENERS ====================
-btnBack.addEventListener('click', () => {
+if (btnBack) btnBack.addEventListener('click', () => {
     isPlaying = false;
     sfx.stopCrowd();
     if (animationId) cancelAnimationFrame(animationId);
@@ -4366,7 +4381,7 @@ btnBack.addEventListener('click', () => {
     }
 });
 
-btnToggleSound.addEventListener('click', () => {
+if (btnToggleSound) btnToggleSound.addEventListener('click', () => {
     const isEnabled = sfx.toggleAllSound();
     btnToggleSound.textContent = isEnabled ? '🔊' : '🔇';
     btnToggleSound.classList.toggle('muted', !isEnabled);
@@ -4621,19 +4636,21 @@ function initStartOverlay() {
         dismissed = true;
 
         // Initialize audio context on first interaction (browser policy)
-        if (typeof soundManager !== 'undefined') {
-            soundManager.init();
-            soundManager.loadTrack();
-            soundManager.playMusic();
+        if (typeof sfx !== 'undefined') {
+            sfx.init();
+            sfx.loadTrack();
+            sfx.playMusic();
         }
 
         // Animate out
-        overlay.classList.add('hidden');
-        
+        overlay.classList.add('fade-out');
+
         // Remove after animation completes
-        setTimeout(() => {
-            overlay.remove(); // Remove from DOM entirely
-        }, 500);
+        overlay.addEventListener('transitionend', function handler() {
+            overlay.removeEventListener('transitionend', handler);
+            overlay.style.display = 'none';
+            overlay.remove(); // Remove from DOM entirely for zero overhead
+        });
 
         // Cleanup listeners
         document.removeEventListener('keydown', dismissOverlay);
@@ -4647,15 +4664,10 @@ function initStartOverlay() {
     document.addEventListener('touchstart', dismissOverlay, { once: true, passive: true });
 }
 
-
 // ==================== INICIALIZAÇÃO ====================
 function initApp() {
-    initStartOverlay();
     startBgSlideshow();
     checkSavedArcadeProgress();
-
-    // Inicializar Tutorial
-    TutorialManager.init();
 
     // Inicializar controles de velocidade
     initSpeedControls();
@@ -4671,14 +4683,65 @@ function initApp() {
         screen.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
     });
 
-    // Mostrar tela inicial
+    // Show the main menu behind the start overlay
     showScreen('menu');
-    // O tutorial é chamado dentro de showScreen('menu') agora.
-    // A chamada direta foi removida para evitar reexibição.
+
+    // Initialize the start overlay (Press to Start / Tap to Start)
+    initStartOverlay();
 }
 
-// Iniciar aplicação removido da chamada direta para ser controlado pelo DOMContentLoaded async no fim do arquivo.
+function attachMenuListeners() {
+    if (btnModeQuick) {
+        btnModeQuick.onclick = () => {
+            currentGameMode = 'quick';
+            initTeamSelection();
+        };
+    }
 
+    if (btnModeArcade) {
+        btnModeArcade.onclick = () => {
+            document.getElementById('championship-modal').classList.remove('hidden');
+        };
+    }
+
+    const btnCloseChamp = document.getElementById('btn-close-champ-modal');
+    if (btnCloseChamp) {
+        btnCloseChamp.onclick = closeChampionshipModal;
+    }
+
+    if (btnBackMenu) {
+        btnBackMenu.onclick = () => {
+            showScreen('menu');
+        };
+    }
+}
+
+// Expose functions to window
+window.initApp = initApp;
+window.initStartOverlay = initStartOverlay;
+window.initAppData = initAppData;
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('[FutArena] DOM ready, initializing...');
+    
+    // 1. Map all elements
+    initElements();
+
+    // 2. Initialize Overlay and UI Structure immediately
+    initApp();
+
+    // 3. Load data in background
+    initAppData().then(success => {
+        if (success) {
+            console.log('[FutArena] Data loaded, attaching listeners');
+            attachMenuListeners();
+            // Re-check progress now that allTeamsList is ready
+            checkSavedArcadeProgress();
+        } else {
+            console.error('[FutArena] Critical data load failure');
+        }
+    });
+});
 
 // ==================== SPEED CONTROLS ====================
 function initSpeedControls() {
@@ -4721,6 +4784,7 @@ function toggleGameInterface(show) {
     if (header) header.style.display = displayVal;
     if (footer) footer.style.display = displayVal;
 }
+
 
 // ==================== CHAMPIONSHIP UI ====================
 let selectedLeague = 'Brasileirão';
@@ -4785,7 +4849,8 @@ function initializeSelectionPanels() {
     selectionLists.home = [...brazilianTeams];
     selectionLists.away = [...brazilianTeams];
 
-    // Setup Listeners if not already attached
+    // Setup Listeners if not already attached (check flag or just re-attach carefully)
+    // Actually, best to attach once. We can restrict this by a flag.
     if (!window.panelsInitialized) {
         setupPanelListeners();
         window.panelsInitialized = true;
@@ -4795,10 +4860,12 @@ function initializeSelectionPanels() {
 function setupPanelListeners() {
     document.querySelectorAll('.nav-arrow').forEach(btn => {
         btn.addEventListener('click', (e) => {
+            // Prevent bubbling if needed
             e.stopPropagation();
+
             const side = btn.dataset.side; // 'home' or 'away'
             const isRegion = btn.classList.contains('prev-region') || btn.classList.contains('next-region');
-            const isNext = btn.innerText.includes('►') || btn.innerText.includes('>'); 
+            const isNext = btn.innerText.includes('►'); // Simple check based on arrow char
 
             if (isRegion) {
                 changeRegion(side, isNext);
@@ -4817,6 +4884,7 @@ function setupPanelListeners() {
 }
 
 function changeRegion(side, isNext) {
+    // If Arcade mode, region might be locked
     if (currentGameMode === 'arcade' && side === 'home') return;
 
     const regions = ['Brasileirão', 'paulista', 'carioca', 'Gauchão', 'mineiro', 'paranaense', 'Todos'];
@@ -4836,7 +4904,8 @@ function changeRegion(side, isNext) {
     else if (newRegion === 'Gauchão') selectionLists[side] = [...gauchoTeams];
     else if (newRegion === 'mineiro') selectionLists[side] = [...mineiroTeams];
     else if (newRegion === 'paranaense') selectionLists[side] = [...paranaenseTeams];
-    else if (newRegion === 'Todos') selectionLists[side] = [...brazilianTeams, ...paulistaTeams, ...cariocaTeams, ...gauchoTeams, ...mineiroTeams, ...paranaenseTeams];
+    else if (newRegion === 'Todos') selectionLists[side] = [...brazilianTeams, ...paulistaTeams, ...cariocaTeams, ...gauchoTeams, ...mineiroTeams, ...paranaenseTeams]; // Simplification for All Teams
+
 
     selectionIndices[side] = 0; // Reset team index
     updatePanel(side);
@@ -4859,12 +4928,12 @@ function updatePanel(side) {
     const index = selectionIndices[side];
     const team = list[index];
 
-    if (!team) return;
-
+    // Preload current team badge
     if (window.DataService) {
         window.DataService.preloadMatchBadges(team.id);
     }
 
+    // Elements
     const nameEl = document.getElementById(`name-${side}`);
     const shieldEl = document.getElementById(`shield-${side}`);
     const attEl = document.getElementById(`att-${side}`);
@@ -4873,6 +4942,7 @@ function updatePanel(side) {
     const regionDisplay = document.getElementById(`region-display-${side}`);
     const starsEl = document.getElementById(`stars-${side}`);
 
+    // Update visuals
     if (nameEl) nameEl.textContent = team.name;
 
     if (shieldEl) {
@@ -4881,8 +4951,17 @@ function updatePanel(side) {
         shieldEl.appendChild(createShield(team, shieldSize)); 
     }
 
+    // Stats
+    // Stats - Randomize slightly based on Overall
+    // Generate slight variation: +/- 5 from Overall
+    // We try to keep it somewhat stable or just random per update (which changes per team selection anyway)
+
+    // Helper for variation
     const vary = (val) => Math.min(99, Math.max(1, Math.floor(val + (Math.random() * 10 - 5))));
-    const attVal = team.attack || vary(team.overall + 2);
+
+    // We can't persist this easily without modifying the team object per session, 
+    // but generating on view is acceptable as it changes when you switch teams.
+    const attVal = team.attack || vary(team.overall + 2); // Attackers slightly better usually
     const midVal = team.midfield || vary(team.overall);
     const defVal = team.defense || vary(team.overall - 1);
 
@@ -4890,6 +4969,7 @@ function updatePanel(side) {
     if (midEl) midEl.textContent = midVal;
     if (defEl) defEl.textContent = defVal;
 
+    // Region Name
     if (regionDisplay) {
         let rName = selectedRegions[side];
         if (rName === 'paulista') rName = "Paulistão";
@@ -4900,12 +4980,15 @@ function updatePanel(side) {
         regionDisplay.innerText = rName.toUpperCase();
     }
 
+    // Stars
     if (starsEl) {
         const starCount = Math.round(team.overall / 20);
         let stars = "★".repeat(starCount) + "☆".repeat(5 - starCount);
         starsEl.textContent = stars;
     }
 
+    // Update Global Selection tentative
+    // Update Global Selection tentative
     if (currentGameMode === 'arcade' && side === 'home') {
         selectedTeams = [team];
         const btnStart = document.getElementById('btn-start-match');
@@ -4913,7 +4996,7 @@ function updatePanel(side) {
     }
 }
 
-let quickMatchStep1 = 1;
+let quickMatchStep = 1;
 
 function confirmPanelSelection(side) {
     const team = selectionLists[side][selectionIndices[side]];
@@ -4965,6 +5048,12 @@ function confirmPanelSelection(side) {
 
             quickMatchStep = 3;
         }
+
+        // Check for "Alterar" logic? 
+        // For simplicity, if they click "Alterar" (which we just renamed the button to),
+        // we could check the text content or a flag to reverse the state.
+        // But the user asked for: "click ready -> choose opponent".
+        // Use a simple toggle if needed, or strictly forward for now.
     }
 }
 
@@ -4972,6 +5061,7 @@ function togglePanelInteractivity(side, enable) {
     const panel = document.getElementById(`panel-${side}`);
     if (!panel) return;
 
+    // Toggle Active Class for Visual Feedback (Button color/cursor from CSS)
     if (enable) panel.classList.add('active');
     else panel.classList.remove('active');
 
@@ -4982,38 +5072,46 @@ function togglePanelInteractivity(side, enable) {
     });
 }
 
+// Fixed initTeamSelectionForArcade to use Panels
 function initTeamSelectionForArcade(teamsList, leagueName) {
     currentGameMode = 'arcade';
     selectedTeams = [];
 
+    // Hide Grid if visible
     const teamsGrid = document.getElementById('teams-grid');
     if (teamsGrid) teamsGrid.classList.add('hidden');
 
+    // Show Panels Container
     selectionScreen.classList.remove('hidden');
     mainMenu.classList.add('hidden');
 
+    // Initialize Logic
     initializeSelectionPanels();
 
+    // Setup Home Panel for this League
     selectionLists.home = [...teamsList];
     selectedRegions.home = leagueName;
     selectionIndices.home = 0;
     updatePanel('home');
 
+    // Enable Interactivity (Setters/Arrows)
     togglePanelInteractivity('home', true);
 
+    // Reset Button Text
     const btnHomeSelect = document.getElementById('btn-select-home');
     if (btnHomeSelect) {
         btnHomeSelect.innerText = "PRONTO";
         btnHomeSelect.classList.remove('btn-secondary');
     }
 
+    // UI Adjustments for Single Selection
     const vsSeparator = document.querySelector('.vs-divider');
     const panelAway = document.getElementById('panel-away');
 
     if (vsSeparator) vsSeparator.classList.add('hidden');
     if (panelAway) {
         panelAway.classList.add('hidden');
-        panelAway.style.display = 'none';
+        panelAway.style.display = 'none'; // Force hide
     }
 
     const container = document.querySelector('.classic-match-panels');
@@ -5021,6 +5119,7 @@ function initTeamSelectionForArcade(teamsList, leagueName) {
         container.style.justifyContent = 'center';
     }
 
+    // Update Titles and Buttons
     const btnStart = document.getElementById('btn-start-match');
     if (btnStart) {
         btnStart.innerText = "INICIAR CAMPANHA";
@@ -5037,39 +5136,5 @@ function initTeamSelectionForArcade(teamsList, leagueName) {
     }
 }
 
-// Initial Listeners for Menu Buttons
-document.addEventListener('DOMContentLoaded', async () => {
-    // Inicializar dados do App antes de qualquer coisa
-    const success = await initAppData();
-    
-    // Agora chama a inicialização principal
-    initApp();
-
-    if (!success) return;
-
-    // Main Menu Buttons
-    if (btnModeQuick) {
-        btnModeQuick.addEventListener('click', () => {
-            showScreen('selection');
-            startQuickMatchFlow();
-        });
-    }
-
-    if (btnModeArcade) {
-        btnModeArcade.addEventListener('click', openChampionshipModal);
-    }
-
-    const btnCloseChamp = document.getElementById('btn-close-champ-modal');
-    if (btnCloseChamp) {
-        btnCloseChamp.addEventListener('click', closeChampionshipModal);
-    }
-
-    const btnBackSelection = document.getElementById('btn-back-menu-classic');
-    if (btnBackSelection) {
-        btnBackSelection.addEventListener('click', () => {
-            showScreen('menu');
-        });
-    }
-});
-
+// Final block (formerly duplicate DOMContentLoaded removed)
 
