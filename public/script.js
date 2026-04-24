@@ -4619,50 +4619,7 @@ function showScreen(screenName) {
     }
 }
 
-// ==================== START OVERLAY (Press to Start) ====================
-function initStartOverlay() {
-    const overlay = document.getElementById('start-overlay');
-    const promptEl = document.getElementById('start-prompt');
-    if (!overlay || !promptEl) return;
 
-    // Device-aware prompt text
-    const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || window.innerWidth <= 768;
-    promptEl.textContent = isMobile ? 'Toque para Começar' : 'Pressione qualquer Tecla';
-
-    let dismissed = false;
-
-    function dismissOverlay() {
-        if (dismissed) return;
-        dismissed = true;
-
-        // Initialize audio context on first interaction (browser policy)
-        if (typeof sfx !== 'undefined') {
-            sfx.init();
-            sfx.loadTrack();
-            sfx.playMusic();
-        }
-
-        // Animate out
-        overlay.classList.add('fade-out');
-
-        // Remove after animation completes
-        overlay.addEventListener('transitionend', function handler() {
-            overlay.removeEventListener('transitionend', handler);
-            overlay.style.display = 'none';
-            overlay.remove(); // Remove from DOM entirely for zero overhead
-        });
-
-        // Cleanup listeners
-        document.removeEventListener('keydown', dismissOverlay);
-        document.removeEventListener('click', dismissOverlay);
-        document.removeEventListener('touchstart', dismissOverlay);
-    }
-
-    // Listen for any interaction
-    document.addEventListener('keydown', dismissOverlay, { once: true });
-    document.addEventListener('click', dismissOverlay, { once: true });
-    document.addEventListener('touchstart', dismissOverlay, { once: true, passive: true });
-}
 
 // ==================== INICIALIZAÇÃO ====================
 function initApp() {
@@ -4683,24 +4640,21 @@ function initApp() {
         screen.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
     });
 
-    // Show the main menu behind the start overlay
+    // Show the main menu
     showScreen('menu');
-
-    // Initialize the start overlay (Press to Start / Tap to Start)
-    initStartOverlay();
 }
 
 function attachMenuListeners() {
     if (btnModeQuick) {
         btnModeQuick.onclick = () => {
             currentGameMode = 'quick';
-            initTeamSelection();
+            startQuickMatchFlow();
         };
     }
 
     if (btnModeArcade) {
         btnModeArcade.onclick = () => {
-            document.getElementById('championship-modal').classList.remove('hidden');
+            openChampionshipModal();
         };
     }
 
@@ -4718,30 +4672,34 @@ function attachMenuListeners() {
 
 // Expose functions to window
 window.initApp = initApp;
-window.initStartOverlay = initStartOverlay;
 window.initAppData = initAppData;
 
-document.addEventListener('DOMContentLoaded', () => {
+function initializeApp() {
     console.log('[FutArena] DOM ready, initializing...');
     
     // 1. Map all elements
     initElements();
 
-    // 2. Initialize Overlay and UI Structure immediately
-    initApp();
-
-    // 3. Load data in background
+    // 2. Load data
     initAppData().then(success => {
         if (success) {
-            console.log('[FutArena] Data loaded, attaching listeners');
+            console.log('[FutArena] Data loaded, initializing App UI');
+            // 3. Initialize UI Structure now that data is ready
+            initApp();
+            
+            console.log('[FutArena] Attaching listeners');
             attachMenuListeners();
-            // Re-check progress now that allTeamsList is ready
-            checkSavedArcadeProgress();
         } else {
             console.error('[FutArena] Critical data load failure');
         }
     });
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+    initializeApp();
+}
 
 // ==================== SPEED CONTROLS ====================
 function initSpeedControls() {
@@ -4996,7 +4954,7 @@ function updatePanel(side) {
     }
 }
 
-let quickMatchStep = 1;
+
 
 function confirmPanelSelection(side) {
     const team = selectionLists[side][selectionIndices[side]];
