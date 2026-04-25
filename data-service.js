@@ -42,7 +42,7 @@ const DataService = {
 
         this._pendingLoads[team.id] = new Promise((resolve) => {
             const img = new Image();
-            img.crossOrigin = 'anonymous';
+            
             img.onload = () => {
                 this._badgeCache[team.id] = img;
                 delete this._pendingLoads[team.id];

@@ -2950,8 +2950,7 @@ function createShield(team, size = 'md') {
     inner.style.background = `linear-gradient(180deg, ${team.primaryColor}ee 0%, ${team.primaryColor} 100%)`;
 
     const img = document.createElement('img');
-    // Lazy loading: use DataService to get the badge or a placeholder while loading
-    img.src = window.DataService ? window.DataService.getBadge(team.id) : team.badge;
+    img.src = team.badge;
     img.alt = team.name;
     img.className = 'shield-img';
     img.loading = 'lazy'; // Browser native lazy loading
