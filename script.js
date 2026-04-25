@@ -5038,16 +5038,8 @@ function initTeamSelectionForArcade(teamsList, leagueName) {
 }
 
 // Initial Listeners for Menu Buttons
-document.addEventListener('DOMContentLoaded', async () => {
-    // Inicializar dados do App antes de qualquer coisa
-    const success = await initAppData();
-    
-    // Agora chama a inicialização principal
-    initApp();
-
-    if (!success) return;
-
-    // Main Menu Buttons
+async function bootstrapApp() {
+    // 1. Attach listeners immediately
     if (btnModeQuick) {
         btnModeQuick.addEventListener('click', () => {
             showScreen('selection');
@@ -5070,6 +5062,33 @@ document.addEventListener('DOMContentLoaded', async () => {
             showScreen('menu');
         });
     }
-});
+
+    // 2. Inicializar dados do App
+    const success = await initAppData();
+    
+    // 3. Inicialização principal
+    if (success) {
+        initApp();
+    }
+}
+
+function bootApp() {
+    if (window._appBootedRoot) return;
+    window._appBootedRoot = true;
+    bootstrapApp();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootApp);
+    window.addEventListener('load', bootApp);
+} else {
+    bootApp();
+}
+
+setTimeout(() => {
+    if (!window._appBootedRoot) {
+        bootApp();
+    }
+}, 500);
 
 

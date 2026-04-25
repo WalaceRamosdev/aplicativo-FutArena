@@ -76,6 +76,11 @@ function initElements() {
     btnClearHistory = document.getElementById('btn-clear-history');
 }
 
+// ----------------------------------------------------
+// CRITICAL FIX: Pre-fill all DOM references so that global event listeners
+// (like btnBackMenu.addEventListener) do not crash with 'undefined'
+// ----------------------------------------------------
+initElements();
 
 // Game Globals
 let currentGameMode = 'quick';
@@ -4680,26 +4685,42 @@ function initializeApp() {
     // 1. Map all elements
     initElements();
 
-    // 2. Load data
+    // 2. Attach listeners immediately so the UI is interactive
+    console.log('[FutArena] Attaching listeners');
+    attachMenuListeners();
+
+    // 3. Load data
     initAppData().then(success => {
         if (success) {
             console.log('[FutArena] Data loaded, initializing App UI');
-            // 3. Initialize UI Structure now that data is ready
+            // 4. Initialize UI Structure now that data is ready
             initApp();
-            
-            console.log('[FutArena] Attaching listeners');
-            attachMenuListeners();
         } else {
             console.error('[FutArena] Critical data load failure');
         }
     });
 }
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeApp);
-} else {
+function bootApp() {
+    if (window._appBooted) return;
+    window._appBooted = true;
     initializeApp();
 }
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootApp);
+    window.addEventListener('load', bootApp);
+} else {
+    bootApp();
+}
+
+// Fallback robusto para caso o framework/Astro engula os eventos
+setTimeout(() => {
+    if (!window._appBooted) {
+        console.warn('[FutArena] Fallback initialization triggered!');
+        bootApp();
+    }
+}, 500);
 
 // ==================== SPEED CONTROLS ====================
 function initSpeedControls() {
