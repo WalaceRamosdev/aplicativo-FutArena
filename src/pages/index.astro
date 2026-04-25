@@ -125,82 +125,13 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </div>
         
-        <div class="sport-card" id="btn-show-states" onclick="showStateOptions()">
-            <div class="card-bg bg-estaduais"></div>
-            <div class="sport-tag">Regionais</div>
+        <div class="sport-card" id="card-copa" onclick="selectChampionship('copa')">
+            <div class="card-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/FIFA_World_Cup_logo_2026.svg/1200px-FIFA_World_Cup_logo_2026.svg.png'); background-size: contain; background-repeat: no-repeat; background-position: center; opacity: 0.15;"></div>
+            <div class="sport-tag">Mundial</div>
             <div class="sport-card-content">
-                <div class="sport-icon">🏆</div>
-                <h3 class="sport-title">Estaduais</h3>
-                <p class="sport-desc">Paulistão e Cariocão 2026</p>
-            </div>
-        </div>
-      </div>
-
-      <!-- STATE OPTIONS -->
-      <div id="champ-state-options" class="sport-grid hidden">
-        <div style="grid-column: 1 / -1;">
-            <button class="back-nav" id="btn-back-champ-menu" onclick="showMainOptions()">
-                <span style="margin-right: 8px;">❮</span> Voltar para Menu
-            </button>
-        </div>
-
-        <div class="sport-card" id="card-paulista" onclick="selectChampionship('paulista')">
-            <div class="card-bg bg-paulista"></div>
-            <div class="sport-tag">São Paulo</div>
-            <div class="sport-card-content">
-                <div class="sport-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Bandeira_do_estado_de_S%C3%A3o_Paulo.svg/200px-Bandeira_do_estado_de_S%C3%A3o_Paulo.svg.png" style="height: 40px; border-radius: 4px;">
-                </div>
-                <h3 class="sport-title">Paulistão</h3>
-                <p class="sport-desc">O Estadual mais difícil do país.</p>
-            </div>
-        </div>
-        
-        <div class="sport-card" id="card-carioca" onclick="selectChampionship('carioca')">
-            <div class="card-bg bg-carioca"></div>
-            <div class="sport-tag">Rio de Janeiro</div>
-            <div class="sport-card-content">
-                <div class="sport-icon">
-                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Bandeira_do_estado_do_Rio_de_Janeiro.svg/200px-Bandeira_do_estado_do_Rio_de_Janeiro.svg.png" style="height: 40px; border-radius: 4px;">
-                </div>
-                <h3 class="sport-title">Cariocão</h3>
-                <p class="sport-desc">Charme e tradição no Maracanã.</p>
-            </div>
-        </div>
-
-        <div class="sport-card" id="card-gaucho" onclick="selectChampionship('gaucho')">
-            <div class="card-bg bg-gaucho"></div>
-            <div class="sport-tag">Rio Grande do Sul</div>
-            <div class="sport-card-content">
-                <div class="sport-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Bandeira_do_Rio_Grande_do_Sul.svg/200px-Bandeira_do_Rio_Grande_do_Sul.svg.png" style="height: 40px; border-radius: 4px;">
-                </div>
-                <h3 class="sport-title">Gauchão</h3>
-                <p class="sport-desc">A força e garra do sul.</p>
-            </div>
-        </div>
-
-        <div class="sport-card" id="card-mineiro" onclick="selectChampionship('mineiro')">
-            <div class="card-bg bg-mineiro"></div>
-            <div class="sport-tag">Minas Gerais</div>
-            <div class="sport-card-content">
-                <div class="sport-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Bandeira_de_Minas_Gerais.svg/200px-Bandeira_de_Minas_Gerais.svg.png" style="height: 40px; border-radius: 4px;">
-                </div>
-                <h3 class="sport-title">Mineiro</h3>
-                <p class="sport-desc">Tradição das Alterosas.</p>
-            </div>
-        </div>
-
-        <div class="sport-card" id="card-paranaense" onclick="selectChampionship('paranaense')">
-            <div class="card-bg bg-paranaense"></div>
-            <div class="sport-tag">Paraná</div>
-            <div class="sport-card-content">
-                <div class="sport-icon">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Bandeira_do_Paran%C3%A1.svg/200px-Bandeira_do_Paran%C3%A1.svg.png" style="height: 40px; border-radius: 4px;">
-                </div>
-                <h3 class="sport-title">Paranaense</h3>
-                <p class="sport-desc">A disputa do sul.</p>
+                <div class="sport-icon">🌍</div>
+                <h3 class="sport-title">Copa do Mundo</h3>
+                <p class="sport-desc">A maior competição de seleções do planeta.</p>
             </div>
         </div>
       </div>
@@ -224,7 +155,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="menu-card" id="btn-mode-arcade">
           <div class="menu-icon">🏆</div>
           <h3>Modo Campeonato</h3>
-          <p>Dispute o Brasileirão, Paulista ou Carioca e conquiste a taça!</p>
+          <p>Dispute o Brasileirão ou a Copa do Mundo e conquiste a taça!</p>
         </div>
       </div>
 
@@ -250,11 +181,7 @@ import Layout from '../layouts/Layout.astro';
 
       <div id="region-grid" class="region-grid">
         <button class="region-button" data-region="brazilianTeams">Brasileirão</button>
-        <button class="region-button" data-region="paulistaTeams">Paulista</button>
-        <button class="region-button" data-region="cariocaTeams">Carioca</button>
-        <button class="region-button" data-region="gauchoTeams">Gaúcho</button>
-        <button class="region-button" data-region="mineiroTeams">Mineiro</button>
-        <button class="region-button" data-region="paranaenseTeams">Paranaense</button>
+        <button class="region-button" data-region="internationalTeams">Seleções</button>
         <button class="region-button" data-region="allTeamsList" style="grid-column: 1 / -1; background: var(--accent-gold); color: #000; font-weight: bold;">Todos os Times</button>
       </div>
 

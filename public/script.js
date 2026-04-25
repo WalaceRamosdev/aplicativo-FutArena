@@ -119,11 +119,6 @@ const PLAYLIST = [
 
 // ==================== CONFIGURAÇÃO DOS TIMES (Carregados Dinamicamente) ====================
 let brazilianTeams = [];
-let paulistaTeams = [];
-let cariocaTeams = [];
-let gauchoTeams = [];
-let mineiroTeams = [];
-let paranaenseTeams = [];
 let internationalTeams = [];
 let allTeamsList = [];
 
@@ -138,27 +133,16 @@ async function initAppData() {
         
         // Atribuir aos globais
         brazilianTeams = data.brazilianTeams || [];
-        paulistaTeams = data.paulistaTeams || [];
-        cariocaTeams = data.cariocaTeams || [];
-        gauchoTeams = data.gauchoTeams || [];
-        mineiroTeams = data.mineiroTeams || [];
-        paranaenseTeams = data.paranaenseTeams || [];
         internationalTeams = data.internationalTeams || [];
         
         // Criar lista mestre sem duplicatas
         allTeamsList = [...new Map([
             ...brazilianTeams, 
-            ...paulistaTeams, 
-            ...cariocaTeams, 
-            ...gauchoTeams, 
-            ...mineiroTeams, 
-            ...paranaenseTeams
+            ...internationalTeams
         ].map(t => [t.id, t])).values()];
 
         console.log('[App] Dados carregados:', {
             brasileirao: brazilianTeams.length,
-            paulista: paulistaTeams.length,
-            carioca: cariocaTeams.length,
             internacionais: internationalTeams.length,
             total: allTeamsList.length
         });
@@ -1486,7 +1470,7 @@ const ArcadeManager = {
 
     getTeamOverall: (teamId) => {
         // Helper to find team data
-        const findTeam = (id) => paulistaTeams.find(t => t.id === id) || cariocaTeams.find(t => t.id === id) || gauchoTeams.find(t => t.id === id) || mineiroTeams.find(t => t.id === id) || paranaenseTeams.find(t => t.id === id) || brazilianTeams.find(t => t.id === id);
+        const findTeam = (id) => internationalTeams.find(t => t.id === id) || brazilianTeams.find(t => t.id === id);
         const team = findTeam(teamId);
         const base = team ? team.overall : 70;
         const boost = ArcadeManager.overallBoosts[teamId] || 0;
@@ -4800,18 +4784,14 @@ window.showMainOptions = function () {
 
 window.selectChampionship = function (league) {
     // Normalization
-    if (league === 'gaucho') league = 'Gauchão';
     if (league === 'brasileirao') league = 'Brasileirão';
+    if (league === 'copa') league = 'Copa do Mundo';
 
     window.selectedLeague = league;
     closeChampionshipModal();
 
     let teamsList;
-    if (league === 'paulista') teamsList = paulistaTeams;
-    else if (league === 'carioca') teamsList = cariocaTeams;
-    else if (league === 'Gauchão') teamsList = gauchoTeams;
-    else if (league === 'mineiro') teamsList = mineiroTeams;
-    else if (league === 'paranaense') teamsList = paranaenseTeams;
+    if (league === 'Copa do Mundo') teamsList = internationalTeams;
     else teamsList = brazilianTeams;
 
     initTeamSelectionForArcade(teamsList, league);
@@ -4865,7 +4845,7 @@ function changeRegion(side, isNext) {
     // If Arcade mode, region might be locked
     if (currentGameMode === 'arcade' && side === 'home') return;
 
-    const regions = ['Brasileirão', 'paulista', 'carioca', 'Gauchão', 'mineiro', 'paranaense', 'Todos'];
+    const regions = ['Brasileirão', 'internationalTeams', 'Todos'];
     let current = selectedRegions[side];
     let idx = regions.indexOf(current);
 
@@ -4876,13 +4856,9 @@ function changeRegion(side, isNext) {
     selectedRegions[side] = newRegion;
 
     // Update List
-    if (newRegion === 'Brasileirão') selectionLists[side] = [...brazilianTeams];
-    else if (newRegion === 'paulista') selectionLists[side] = [...paulistaTeams];
-    else if (newRegion === 'carioca') selectionLists[side] = [...cariocaTeams];
-    else if (newRegion === 'Gauchão') selectionLists[side] = [...gauchoTeams];
-    else if (newRegion === 'mineiro') selectionLists[side] = [...mineiroTeams];
-    else if (newRegion === 'paranaense') selectionLists[side] = [...paranaenseTeams];
-    else if (newRegion === 'Todos') selectionLists[side] = [...brazilianTeams, ...paulistaTeams, ...cariocaTeams, ...gauchoTeams, ...mineiroTeams, ...paranaenseTeams]; // Simplification for All Teams
+    if (newRegion === 'Brasileirão' || newRegion === 'brazilianTeams') selectionLists[side] = [...brazilianTeams];
+    else if (newRegion === 'Seleções' || newRegion === 'internationalTeams') selectionLists[side] = [...internationalTeams];
+    else if (newRegion === 'Todos' || newRegion === 'allTeamsList') selectionLists[side] = [...brazilianTeams, ...internationalTeams];
 
 
     selectionIndices[side] = 0; // Reset team index

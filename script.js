@@ -99,11 +99,6 @@ const PLAYLIST = [
 
 // ==================== CONFIGURAÇÃO DOS TIMES (DINÂMICO) ====================
 let brazilianTeams = [];
-let paulistaTeams = [];
-let cariocaTeams = [];
-let gauchoTeams = [];
-let mineiroTeams = [];
-let paranaenseTeams = [];
 let internationalTeams = [];
 let allTeamsList = [];
 
@@ -114,21 +109,15 @@ async function initAppData() {
         const data = await DataService.loadAll();
         
         brazilianTeams = data.brazilianTeams || [];
-        paulistaTeams = data.paulistaTeams || [];
-        cariocaTeams = data.cariocaTeams || [];
-        gauchoTeams = data.gauchoTeams || [];
-        mineiroTeams = data.mineiroTeams || [];
-        paranaenseTeams = data.paranaenseTeams || [];
         internationalTeams = data.internationalTeams || [];
         
         // Consolidar lista global (usando Set para evitar duplicatas por ID)
-        const all = [...brazilianTeams, ...paulistaTeams, ...cariocaTeams, ...gauchoTeams, ...mineiroTeams, ...paranaenseTeams];
+        const all = [...brazilianTeams, ...internationalTeams];
         allTeamsList = [...new Map(all.map(t => [t.id, t])).values()];
         
         console.log('[App] Dados carregados:', {
             brasileirao: brazilianTeams.length,
-            paulista: paulistaTeams.length,
-            carioca: cariocaTeams.length,
+            internacionais: internationalTeams.length,
             total: allTeamsList.length
         });
 
@@ -4758,18 +4747,14 @@ window.showMainOptions = function () {
 
 window.selectChampionship = function (league) {
     // Normalization
-    if (league === 'gaucho') league = 'Gauchão';
     if (league === 'brasileirao') league = 'Brasileirão';
+    if (league === 'copa') league = 'Copa do Mundo';
 
     window.selectedLeague = league;
     closeChampionshipModal();
 
     let teamsList;
-    if (league === 'paulista') teamsList = paulistaTeams;
-    else if (league === 'carioca') teamsList = cariocaTeams;
-    else if (league === 'Gauchão') teamsList = gauchoTeams;
-    else if (league === 'mineiro') teamsList = mineiroTeams;
-    else if (league === 'paranaense') teamsList = paranaenseTeams;
+    if (league === 'Copa do Mundo') teamsList = internationalTeams;
     else teamsList = brazilianTeams;
 
     initTeamSelectionForArcade(teamsList, league);
@@ -4819,7 +4804,7 @@ function setupPanelListeners() {
 function changeRegion(side, isNext) {
     if (currentGameMode === 'arcade' && side === 'home') return;
 
-    const regions = ['Brasileirão', 'paulista', 'carioca', 'Gauchão', 'mineiro', 'paranaense', 'Todos'];
+    const regions = ['Brasileirão', 'Seleções', 'Todos'];
     let current = selectedRegions[side];
     let idx = regions.indexOf(current);
 
@@ -4831,12 +4816,8 @@ function changeRegion(side, isNext) {
 
     // Update List
     if (newRegion === 'Brasileirão') selectionLists[side] = [...brazilianTeams];
-    else if (newRegion === 'paulista') selectionLists[side] = [...paulistaTeams];
-    else if (newRegion === 'carioca') selectionLists[side] = [...cariocaTeams];
-    else if (newRegion === 'Gauchão') selectionLists[side] = [...gauchoTeams];
-    else if (newRegion === 'mineiro') selectionLists[side] = [...mineiroTeams];
-    else if (newRegion === 'paranaense') selectionLists[side] = [...paranaenseTeams];
-    else if (newRegion === 'Todos') selectionLists[side] = [...brazilianTeams, ...paulistaTeams, ...cariocaTeams, ...gauchoTeams, ...mineiroTeams, ...paranaenseTeams];
+    else if (newRegion === 'Seleções') selectionLists[side] = [...internationalTeams];
+    else if (newRegion === 'Todos') selectionLists[side] = [...brazilianTeams, ...internationalTeams];
 
     selectionIndices[side] = 0; // Reset team index
     updatePanel(side);
