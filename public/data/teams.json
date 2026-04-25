@@ -192,42 +192,75 @@
 
 
   "internationalTeams": [
-    { "id": "brasil", "name": "Brasil", "shortName": "BRA", "badge": "https://logodetimes.com/times/selecao-brasileira-brasil/logo-selecao-brasileira-brasil-256.png", "primaryColor": "#FFDF00", "secondaryColor": "#009C3B", "overall": 94 },
-
-    { "id": "argentina", "name": "Argentina", "shortName": "ARG", "badge": "https://logodetimes.com/times/argentina/selecao-argentina-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#75AADB", "overall": 93 },
-    
-    { "id": "franca", "name": "França", "shortName": "FRA", "badge": "https://logodetimes.com/times/franca/selecao-francesa-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#002395", "overall": 93 },
-
-    { "id": "inglaterra", "name": "Inglaterra", "shortName": "ING", "badge": "https://logodetimes.com/times/inglaterra/selecao-inglesa-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#CE1124", "overall": 91 },
-    
-    { "id": "espanha", "name": "Espanha", "shortName": "ESP", "badge": "https://logodetimes.com/times/espanha/selecao-espanhola-de-futebol-256.png", "primaryColor": "#C60B1E", "secondaryColor": "#FFC400", "overall": 91 },
-
-    { "id": "alemanha", "name": "Alemanha", "shortName": "ALE", "badge": "https://logodetimes.com/times/alemanha/selecao-alema-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 90 },
-
-    { "id": "portugal", "name": "Portugal", "shortName": "POR", "badge": "https://logodetimes.com/times/portugal/selecao-portuguesa-de-futebol-256.png", "primaryColor": "#E42518", "secondaryColor": "#006600", "overall": 89 },
-
-    { "id": "holanda", "name": "Holanda", "shortName": "HOL", "badge": "https://logodetimes.com/times/holanda/selecao-holandesa-de-futebol-256.png", "primaryColor": "#F36C21", "secondaryColor": "#FFFFFF", "overall": 88 },
-
-    { "id": "croacia", "name": "Croácia", "shortName": "CRO", "badge": "https://logodetimes.com/times/croacia/selecao-croata-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FF0000", "overall": 86 },
-
-    { "id": "belgica", "name": "Bélgica", "shortName": "BEL", "badge": "https://logodetimes.com/times/belgica/selecao-belga-de-futebol-256.png", "primaryColor": "#E30613", "secondaryColor": "#000000", "overall": 85 },
-
+    { "id": "franca", "name": "França", "shortName": "FRA", "badge": "https://logodetimes.com/times/franca/selecao-francesa-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#002395", "overall": 95 },
+    { "id": "espanha", "name": "Espanha", "shortName": "ESP", "badge": "https://logodetimes.com/times/espanha/selecao-espanhola-de-futebol-256.png", "primaryColor": "#C60B1E", "secondaryColor": "#FFC400", "overall": 94 },
+    { "id": "argentina", "name": "Argentina", "shortName": "ARG", "badge": "https://logodetimes.com/times/argentina/selecao-argentina-de-futebol-256.png", "primaryColor": "#75AADB", "secondaryColor": "#FFFFFF", "overall": 94 },
+    { "id": "inglaterra", "name": "Inglaterra", "shortName": "ENG", "badge": "https://logodetimes.com/times/inglaterra/selecao-inglesa-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#CE1124", "overall": 92 },
+    { "id": "portugal", "name": "Portugal", "shortName": "POR", "badge": "https://logodetimes.com/times/portugal/selecao-portuguesa-de-futebol-256.png", "primaryColor": "#E42518", "secondaryColor": "#006600", "overall": 91 },
+    { "id": "brasil", "name": "Brasil", "shortName": "BRA", "badge": "https://logodetimes.com/times/selecao-brasileira-brasil/logo-selecao-brasileira-brasil-256.png", "primaryColor": "#FFDF00", "secondaryColor": "#009C3B", "overall": 91 },
+    { "id": "holanda", "name": "Holanda", "shortName": "NED", "badge": "https://logodetimes.com/times/holanda/selecao-holandesa-de-futebol-256.png", "primaryColor": "#F36C21", "secondaryColor": "#FFFFFF", "overall": 90 },
+    { "id": "marrocos", "name": "Marrocos", "shortName": "MAR", "badge": "https://logodetimes.com/times/marrocos/selecao-marroquina-de-futebol-256.png", "primaryColor": "#C1272D", "secondaryColor": "#006233", "overall": 89 },
+    { "id": "alemanha", "name": "Alemanha", "shortName": "GER", "badge": "https://logodetimes.com/times/alemanha/selecao-alema-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 89 },
+    { "id": "belgica", "name": "Bélgica", "shortName": "BEL", "badge": "https://logodetimes.com/times/belgica/selecao-belga-de-futebol-256.png", "primaryColor": "#E30613", "secondaryColor": "#000000", "overall": 88 },
+    { "id": "croacia", "name": "Croácia", "shortName": "CRO", "badge": "https://logodetimes.com/times/croacia/selecao-croata-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FF0000", "overall": 87 },
+    { "id": "colombia", "name": "Colômbia", "shortName": "COL", "badge": "https://logodetimes.com/times/colombia/selecao-colombiana-de-futebol-256.png", "primaryColor": "#FCD116", "secondaryColor": "#003893", "overall": 86 },
+    { "id": "senegal", "name": "Senegal", "shortName": "SEN", "badge": "https://logodetimes.com/times/senegal/selecao-senegalesa-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#00853F", "overall": 85 },
+    { "id": "mexico", "name": "México", "shortName": "MEX", "badge": "https://logodetimes.com/times/mexico/selecao-mexicana-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#157C4E", "overall": 84 },
+    { "id": "eua", "name": "EUA", "shortName": "USA", "badge": "https://logodetimes.com/times/estados-unidos/selecao-de-futebol-dos-estados-unidos-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#002868", "overall": 84 },
     { "id": "uruguai", "name": "Uruguai", "shortName": "URU", "badge": "https://logodetimes.com/times/uruguai/selecao-uruguaia-de-futebol-256.png", "primaryColor": "#5BA4D6", "secondaryColor": "#000000", "overall": 84 },
+    { "id": "japao", "name": "Japão", "shortName": "JPN", "badge": "https://logodetimes.com/times/japao/selecao-japonesa-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000555", "overall": 83 },
+    { "id": "suica", "name": "Suíça", "shortName": "SUI", "badge": "https://logodetimes.com/times/suica/selecao-suica-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FF0000", "overall": 83 },
+    { "id": "equador", "name": "Equador", "shortName": "ECU", "badge": "https://logodetimes.com/times/equador/selecao-equatoriana-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FFDD00", "overall": 81 },
+    { "id": "austria", "name": "Áustria", "shortName": "AUT", "badge": "https://escudosfc.com.br/images/austria.jpg", "primaryColor": "#ffffff", "secondaryColor": "#ED2939", "overall": 81 },
+    { "id": "coreia", "name": "Coreia do Sul", "shortName": "KOR", "badge": "https://logodetimes.com/times/coreia-do-sul/selecao-sul-coreana-de-futebol-256.png", "primaryColor": "#EC0F31", "secondaryColor": "#000000", "overall": 80 },
+    { "id": "australia", "name": "Austrália", "shortName": "AUS", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Australia_national_football_team_badge.svg/960px-Australia_national_football_team_badge.svg.png", "primaryColor": "#000031", "secondaryColor": "#FFCD00", "overall": 79 },
 
-    { "id": "colombia", "name": "Colômbia", "shortName": "COL", "badge": "https://logodetimes.com/times/colombia/selecao-colombiana-de-futebol-256.png", "primaryColor": "#FCD116", "secondaryColor": "#003893", "overall": 83 },
+    { "id": "argelia", "name": "Argélia", "shortName": "ALG", "badge": "https://escudosfc.com.br/images/argelia_new.gif", "primaryColor": "#FFFFFF", "secondaryColor": "#006233", "overall": 79 },
 
-    { "id": "eua", "name": "EUA", "shortName": "EUA", "badge": "https://logodetimes.com/times/estados-unidos/selecao-de-futebol-dos-estados-unidos-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#002868", "overall": 82 },
+    { "id": "egito", "name": "Egito", "shortName": "EGY", "badge": "https://escudosfc.com.br/images/egito.png", "primaryColor": "#ffffff", "secondaryColor": "#CE1126", "overall": 78 },
 
-    { "id": "mexico", "name": "México", "shortName": "MEX", "badge": "https://logodetimes.com/times/mexico/selecao-mexicana-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#CE1126", "overall": 81 },
+    { "id": "canada", "name": "Canadá", "shortName": "CAN", "badge": "https://escudosfc.com.br/images/canada.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FF0000", "overall": 78 },
 
-    { "id": "marrocos", "name": "Marrocos", "shortName": "MAR", "badge": "https://logodetimes.com/times/marrocos/selecao-marroquina-de-futebol-256.png", "primaryColor": "#C1272D", "secondaryColor": "#006233", "overall": 84 },
+    { "id": "noruega", "name": "Noruega", "shortName": "NOR", "badge": "https://escudosfc.com.br/images/norg_new.jpg", "primaryColor": "#ffffff", "secondaryColor": "#EF2B2D", "overall": 77 },
 
-    { "id": "japao", "name": "Japão", "shortName": "JPN", "badge": "https://logodetimes.com/times/japao/selecao-japonesa-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000555", "overall": 80 },
+    { "id": "panama", "name": "Panamá", "shortName": "PAN", "badge": "https://escudosfc.com.br/images/panama.png", "primaryColor": "#DA121A", "secondaryColor": "#072357", "overall": 76 },
 
-    { "id": "coreia", "name": "Coreia do Sul", "shortName": "KOR", "badge": "https://logodetimes.com/times/coreia-do-sul/selecao-sul-coreana-de-futebol-256.png", "primaryColor": "#EC0F31", "secondaryColor": "#000000", "overall": 79 },
-    
-    { "id": "senegal", "name": "Senegal", "shortName": "SEN", "badge": "https://logodetimes.com/times/senegal/selecao-senegalesa-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#00853F", "overall": 81 },
+    { "id": "costa-marfim", "name": "Costa do Marfim", "shortName": "CIV", "badge": "https://upload.wikimedia.org/wikipedia/pt/a/a1/F%C3%A9d%C3%A9ration_Ivorienne_de_Football.png", "primaryColor": "#FF8200", "secondaryColor": "#009E60", "overall": 76 },
 
-    { "id": "suica", "name": "Suíça", "shortName": "SUI", "badge": "https://logodetimes.com/times/suica/selecao-suica-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FF0000", "overall": 82 }
+    { "id": "suecia", "name": "Suécia", "shortName": "SWE", "badge": "https://escudosfc.com.br/images/swe_new.png", "primaryColor": "#006AA7", "secondaryColor": "#FECC00", "overall": 75 },
+
+    { "id": "paraguai", "name": "Paraguai", "shortName": "PAR", "badge": "https://escudosfc.com.br/images/par.png", "primaryColor": "#D52B1E", "secondaryColor": "#0038A8", "overall": 75 },
+
+    { "id": "tchequia", "name": "República Tcheca", "shortName": "CZE", "badge": "https://escudosfc.com.br/images/czech.png", "primaryColor": "#11457E", "secondaryColor": "#D7141A", "overall": 75 },
+
+    { "id": "escocia", "name": "Escócia", "shortName": "SCO", "badge": "https://escudosfc.com.br/images/scot_new.png", "primaryColor": "#000040", "secondaryColor": "#FFFFFF", "overall": 74 },
+
+    { "id": "tunisia", "name": "Tunísia", "shortName": "TUN", "badge": "https://escudosfc.com.br/images/tunisia.png", "primaryColor": "#E70013", "secondaryColor": "#FFFFFF", "overall": 73 },
+
+    { "id": "rd-congo", "name": "RD Congo", "shortName": "COD", "badge": "https://escudosfc.com.br/images/rdcongo.png", "primaryColor": "#007FFF", "secondaryColor": "#F7D117", "overall": 73 },
+
+    { "id": "uzbequistao", "name": "Uzbequistão", "shortName": "UZB", "badge": "https://escudosfc.com.br/images/uzbe.jpg", "primaryColor": "#FFFFFF", "secondaryColor": "#009966", "overall": 72 },
+
+    { "id": "catar", "name": "Catar", "shortName": "QAT", "badge": "https://logodetimes.com/times/catar/selecao-catari-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#8A1538", "overall": 72 },
+
+    { "id": "iraque", "name": "Iraque", "shortName": "IRQ", "badge": "https://escudosfc.com.br/images/iraq.jpg", "primaryColor": "#FFFFFF", "secondaryColor": "#007A3D", "overall": 71 },
+
+    { "id": "africa-sul", "name": "África do Sul", "shortName": "RSA", "badge": "https://escudosfc.com.br/images/africadosul_new.png", "primaryColor": "#007A4D", "secondaryColor": "#FFCD00", "overall": 70 },
+
+    { "id": "arabia-saudita", "name": "Arábia Saudita", "shortName": "KSA", "badge": "https://logodetimes.com/times/arabia-saudita/selecao-saudita-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#006C35", "overall": 70 },
+
+    { "id": "bosnia", "name": "Bósnia e Herzegovina", "shortName": "BIH", "badge": "https://escudosfc.com.br/images/bosnia.png", "primaryColor": "#002395", "secondaryColor": "#FECB00", "overall": 70 },
+
+    { "id": "turquia", "name": "Turquia", "shortName": "TUR", "badge": "https://escudosfc.com.br/images/turquia.png", "primaryColor": "#E30A17", "secondaryColor": "#FFFFFF", "overall": 78 },
+
+    { "id": "curacao", "name": "Curaçao", "shortName": "CUW", "badge": "https://escudosfc.com.br/images/curacao.png", "primaryColor": "#002B7F", "secondaryColor": "#F9E316", "overall": 68 },
+
+    { "id": "haiti", "name": "Haiti", "shortName": "HAI", "badge": "https://escudosfc.com.br/images/haiti.jpg", "primaryColor": "#FFFFFF", "secondaryColor": "#D21034", "overall": 68 },
+
+    { "id": "jordania", "name": "Jordânia", "shortName": "JOR", "badge": "https://upload.wikimedia.org/wikipedia/pt/4/44/Jordan_Football_Association.png", "primaryColor": "#CE1126", "secondaryColor": "#007A3D", "overall": 67 },
+
+    { "id": "nova-zelandia", "name": "Nova Zelândia", "shortName": "NZL", "badge": "https://logodetimes.com/times/selecao-neozelandesa-de-futebol/selecao-neozelandesa-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 66 },
+
+    { "id": "cabo-verde", "name": "Cabo Verde", "shortName": "CPV", "badge": "https://upload.wikimedia.org/wikipedia/pt/e/e1/Federa%C3%A7%C3%A3o_Cabo-Verdiana_de_Futebol.png", "primaryColor": "#003893", "secondaryColor": "#CF1020", "overall": 71 }
   ]
 }
