@@ -190,29 +190,148 @@
 
   ],
 
+  "libertadoresTeams": [
+
+    { "id": "flamengo", "name": "Flamengo", "shortName": "FLA", "badge": "https://logodetimes.com/times/flamengo/logo-flamengo-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#E31D1A", "overall": 92 },
+
+    { "id": "fluminense", "name": "Fluminense", "shortName": "FLU", "badge": "https://logodetimes.com/times/fluminense/logo-fluminense-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#7B0024", "overall": 82 },
+
+    { "id": "botafogo", "name": "Botafogo", "shortName": "BOT", "badge": "https://logodetimes.com/times/botafogo/logo-botafogo-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 85 },
+
+    { "id": "cruzeiro", "name": "Cruzeiro", "shortName": "CRU", "badge": "https://logodetimes.com/times/cruzeiro/logo-cruzeiro-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#003DA5", "overall": 77 },
+
+    { "id": "corinthians", "name": "Corinthians", "shortName": "COR", "badge": "https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 78 },
+
+    { "id": "palmeiras", "name": "Palmeiras", "shortName": "PAL", "badge": "https://upload.wikimedia.org/wikipedia/commons/1/10/Palmeiras_logo.svg", "primaryColor": "#FFFFFF", "secondaryColor": "#006437", "overall": 85 },
+
+    { "id": "mirassol", "name": "Mirassol", "shortName": "MIR", "badge": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Mirassol_FC_logo.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FFD700", "overall": 68 },
+
+    {"id": "bahia", "name": "Bahia", "shortName": "BAH", "badge": "https://logodetimes.com/times/bahia/logo-bahia-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 70 },
+
+    { "id": "boca-juniors", "name": "Boca Juniors", "shortName": "BOC", "badge": "https://logodetimes.com/times/club-atletico-boca-juniors/club-atletico-boca-juniors-256.png", "primaryColor": "#003087", "secondaryColor": "#FFD100", "overall": 84 },
+
+    { "id": "independiente-rivadavia", "name": "Independiente Rivadavia", "shortName": "IRV", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68f63f613a591a18ae7b4f42_independiente-rivadava-footballlogos-org.svg", "primaryColor": "#002B7F", "secondaryColor": "#FFFFFF", "overall": 68 },
+
+    { "id": "platense", "name": "Platense", "shortName": "PLA", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68f64070d92032fe49887a5d_atletico-platense-footballlogos-org.svg", "primaryColor": "#FFFFFF", "secondaryColor": "#4B2E1E", "overall": 70 },
+
+    { "id": "rosario-central", "name": "Rosário Central", "shortName": "ROS", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68f6413b244c68d16b3d0c4e_rosario-central-footballlogos-org.svg", "primaryColor": "#0033A0", "secondaryColor": "#FFD100", "overall": 75 },
+
+    { "id": "argentinos-juniors", "name": "Argentinos Juniors", "shortName": "AAJ", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68f63d186c8699534d033be8_argentinos-juniors-footballlogos-org.svg", "primaryColor": "#E30613", "secondaryColor": "#FFFFFF", "overall": 74 },
+
+    { "id": "estudiantes", "name": "Estudiantes", "shortName": "EST", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68f63e05baa2489b80e30c81_estudiantes-la-plata-footballlogos-org.svg", "primaryColor": "#E30613", "secondaryColor": "#FFFFFF", "overall": 78 },
+
+    { "id": "lanus", "name": "Lanús", "shortName": "LAN", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68f63fe34fdcccd1ca8bcd9d_lanus-footballlogos-org.svg", "primaryColor": "#800000", "secondaryColor": "#FFFFFF", "overall": 76 },
+
+    { "id": "always-ready", "name": "Always Ready", "shortName": "ALW", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/693ac671a15cfc0fd4aafa60_always-ready-footylogos.png", "primaryColor": "#FFFFFF", "secondaryColor": "#E30613", "overall": 70 },
+
+    { "id": "bolivar", "name": "Bolívar", "shortName": "BOL", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/693ac5348753ba253e5f7aa5_bolivar-footylogos.svg", "primaryColor": "#009FE3", "secondaryColor": "#FFFFFF", "overall": 77 },
+
+    { "id": "the-strongest", "name": "The Strongest", "shortName": "STR", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/693ac95266c6ab52e3d923a7_the-strongest-footylogos.png", "primaryColor": "#FFD100", "secondaryColor": "#000000", "overall": 76 },
+
+    { "id": "nacional-potosi", "name": "Nacional Potosí", "shortName": "NPO", "badge": "https://escudosfc.com.br/images/nac_potosi.png", "primaryColor": "#FFFFFF", "secondaryColor": "#E30613", "overall": 68 },
+
+    { "id": "coquimbo-unido", "name": "Coquimbo Unido", "shortName": "COQ", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68f7b95645888977560a2955_coquimbo-unido-footballlogos-org.svg", "primaryColor": "#FFD100", "secondaryColor": "#000000", "overall": 71 },
+    
+    { "id": "ohiggins", "name": "O'Higgins", "shortName": "OHI", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68f7b84b61d45a6a6602efce_o-higgins-footballlogos-org.svg", "primaryColor": "#009FE3", "secondaryColor": "#FFFFFF", "overall": 70 },
+
+    { "id": "u-catolica-cl", "name": "Universidad Católica", "shortName": "UCA", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68f7b819732696cea1220bc6_universidad-catolica-footballlogos-org.svg", "primaryColor": "#FFFFFF", "secondaryColor": "#0033A0", "overall": 74 },
+
+    { "id": "huachipato", "name": "Huachipato", "shortName": "HUA", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68f7b888458889775609e8f1_huachipato-footballlogos-org.svg", "primaryColor": "#0033A0", "secondaryColor": "#000000", "overall": 72 },
+
+    { "id": "santa-fe", "name": "Independiente Santa Fe", "shortName": "SFE", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68f92a3e3ae8a1480e77876b_independiente-santa-fe-footballlogos-org.svg", "primaryColor": "#E30613", "secondaryColor": "#FFFFFF", "overall": 75 },
+
+    { "id": "tolima", "name": "Deportes Tolima", "shortName": "TOL", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68f929c97ac43507edf662e1_deportes-tolima-footballlogos-org.svg", "primaryColor": "#800000", "secondaryColor": "#FFD100", "overall": 74 },
+
+    { "id": "medellin", "name": "Independiente Medellín", "shortName": "DIM", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68f929fd9e5aea64a2f5634f_independiente-medellin-footballlogos-org.svg", "primaryColor": "#E30613", "secondaryColor": "#0033A0", "overall": 73 },
+
+    { "id": "junior", "name": "Junior Barranquilla", "shortName": "JUN", "badge": "https://escudosfc.com.br/images/junior.png", "primaryColor": "#E30613", "secondaryColor": "#FFFFFF", "overall": 77 },
+
+    { "id": "id-valle", "name": "Independiente del Valle", "shortName": "IDV", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68fe646d5ad6bebbd115f847_independiente-del-valle-footballlogos-org.svg", "primaryColor": "#000000", "secondaryColor": "#0055A4", "overall": 82 },
+
+    { "id": "ldu", "name": "LDU (Quito)", "shortName": "LDU", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68fe637ddd4e306dd57a5088_ldu-quito-footballlogos-org.svg", "primaryColor": "#FFFFFF", "secondaryColor": "#E30613", "overall": 81 },
+
+    { "id": "u-catolica-ec", "name": "Universidad Católica (EC)", "shortName": "UCE", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68fe63f992559851c4bcf23e_cd-universidad-catolica-footballlogos-org.svg", "primaryColor": "#0033A0", "secondaryColor": "#FFFFFF", "overall": 72 },
+
+    { "id": "barcelona-sc", "name": "Barcelona de Guayaquil", "shortName": "BSC", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68fe6439309d6ced6a95bec3_barcelona-sc-guayaquil-footballlogos-org.svg", "primaryColor": "#FFD100", "secondaryColor": "#000000", "overall": 78 },
+
+    { "id": "cerro-porteno", "name": "Cerro Porteño", "shortName": "CER", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68f9220ac2c51a58905df911_cerro-porteno-footballlogos-org.svg", "primaryColor": "#E30613", "secondaryColor": "#0033A0", "overall": 79 },
+
+    { "id": "2-de-mayo", "name": "2 de Mayo", "shortName": "2MY", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68f925e465c89c49b9a6e4d3_club-sportivo-2-de-mayo-footballlogos-org.svg", "secondaryColor": "#FFFFFF", "overall": 65 },
+
+    { "id": "guarani-py", "name": "Guaraní", "shortName": "GUA", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68f923077a38e584d0be4cbb_guarani-footballlogos-org.svg", "primaryColor": "#FFD100", "secondaryColor": "#000000", "overall": 73 },
+
+    { "id": "libertad", "name": "Libertad", "shortName": "LIB", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68f9233f2107064a2928732b_club-libertad-footballlogos-org.svg", "primaryColor": "#000000", "secondaryColor": "#FFFFFF", "overall": 78 },
+
+    { "id": "alianza-lima", "name": "Alianza Lima", "shortName": "ALI", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/693ac5fb979b4d898b4a9123_alianza-lima-footylogos.svg", "primaryColor": "#0033A0", "secondaryColor": "#FFFFFF", "overall": 76 },
+
+    { "id": "cusco-fc", "name": "Cusco FC", "shortName": "CUS", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/693ac6cfb086b552e3cd5181_cusco-footylogos.svg", "primaryColor": "#000000", "secondaryColor": "#FFD100", "overall": 69 },
+
+    { "id": "sporting-cristal", "name": "Sporting Cristal", "shortName": "CRI", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/693ac4c7188ad916ba0b49e1_sporting-cristal-footylogos.svg", "primaryColor": "#009FE3", "secondaryColor": "#FFFFFF", "overall": 77 },
+
+    { "id": "universitario", "name": "Universitario", "shortName": "UNI", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/693ac776502b1d5f8a199461_universitario-peru-footylogos.png", "primaryColor": "#FFF2CC", "secondaryColor": "#800000", "overall": 78 },
+
+    { "id": "juventud-lp", "name": "Juventud", "shortName": "JUV", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6939ad8e53667bf5ea764909_juventud-uruguay-footylogos.svg", "primaryColor": "#000000", "secondaryColor": "#FFFFFF", "overall": 64 },
+
+    { "id": "liverpool-uru", "name": "Liverpool (URU)", "shortName": "LIV", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68f78cc3db4b394eaae1c15b_liverpool-montevideo-footballlogos-org.svg", "primaryColor": "#0033A0", "secondaryColor": "#000000", "overall": 73 },
+
+    { "id": "nacional-uru", "name": "Nacional", "shortName": "NAC", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/68f78c9480ae8c493d8e7c4d_nacional-uruguay-footballlogos-org.svg", "primaryColor": "#FFFFFF", "secondaryColor": "#0033A0", "overall": 80 },
+
+    { "id": "penarol", "name": "Peñarol", "shortName": "PEN", "badge": "https://escudosfc.com.br/images/penarol.png", "primaryColor": "#FFD100", "secondaryColor": "#000000", "overall": 81 },
+
+    { "id": "carabobo", "name": "Carabobo", "shortName": "CBB", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/693ac2bee29df4af5c80d62f_carabobo-fc-seeklogo.png", "primaryColor": "#800000", "secondaryColor": "#FFFFFF", "overall": 67 },
+
+    { "id": "deportivo-la-guaira", "name": "Deportivo La Guaira", "shortName": "DLG", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/693acd4d9f119633ae088c33_Deportivo-la-guaira-footylogos.png", "primaryColor": "#FF8C00", "secondaryColor": "#000000", "overall": 69 },
+
+    { "id": "deportivo-tachira", "name": "Deportivo Táchira", "shortName": "TAC", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/693aced0d2a8038073cf56e0_Deportivo_T%C3%A1chira_footylogos.png", "primaryColor": "#FFD100", "secondaryColor": "#000000", "overall": 73 },
+
+    { "id": "ucv-fc", "name": "Universidad Central", "shortName": "UCV", "badge": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/693ae237e9e207c6fec570ea_universidad-central-footylogos.png", "primaryColor": "#0033A0", "secondaryColor": "#FFFFFF", "overall": 65 }
+  ],
+
 
   "internationalTeams": [
+    
     { "id": "franca", "name": "França", "shortName": "FRA", "badge": "https://logodetimes.com/times/franca/selecao-francesa-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#002395", "overall": 95 },
+
     { "id": "espanha", "name": "Espanha", "shortName": "ESP", "badge": "https://logodetimes.com/times/espanha/selecao-espanhola-de-futebol-256.png", "primaryColor": "#C60B1E", "secondaryColor": "#FFC400", "overall": 94 },
+
     { "id": "argentina", "name": "Argentina", "shortName": "ARG", "badge": "https://logodetimes.com/times/argentina/selecao-argentina-de-futebol-256.png", "primaryColor": "#75AADB", "secondaryColor": "#FFFFFF", "overall": 94 },
+
     { "id": "inglaterra", "name": "Inglaterra", "shortName": "ENG", "badge": "https://logodetimes.com/times/inglaterra/selecao-inglesa-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#CE1124", "overall": 92 },
+
     { "id": "portugal", "name": "Portugal", "shortName": "POR", "badge": "https://logodetimes.com/times/portugal/selecao-portuguesa-de-futebol-256.png", "primaryColor": "#E42518", "secondaryColor": "#006600", "overall": 91 },
+    
     { "id": "brasil", "name": "Brasil", "shortName": "BRA", "badge": "https://logodetimes.com/times/selecao-brasileira-brasil/logo-selecao-brasileira-brasil-256.png", "primaryColor": "#FFDF00", "secondaryColor": "#009C3B", "overall": 91 },
+
     { "id": "holanda", "name": "Holanda", "shortName": "NED", "badge": "https://logodetimes.com/times/holanda/selecao-holandesa-de-futebol-256.png", "primaryColor": "#F36C21", "secondaryColor": "#FFFFFF", "overall": 90 },
+
     { "id": "marrocos", "name": "Marrocos", "shortName": "MAR", "badge": "https://logodetimes.com/times/marrocos/selecao-marroquina-de-futebol-256.png", "primaryColor": "#C1272D", "secondaryColor": "#006233", "overall": 89 },
+
     { "id": "alemanha", "name": "Alemanha", "shortName": "GER", "badge": "https://logodetimes.com/times/alemanha/selecao-alema-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000000", "overall": 89 },
+
     { "id": "belgica", "name": "Bélgica", "shortName": "BEL", "badge": "https://logodetimes.com/times/belgica/selecao-belga-de-futebol-256.png", "primaryColor": "#E30613", "secondaryColor": "#000000", "overall": 88 },
+
     { "id": "croacia", "name": "Croácia", "shortName": "CRO", "badge": "https://logodetimes.com/times/croacia/selecao-croata-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FF0000", "overall": 87 },
+
     { "id": "colombia", "name": "Colômbia", "shortName": "COL", "badge": "https://logodetimes.com/times/colombia/selecao-colombiana-de-futebol-256.png", "primaryColor": "#FCD116", "secondaryColor": "#003893", "overall": 86 },
+
     { "id": "senegal", "name": "Senegal", "shortName": "SEN", "badge": "https://logodetimes.com/times/senegal/selecao-senegalesa-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#00853F", "overall": 85 },
+
     { "id": "mexico", "name": "México", "shortName": "MEX", "badge": "https://logodetimes.com/times/mexico/selecao-mexicana-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#157C4E", "overall": 84 },
+
     { "id": "eua", "name": "EUA", "shortName": "USA", "badge": "https://logodetimes.com/times/estados-unidos/selecao-de-futebol-dos-estados-unidos-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#002868", "overall": 84 },
+
     { "id": "uruguai", "name": "Uruguai", "shortName": "URU", "badge": "https://logodetimes.com/times/uruguai/selecao-uruguaia-de-futebol-256.png", "primaryColor": "#5BA4D6", "secondaryColor": "#000000", "overall": 84 },
+
     { "id": "japao", "name": "Japão", "shortName": "JPN", "badge": "https://logodetimes.com/times/japao/selecao-japonesa-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#000555", "overall": 83 },
+
     { "id": "suica", "name": "Suíça", "shortName": "SUI", "badge": "https://logodetimes.com/times/suica/selecao-suica-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FF0000", "overall": 83 },
+
     { "id": "equador", "name": "Equador", "shortName": "ECU", "badge": "https://logodetimes.com/times/equador/selecao-equatoriana-de-futebol-256.png", "primaryColor": "#FFFFFF", "secondaryColor": "#FFDD00", "overall": 81 },
+
     { "id": "austria", "name": "Áustria", "shortName": "AUT", "badge": "https://escudosfc.com.br/images/austria.jpg", "primaryColor": "#ffffff", "secondaryColor": "#ED2939", "overall": 81 },
+
     { "id": "coreia", "name": "Coreia do Sul", "shortName": "KOR", "badge": "https://logodetimes.com/times/coreia-do-sul/selecao-sul-coreana-de-futebol-256.png", "primaryColor": "#EC0F31", "secondaryColor": "#000000", "overall": 80 },
+
     { "id": "australia", "name": "Austrália", "shortName": "AUS", "badge": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Australia_national_football_team_badge.svg/960px-Australia_national_football_team_badge.svg.png", "primaryColor": "#000031", "secondaryColor": "#FFCD00", "overall": 79 },
 
     { "id": "argelia", "name": "Argélia", "shortName": "ALG", "badge": "https://escudosfc.com.br/images/argelia_new.gif", "primaryColor": "#FFFFFF", "secondaryColor": "#006233", "overall": 79 },

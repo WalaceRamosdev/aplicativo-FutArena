@@ -11,6 +11,8 @@ let finalScore, btnNextAction, btnBackMenuResult, arcadeHomeName, arcadeAwayName
 let goalShield, goalTeamName, resultTitle, resultDisplay, bgSlideshow, btnToggleSound;
 let btnPrevMusic, btnPlayPauseMusic, btnNextMusic, btnShowHistory, historyOverlay, historyList;
 let btnCloseHistory, btnClearHistory;
+let worldcupDashboard, btnQuitWC, btnPlayWCRound;
+let libertadoresDashboard, btnQuitLib, btnPlayLibRound;
 
 function initElements() {
     btnModeQuick = document.getElementById('btn-mode-quick');
@@ -74,6 +76,12 @@ function initElements() {
     historyList = document.getElementById('history-list');
     btnCloseHistory = document.getElementById('btn-close-history');
     btnClearHistory = document.getElementById('btn-clear-history');
+    worldcupDashboard = document.getElementById('worldcup-dashboard');
+    btnQuitWC = document.getElementById('btn-quit-wc');
+    btnPlayWCRound = document.getElementById('btn-play-wc-round');
+    libertadoresDashboard = document.getElementById('libertadores-dashboard');
+    btnQuitLib = document.getElementById('btn-quit-lib');
+    btnPlayLibRound = document.getElementById('btn-play-lib-round');
 }
 
 // ----------------------------------------------------
@@ -120,6 +128,7 @@ const PLAYLIST = [
 // ==================== CONFIGURAÇÃO DOS TIMES (Carregados Dinamicamente) ====================
 let brazilianTeams = [];
 let internationalTeams = [];
+let libertadoresTeams = [];
 let allTeamsList = [];
 
 /**
@@ -134,11 +143,13 @@ async function initAppData() {
         // Atribuir aos globais
         brazilianTeams = data.brazilianTeams || [];
         internationalTeams = data.internationalTeams || [];
+        libertadoresTeams = data.libertadoresTeams || [];
         
         // Criar lista mestre sem duplicatas
         allTeamsList = [...new Map([
             ...brazilianTeams, 
-            ...internationalTeams
+            ...internationalTeams,
+            ...libertadoresTeams
         ].map(t => [t.id, t])).values()];
 
         console.log('[App] Dados carregados:', {
@@ -166,9 +177,18 @@ async function initAppData() {
 const WorldCupManager = {
     userTeamId: null,
     currentStage: null,
-    bracket: {}, // Estrutura: { groups: [], r16: [], qf: [], sf: [], final: [] }
+    bracket: {
+        groups: [],
+        knockout: {
+            r32: [],
+            r16: [],
+            qf: [],
+            sf: [],
+            final: []
+        }
+    },
 
-    // Inicia uma nova Copa
+    // Inicia uma nova Copa (Formato 2026: 48 times)
     startNewCampaign: (teamId) => {
         WorldCupManager.userTeamId = teamId;
         WorldCupManager.currentStage = 'groups';
@@ -176,25 +196,37 @@ const WorldCupManager = {
         WorldCupManager.saveProgress();
     },
 
-    // Gera os grupos (8 grupos de 4)
+    // Gera os grupos (12 grupos de 4)
     generateGroups: () => {
-        // Implementação simplificada: Distribui times aleatoriamente
-        const allTeams = [...internationalTeams];
+        // Garantir que temos 48 times
+        let allTeams = [...internationalTeams];
+        
+        // Se houver menos de 48, completamos com genéricos (embora tenhamos adicionado muitos)
+        if (allTeams.length < 48) {
+            console.warn("Poucos times internacionais. Completando com genéricos.");
+            // ... lógica de completar se necessário
+        }
+
         // Embaralhar
-        for (let i = allTeams.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [allTeams[i], allTeams[j]] = [allTeams[j], allTeams[i]];
+        allTeams = allTeams.sort(() => Math.random() - 0.5);
+        
+        // Garantir que o time do usuário está entre os 48
+        const userTeam = allTeams.find(t => t.id === WorldCupManager.userTeamId);
+        let selectedTeams = allTeams.slice(0, 48);
+        if (!selectedTeams.find(t => t.id === WorldCupManager.userTeamId)) {
+            selectedTeams[Math.floor(Math.random() * 48)] = userTeam;
         }
 
         const groups = [];
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < 12; i++) {
             groups.push({
-                name: String.fromCharCode(65 + i), // A, B, C...
-                teams: allTeams.slice(i * 4, (i + 1) * 4).map(t => ({
+                name: String.fromCharCode(65 + i), // A até L
+                teams: selectedTeams.slice(i * 4, (i + 1) * 4).map(t => ({
                     id: t.id,
-                    p: 0, j: 0, v: 0, e: 0, d: 0, gp: 0, gc: 0, sg: 0
+                    p: 0, j: 0, v: 0, e: 0, d: 0, gp: 0, gc: 0, sg: 0,
+                    h2h: {} // Confronto direto
                 })),
-                matches: [] // Lista de jogos do grupo
+                matches: []
             });
         }
         WorldCupManager.bracket.groups = groups;
@@ -202,7 +234,6 @@ const WorldCupManager = {
     },
 
     generateGroupMatches: () => {
-        // Gera tabela de jogos para todos os grupos (todos contra todos)
         WorldCupManager.bracket.groups.forEach(group => {
             const teams = group.teams;
             group.matches = [
@@ -213,6 +244,97 @@ const WorldCupManager = {
                 { t1: teams[0].id, t2: teams[3].id, played: false, score1: null, score2: null },
                 { t1: teams[1].id, t2: teams[2].id, played: false, score1: null, score2: null }
             ];
+        });
+    },
+
+    // Critérios de desempate FIFA
+    sortTeams: (teams) => {
+        return teams.sort((a, b) => {
+            if (b.p !== a.p) return b.p - a.p;
+            if (b.sg !== a.sg) return b.sg - a.sg;
+            if (b.gp !== a.gp) return b.gp - a.gp;
+            // Confronto direto (simplificado aqui)
+            return Math.random() - 0.5;
+        });
+    },
+
+    getBestThirds: () => {
+        const thirds = WorldCupManager.bracket.groups.map(g => {
+            const sorted = WorldCupManager.sortTeams([...g.teams]);
+            return { ...sorted[2], groupName: g.name };
+        });
+        return WorldCupManager.sortTeams(thirds).slice(0, 8);
+    },
+
+    processMatchResult: (m, s1, s2) => {
+        m.played = true; m.score1 = s1; m.score2 = s2;
+        const group = WorldCupManager.bracket.groups.find(g => g.matches.includes(m));
+        if (!group) return;
+
+        const t1 = group.teams.find(t => t.id === m.t1);
+        const t2 = group.teams.find(t => t.id === m.t2);
+
+        t1.j++; t2.j++;
+        t1.gp += s1; t1.gc += s2; t1.sg = t1.gp - t1.gc;
+        t2.gp += s2; t2.gc += s1; t2.sg = t2.gp - t2.gc;
+
+        if (s1 > s2) { t1.p += 3; t1.v++; t2.d++; }
+        else if (s2 > s1) { t2.p += 3; t2.v++; t1.d++; }
+        else { t1.p += 1; t2.p += 1; t1.e++; t2.e++; }
+
+        WorldCupManager.simulateOtherMatches(group, m);
+        WorldCupManager.saveProgress();
+
+        // Verificar se todos os jogos de todos os grupos acabaram
+        if (WorldCupManager.checkGroupsFinished()) {
+            WorldCupManager.generateRoundOf32();
+        }
+    },
+
+    checkGroupsFinished: () => {
+        return WorldCupManager.bracket.groups.every(g => g.matches.every(m => m.played));
+    },
+
+    generateRoundOf32: () => {
+        WorldCupManager.currentStage = 'r32';
+        const qualified = [];
+        WorldCupManager.bracket.groups.forEach(g => {
+            const sorted = WorldCupManager.sortTeams([...g.teams]);
+            qualified.push(sorted[0]); // 1º
+            qualified.push(sorted[1]); // 2º
+        });
+
+        const bestThirds = WorldCupManager.getBestThirds();
+        const allQualified = [...qualified, ...bestThirds];
+
+        // Embaralhar para o mata-mata (seguindo lógica de evitar mesmo grupo se possível)
+        const matches = [];
+        for (let i = 0; i < 16; i++) {
+            matches.push({
+                t1: allQualified[i * 2].id,
+                t2: allQualified[i * 2 + 1].id,
+                played: false, score1: null, score2: null, penalties1: null, penalties2: null
+            });
+        }
+        WorldCupManager.bracket.knockout.r32 = matches;
+        WorldCupManager.saveProgress();
+    },
+
+    simulateOtherMatches: (group, userMatch) => {
+        group.matches.forEach(m => {
+            if (!m.played && m.t1 !== WorldCupManager.userTeamId && m.t2 !== WorldCupManager.userTeamId) {
+                const s1 = Math.floor(Math.random() * 4);
+                const s2 = Math.floor(Math.random() * 4);
+                m.played = true; m.score1 = s1; m.score2 = s2;
+                const t1 = group.teams.find(t => t.id === m.t1);
+                const t2 = group.teams.find(t => t.id === m.t2);
+                t1.j++; t2.j++;
+                t1.gp += s1; t1.gc += s2; t1.sg = t1.gp - t1.gc;
+                t2.gp += s2; t2.gc += s1; t2.sg = t2.gp - t2.gc;
+                if (s1 > s2) { t1.p += 3; t1.v++; t2.d++; }
+                else if (s2 > s1) { t2.p += 3; t2.v++; t1.d++; }
+                else { t1.p += 1; t2.p += 1; t1.e++; t2.e++; }
+            }
         });
     },
 
@@ -235,6 +357,277 @@ const WorldCupManager = {
             return true;
         }
         return false;
+    },
+
+    getUserGroup: () => {
+        if (!WorldCupManager.bracket.groups) return null;
+        return WorldCupManager.bracket.groups.find(g => 
+            g.teams.some(t => t.id === WorldCupManager.userTeamId)
+        );
+    },
+
+    getNextUserMatch: () => {
+        if (WorldCupManager.currentStage === 'groups') {
+            const group = WorldCupManager.getUserGroup();
+            if (!group) return null;
+            return group.matches.find(m => 
+                !m.played && (m.t1 === WorldCupManager.userTeamId || m.t2 === WorldCupManager.userTeamId)
+            );
+        } else {
+            // Knockout stages
+            const stage = WorldCupManager.bracket.knockout[WorldCupManager.currentStage];
+            if (!stage) return null;
+            return stage.find(m => 
+                !m.played && (m.t1 === WorldCupManager.userTeamId || m.t2 === WorldCupManager.userTeamId)
+            );
+        }
+    }
+};
+
+const LibertadoresManager = {
+    userTeamId: null,
+    currentStage: 'f1', // f1, f2, f3, groups, r16, qf, sf, final
+    bracket: {
+        pre: { f1: [], f2: [], f3: [] },
+        groups: [],
+        knockout: { r16: [], qf: [], sf: [], final: [] }
+    },
+
+    startNewCampaign: (teamId) => {
+        LibertadoresManager.userTeamId = teamId;
+        LibertadoresManager.initializeTournament();
+        LibertadoresManager.saveProgress();
+    },
+
+    initializeTournament: () => {
+        let allTeams = [...libertadoresTeams];
+        // Shuffle
+        allTeams = allTeams.sort(() => Math.random() - 0.5);
+
+        // Fase 1: 6 times
+        const f1Teams = allTeams.slice(0, 6);
+        LibertadoresManager.bracket.pre.f1 = LibertadoresManager.createConfrontos(f1Teams);
+
+        // Fase 2: 13 novos + 3 classificados da f1
+        LibertadoresManager.f2SeedTeams = allTeams.slice(6, 19);
+        
+        // Fase de Grupos: 28 que entram direto
+        LibertadoresManager.directGroupTeams = allTeams.slice(19, 47);
+
+        LibertadoresManager.currentStage = 'f1';
+        LibertadoresManager.autoAdvance();
+    },
+
+    autoAdvance: () => {
+        const nextMatch = LibertadoresManager.getNextLibMatch();
+        if (!nextMatch && LibertadoresManager.currentStage !== 'groups') {
+            LibertadoresManager.simulateCurrentStage();
+            if (LibertadoresManager.advanceToNextStage()) {
+                LibertadoresManager.autoAdvance();
+            }
+        }
+    },
+
+    simulateCurrentStage: () => {
+        const stageKey = LibertadoresManager.currentStage;
+        if (stageKey.startsWith('f')) {
+            const matches = LibertadoresManager.bracket.pre[stageKey];
+            matches.forEach(m => {
+                if (!m.played) {
+                    m.legs.forEach(leg => {
+                        if (!leg.played) {
+                            leg.score1 = Math.floor(Math.random() * 3);
+                            leg.score2 = Math.floor(Math.random() * 3);
+                            leg.played = true;
+                        }
+                    });
+                    const s1 = m.legs[0].score1 + m.legs[1].score1;
+                    const s2 = m.legs[0].score2 + m.legs[1].score2;
+                    m.score1 = s1;
+                    m.score2 = s2;
+                    m.played = true;
+                }
+            });
+        }
+    },
+
+    advanceToNextStage: () => {
+        const stage = LibertadoresManager.currentStage;
+        if (stage === 'f1') {
+            const winners = LibertadoresManager.bracket.pre.f1.map(m => m.score1 >= m.score2 ? m.t1 : m.t2);
+            const f2Teams = [...LibertadoresManager.f2SeedTeams.map(t => t.id || t), ...winners];
+            LibertadoresManager.bracket.pre.f2 = LibertadoresManager.createConfrontos(f2Teams);
+            LibertadoresManager.currentStage = 'f2';
+            return true;
+        } else if (stage === 'f2') {
+            const winners = LibertadoresManager.bracket.pre.f2.map(m => m.score1 >= m.score2 ? m.t1 : m.t2);
+            LibertadoresManager.bracket.pre.f3 = LibertadoresManager.createConfrontos(winners);
+            LibertadoresManager.currentStage = 'f3';
+            return true;
+        } else if (stage === 'f3') {
+            const winners = LibertadoresManager.bracket.pre.f3.map(m => m.score1 >= m.score2 ? m.t1 : m.t2);
+            LibertadoresManager.generateGroups(winners);
+            LibertadoresManager.currentStage = 'groups';
+            return true;
+        }
+        return false;
+    },
+
+    createConfrontos: (teams) => {
+        const confrontos = [];
+        for (let i = 0; i < teams.length; i += 2) {
+            confrontos.push({
+                t1: teams[i].id || teams[i],
+                t2: teams[i + 1].id || teams[i + 1],
+                played: false,
+                legs: [
+                    { score1: null, score2: null, played: false },
+                    { score1: null, score2: null, played: false }
+                ],
+                penalties: null
+            });
+        }
+        return confrontos;
+    },
+
+    generateGroups: (classifiedFromF3) => {
+        const allTeams = [...LibertadoresManager.directGroupTeams, ...classifiedFromF3];
+        const groups = [];
+        for (let i = 0; i < 8; i++) {
+            groups.push({
+                name: String.fromCharCode(65 + i),
+                teams: allTeams.slice(i * 4, (i + 1) * 4).map(t => ({
+                    id: t.id || t,
+                    p: 0, j: 0, v: 0, e: 0, d: 0, gp: 0, gc: 0, sg: 0
+                })),
+                matches: []
+            });
+        }
+        LibertadoresManager.bracket.groups = groups;
+        LibertadoresManager.generateGroupMatches();
+    },
+
+    generateGroupMatches: () => {
+        LibertadoresManager.bracket.groups.forEach(group => {
+            const teams = group.teams;
+            const matches = [];
+            for (let i = 0; i < 4; i++) {
+                for (let j = i + 1; j < 4; j++) {
+                    matches.push({ t1: teams[i].id, t2: teams[j].id, played: false, score1: null, score2: null });
+                    matches.push({ t1: teams[j].id, t2: teams[i].id, played: false, score1: null, score2: null });
+                }
+            }
+            group.matches = matches;
+        });
+    },
+
+    saveProgress: () => {
+        const data = {
+            userTeamId: LibertadoresManager.userTeamId,
+            currentStage: LibertadoresManager.currentStage,
+            bracket: LibertadoresManager.bracket
+        };
+        localStorage.setItem('arena_libertadores_progress', JSON.stringify(data));
+    },
+
+    loadProgress: () => {
+        const data = JSON.parse(localStorage.getItem('arena_libertadores_progress'));
+        if (data) {
+            LibertadoresManager.userTeamId = data.userTeamId;
+            LibertadoresManager.currentStage = data.currentStage;
+            LibertadoresManager.bracket = data.bracket;
+            return true;
+        }
+        return false;
+    },
+
+    getNextLibMatch: () => {
+        const stageKey = LibertadoresManager.currentStage;
+        let matches = [];
+        if (stageKey.startsWith('f')) {
+            matches = LibertadoresManager.bracket.pre[stageKey];
+        } else if (stageKey === 'groups') {
+            const group = LibertadoresManager.bracket.groups.find(g => g.teams.some(t => t.id === LibertadoresManager.userTeamId));
+            return group ? group.matches.find(m => !m.played && (m.t1 === LibertadoresManager.userTeamId || m.t2 === LibertadoresManager.userTeamId)) : null;
+        } else {
+            matches = LibertadoresManager.bracket.knockout[stageKey];
+        }
+
+        if (!matches) return null;
+        const m = matches.find(m => !m.played && (m.t1 === LibertadoresManager.userTeamId || m.t2 === LibertadoresManager.userTeamId));
+        if (!m) return null;
+
+        // Return the first unplayed leg
+        const leg = m.legs.find(l => !l.played);
+        if (leg) {
+            // Return a wrapper that startMatch can understand
+            return {
+                ...m,
+                currentLeg: m.legs.indexOf(leg),
+                isLeg: true,
+                legObj: leg
+            };
+        }
+        return m;
+    },
+
+    updateResults: (matchWrapper, s1, s2) => {
+        const m = matchWrapper.isLeg ? matchWrapper : matchWrapper;
+        
+        if (matchWrapper.isLeg) {
+            const leg = m.legs[matchWrapper.currentLeg];
+            leg.score1 = s1;
+            leg.score2 = s2;
+            leg.played = true;
+
+            // Check if series is over
+            if (m.legs.every(l => l.played)) {
+                m.score1 = m.legs[0].score1 + m.legs[1].score1;
+                m.score2 = m.legs[0].score2 + m.legs[1].score2;
+                
+                // Tie-break (No away goal rule)
+                if (m.score1 === m.score2) {
+                    // Force a winner for simulation/progression logic if needed, or handle penalties
+                    m.penalties = s1 > s2 ? [5, 4] : [4, 5]; // Fake penalties for now
+                }
+                m.played = true;
+                
+                // Auto-advance check
+                const currentStageMatches = LibertadoresManager.bracket.pre[LibertadoresManager.currentStage];
+                if (currentStageMatches && currentStageMatches.every(match => match.played)) {
+                    LibertadoresManager.advanceToNextStage();
+                    updateLibertadoresDashboard();
+                }
+            }
+        } else if (LibertadoresManager.currentStage === 'groups') {
+            m.played = true;
+            m.score1 = s1;
+            m.score2 = s2;
+
+            const group = LibertadoresManager.bracket.groups.find(g => g.matches.includes(m));
+            const t1 = group.teams.find(t => t.id === m.t1);
+            const t2 = group.teams.find(t => t.id === m.t2);
+
+            t1.j++; t2.j++;
+            t1.gp += s1; t1.gc += s2; t1.sg = t1.gp - t1.gc;
+            t2.gp += s2; t2.gc += s1; t2.sg = t2.gp - t2.gc;
+
+            if (s1 > s2) t1.p += 3;
+            else if (s1 < s2) t2.p += 3;
+            else { t1.p += 1; t2.p += 1; }
+            
+            // Check if group is finished
+            if (group.matches.every(match => match.played)) {
+                // Potential auto-advance check
+            }
+        } else {
+            // Final unica
+            m.score1 = s1;
+            m.score2 = s2;
+            m.played = true;
+        }
+        
+        LibertadoresManager.saveProgress();
     }
 };
 
@@ -3150,6 +3543,14 @@ function updateCardStates() {
 btnStart.addEventListener('click', () => {
     try {
         console.log('Start Button Clicked. Mode:', currentGameMode);
+        
+        // If we are in Arcade/WorldCup mode with Panels, confirm first
+        const selectionPanels = document.querySelector('.classic-match-panels');
+        if (selectionPanels && !selectionPanels.classList.contains('hidden') && (currentGameMode === 'arcade' || currentGameMode === 'worldcup' || currentGameMode === 'libertadores')) {
+            confirmPanelSelection('home');
+            return;
+        }
+
         if (currentGameMode === 'quick') {
             if (!selectedTeams || selectedTeams.length < 2) {
                 console.error("Selected teams invalid");
@@ -3161,6 +3562,8 @@ btnStart.addEventListener('click', () => {
             startMatch();
         } else if (currentGameMode === 'worldcup') {
             startWorldCupCampaign();
+        } else if (currentGameMode === 'libertadores') {
+            startLibertadoresCampaign();
         } else {
             startArcadeCampaign();
         }
@@ -3171,19 +3574,39 @@ btnStart.addEventListener('click', () => {
 });
 
 function startWorldCupCampaign() {
-    const wcDashboard = document.getElementById('worldcup-dashboard');
-    selectionScreen.classList.add('hidden');
-    wcDashboard.classList.remove('hidden');
+    showScreen('worldcup');
 
     const userTeam = selectedTeams[0];
+    if (!userTeam) {
+        console.error("No user team selected for World Cup");
+        alert("Por favor, selecione um time antes de iniciar.");
+        showScreen('selection');
+        return;
+    }
     WorldCupManager.startNewCampaign(userTeam.id);
 
     document.getElementById('wc-user-team').textContent = userTeam.name;
-    // updateArcadeHeaderBg(userTeam); // Optional: reuse if compatible or create new
-
-    // Tab Logic
     setupWorldCupTabs();
-    updateWorldCupDashboard(WorldCupManager.bracket.groups[0].name); // Show Group A initially
+    updateWorldCupDashboard(WorldCupManager.bracket.groups[0].name); 
+}
+
+function startLibertadoresCampaign() {
+    showScreen('libertadores');
+
+    const userTeam = selectedTeams[0];
+    if (!userTeam) {
+        console.error("No user team selected for Libertadores");
+        alert("Por favor, selecione um time antes de iniciar.");
+        showScreen('selection');
+        return;
+    }
+    LibertadoresManager.startNewCampaign(userTeam.id);
+
+    document.getElementById('lib-user-team').textContent = userTeam.name;
+    document.getElementById('lib-stage-name').textContent = "Pré-Libertadores (F1)";
+    
+    // Update UI initial state
+    updateLibertadoresDashboard('A'); 
 }
 
 function setupWorldCupTabs() {
@@ -4182,6 +4605,17 @@ function endMatch() {
         };
         StorageManager.addMatch(matchData);
         showResultOverlay();
+    } else if (currentGameMode === 'worldcup') {
+        if (typeof WorldCupManager !== 'undefined' && WorldCupManager.currentActiveMatch) {
+            WorldCupManager.processMatchResult(WorldCupManager.currentActiveMatch, score1, score2);
+            showResultOverlay();
+        }
+    } else if (currentGameMode === 'libertadores') {
+        const nextMatch = LibertadoresManager.getNextLibMatch();
+        if (nextMatch) {
+            LibertadoresManager.updateResults(nextMatch, score1, score2);
+            showResultOverlay();
+        }
     } else {
         // ARCADE
         ArcadeManager.registerUserResult(team1.id, team2.id, score1, score2);
@@ -4294,7 +4728,22 @@ function showResultOverlay() {
             matchScreen.classList.add('hidden');
             toggleGameInterface(true);
 
-            const champion = ArcadeManager.checkChampion();
+            if (currentGameMode === 'worldcup') {
+                worldcupDashboard.classList.remove('hidden');
+                const userGroup = WorldCupManager.getUserGroup();
+                if (userGroup) updateWorldCupDashboard(userGroup.name);
+            } else if (currentGameMode === 'libertadores') {
+                libertadoresDashboard.classList.remove('hidden');
+                updateLibertadoresDashboard('A'); 
+            } else {
+                const champion = ArcadeManager.checkChampion();
+                if (champion) {
+                    showChampionScreen(champion);
+                } else {
+                    arcadeDashboard.classList.remove('hidden');
+                    updateArcadeDashboard();
+                }
+            }
 
             // Mostrar player ao voltar
             const playerBar = document.getElementById('music-player-bar');
@@ -4572,7 +5021,7 @@ function openInfoModal(section) {
 // ==================== SHOW SCREEN (Core Navigation) ====================
 function showScreen(screenName) {
     // Hide all screens
-    const screens = [mainMenu, selectionScreen, arcadeDashboard, championScreen, matchScreen];
+    const screens = [mainMenu, selectionScreen, arcadeDashboard, worldcupDashboard, libertadoresDashboard, championScreen, matchScreen];
     screens.forEach(s => { if (s) s.classList.add('hidden'); });
 
     // Also hide overlays
@@ -4601,6 +5050,12 @@ function showScreen(screenName) {
         case 'arcade':
             if (arcadeDashboard) arcadeDashboard.classList.remove('hidden');
             break;
+        case 'worldcup':
+            if (worldcupDashboard) worldcupDashboard.classList.remove('hidden');
+            break;
+        case 'libertadores':
+            if (libertadoresDashboard) libertadoresDashboard.classList.remove('hidden');
+            break;
         case 'champion':
             if (championScreen) championScreen.classList.remove('hidden');
             break;
@@ -4608,6 +5063,135 @@ function showScreen(screenName) {
 }
 
 
+
+function initLibertadoresListeners() {
+    // Listeners Libertadores
+    if (btnQuitLib) {
+        btnQuitLib.addEventListener('click', () => {
+            window.showCustomModal("SAIR DA LIBERTA?", "Seu progresso será salvo.", () => {
+                LibertadoresManager.saveProgress();
+                showScreen('menu');
+            });
+        });
+    }
+
+    if (btnPlayLibRound) {
+        btnPlayLibRound.addEventListener('click', () => {
+            const nextMatch = LibertadoresManager.getNextLibMatch();
+            if (!nextMatch) {
+                alert("Nenhuma partida pendente.");
+                return;
+            }
+
+            team1 = allTeamsList.find(t => t.id === (nextMatch.t1.id || nextMatch.t1));
+            team2 = allTeamsList.find(t => t.id === (nextMatch.t2.id || nextMatch.t2));
+
+            if (!team1 || !team2) {
+                alert("Erro ao carregar times da partida.");
+                return;
+            }
+
+            showScreen('match');
+            startMatch();
+        });
+    }
+
+    setupLibertadoresTabs();
+}
+
+function setupLibertadoresTabs() {
+    const tabs = document.querySelectorAll('.lib-tab');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            updateLibertadoresDashboard(tab.dataset.group);
+        });
+    });
+}
+
+function updateLibertadoresDashboard(groupName) {
+    const groupList = document.getElementById('lib-group-list');
+    const tabsContainer = document.querySelector('.lib-tabs-container');
+    const standingsCard = document.querySelector('.standings-card');
+    const stageNameEl = document.getElementById('lib-stage-name');
+
+    if (!groupList || !tabsContainer || !standingsCard) return;
+
+    const currentStage = LibertadoresManager.currentStage;
+    
+    // UI Visibility based on stage
+    if (currentStage === 'groups') {
+        tabsContainer.classList.remove('hidden');
+        standingsCard.classList.remove('hidden');
+        stageNameEl.textContent = "Fase de Grupos";
+
+        const group = LibertadoresManager.bracket.groups.find(g => g.name === (groupName || 'A'));
+        if (group) {
+            groupList.innerHTML = '';
+            const sorted = group.teams.sort((a, b) => b.p - a.p || b.sg - a.sg || b.gp - a.gp);
+            sorted.forEach((t, i) => {
+                const teamData = libertadoresTeams.find(td => td.id === t.id) || allTeamsList.find(td => td.id === t.id) || { name: t.id, shortName: t.id };
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${i + 1}</td>
+                    <td class="team-cell">
+                        <span class="lib-shield-mini">${createShield(teamData, 'sm').outerHTML}</span>
+                        <span>${teamData.shortName}</span>
+                    </td>
+                    <td><strong>${t.p}</strong></td>
+                    <td>${t.j}</td>
+                    <td>${t.sg}</td>
+                `;
+                groupList.appendChild(row);
+            });
+        }
+    } else {
+        tabsContainer.classList.add('hidden');
+        standingsCard.classList.add('hidden');
+        
+        let label = "Fase Preliminar";
+        if (currentStage === 'f1') label = "Pré-Libertadores (Fase 1)";
+        if (currentStage === 'f2') label = "Pré-Libertadores (Fase 2)";
+        if (currentStage === 'f3') label = "Pré-Libertadores (Fase 3)";
+        if (currentStage === 'r16') label = "Oitavas de Final";
+        if (currentStage === 'qf') label = "Quartas de Final";
+        if (currentStage === 'sf') label = "Semifinal";
+        if (currentStage === 'final') label = "Grande Final";
+        stageNameEl.textContent = label;
+    }
+
+    // Update Next Match Panel
+    const matchDisplay = document.getElementById('lib-next-match-display');
+    const nextMatch = LibertadoresManager.getNextLibMatch();
+
+    if (matchDisplay) {
+        if (nextMatch) {
+            const t1 = allTeamsList.find(t => t.id === nextMatch.t1);
+            const t2 = allTeamsList.find(t => t.id === nextMatch.t2);
+            
+            if (t1 && t2) {
+                matchDisplay.innerHTML = `
+                    <div class="match-teams-row">
+                        <div class="match-team-mini">
+                            ${createShield(t1, 'md').outerHTML}
+                            <span>${t1.shortName}</span>
+                        </div>
+                        <div class="match-vs">VS</div>
+                        <div class="match-team-mini">
+                            ${createShield(t2, 'md').outerHTML}
+                            <span>${t2.shortName}</span>
+                        </div>
+                    </div>
+                `;
+            } else {
+                matchDisplay.innerHTML = `<p>Aguardando definição...</p>`;
+            }
+        } else {
+            matchDisplay.innerHTML = `<p>Fim da jornada na Libertadores.</p>`;
+        }
+    }
+}
 
 // ==================== INICIALIZAÇÃO ====================
 function initApp() {
@@ -4622,6 +5206,9 @@ function initApp() {
 
     // Inicializar navegação (menu lateral e modal)
     initNavigation();
+
+    // Inicializar Libertadores
+    initLibertadoresListeners();
 
     // Adiciona transição suave a todas as telas
     document.querySelectorAll('.screen').forEach(screen => {
@@ -4654,6 +5241,36 @@ function attachMenuListeners() {
     if (btnBackMenu) {
         btnBackMenu.onclick = () => {
             showScreen('menu');
+        };
+    }
+
+    if (btnQuitWC) {
+        btnQuitWC.onclick = () => {
+            if (confirm("Deseja realmente sair da Copa do Mundo? Seu progresso será salvo.")) {
+                showScreen('menu');
+            }
+        };
+    }
+
+    if (btnPlayWCRound) {
+        btnPlayWCRound.onclick = () => {
+            const match = WorldCupManager.getNextUserMatch();
+            if (!match) {
+                alert("Fase de Grupos encerrada! (Mata-mata em breve)");
+                return;
+            }
+
+            team1 = internationalTeams.find(t => t.id === match.t1);
+            team2 = internationalTeams.find(t => t.id === match.t2);
+
+            if (!team1 || !team2) {
+                alert("Erro ao carregar times do confronto.");
+                return;
+            }
+
+            // Iniciar Partida
+            WorldCupManager.currentActiveMatch = match;
+            startMatch();
         };
     }
 }
@@ -4783,16 +5400,35 @@ window.showMainOptions = function () {
 }
 
 window.selectChampionship = function (league) {
+    console.log('[FutArena] Championship Selected:', league);
+    
     // Normalization
     if (league === 'brasileirao') league = 'Brasileirão';
     if (league === 'copa') league = 'Copa do Mundo';
+    if (league === 'libertadores') league = 'Libertadores';
+    if (league === 'paulista') league = 'Paulistão';
 
     window.selectedLeague = league;
     closeChampionshipModal();
 
-    let teamsList;
-    if (league === 'Copa do Mundo') teamsList = internationalTeams;
-    else teamsList = brazilianTeams;
+    let teamsList = [];
+    if (league === 'Copa do Mundo') {
+        teamsList = internationalTeams;
+    } else if (league === 'Libertadores') {
+        teamsList = libertadoresTeams;
+    } else if (league === 'Brasileirão') {
+        teamsList = brazilianTeams;
+    } else if (league === 'Paulistão') {
+        // Filter or use a specific list if available
+        teamsList = brazilianTeams.filter(t => t.id === 'corinthians' || t.id === 'palmeiras' || t.id === 'saopaulo' || t.id === 'santos' || t.id === 'bragantino' || t.id === 'mirassol' || t.id === 'novorizontino');
+    } else {
+        teamsList = brazilianTeams;
+    }
+
+    if (!teamsList || teamsList.length === 0) {
+        console.error('[FutArena] No teams found for league:', league);
+        teamsList = brazilianTeams; // Fallback
+    }
 
     initTeamSelectionForArcade(teamsList, league);
 }
@@ -4845,9 +5481,15 @@ function changeRegion(side, isNext) {
     // If Arcade mode, region might be locked
     if (currentGameMode === 'arcade' && side === 'home') return;
 
-    const regions = ['Brasileirão', 'internationalTeams', 'Todos'];
+    const regions = ['Brasileirão', 'Libertadores', 'Copa do Mundo', 'Todos'];
     let current = selectedRegions[side];
+    
+    // Attempt to map current to internal names if needed
+    if (current === 'internationalTeams') current = 'Copa do Mundo';
+    if (current === 'libertadoresTeams') current = 'Libertadores';
+    
     let idx = regions.indexOf(current);
+    if (idx === -1) idx = 0; // Fallback to first
 
     if (isNext) idx = (idx + 1) % regions.length;
     else idx = (idx - 1 + regions.length) % regions.length;
@@ -4856,9 +5498,10 @@ function changeRegion(side, isNext) {
     selectedRegions[side] = newRegion;
 
     // Update List
-    if (newRegion === 'Brasileirão' || newRegion === 'brazilianTeams') selectionLists[side] = [...brazilianTeams];
-    else if (newRegion === 'Seleções' || newRegion === 'internationalTeams') selectionLists[side] = [...internationalTeams];
-    else if (newRegion === 'Todos' || newRegion === 'allTeamsList') selectionLists[side] = [...brazilianTeams, ...internationalTeams];
+    if (newRegion === 'Brasileirão') selectionLists[side] = [...brazilianTeams];
+    else if (newRegion === 'Libertadores') selectionLists[side] = [...libertadoresTeams];
+    else if (newRegion === 'Copa do Mundo') selectionLists[side] = [...internationalTeams];
+    else if (newRegion === 'Todos') selectionLists[side] = [...allTeamsList];
 
 
     selectionIndices[side] = 0; // Reset team index
@@ -4943,7 +5586,7 @@ function updatePanel(side) {
 
     // Update Global Selection tentative
     // Update Global Selection tentative
-    if (currentGameMode === 'arcade' && side === 'home') {
+    if ((currentGameMode === 'arcade' || currentGameMode === 'worldcup' || currentGameMode === 'libertadores') && side === 'home') {
         selectedTeams = [team];
         const btnStart = document.getElementById('btn-start-match');
         if (btnStart) btnStart.disabled = false;
@@ -4955,10 +5598,12 @@ function updatePanel(side) {
 function confirmPanelSelection(side) {
     const team = selectionLists[side][selectionIndices[side]];
 
-    if (currentGameMode === 'arcade') {
-        // Arcade: Select and Start
+    if (currentGameMode === 'arcade' || currentGameMode === 'worldcup' || currentGameMode === 'libertadores') {
+        // Arcade, World Cup or Libertadores: Select and Start
         selectedTeams = [team];
-        startArcadeCampaign();
+        if (currentGameMode === 'worldcup') startWorldCupCampaign();
+        else if (currentGameMode === 'libertadores') startLibertadoresCampaign();
+        else startArcadeCampaign();
     } else {
         // Quick Match Sequential Flow
         if (side === 'home') {
@@ -5028,7 +5673,9 @@ function togglePanelInteractivity(side, enable) {
 
 // Fixed initTeamSelectionForArcade to use Panels
 function initTeamSelectionForArcade(teamsList, leagueName) {
-    currentGameMode = 'arcade';
+    if (leagueName === 'Copa do Mundo') currentGameMode = 'worldcup';
+    else if (leagueName === 'Libertadores') currentGameMode = 'libertadores';
+    else currentGameMode = 'arcade';
     selectedTeams = [];
 
     // Hide Grid if visible

@@ -115,6 +115,7 @@ import Layout from '../layouts/Layout.astro';
       
       <!-- MAIN OPTIONS -->
       <div id="champ-main-options" class="sport-grid">
+        <!-- BRASILEIRÃO -->
         <div class="sport-card" id="card-brasileirao" onclick="selectChampionship('brasileirao')">
             <div class="card-bg bg-brasileirao"></div>
             <div class="sport-tag">Elite Nacional</div>
@@ -125,13 +126,25 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </div>
         
+        <!-- COPA DO MUNDO -->
         <div class="sport-card" id="card-copa" onclick="selectChampionship('copa')">
-            <div class="card-bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/FIFA_World_Cup_logo_2026.svg/1200px-FIFA_World_Cup_logo_2026.svg.png'); background-size: contain; background-repeat: no-repeat; background-position: center; opacity: 0.15;"></div>
-            <div class="sport-tag">Mundial</div>
+            <div class="card-bg bg-copa"></div>
+            <div class="sport-tag gold">Mundial</div>
             <div class="sport-card-content">
                 <div class="sport-icon">🌍</div>
                 <h3 class="sport-title">Copa do Mundo</h3>
                 <p class="sport-desc">A maior competição de seleções do planeta.</p>
+            </div>
+        </div>
+
+        <!-- LIBERTADORES -->
+        <div class="sport-card" id="card-libertadores" onclick="selectChampionship('libertadores')">
+            <div class="card-bg bg-libertadores" style="background-image: url('https://upload.wikimedia.org/wikipedia/pt/d/d4/Logotipo_da_Copa_Libertadores_da_Am%C3%A9rica.png'); background-size: contain; background-repeat: no-repeat; opacity: 0.2;"></div>
+            <div class="sport-tag gold">Glória Eterna</div>
+            <div class="sport-card-content">
+                <div class="sport-icon">🏆</div>
+                <h3 class="sport-title">Libertadores</h3>
+                <p class="sport-desc">O topo das Américas espera por você.</p>
             </div>
         </div>
       </div>
@@ -321,6 +334,54 @@ import Layout from '../layouts/Layout.astro';
        <button id="btn-quit-arcade" class="btn-back">Sair do Campeonato</button>
     </div>
 
+    <!-- DASHBOARD COPA DO MUNDO -->
+    <div id="worldcup-dashboard" class="screen hidden">
+       <div class="arcade-header worldcup-header">
+          <div style="display: flex; align-items: center; position: relative;">
+              <div id="wc-team-header-bg" class="arcade-team-header-bg"></div>
+              <h2 id="wc-user-team">Sua Seleção</h2>
+          </div>
+           <div class="arcade-stats-row">
+               <div class="round-display"><span id="wc-group-title">Grupo A</span></div>
+           </div>
+       </div>
+       
+       <div class="wc-tabs-container">
+           <button class="wc-tab active" data-group="A">A</button>
+           <button class="wc-tab" data-group="B">B</button>
+           <button class="wc-tab" data-group="C">C</button>
+           <button class="wc-tab" data-group="D">D</button>
+           <button class="wc-tab" data-group="E">E</button>
+           <button class="wc-tab" data-group="F">F</button>
+           <button class="wc-tab" data-group="G">G</button>
+           <button class="wc-tab" data-group="H">H</button>
+           <button class="wc-tab" data-group="I">I</button>
+           <button class="wc-tab" data-group="J">J</button>
+           <button class="wc-tab" data-group="K">K</button>
+           <button class="wc-tab" data-group="L">L</button>
+       </div>
+
+       <div class="arcade-content">
+           <div class="standings-card">
+               <h3>Classificação da Fase de Grupos</h3>
+               <div class="table-scroll">
+                   <table class="stats-table worldcup-table">
+                      <thead>
+                          <tr><th>#</th><th>Seleção</th><th>P</th><th>J</th><th>SG</th></tr>
+                      </thead>
+                      <tbody id="wc-group-list"></tbody>
+                   </table>
+               </div>
+           </div>
+           <div class="next-match-card worldcup-next">
+                <h3>Próxima Rodada</h3>
+                <p style="color: #aaa; font-style: italic;">A Copa do Mundo está em andamento...</p>
+                <button id="btn-play-wc-round" class="btn-start-big" style="margin-top: 20px;">JOGAR PARTIDA</button>
+           </div>
+       </div>
+       <button id="btn-quit-wc" class="btn-back">Sair da Copa</button>
+    </div>
+
     <!-- TELA DE CAMPEÃO -->
     <div id="champion-screen" class="screen hidden champion-bg">
         <div class="champion-content champion-card">
@@ -331,6 +392,63 @@ import Layout from '../layouts/Layout.astro';
             <p class="champion-stats" id="champion-details">19 Jogos • 57 Pontos</p>
               <div class="celebration-banner"><p>Obrigado por nos levar ao topo!</p></div>
             <button id="btn-finish-arcade" class="btn-start">Menu Principal</button>
+        </div>
+    </div>
+
+    <!-- DASHBOARD LIBERTADORES -->
+    <div id="libertadores-dashboard" class="screen hidden">
+        <div class="libertadores-header">
+            <div class="libertadores-logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/pt/d/d4/Logotipo_da_Copa_Libertadores_da_Am%C3%A9rica.png" alt="Libertadores" class="libertadores-logo-main" />
+            </div>
+            <div class="lib-header-info">
+                <h2 id="lib-stage-name">Fase de Grupos</h2>
+                <p id="lib-user-team">Time do Usuário</p>
+            </div>
+            <button id="btn-quit-lib" class="btn-lib-secondary">SAIR DA LIBERTA</button>
+        </div>
+
+        <div class="lib-tabs-container">
+            <button class="lib-tab active" data-group="A">A</button>
+            <button class="lib-tab" data-group="B">B</button>
+            <button class="lib-tab" data-group="C">C</button>
+            <button class="lib-tab" data-group="D">D</button>
+            <button class="lib-tab" data-group="E">E</button>
+            <button class="lib-tab" data-group="F">F</button>
+            <button class="lib-tab" data-group="G">G</button>
+            <button class="lib-tab" data-group="H">H</button>
+        </div>
+
+        <div class="arcade-content">
+            <div class="standings-card">
+                <h3>Tabela do Grupo</h3>
+                <div class="table-scroll">
+                    <table class="stats-table libertadores-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Clube</th>
+                                <th>P</th>
+                                <th>J</th>
+                                <th>SG</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lib-group-list">
+                            <!-- Injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="next-match-card">
+                <h3>Glória Eterna</h3>
+                <div class="lib-match-panel">
+                    <div id="lib-next-match-display" class="next-match-teams">
+                        <p>Sorteando confrontos...</p>
+                    </div>
+                    <button id="btn-play-lib-round" class="btn-start-big" style="margin-top: 20px; background: var(--accent-gold); color: #000;">JOGAR PARTIDA</button>
+                </div>
+            </div>
         </div>
     </div>
 

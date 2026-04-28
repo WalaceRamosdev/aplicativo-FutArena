@@ -1504,15 +1504,16 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 200;
+  z-index: 10000; /* Garante que fique acima de tudo */
   overflow: hidden;
   transition: opacity 0.3s ease, visibility 0.3s;
+  touch-action: none; /* Impede scroll no fundo em mobile */
 }
 
 .overlay.hidden {
@@ -1532,14 +1533,13 @@ body {
   text-align: center;
   width: 90%;
   max-width: 400px;
-  max-height: 90vh;
-  /* Adicionado para evitar estouro em telas pequenas */
+  max-height: 85vh; /* Ajustado para mobile */
   overflow-y: auto;
-  /* Adicionado para permitir scroll se o conteúdo for grande */
   border: 1px solid var(--border-color);
   animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  z-index: 210;
+  z-index: 10010;
   position: relative;
+  -webkit-overflow-scrolling: touch; /* Scroll suave no iOS */
 }
 
 @keyframes popIn {
@@ -3553,29 +3553,38 @@ body {
 /* ==================== CHAMPIONSHIP MODAL STYLES ==================== */
 .sport-modal-header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 .sport-modal-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 2.2rem;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
     text-transform: uppercase;
-    font-style: italic;
-    color: #ffd700;
+    font-weight: 900;
+    color: #fff;
     margin: 0;
-    letter-spacing: 1px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sport-modal-title span {
+    color: var(--accent-gold);
+    -webkit-text-fill-color: var(--accent-gold);
 }
 .sport-modal-subtitle {
-    color: #888;
-    font-size: 1rem;
-    margin-top: 5px;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-top: 10px;
+    letter-spacing: 1px;
 }
 
 .sport-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
     width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 /* Ensure hidden actually hides the grid */
@@ -3585,44 +3594,47 @@ body {
 
 .sport-card {
     position: relative;
-    height: 200px;
-    background: #1e1e1e;
-    border-radius: 12px;
+    height: 220px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 24px;
     overflow: hidden;
     cursor: pointer;
-    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-    border: 1px solid #333;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 .sport-card:hover {
-    transform: translateY(-5px);
-    border-color: #ffd700;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--accent-gold);
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 20px rgba(255, 215, 0, 0.2);
 }
 
 .card-bg {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     z-index: 0;
-    opacity: 0.3;
-    transition: transform 0.4s;
-}
-.sport-card:hover .card-bg {
-    transform: scale(1.05);
-    opacity: 0.5;
+    opacity: 0.15;
+    transition: all 0.6s ease;
+    pointer-events: none;
 }
 
-.bg-brasileirao { background: radial-gradient(circle at top right, #009c3b, #000); }
-.bg-estaduais { background: radial-gradient(circle at top right, #555, #000); }
-.bg-paulista { background: radial-gradient(circle at top right, #F5F5F5, #111); }
-.bg-carioca { background: radial-gradient(circle at top right, #00aeef, #000); }
-.bg-gaucho { background: radial-gradient(circle at top right, #008000, #E31D1A); }
-.bg-mineiro { background: radial-gradient(circle at top right, #E31D1A, #111); }
-.bg-paranaense { background: radial-gradient(circle at top right, #111, #444); }
+.sport-card:hover .card-bg {
+    transform: scale(1.1);
+    opacity: 0.3;
+}
+
+.bg-brasileirao { background: radial-gradient(circle at top right, #009c3b, transparent); }
+.bg-copa { background: radial-gradient(circle at top right, #ffcc00, transparent); }
+.bg-paulista { background: radial-gradient(circle at top right, #ff4444, transparent); }
+.bg-estaduais { background: radial-gradient(circle at top right, #00aeef, transparent); }
 
 .sport-card-content {
     position: relative;
@@ -3631,38 +3643,55 @@ body {
 
 .sport-tag {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    background: rgba(0,0,0,0.7);
-    color: #ffd700;
+    top: 25px;
+    right: 25px;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
     font-size: 0.7rem;
+    font-weight: 800;
     text-transform: uppercase;
-    padding: 4px 8px;
-    border-radius: 4px;
-    border: 1px solid rgba(255,215,0,0.3);
+    padding: 6px 14px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.1);
     z-index: 2;
+    letter-spacing: 1px;
+}
+
+.sport-tag.gold {
+    background: linear-gradient(135deg, #ffd700, #ff8800);
+    color: #000;
+    border: none;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
 }
 
 .sport-icon {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 3rem;
+    margin-bottom: 12px;
     display: block;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+    transition: transform 0.3s ease;
+}
+
+.sport-card:hover .sport-icon {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .sport-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 900;
     text-transform: uppercase;
     margin: 0;
-    line-height: 1.2;
+    line-height: 1.1;
     color: #fff;
+    letter-spacing: 1px;
 }
 
 .sport-desc {
-    font-size: 0.85rem;
-    color: #aaa;
-    margin-top: 5px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    font-weight: 400;
 }
 
 .back-nav {
@@ -3864,3 +3893,169 @@ body {
 
 
 
+/* ==================== WORLDCUP DASHBOARD STYLES ==================== */
+.worldcup-header {
+    background: linear-gradient(90deg, #1a2a6c, #b21f1f, #fdbb2d);
+    border-bottom: 4px solid #ffd700;
+}
+
+.wc-tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    background: rgba(0,0,0,0.3);
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.wc-tabs-container::-webkit-scrollbar { display: none; }
+
+.wc-tab {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-weight: bold;
+    transition: all 0.3s ease;
+    min-width: 45px;
+}
+
+.wc-tab:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.wc-tab.active {
+    background: var(--accent-gold);
+    color: #000;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.worldcup-table th {
+    background: #1a2a6c;
+}
+
+.worldcup-next {
+    background: rgba(26, 42, 108, 0.2);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.user-row {
+    background: rgba(255, 215, 0, 0.1) !important;
+}
+
+#btn-quit-wc {
+    margin: 20px auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .wc-tabs-container {
+        justify-content: flex-start;
+        padding: 10px 20px;
+    }
+}
+
+/* ==================== LIBERTADORES DASHBOARD ==================== */
+#libertadores-dashboard {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    min-height: 100vh;
+    padding: 20px;
+    padding-top: 80px;
+}
+
+.libertadores-header {
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.2) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(212, 175, 55, 0.2) 100%);
+    border: 1px solid var(--accent-gold);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.libertadores-logo-container {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    padding: 10px;
+    border: 1px solid var(--accent-gold);
+}
+
+.libertadores-logo-main {
+    height: 80px;
+    filter: drop-shadow(0 0 10px var(--accent-gold));
+}
+
+.lib-tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.lib-tab {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(212,175,55,0.3);
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: var(--font-display);
+    font-weight: 600;
+}
+
+.lib-tab:hover {
+    background: rgba(212,175,55,0.2);
+    color: var(--accent-gold);
+    transform: translateY(-2px);
+}
+
+.lib-tab.active {
+    background: var(--accent-gold);
+    color: #000;
+    box-shadow: 0 0 15px rgba(212,175,55,0.5);
+}
+
+.btn-secondary-lib {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-secondary-lib:hover {
+    background: #ff4444;
+    border-color: #ff4444;
+    box-shadow: 0 0 20px rgba(255,68,68,0.4);
+}
+
+.lib-match-panel {
+    background: rgba(255,255,255,0.03);
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(212,175,55,0.1);
+    text-align: center;
+}
+
+/* ==================== ARENA & GAMEPLAY ==================== */
