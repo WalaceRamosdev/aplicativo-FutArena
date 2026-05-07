@@ -1,0 +1,24 @@
+{
+  "name": "Arena Brasileirão 2026",
+  "short_name": "FutArena",
+  "description": "Simulador de futebol online gratuito para o Campeonato Brasileiro.",
+  "start_url": "/?source=pwa",
+  "display": "standalone",
+  "background_color": "#131313",
+  "theme_color": "#131313",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

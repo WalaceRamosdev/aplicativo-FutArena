@@ -11,7 +11,7 @@ const { title, description = "FutArena - O melhor simulador de futebol de botão
 <html lang="pt-br">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
@@ -24,6 +24,27 @@ const { title, description = "FutArena - O melhor simulador de futebol de botão
 		
 		<!-- Legacy Stylesheet -->
 		<link rel="stylesheet" href="/style.css">
+		
+		<!-- PWA Meta Tags -->
+		<link rel="manifest" href="/manifest.json" />
+		<meta name="theme-color" content="#131313" />
+		<link rel="apple-touch-icon" href="/icons/icon.svg" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="apple-mobile-web-app-title" content="FutArena" />
+
+		<!-- Registro do Service Worker -->
+		<script>
+			if ('serviceWorker' in navigator) {
+				window.addEventListener('load', () => {
+					navigator.serviceWorker.register('/sw.js').then((registration) => {
+						console.log('SW registrado com sucesso:', registration.scope);
+					}).catch((err) => {
+						console.log('Falha ao registrar o SW:', err);
+					});
+				});
+			}
+		</script>
 		
 		<slot name="head" />
 	</head>

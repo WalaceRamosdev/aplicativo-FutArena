@@ -1,0 +1,9 @@
+{
+  "appId": "com.futarena.app",
+  "appName": "Arena Brasileirão",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  }
+}

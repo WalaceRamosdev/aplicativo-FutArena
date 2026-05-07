@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#131313" />
+  <circle cx="256" cy="256" r="140" fill="none" stroke="#E6C25D" stroke-width="24" />
+  <path d="M256 148 L281 226 L363 226 L297 274 L323 352 L256 304 L189 352 L215 274 L149 226 L231 226 Z" fill="#E6C25D" />
+  <circle cx="256" cy="256" r="44" fill="#131313" />
+  <text x="256" y="275" font-family="sans-serif" font-weight="900" font-size="56" fill="#E6C25D" text-anchor="middle">FA</text>
+</svg>
