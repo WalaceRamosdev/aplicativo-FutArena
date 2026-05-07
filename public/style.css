@@ -2824,13 +2824,15 @@ body {
 
 .narration-feed {
   flex: 1;
-  overflow-y: auto;
+  overflow: hidden; /* Remove o scrollbar de vez */
   padding: 15px;
   display: flex;
   flex-direction: column-reverse;
   height: 250px;
   max-height: 250px;
   gap: 12px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 /* Estilização da Scrollbar */

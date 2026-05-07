@@ -155,7 +155,7 @@ class NarrationEngine {
             }
         });
 
-        if (this.feed.children.length > 50) {
+        if (this.feed.children.length > 5) {
             this.feed.firstElementChild.remove();
         }
     }
