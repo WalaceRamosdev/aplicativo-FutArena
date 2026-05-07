@@ -58,9 +58,11 @@ class NarrationEngine {
     constructor() {
         this.feed = document.getElementById('narration-feed');
         this.lastCommentTime = 0;
-        this.commentInterval = 4000; // Comentários mais frequentes
+        this.commentInterval = 8000; // Intervalo saudável para evitar gargalos na API
         this.team1Name = 'CASA';
         this.team2Name = 'VISITANTE';
+        this.recentComments = [];
+        this.isFetching = false;
     }
 
     init(t1, t2) {
@@ -68,11 +70,14 @@ class NarrationEngine {
         this.team2Name = t2;
         this.feed = document.getElementById('narration-feed');
         if (this.feed) this.feed.innerHTML = '';
+        this.recentComments = [];
+        this.isFetching = false;
 
         // Frase inicial
         if (NarrationDatabase && NarrationDatabase.kickoff) {
             const text = NarrationDatabase.kickoff[Math.floor(Math.random() * NarrationDatabase.kickoff.length)].replace('{team1}', t1);
             this.addComment('system', '0\'', text);
+            this.recentComments.push(text);
         }
     }
 
@@ -93,39 +98,110 @@ class NarrationEngine {
         }
     }
 
-    generateContextualComment(matchTime, team1Name, team2Name) {
-        const now = Date.now();
-        // Aumentei o intervalo para não ficar spamando, mas com check aleatório
-        if (now - this.lastCommentTime < this.commentInterval) return;
+    getLocalComment(category) {
+        const templates = NarrationDatabase[category] || NarrationDatabase.neutral;
+        const template = templates[Math.floor(Math.random() * templates.length)];
+        const activeTeam = Math.random() > 0.5 ? this.team1Name : this.team2Name;
+        return template.replace(/{team}/g, activeTeam).replace('{team1}', this.team1Name);
+    }
 
-        // Atualizar nomes se necessário
+    async generateContextualComment(matchTime, team1Name, team2Name) {
+        const now = Date.now();
+        if (now - this.lastCommentTime < this.commentInterval) return;
+        if (this.isFetching) return;
+
         if (team1Name) this.team1Name = team1Name;
         if (team2Name) this.team2Name = team2Name;
 
         this.lastCommentTime = now;
 
         const timeStr = matchTime + "'";
+        const score1 = document.getElementById('score1')?.textContent || '0';
+        const score2 = document.getElementById('score2')?.textContent || '0';
+        const currentScore = `${score1} : ${score2}`;
 
+        // Determinar categoria do lance aleatoriamente
         const rand = Math.random();
         let category = 'neutral';
         if (rand > 0.6) category = 'attack';
         else if (rand > 0.9) category = 'defense';
 
-        const templates = NarrationDatabase[category];
-        const template = templates[Math.floor(Math.random() * templates.length)];
+        this.isFetching = true;
 
-        const activeTeam = Math.random() > 0.5 ? this.team1Name : this.team2Name;
+        try {
+            const res = await fetch('/api/narrate', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                time: matchTime,
+                team1: this.team1Name,
+                team2: this.team2Name,
+                category: category,
+                score: currentScore,
+                lastComments: this.recentComments.slice(-3)
+              })
+            });
 
-        const finalComment = template.replace(/{team}/g, activeTeam);
-        this.addComment('normal', timeStr, finalComment);
+            if (res.ok) {
+                const data = await res.json();
+                if (data.narration) {
+                    this.addComment('normal', timeStr, data.narration);
+                    this.recentComments.push(data.narration);
+                    if (this.recentComments.length > 5) this.recentComments.shift();
+                    this.isFetching = false;
+                    return;
+                }
+            }
+        } catch (err) {
+            console.warn('Erro ao chamar API de IA para comentários. Usando fallback local.', err);
+        }
+
+        // Fallback local se a API não estiver configurada ou falhar
+        const localComment = this.getLocalComment(category);
+        this.addComment('normal', timeStr, localComment);
+        this.recentComments.push(localComment);
+        this.isFetching = false;
     }
 
-    registerGoal(teamName, time) {
+    async registerGoal(teamName, time) {
+        const now = Date.now();
+        this.lastCommentTime = now + 4000; // Bloqueia outros comentários temporariamente
+        const timeStr = time + "'";
+        const score1 = document.getElementById('score1')?.textContent || '0';
+        const score2 = document.getElementById('score2')?.textContent || '0';
+        const currentScore = `${score1} : ${score2}`;
+
+        try {
+            const res = await fetch('/api/narrate', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                time: time,
+                team1: this.team1Name,
+                team2: this.team2Name,
+                category: 'goal',
+                score: currentScore,
+                lastComments: this.recentComments.slice(-3)
+              })
+            });
+
+            if (res.ok) {
+                const data = await res.json();
+                if (data.narration) {
+                    this.addComment('goal', timeStr, data.narration);
+                    this.recentComments.push(data.narration);
+                    return;
+                }
+            }
+        } catch (err) {
+            console.warn('Erro ao gerar narração de gol com IA:', err);
+        }
+
+        // Fallback local do Gol
         const templates = NarrationDatabase.goal;
         const template = templates[Math.floor(Math.random() * templates.length)];
         const text = template.replace(/{team}/g, teamName);
-        this.addComment('goal', time + "'", text);
-        this.lastCommentTime = Date.now() + 3000;
+        this.addComment('goal', timeStr, text);
     }
 }
 

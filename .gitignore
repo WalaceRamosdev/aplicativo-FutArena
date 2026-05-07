@@ -4,3 +4,5 @@ node_modules
 
 *.exe
 v2 - Copia/
+.env
+.env.*
