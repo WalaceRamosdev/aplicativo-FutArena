@@ -91,7 +91,69 @@ class NarrationEngine {
         item.innerHTML = `<span class="narration-time animate-pop">${time}</span><p class="narration-text">${text}</p>`;
 
         this.feed.appendChild(item);
-        this.feed.scrollTop = this.feed.scrollHeight;
+        
+        // Garante o scroll automático suave tanto em navegadores normais quanto em flex-reverse
+        setTimeout(() => {
+            // Em column-reverse, definir scrollTop para 0 ou scrollHeight força o foco no novo item
+            this.feed.scrollTop = 0;
+            this.feed.scrollTop = this.feed.scrollHeight;
+        }, 50);
+
+        // Efeito de desvanecimento (Fade out) progressivo e destaque do comentário mais recente
+        const comments = Array.from(this.feed.children);
+        comments.reverse().forEach((el, idx) => {
+            const textEl = el.querySelector('.narration-text');
+            const timeEl = el.querySelector('.narration-time');
+            
+            if (idx === 0) {
+                // Comentário mais recente: Destaque máximo
+                el.style.opacity = '1';
+                el.style.transform = 'scale(1.02)';
+                el.style.background = 'rgba(255, 255, 255, 0.08)';
+                if (textEl) {
+                    textEl.style.color = '#ffffff';
+                    textEl.style.fontWeight = '600';
+                }
+                if (timeEl) {
+                    timeEl.style.color = 'var(--accent-green)';
+                }
+            } else if (idx === 1) {
+                // Segundo mais recente: Começa a desvanecer
+                el.style.opacity = '0.65';
+                el.style.transform = 'scale(1)';
+                el.style.background = 'rgba(255, 255, 255, 0.03)';
+                if (textEl) {
+                    textEl.style.color = '#cccccc';
+                    textEl.style.fontWeight = 'normal';
+                }
+            } else if (idx === 2) {
+                // Terceiro mais recente: Bem mais apagado
+                el.style.opacity = '0.35';
+                el.style.transform = 'scale(0.98)';
+                el.style.background = 'rgba(255, 255, 255, 0.02)';
+                if (textEl) {
+                    textEl.style.color = '#999999';
+                    textEl.style.fontWeight = 'normal';
+                }
+            } else if (idx === 3) {
+                // Quarto mais recente: Quase sumindo
+                el.style.opacity = '0.15';
+                el.style.transform = 'scale(0.96)';
+                el.style.background = 'rgba(255, 255, 255, 0.01)';
+                if (textEl) {
+                    textEl.style.color = '#777777';
+                    textEl.style.fontWeight = 'normal';
+                }
+            } else {
+                // Antigos: Praticamente invisíveis ou ocultados do fluxo visual para focar 100% no jogo
+                el.style.opacity = '0.04';
+                el.style.transform = 'scale(0.94)';
+                el.style.background = 'transparent';
+                if (textEl) {
+                    textEl.style.color = '#555555';
+                }
+            }
+        });
 
         if (this.feed.children.length > 50) {
             this.feed.firstElementChild.remove();

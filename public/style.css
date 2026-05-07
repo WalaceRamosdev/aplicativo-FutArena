@@ -1547,6 +1547,12 @@ body {
   z-index: 10010;
   position: relative;
   -webkit-overflow-scrolling: touch; /* Scroll suave no iOS */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.overlay-content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 @keyframes popIn {
@@ -2853,8 +2859,8 @@ body {
   border-radius: 8px;
   border-left: 3px solid transparent;
   animation: slideInTop 0.3s ease-out;
-  /* New Animation */
-  transition: background 0.2s;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.2s;
+  transform-origin: top center;
   flex-shrink: 0;
   /* Prevent shrinking */
 }
