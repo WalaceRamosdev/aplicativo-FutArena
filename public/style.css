@@ -4066,3 +4066,43 @@ body {
 }
 
 /* ==================== ARENA & GAMEPLAY ==================== */
+
+/* ==================== OTIMIZAÇÕES DE PERFORMANCE MOBILE ==================== */
+@media (max-width: 768px) {
+  /* 1. Desativar filtros de desfoque pesados (backdrop-filter) que causam extremo lag em GPUs de celulares */
+  .site-header,
+  .site-footer,
+  .menu-card,
+  .btn-nav,
+  .btn-icon,
+  .music-player-floating,
+  .sidebar-content,
+  .info-modal-content {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  
+  /* Substituir o fundo transparente borrado por cores quase sólidas */
+  .site-header { background: rgba(18, 18, 18, 0.98) !important; }
+  .menu-card { background: rgba(20, 20, 20, 0.98) !important; }
+  
+  /* 2. Ocultar o vídeo de fundo (a remoção do decode será feita via JS também) */
+  #bg-slideshow {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+  
+  /* 3. Fundo alternativo leve para mobile */
+  body {
+    background: #121212;
+    background-image: radial-gradient(circle at top, #1c3d25 0%, #121212 60%) !important;
+  }
+  
+  /* 4. Otimizar renderização de animações do jogo (GPU Acceleration) */
+  .screen,
+  .arena,
+  .menu-card {
+    will-change: transform, opacity;
+  }
+}

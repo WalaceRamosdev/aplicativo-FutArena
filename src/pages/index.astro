@@ -587,6 +587,20 @@ import Layout from '../layouts/Layout.astro';
   <script is:inline src="/narration.js"></script>
   <script is:inline src="/script.js"></script>
   <script is:inline src="/patch_narration.js"></script>
+
+  <!-- Otimização Mobile: Descarregar o vídeo pesado de fundo se for celular -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.innerWidth <= 768) {
+        const bgVideo = document.getElementById('bg-slideshow');
+        if (bgVideo) {
+          bgVideo.pause();
+          bgVideo.removeAttribute('src');
+          bgVideo.load();
+        }
+      }
+    });
+  </script>
 </Layout>
 
 <style>
