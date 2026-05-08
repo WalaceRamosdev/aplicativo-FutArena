@@ -4626,3 +4626,28 @@ body {
     transform: rotate(360deg) translateY(0);
   }
 }
+
+/* Logo Premium FutArena */
+.main-logo {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 15px auto;
+  display: block;
+  filter: drop-shadow(0 0 12px rgba(0, 255, 135, 0.3));
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.main-logo:hover {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 0 20px rgba(0, 255, 135, 0.6)) drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+}
+
+@keyframes logo-breathing {
+  0% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(0, 255, 135, 0.2)); }
+  50% { transform: scale(1.03); filter: drop-shadow(0 0 18px rgba(0, 255, 135, 0.4)) drop-shadow(0 0 5px rgba(255, 215, 0, 0.2)); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(0, 255, 135, 0.2)); }
+}
+
+.main-logo.animate-pulse {
+  animation: logo-breathing 4s infinite ease-in-out;
+}
