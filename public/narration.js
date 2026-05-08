@@ -90,23 +90,17 @@ class NarrationEngine {
 
         item.innerHTML = `<span class="narration-time animate-pop">${time}</span><p class="narration-text">${text}</p>`;
 
-        this.feed.appendChild(item);
-        
-        // Garante o scroll automático suave tanto em navegadores normais quanto em flex-reverse
-        setTimeout(() => {
-            // Em column-reverse, definir scrollTop para 0 ou scrollHeight força o foco no novo item
-            this.feed.scrollTop = 0;
-            this.feed.scrollTop = this.feed.scrollHeight;
-        }, 50);
+        // Insere o comentário mais recente no TOPO (Início do feed)
+        this.feed.insertBefore(item, this.feed.firstChild);
 
         // Efeito de desvanecimento (Fade out) progressivo e destaque do comentário mais recente
         const comments = Array.from(this.feed.children);
-        comments.reverse().forEach((el, idx) => {
+        comments.forEach((el, idx) => {
             const textEl = el.querySelector('.narration-text');
             const timeEl = el.querySelector('.narration-time');
             
             if (idx === 0) {
-                // Comentário mais recente: Destaque máximo
+                // Comentário mais recente (no topo): Destaque máximo
                 el.style.opacity = '1';
                 el.style.transform = 'scale(1.02)';
                 el.style.background = 'rgba(255, 255, 255, 0.08)';
@@ -155,8 +149,9 @@ class NarrationEngine {
             }
         });
 
+        // Limita rigidamente a no máximo 5 comentários, removendo o mais antigo do final
         if (this.feed.children.length > 5) {
-            this.feed.firstElementChild.remove();
+            this.feed.lastElementChild.remove();
         }
     }
 

@@ -2827,7 +2827,7 @@ body {
   overflow: hidden; /* Remove o scrollbar de vez */
   padding: 15px;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column; /* Alinhamento padrão de cima para baixo */
   height: 250px;
   max-height: 250px;
   gap: 12px;
