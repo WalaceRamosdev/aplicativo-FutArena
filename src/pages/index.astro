@@ -279,60 +279,115 @@ import Layout from '../layouts/Layout.astro';
 
     <!-- DASHBOARD ARCADE -->
     <div id="arcade-dashboard" class="screen hidden">
-       <div class="arcade-header">
-          <div style="display: flex; align-items: center; position: relative;">
+
+       <!-- HEADER COMPACTO -->
+       <div class="arcade-header-v2">
+          <div class="arcade-header-left">
               <div id="arcade-team-header-bg" class="arcade-team-header-bg"></div>
-              <h2 id="arcade-user-team">Seu Time</h2>
+              <h2 id="arcade-user-team" class="arcade-team-title">Seu Time</h2>
           </div>
-           <div class="arcade-stats-row">
-               <div class="stat-badge overall-badge"><span class="stat-label">OVR</span><span id="arcade-overall" class="stat-value">75</span></div>
-               <div class="stat-badge coins-badge"><span class="coin-emoji">🪙</span><span id="arcade-coins" class="stat-value">0</span></div>
-               <div class="round-display">Rodada <span id="current-round-num">1</span></div>
-           </div>
+          <div class="arcade-header-badges">
+              <div class="badge-pill badge-ovr" aria-label="Overall do time">
+                  <span class="badge-label">OVR</span>
+                  <span id="arcade-overall" class="badge-value">75</span>
+              </div>
+              <div class="badge-pill badge-coins" aria-label="Moedas disponíveis">
+                  <span class="badge-icon">🪙</span>
+                  <span id="arcade-coins" class="badge-value">0</span>
+              </div>
+              <div class="badge-pill badge-round" aria-label="Rodada atual">
+                  <span class="badge-label">RD</span>
+                  <span id="current-round-num" class="badge-value">1</span>
+                  <span class="badge-suffix">/19</span>
+              </div>
+          </div>
        </div>
-       <div class="arcade-content">
-           <div class="next-match-card">
-               <h3>Próximo Confronto</h3>
-               <div class="match-preview-arcade">
-                   <div class="team-preview-info">
-                       <div id="arcade-home-shield" class="arcade-shield-lg"></div>
-                       <span id="arcade-home-name" class="team-name">Casa</span>
-                       <span id="arcade-home-overall" class="team-overall">OVR: 75</span>
-                   </div>
-                   <span class="vs-small">VS</span>
-                   <div class="team-preview-info">
-                       <div id="arcade-away-shield" class="arcade-shield-lg"></div>
-                       <span id="arcade-away-name" class="team-name">Visitante</span>
-                       <span id="arcade-away-overall" class="team-overall">OVR: 75</span>
-                   </div>
-               </div>
-                <div class="match-action-buttons">
-                    <button id="btn-play-round" class="btn-start-big">JOGAR RODADA</button>
-                    <button id="btn-auto-simulate" class="btn-auto-simulate" title="Simular toda a rodada automaticamente">⚡ Simular Rodada</button>
-                </div>
-                <div class="speed-controls">
-                    <span class="speed-label">Velocidade:</span>
-                    <button class="speed-btn" data-speed="slow" title="Lento">🐢</button>
-                    <button class="speed-btn active" data-speed="normal" title="Normal">▶</button>
-                    <button class="speed-btn" data-speed="fast" title="Rápido">⏩</button>
-                </div>
-                <div class="upgrade-section">
-                   <button id="btn-upgrade-team" class="btn-upgrade">⬆️ Melhorar Time (<span id="upgrade-cost">100</span> 🪙)</button>
-               </div>
-           </div>
-           <div class="standings-card">
-               <h3>Classificação</h3>
-               <div class="table-scroll">
-                   <table class="stats-table arcade-table">
-                      <thead>
-                          <tr><th>#</th><th>Time</th><th>P</th><th>J</th><th>V</th><th>SG</th></tr>
-                      </thead>
-                      <tbody id="arcade-standings-list"></tbody>
-                   </table>
-               </div>
-           </div>
+
+       <!-- TAB NAVIGATION (Mobile) -->
+       <div class="arcade-tabs" role="tablist" aria-label="Navegação do campeonato">
+          <button class="arcade-tab active" role="tab" aria-selected="true" aria-controls="arcade-panel-match" data-tab="match">
+              ⚽ Partida
+          </button>
+          <button class="arcade-tab" role="tab" aria-selected="false" aria-controls="arcade-panel-standings" data-tab="standings">
+              📊 Classificação
+          </button>
        </div>
-       <button id="btn-quit-arcade" class="btn-back">Sair do Campeonato</button>
+
+       <!-- CONTEÚDO PRINCIPAL -->
+       <div class="arcade-content-v2">
+
+           <!-- PAINEL: PRÓXIMA PARTIDA -->
+           <div class="arcade-panel" id="arcade-panel-match" role="tabpanel">
+               <div class="next-match-card-v2">
+                   <div class="match-card-header">
+                       <span class="match-card-label">Próximo Confronto</span>
+                   </div>
+                   <div class="match-versus-layout">
+                       <div class="match-team" aria-label="Time da casa">
+                           <div id="arcade-home-shield" class="arcade-shield-lg"></div>
+                           <span id="arcade-home-name" class="match-team-name">Casa</span>
+                           <span id="arcade-home-overall" class="match-team-ovr">OVR: 75</span>
+                       </div>
+                       <div class="match-vs-badge" aria-hidden="true">VS</div>
+                       <div class="match-team" aria-label="Time visitante">
+                           <div id="arcade-away-shield" class="arcade-shield-lg"></div>
+                           <span id="arcade-away-name" class="match-team-name">Visitante</span>
+                           <span id="arcade-away-overall" class="match-team-ovr">OVR: 75</span>
+                       </div>
+                   </div>
+               </div>
+
+               <!-- AÇÕES -->
+               <div class="arcade-actions">
+                   <div class="match-action-buttons">
+                       <button id="btn-play-round" class="btn-start-big" aria-label="Jogar a rodada">JOGAR RODADA</button>
+                       <button id="btn-auto-simulate" class="btn-auto-simulate" title="Simular toda a rodada automaticamente" aria-label="Simular rodada automaticamente">
+                           ⚡ Simular Rodada
+                       </button>
+                   </div>
+                   <div class="speed-controls" role="group" aria-label="Controles de velocidade da partida">
+                       <span class="speed-label">Velocidade:</span>
+                       <button class="speed-btn" data-speed="slow" title="Lento" aria-label="Velocidade lenta">🐢</button>
+                       <button class="speed-btn active" data-speed="normal" title="Normal" aria-label="Velocidade normal">▶</button>
+                       <button class="speed-btn" data-speed="fast" title="Rápido" aria-label="Velocidade rápida">⏩</button>
+                   </div>
+                   <div class="upgrade-section">
+                      <button id="btn-upgrade-team" class="btn-upgrade" aria-label="Melhorar o time">
+                          ⬆️ Melhorar Time (<span id="upgrade-cost">100</span> 🪙)
+                      </button>
+                   </div>
+               </div>
+           </div>
+
+           <!-- PAINEL: CLASSIFICAÇÃO -->
+           <div class="arcade-panel" id="arcade-panel-standings" role="tabpanel">
+               <div class="standings-card-v2">
+                   <div class="standings-header">
+                       <h3>📋 Classificação</h3>
+                   </div>
+                   <div class="table-scroll-v2">
+                       <table class="stats-table arcade-table" aria-label="Tabela de classificação do campeonato">
+                          <thead>
+                              <tr>
+                                  <th scope="col" aria-label="Posição">#</th>
+                                  <th scope="col" aria-label="Time">Time</th>
+                                  <th scope="col" aria-label="Pontos">P</th>
+                                  <th scope="col" aria-label="Jogos">J</th>
+                                  <th scope="col" aria-label="Vitórias">V</th>
+                                  <th scope="col" aria-label="Saldo de Gols">SG</th>
+                              </tr>
+                          </thead>
+                          <tbody id="arcade-standings-list"></tbody>
+                       </table>
+                   </div>
+               </div>
+           </div>
+
+       </div>
+
+       <button id="btn-quit-arcade" class="btn-quit-arcade" aria-label="Sair do modo campeonato">
+           <span>✕</span> Sair do Campeonato
+       </button>
     </div>
 
     <!-- DASHBOARD COPA DO MUNDO -->
@@ -601,6 +656,64 @@ import Layout from '../layouts/Layout.astro';
         }
       }
     });
+  </script>
+
+  <!-- Arcade Dashboard V2 Tab Logic -->
+  <script is:inline>
+  (function() {
+    const tabs = document.querySelectorAll('.arcade-tab');
+    const panelMatch = document.getElementById('arcade-panel-match');
+    const panelStandings = document.getElementById('arcade-panel-standings');
+
+    if (!tabs.length || !panelMatch || !panelStandings) return;
+
+    function switchTab(activeTab) {
+      tabs.forEach(function(t) {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      activeTab.classList.add('active');
+      activeTab.setAttribute('aria-selected', 'true');
+
+      var tabId = activeTab.getAttribute('data-tab');
+      if (tabId === 'match') {
+        panelMatch.classList.remove('hidden-panel');
+        panelStandings.classList.add('hidden-panel');
+      } else {
+        panelStandings.classList.remove('hidden-panel');
+        panelMatch.classList.add('hidden-panel');
+      }
+    }
+
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        switchTab(this);
+      });
+    });
+
+    function handleResize() {
+      var isDesktop = window.innerWidth >= 768;
+      if (isDesktop) {
+        panelMatch.classList.remove('hidden-panel');
+        panelStandings.classList.remove('hidden-panel');
+      } else {
+        var activeTab = document.querySelector('.arcade-tab.active');
+        if (activeTab) {
+          var tabId = activeTab.getAttribute('data-tab');
+          if (tabId === 'match') {
+            panelMatch.classList.remove('hidden-panel');
+            panelStandings.classList.add('hidden-panel');
+          } else {
+            panelStandings.classList.remove('hidden-panel');
+            panelMatch.classList.add('hidden-panel');
+          }
+        }
+      }
+    }
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+  })();
   </script>
 </Layout>
 

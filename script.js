@@ -4557,6 +4557,9 @@ function openInfoModal(section) {
 
 // ==================== SHOW SCREEN (Core Navigation) ====================
 function showScreen(screenName) {
+    // Reset scroll position to top
+    window.scrollTo({ top: 0, behavior: 'instant' });
+
     // Hide all screens
     const screens = [mainMenu, selectionScreen, arcadeDashboard, championScreen, matchScreen];
     screens.forEach(s => { if (s) s.classList.add('hidden'); });
