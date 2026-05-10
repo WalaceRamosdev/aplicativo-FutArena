@@ -2163,7 +2163,27 @@ function updateArcadeHeaderBg(team) {
 }
 
 function updateArcadeDashboard() {
-    currentRoundNum.textContent = (ArcadeManager.currentRound + 1) + "/" + ArcadeManager.schedule.length;
+    const tourTitle = document.getElementById('arcade-tournament-title');
+    if (tourTitle) {
+        let stageName = "Pontos Corridos";
+        if (typeof ArcadeManager !== 'undefined') {
+            if (ArcadeManager.currentStage === 'quarters') stageName = "Quartas de Final";
+            else if (ArcadeManager.currentStage === 'semis') stageName = "Semifinais";
+            else if (ArcadeManager.currentStage === 'final') stageName = "Grande Final";
+            else if (ArcadeManager.currentLeague === 'carioca') stageName = "Taça Guanabara";
+            else if (ArcadeManager.currentLeague === 'Gauchão') stageName = "Fase Classificatória";
+            else if (ArcadeManager.currentLeague === 'mineiro') stageName = "Fase de Grupos";
+            else if (ArcadeManager.currentLeague === 'paranaense') stageName = "Fase Classificatória";
+        }
+        tourTitle.textContent = stageName;
+        currentRoundNum.textContent = (ArcadeManager.currentRound + 1);
+        const suffix = currentRoundNum.nextElementSibling;
+        if (suffix && suffix.classList.contains('badge-suffix')) {
+            suffix.textContent = "/" + ArcadeManager.schedule.length;
+        }
+    } else {
+        currentRoundNum.textContent = (ArcadeManager.currentRound + 1) + "/" + ArcadeManager.schedule.length;
+    }
 
     // Atualiza UI de moedas e overall
     ArcadeManager.updateCoinsUI();

@@ -3705,7 +3705,17 @@ function updateArcadeDashboard() {
     else if (ArcadeManager.currentLeague === 'paranaense' && ArcadeManager.currentStage === 'regular') stageName = "Fase Classificatória";
     else if (ArcadeManager.currentLeague === 'Brasileirão') stageName = "Pontos Corridos";
 
-    currentRoundNum.textContent = stageName + (ArcadeManager.currentStage === 'regular' ? ` - Rodada ${ArcadeManager.currentRound + 1}/${ArcadeManager.schedule.length}` : '');
+    const tourTitle = document.getElementById('arcade-tournament-title');
+    if (tourTitle) {
+        tourTitle.textContent = stageName;
+        currentRoundNum.textContent = ArcadeManager.currentStage === 'regular' ? `${ArcadeManager.currentRound + 1}` : '1';
+        const suffix = currentRoundNum.nextElementSibling;
+        if (suffix && suffix.classList.contains('badge-suffix')) {
+            suffix.textContent = ArcadeManager.currentStage === 'regular' ? `/${ArcadeManager.schedule.length}` : '';
+        }
+    } else {
+        currentRoundNum.textContent = stageName + (ArcadeManager.currentStage === 'regular' ? ` - Rodada ${ArcadeManager.currentRound + 1}/${ArcadeManager.schedule.length}` : '');
+    }
 
     // Coins & Overall
     ArcadeManager.updateCoinsUI();
