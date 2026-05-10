@@ -1,5 +1,5 @@
-const CACHE_NAME = 'futarena-pwa-v1';
-const DYNAMIC_CACHE_NAME = 'futarena-dynamic-v1';
+const CACHE_NAME = 'futarena-pwa-v2';
+const DYNAMIC_CACHE_NAME = 'futarena-dynamic-v2';
 
 const ASSETS_TO_CACHE = [
   '/',
