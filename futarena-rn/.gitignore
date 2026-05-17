@@ -1,0 +1,22 @@
+# Expo local files
+.expo/*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Web build output
+web-build/
+
+# Native build directories (caso rode prebuild mais tarde)
+ios/
+android/
+
+# Dependencies
+node_modules/
+
+# Local env files
+.env*.local
+
+# TypeScript build info
+tsconfig.tsbuildinfo

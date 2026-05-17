@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "FutArena 2026",
+    "slug": "futarena-rn",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./src/assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0A0A0A"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.walaceramos.futarena",
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/adaptive-icon.png",
+        "backgroundColor": "#0A0A0A"
+      }
+    },
+    "web": {
+      "favicon": "./src/assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "5092a27d-04b6-42a7-b925-9f93e57e098d"
+      }
+    }
+  }
+}
