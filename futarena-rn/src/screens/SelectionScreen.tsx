@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Image, FlatList, Dimensions, StatusBar } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Team } from '../types';
@@ -8,7 +8,7 @@ import { SoundManager } from '../sound';
 const { width, height } = Dimensions.get('window');
 
 // Componente para renderizar escudo com cores e iniciais de contingência
-export function TeamShield({ team, size = 'md' }: { team: Team; size?: 'sm' | 'md' | 'lg' | 'xl' }) {
+export const TeamShield = React.memo(function TeamShield({ team, size = 'md' }: { team: Team; size?: 'sm' | 'md' | 'lg' | 'xl' }) {
   const [imageError, setImageError] = useState(false);
 
   const sizeMap = {
@@ -67,7 +67,7 @@ export function TeamShield({ team, size = 'md' }: { team: Team; size?: 'sm' | 'm
       </View>
     </LinearGradient>
   );
-}
+});
 
 // Helper para simular e calcular atributos determinísticos baseados no OVR do time
 const getTeamAttributes = (overall: number, seed: string) => {
@@ -95,6 +95,12 @@ const getTeamStars = (overall: number) => {
   if (overall >= 69) return '⭐⭐⭐★';
   return '⭐⭐⭐';
 };
+
+interface SelectionScreenProps {
+  mode: 'quick' | 'arcade' | 'worldcup';
+  onBack: () => void;
+  onSelectTeams: (teams: Team[], leagueId: string) => void;
+}
 
 export default function SelectionScreen({ mode, onBack, onSelectTeams }: SelectionScreenProps) {
   const [selectedLeague, setSelectedLeague] = useState('brasileirao');
@@ -184,24 +190,8 @@ export default function SelectionScreen({ mode, onBack, onSelectTeams }: Selecti
 
     return (
       <View style={styles.consoleCard}>
-        {/* Watermark/Background shield (Large and low opacity) */}
-        <View style={styles.cardWatermarkContainer}>
-          <Image
-            source={{ uri: team.badge }}
-            style={styles.cardWatermarkImage}
-            onError={() => {}}
-          />
-        </View>
-
-        {/* Hexagonal Glass Container */}
         <View style={[styles.hexBadge, { borderColor: team.primaryColor }]}>
           <View style={styles.hexBadgeGloss} />
-          {/* Watermark directly behind the shield */}
-          <Image
-            source={{ uri: team.badge }}
-            style={styles.hexBadgeWatermark}
-            onError={() => {}}
-          />
           <TeamShield team={team} size="xl" />
         </View>
 
@@ -352,6 +342,10 @@ export default function SelectionScreen({ mode, onBack, onSelectTeams }: Selecti
             columnWrapperStyle={styles.teamsListRow}
             showsVerticalScrollIndicator={false}
             contentContainerStyle={styles.flatListContent}
+            removeClippedSubviews={true}
+            initialNumToRender={12}
+            maxToRenderPerBatch={12}
+            windowSize={5}
             renderItem={({ item }) => {
               const isSelected = selectedTeams.some(t => t.id === item.id);
               return (

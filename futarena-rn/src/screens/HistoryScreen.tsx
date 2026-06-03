@@ -63,9 +63,13 @@ export default function HistoryScreen({ onBack }: HistoryScreenProps) {
       {historyList.length > 0 ? (
         <FlatList
           data={historyList}
-          keyExtractor={(item, index) => index.toString()}
+          keyExtractor={(item) => `${item.team1}-${item.team2}-${item.date}`}
           contentContainerStyle={styles.listContent}
           showsVerticalScrollIndicator={false}
+          removeClippedSubviews={true}
+          initialNumToRender={12}
+          maxToRenderPerBatch={8}
+          windowSize={5}
           renderItem={({ item }) => {
             const team1 = findTeamById(item.team1);
             const team2 = findTeamById(item.team2);

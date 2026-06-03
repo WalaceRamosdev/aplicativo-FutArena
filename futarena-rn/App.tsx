@@ -70,19 +70,24 @@ export default function App() {
   }, []);
 
   const checkSavedCampaign = async () => {
-    const saved = await StorageManager.getArcadeProgress();
-    if (saved) {
-      const team = findTeamById(saved.userTeamId);
-      if (team && saved.currentRound < saved.schedule.length) {
-        setHasSavedProgress(true);
-        setSavedProgressInfo(
-          `Rodada ${saved.currentRound + 1}/${saved.schedule.length} com ${team.name}`
-        );
+    try {
+      const saved = await StorageManager.getArcadeProgress();
+      if (saved) {
+        const team = findTeamById(saved.userTeamId);
+        if (team && saved.currentRound < saved.schedule.length) {
+          setHasSavedProgress(true);
+          setSavedProgressInfo(
+            `Rodada ${saved.currentRound + 1}/${saved.schedule.length} com ${team.name}`
+          );
+        } else {
+          setHasSavedProgress(false);
+          await StorageManager.clearArcadeProgress();
+        }
       } else {
         setHasSavedProgress(false);
-        await StorageManager.clearArcadeProgress();
       }
-    } else {
+    } catch (error) {
+      if (__DEV__) console.warn("StorageManager error during startup checkSavedCampaign:", error);
       setHasSavedProgress(false);
     }
   };

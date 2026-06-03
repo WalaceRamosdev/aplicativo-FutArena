@@ -35,12 +35,12 @@ export const SoundManager = {
   getSoundEnabled: () => isSoundEnabled,
 
   // --- Efeitos Sonoros (Mockados em modo de segurança) ---
-  playWhistle: async () => {},
-  playCollision: async () => {},
-  playGoal: async () => {},
-  playClick: async () => {},
-  startCrowd: async () => {},
-  stopCrowd: async () => {},
+  playWhistle: () => {},
+  playCollision: () => {},
+  playGoal: () => {},
+  playClick: () => {},
+  startCrowd: () => {},
+  stopCrowd: () => {},
 
   // --- Controle de Música (Mockado em modo de segurança) ---
   getPlaylist: () => PLAYLIST,

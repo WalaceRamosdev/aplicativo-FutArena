@@ -240,13 +240,10 @@ export const getLeagueName = (leagueId: string): string => {
   }
 };
 
-export const findTeamById = (id: string): Team | undefined => {
-  return brazilianTeams.find(t => t.id === id) ||
-         libertadoresTeams.find(t => t.id === id) ||
-         paulistaTeams.find(t => t.id === id) ||
-         cariocaTeams.find(t => t.id === id) ||
-         gauchoTeams.find(t => t.id === id) ||
-         mineiroTeams.find(t => t.id === id) ||
-         paranaenseTeams.find(t => t.id === id) ||
-         internationalTeams.find(t => t.id === id);
-};
+const teamMap = new Map<string, Team>();
+// Mantém ordem de prioridade: brasileirao > libertadores > paulista > etc (primeiro vence)
+[...brazilianTeams, ...libertadoresTeams, ...paulistaTeams, ...cariocaTeams,
+ ...gauchoTeams, ...mineiroTeams, ...paranaenseTeams, ...internationalTeams]
+  .forEach(t => { if (!teamMap.has(t.id)) teamMap.set(t.id, t); });
+
+export const findTeamById = (id: string): Team | undefined => teamMap.get(id);

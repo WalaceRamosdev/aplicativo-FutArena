@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView, FlatList, StatusBar } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Team, Standings, RoundMatch } from '../types';
@@ -55,26 +55,29 @@ export default function ArcadeDashboardScreen({
     : '';
   const opponent = findTeamById(opponentId);
 
-  // Mapeia e ordena classificação
-  const sortedStandings = Object.entries(standings)
-    .map(([id, stats]) => {
-      const team = findTeamById(id);
-      return {
-        id,
-        name: team ? team.name : 'Sem nome',
-        shortName: team ? team.shortName : '???',
-        badge: team ? team.badge : '',
-        primaryColor: team ? team.primaryColor : '#000000',
-        secondaryColor: team ? team.secondaryColor : '#FFFFFF',
-        overall: team ? team.overall : 75,
-        ...stats,
-      };
-    })
-    .sort((a, b) => {
-      if (b.p !== a.p) return b.p - a.p;
-      if (b.sg !== a.sg) return b.sg - a.sg;
-      return b.gp - a.gp;
-    });
+  // Mapeia e ordena classificação (memoizado)
+  const sortedStandings = useMemo(() =>
+    Object.entries(standings)
+      .map(([id, stats]) => {
+        const team = findTeamById(id);
+        return {
+          id,
+          name: team ? team.name : 'Sem nome',
+          shortName: team ? team.shortName : '???',
+          badge: team ? team.badge : '',
+          primaryColor: team ? team.primaryColor : '#000000',
+          secondaryColor: team ? team.secondaryColor : '#FFFFFF',
+          overall: team ? team.overall : 75,
+          ...stats,
+        };
+      })
+      .sort((a, b) => {
+        if (b.p !== a.p) return b.p - a.p;
+        if (b.sg !== a.sg) return b.sg - a.sg;
+        return b.gp - a.gp;
+      }),
+    [standings]
+  );
 
   const userPosition = sortedStandings.findIndex(t => t.id === userTeam.id) + 1;
 
@@ -84,23 +87,15 @@ export default function ArcadeDashboardScreen({
   };
 
   // Computa a dificuldade do confronto de forma dinâmica baseado na diferença de OVR
-  const opponentOverall = opponent ? opponent.overall : 75;
-  const ovrDiff = currentOvr - opponentOverall;
-  let difficultyText = 'EQUILIBRADO ⚖️';
-  let difficultyColor = '#FFD700';
-  if (ovrDiff > 5) {
-    difficultyText = 'FAVORITO 👍';
-    difficultyColor = '#00FF66';
-  } else if (ovrDiff < -5) {
-    difficultyText = 'DESAFIO MÁXIMO 🔥';
-    difficultyColor = '#FF007F';
-  } else if (ovrDiff < 0) {
-    difficultyText = 'JOGO DIFÍCIL ⚠️';
-    difficultyColor = '#FF8A00';
-  } else if (ovrDiff > 0) {
-    difficultyText = 'LIGEIRO FAVORITISMO 📈';
-    difficultyColor = '#00E5FF';
-  }
+  const { difficultyText, difficultyColor } = useMemo(() => {
+    const opponentOverall = opponent ? opponent.overall : 75;
+    const ovrDiff = currentOvr - opponentOverall;
+    if (ovrDiff > 5) return { difficultyText: 'FAVORITO 👍', difficultyColor: '#00FF66' };
+    if (ovrDiff < -5) return { difficultyText: 'DESAFIO MÁXIMO 🔥', difficultyColor: '#FF007F' };
+    if (ovrDiff < 0) return { difficultyText: 'JOGO DIFÍCIL ⚠️', difficultyColor: '#FF8A00' };
+    if (ovrDiff > 0) return { difficultyText: 'LIGEIRO FAVORITISMO 📈', difficultyColor: '#00E5FF' };
+    return { difficultyText: 'EQUILIBRADO ⚖️', difficultyColor: '#FFD700' };
+  }, [currentOvr, opponent]);
 
   const handlePressSimulate = () => {
     SoundManager.playClick();
@@ -334,6 +329,10 @@ export default function ArcadeDashboardScreen({
             data={sortedStandings}
             keyExtractor={item => item.id}
             showsVerticalScrollIndicator={false}
+            removeClippedSubviews={true}
+            initialNumToRender={12}
+            maxToRenderPerBatch={10}
+            windowSize={5}
             renderItem={({ item, index }) => {
               const isUser = item.id === userTeam.id;
               const isG4 = index < 4;

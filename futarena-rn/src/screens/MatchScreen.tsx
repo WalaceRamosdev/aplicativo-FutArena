@@ -4,26 +4,25 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Team } from '../types';
 import { TeamShield } from './SelectionScreen';
 
-// Componente para renderizar o escudo diretamente (sem círculo externo e maior) no placar
-function ScoreboardCrest({ team }: { team: Team }) {
+const ScoreboardCrest = React.memo(function ScoreboardCrest({ team }: { team: Team }) {
   const [imageError, setImageError] = useState(false);
 
   if (!imageError && team.badge) {
     return (
       <Image
         source={{ uri: team.badge }}
-        style={{ width: 36, height: 36, resizeMode: 'contain' }}
+        style={styles.scoreboardCrestImage}
         onError={() => setImageError(true)}
       />
     );
   }
 
   return (
-    <Text style={{ color: '#FFFFFF', fontSize: 13, fontWeight: '900', letterSpacing: 0.5 }}>
+    <Text style={styles.scoreboardCrestFallback}>
       {team.shortName}
     </Text>
   );
-}
+});
 import { SoundManager } from '../sound';
 import { MATCH_EVENTS, AICommentator } from '../commentary';
 
@@ -85,18 +84,31 @@ export default function MatchScreen({
   const score2Ref = useRef(0);
   const logsRef = useRef<string[]>([]);
 
-  // Animação de tremor
   const shakeAnim = useRef(new Animated.Value(0)).current;
+
+  // Animated values para updates 60fps sem re-render (roda na UI thread)
+  const shield1X = useRef(new Animated.Value(50 - SHIELD_SIZE / 2)).current;
+  const shield1Y = useRef(new Animated.Value(130 - SHIELD_SIZE / 2)).current;
+  const shield2X = useRef(new Animated.Value(210 - SHIELD_SIZE / 2)).current;
+  const shield2Y = useRef(new Animated.Value(130 - SHIELD_SIZE / 2)).current;
+  const fieldRotAnim = useRef(new Animated.Value(0)).current;
+  const fieldRotInterpolated = useRef(fieldRotAnim.interpolate({
+    inputRange: [0, 360],
+    outputRange: ['0deg', '360deg'],
+  })).current;
+  const lastDisplayedMinRef = useRef(0);
+  const particleFrameThrottle = useRef(0);
 
   // Refs de física para rodar fora das atualizações lentas de render
   const shield1Ref = useRef<ShieldState>({ x: 50, y: 130, vx: 0, vy: 0 });
   const shield2Ref = useRef<ShieldState>({ x: 210, y: 130, vx: 0, vy: 0 });
   const rotationRef = useRef(0);
-  const gameTimeRef = useRef(0); // em ms
+  const gameTimeRef = useRef(0);
   const lastEventTimeRef = useRef(0);
   const hasFirstGoalRef = useRef(false);
   const isGoalCooldownRef = useRef(false);
-  const speedRef = useRef(1);
+  const goalTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const logScrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [extraTimeMinutes, setExtraTimeMinutes] = useState(0);
   const [isExtraTime, setIsExtraTime] = useState(false);
   const extraTimeMinutesRef = useRef(0);
@@ -113,11 +125,6 @@ export default function MatchScreen({
   const [renderParticles, setRenderParticles] = useState<any[]>([]);
   const particlesRef = useRef<any[]>([]);
   const goalScaleAnim = useRef(new Animated.Value(0.1)).current;
-
-  // Escalas locais para renderizar os escudos
-  const [s1Pos, setS1Pos] = useState({ x: 50, y: 130 });
-  const [s2Pos, setS2Pos] = useState({ x: 210, y: 130 });
-  const [fieldRot, setFieldRot] = useState(0);
 
   const scrollRef = useRef<ScrollView>(null);
 
@@ -171,6 +178,8 @@ export default function MatchScreen({
     return () => {
       clearInterval(interval);
       SoundManager.stopCrowd();
+      if (goalTimeoutRef.current) clearTimeout(goalTimeoutRef.current);
+      if (logScrollTimeoutRef.current) clearTimeout(logScrollTimeoutRef.current);
     };
   }, []);
 
@@ -232,12 +241,15 @@ export default function MatchScreen({
         
         const finalLimit = 90 + extraTimeMinutesRef.current;
         const displayMin = Math.min(finalLimit, currentMin);
-        setMatchTime(displayMin);
+        if (displayMin !== lastDisplayedMinRef.current) {
+          lastDisplayedMinRef.current = displayMin;
+          setMatchTime(displayMin);
+        }
 
         // Roda rotação do campo se houver gol marcado
         if (hasFirstGoalRef.current) {
           rotationRef.current = (rotationRef.current + 0.85 * currentSpeedMult) % 360;
-          setFieldRot(rotationRef.current);
+          fieldRotAnim.setValue(rotationRef.current);
         }
 
         // Atualiza física individual
@@ -266,8 +278,10 @@ export default function MatchScreen({
         }
 
         // Atualiza posições na tela
-        setS1Pos({ x: shield1Ref.current.x, y: shield1Ref.current.y });
-        setS2Pos({ x: shield2Ref.current.x, y: shield2Ref.current.y });
+        shield1X.setValue(shield1Ref.current.x - SHIELD_SIZE / 2);
+        shield1Y.setValue(shield1Ref.current.y - SHIELD_SIZE / 2);
+        shield2X.setValue(shield2Ref.current.x - SHIELD_SIZE / 2);
+        shield2Y.setValue(shield2Ref.current.y - SHIELD_SIZE / 2);
 
         // Trigger de eventos de arbitragem aleatórios a cada 3.5 segundos virtuais
         if (gameTimeRef.current - lastEventTimeRef.current > 3500) {
@@ -276,11 +290,11 @@ export default function MatchScreen({
         }
       }
 
-      // Atualiza e processa partículas explosivas de celebração a 60 FPS
+      // Atualiza e processa partículas explosivas de celebração (throttled a cada 4 frames)
       if (particlesRef.current.length > 0) {
         particlesRef.current = particlesRef.current.map(p => {
-          const newVx = p.vx * 0.94; // Drag aerodinâmico
-          const newVy = p.vy * 0.94 + 0.12; // Efeito da gravidade
+          const newVx = p.vx * 0.94;
+          const newVy = p.vy * 0.94 + 0.12;
           return {
             ...p,
             x: p.x + newVx,
@@ -290,7 +304,10 @@ export default function MatchScreen({
           };
         }).filter(p => p.opacity > 0 && p.scale > 0);
 
-        setRenderParticles([...particlesRef.current]);
+        particleFrameThrottle.current++;
+        if (particleFrameThrottle.current % 4 === 0) {
+          setRenderParticles([...particlesRef.current]);
+        }
       }
 
       animId = requestAnimationFrame(physicsLoop);
@@ -316,7 +333,8 @@ export default function MatchScreen({
   const addLog = (text: string) => {
     logsRef.current.push(text);
     setLogs([...logsRef.current]);
-    setTimeout(() => {
+    if (logScrollTimeoutRef.current) clearTimeout(logScrollTimeoutRef.current);
+    logScrollTimeoutRef.current = setTimeout(() => {
       scrollRef.current?.scrollToEnd({ animated: true });
     }, 100);
   };
@@ -383,8 +401,10 @@ export default function MatchScreen({
       vy: (Math.random() - 0.5) * BASE_SPEED,
     };
 
-    setS1Pos({ x: shield1Ref.current.x, y: shield1Ref.current.y });
-    setS2Pos({ x: shield2Ref.current.x, y: shield2Ref.current.y });
+    shield1X.setValue(shield1Ref.current.x - SHIELD_SIZE / 2);
+    shield1Y.setValue(shield1Ref.current.y - SHIELD_SIZE / 2);
+    shield2X.setValue(shield2Ref.current.x - SHIELD_SIZE / 2);
+    shield2Y.setValue(shield2Ref.current.y - SHIELD_SIZE / 2);
   };
 
   const updateShieldPhysics = (shield: ShieldState, currentRotation: number) => {
@@ -606,8 +626,8 @@ export default function MatchScreen({
     // Teleporta os escudos imediatamente para o centro do campo para evitar repetição infinita
     resetPositions();
 
-    setTimeout(() => {
-      // Fade out de segurança para a escala
+    if (goalTimeoutRef.current) clearTimeout(goalTimeoutRef.current);
+    goalTimeoutRef.current = setTimeout(() => {
       Animated.timing(goalScaleAnim, {
         toValue: 0,
         duration: 250,
@@ -778,10 +798,10 @@ export default function MatchScreen({
           {/* Campo de Futebol Circular */}
           <View style={styles.fieldPitch}>
             {/* Linhas demarcatórias rotativas */}
-            <View
+            <Animated.View
               style={[
                 styles.fieldLinesContainer,
-                { transform: [{ rotate: `${fieldRot}deg` }] },
+                { transform: [{ rotate: fieldRotInterpolated }] },
               ]}
             >
               {/* Linha Central */}
@@ -791,28 +811,18 @@ export default function MatchScreen({
               {/* Trave Net (Fica embaixo do campo) */}
               <View style={styles.goalBox}>
                 <View style={styles.goalLine} />
-                <View style={styles.goalNet} />
-              </View>
+              <View style={styles.goalNet} />
             </View>
+            </Animated.View>
 
-            {/* Escudos Bouncing (Posicionados em Absoluto) */}
-            <View
-              style={[
-                styles.shieldSprite,
-                { transform: [{ translateX: s1Pos.x - (SHIELD_SIZE / 2) }, { translateY: s1Pos.y - (SHIELD_SIZE / 2) }] },
-              ]}
-            >
+            {/* Escudos Bouncing com Animated (UI thread, sem re-render) */}
+            <Animated.View style={[styles.shieldSprite, { transform: [{ translateX: shield1X }, { translateY: shield1Y }] }]}>
               <TeamShield team={team1} size="sm" />
-            </View>
+            </Animated.View>
 
-            <View
-              style={[
-                styles.shieldSprite,
-                { transform: [{ translateX: s2Pos.x - (SHIELD_SIZE / 2) }, { translateY: s2Pos.y - (SHIELD_SIZE / 2) }] },
-              ]}
-            >
+            <Animated.View style={[styles.shieldSprite, { transform: [{ translateX: shield2X }, { translateY: shield2Y }] }]}>
               <TeamShield team={team2} size="sm" />
-            </View>
+            </Animated.View>
           </View>
         </View>
       </View>
@@ -1465,6 +1475,17 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 9.5,
     fontWeight: '900',
+    letterSpacing: 0.5,
+  },
+  scoreboardCrestImage: {
+    width: 36,
+    height: 36,
+    resizeMode: 'contain',
+  },
+  scoreboardCrestFallback: {
+    color: '#FFFFFF',
+    fontSize: 13,
+    fontWeight: '900' as const,
     letterSpacing: 0.5,
   },
 });

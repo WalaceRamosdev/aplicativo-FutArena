@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, FlatList, Alert } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { StorageManager } from '../storage';
-import { findTeamById, brazilianTeams } from '../teams';
+import { findTeamById, brazilianTeams, paulistaTeams, cariocaTeams, gauchoTeams, mineiroTeams, paranaenseTeams, libertadoresTeams, internationalTeams } from '../teams';
 import { TeamShield } from './SelectionScreen';
 import { SoundManager } from '../sound';
 
@@ -37,8 +37,18 @@ export default function StatsScreen({ onBack }: StatsScreenProps) {
     // Mapeia todos os times que possuem estatísticas registradas
     const list: DisplayStat[] = [];
     
-    // Varre todos os times disponíveis
-    brazilianTeams.forEach(team => {
+    // Varre todos os times disponíveis de todas as ligas
+    const allTeams = [...new Map([
+      ...brazilianTeams,
+      ...paulistaTeams,
+      ...cariocaTeams,
+      ...gauchoTeams,
+      ...mineiroTeams,
+      ...paranaenseTeams,
+      ...libertadoresTeams,
+      ...internationalTeams,
+    ].map(team => [team.id, team])).values()];
+    allTeams.forEach(team => {
       const s = stats[team.id];
       if (s && s.m > 0) {
         list.push({
@@ -124,6 +134,10 @@ export default function StatsScreen({ onBack }: StatsScreenProps) {
           keyExtractor={item => item.id}
           contentContainerStyle={styles.listContent}
           showsVerticalScrollIndicator={false}
+          removeClippedSubviews={true}
+          initialNumToRender={15}
+          maxToRenderPerBatch={10}
+          windowSize={5}
           renderItem={({ item, index }) => (
             <View style={styles.tableRow}>
               <Text style={styles.colPosText}>{index + 1}</Text>
